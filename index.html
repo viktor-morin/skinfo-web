@@ -14,33 +14,72 @@
             <h1 class="header">
                 Skinfo
             </h1>
-            <p>Skinfo översätter ingredienser i kosmetika- och hudvårdsprodukter till ett vetenskapligt betyg för att
-                hjälpa dig att välja, undvika eller upptäcka produkter baserat på dess innehåll.</p>
-        </div>
-    </div>
-    <div>
-        <div class="bottom">
-            <div class="center disabled">
-                <div class="textinputdiv">
-                    <input type="email" class="textinput" id="email-input" placeholder="Enge din e-postadress"></input>
-                    <input type="submit" class="emailbutton" id="submitButton"></input>
+            <div>
+                <p style="margin-bottom:0">Förstå vad produkter innehåller.</p> </br>
+                <p style="margin-top: 0;">Ta bättre beslut för din hy.</p>
+            </div>
+            <div>
+                <p>Sveriges första app med vetenskapsgenererad information om ingredienser i hudvård och kosmetika
+                </p>
+            </div>
+            <div style="margin-bottom: 5%;">
+                <p style="font-family: Eina03-SemiBold;">Lansering hösten 2019!
+                </p>
+            </div>
+            <div class="center">
+                <div class="textinputdiv center">
+                    <input type="email" class="emailInput" id="emailInput"
+                        placeholder="Maila mig om lanseringen!"></input>
+                    <input type="submit" class="sendButton" id="allowCheckbox"></input>
+                    <div style="display: flex;">
+                        <input type="checkbox" style="float:left; margin-top: 18px;" id="allowCheckbox">
+                        <p style="font-size: 10px; max-width: unset; ">Jag accepterar att Skinfo skickar uppdateringar om lanseringen via
+                            mail. </br>
+                            Jag
+                            kan närsomhelst avregistrera mig.</p>
+                    </div>
                 </div>
             </div>
+            <p style="font-size: 12px; color:gray; margin-top: -10%;">*Appens första version är begränsad till 1000
+                personer!</p>
+        </div>
+    </div>
+    <div class="center">
+        <div>
+            <p>info@skinfo.se</p>
         </div>
     </div>
 </body>
 
 </html>
-
 <script>
     $(document).ready(function () {
-        $('#submitButton').click(function() {
-            $('.emailbutton').css('background-color', 'gray');
-            $('.emailbutton').val('Skicka');
-            var result = susbsribeToSkinfo($('#email-input').val());
-            console.log(result);
-        });     
+
+        function isValidForSignup() {
+            var email = $('#email-input').val();
+            return ($('#allowCheckbox').is(":checked")) && isEmail(email);
+        }
+
+        $('.submit').click(function () {
+            if (!isValidForSignup()) {
+                return;
+            }
+
+            $('.sendButton').css('background-color', 'gray');
+            $('.sendButton').val('Tack!');
+            $('.emailInput').css('color', 'gray');
+            $('.emailInput').prop('readonly', true);
+
+            var result = susbsribeToSkinfo(email);
+        });
+
+        $('#allowCheckbox').change(function () {
+            if (isValidForSignup()) {
+                $('.emailbutton').css('background-color', 'black');
+            } else {
+                $('.emailbutton').css('background-color', 'gray');
+            }
+        });
+
     });
 </script>
-
-<!-- http://themes.whiteboxstud.io/scape/coming-soon-two/ -->
