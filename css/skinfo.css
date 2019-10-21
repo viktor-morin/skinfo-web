@@ -23,6 +23,11 @@ p {
     height: 100%;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 .header {
     margin-top: 15%;
     font-family: 'OpenSans-SemiBold';
