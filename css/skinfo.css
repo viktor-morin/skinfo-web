@@ -1,18 +1,25 @@
 body, html {
     height: 100%;
     margin: 0;
-  }
+}
+
+a:link, a:visited, a:active {
+    font-family: 'Eina03-SemiBold';
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
 
 p,h1 {
     font-family: 'Eina03-Regular';
     font-size: 100px;
 }
 
-p {
+p{
     max-width: 50%;
     text-align: center;
     display: inline-block;
-    font-size: 2vw;;
+    font-size: 20px;;
 }
 
 .body {
@@ -31,12 +38,12 @@ p {
 .header {
     margin-top: 15%;
     font-family: 'Eina03-SemiBold';
-    font-size: 10vw;
+    font-size: 100;
 }
 
 .textinputdiv {
     margin-top: 30%;
-    width: 345px;
+    width: 400px;
     position: relative;
     bottom: 0;
 }
@@ -80,8 +87,8 @@ input[type=submit]:hover{
 
 .sendButton {
     position: relative;
-    left: 247px;
-    top: -84px;
+    left: 177px;
+    top: -47px;
     bottom: 0;
     box-shadow: none!important;
     width: auto;
@@ -95,6 +102,18 @@ input[type=submit]:hover{
     text-transform: none;
 }
 
+/* Mobile */
+/* iPhone 6/7/8/X/XS */
+@media only screen and (max-width : 375px) {
+
+}  
+  
+  /* iPhone 6+/7+/8+ */
+  @media only screen and (max-width : 414px) { 
+
+}
+
+/* Fonts */
 @font-face {
     font-family: 'OpenSans-Regular';
     src: url('../fonts/OpenSans-Regular.ttf'); 
