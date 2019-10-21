@@ -105,6 +105,13 @@ input[type=submit]:hover{
 /* Mobile */
 /* iPhone 6/7/8/X/XS */
 @media only screen and (max-width : 375px) {
+    .body {
+        background-image: url('../background.jpg');   
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 120%;
+        height: 100%;
+    }
 
 }  
   
