@@ -103,28 +103,6 @@ input[type=submit]:hover{
     text-transform: none;
 }
 
-/* Mobile */
-/* iPhone 6/7/8/X/XS */
-@media only screen and (max-width : 414px) {
-    .body {
-        background-image: url('../background.jpg');   
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 120%;
-        height: 100%;
-    }
-
-    .p{
-        max-width: 50%;
-        font-family: 'Eina03-Regular';
-        text-align: center;
-        display: inline-block;
-        font-size: 30px;
-        color: red;
-    }
-
-}  
-
 /* Fonts */
 @font-face {
     font-family: 'OpenSans-Regular';
