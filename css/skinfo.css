@@ -10,16 +10,17 @@ a:link, a:visited, a:active {
     text-decoration: none;
 }
 
-p,h1 {
+h1 {
     font-family: 'Eina03-Regular';
     font-size: 100px;
 }
 
 p{
     max-width: 50%;
+    font-family: 'Eina03-Regular';
     text-align: center;
     display: inline-block;
-    font-size: 20px;;
+    font-size: 20px;
 }
 
 .body {
@@ -111,6 +112,14 @@ input[type=submit]:hover{
         background-repeat: no-repeat;
         background-size: 120%;
         height: 100%;
+    }
+
+    p{
+        max-width: 50%;
+        font-family: 'Eina03-Regular';
+        text-align: center;
+        display: inline-block;
+        font-size: 30px;
     }
 
 }  
