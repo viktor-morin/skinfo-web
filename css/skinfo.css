@@ -1,0 +1,106 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+p,h1 {
+    font-family: 'OpenSans-SemiBold';
+    font-size: 100px;
+}
+
+p {
+    max-width: 40%;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;;
+}
+
+.body {
+    background-image: url('../background.jpg');   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.header {
+    margin-top: 15%;
+    font-family: 'OpenSans-SemiBold';
+    font-size: 80px;
+}
+
+.textinputdiv {
+    width: 345px;
+    position: relative;
+    bottom: 0;
+}
+
+.center {
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input[type=email]:hover{
+    cursor: text;
+}
+
+input[type=submit]:hover{
+    cursor: pointer;
+}
+
+.bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+}
+
+.textinput{
+    border-radius: 25px;
+    border-color: transparent !important; 
+    border-width: 0;
+    margin: auto;
+    width: 50%;
+    padding: 0px 40% 0px 25px;
+    line-height: 50px;
+    box-shadow: 0 0 0 1px rgba(236,240,243,1);
+    font-family: 'NunitoSans-Regular';
+    margin: 0;
+}
+
+.emailbutton {
+    position: relative;
+    left: 120px;
+    top: -47px;
+    bottom: 0;
+    box-shadow: none!important;
+    width: auto;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 25px;
+    border-radius: 50px;
+    color: rgba(255,255,255,1)!important;
+    background-color: rgba(33,33,33,1);
+    border: 0 solid #212121;
+    text-transform: none;
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('../fonts/OpenSans-Regular.ttf'); 
+}
+
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url('../fonts/OpenSans-SemiBold.ttf'); 
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'NunitoSans-Regular';
+    src: url('../fonts/NunitoSans-Regular.ttf');
+}

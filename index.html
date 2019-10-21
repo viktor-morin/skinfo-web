@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Skinfo</title>
+    <link rel="stylesheet" href="css/skinfo.css">
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/skinfo.js"></script>
+</head>
+
+<body class="body">
+    <div>
+        <div class="center">
+            <h1 class="header">
+                Skinfo
+            </h1>
+            <p>Skinfo översätter ingredienser i kosmetika- och hudvårdsprodukter till ett vetenskapligt betyg för att
+                hjälpa dig att välja, undvika eller upptäcka produkter baserat på dess innehåll.</p>
+        </div>
+    </div>
+    <div>
+        <div class="bottom">
+            <div class="center">
+                <div class="textinputdiv">
+                    <input type="email" class="textinput" id="email-input" placeholder="Enge din e-postadress"></input>
+                    <input type="submit" class="emailbutton" id="submitButton"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#submitButton').click(function() {
+            $('.emailbutton').css('background-color', 'gray');
+            $('.emailbutton').val('Skicka');
+            var result = susbsribeToSkinfo($('#email-input').val());
+            console.log(result);
+        });     
+    });
+</script>
+
+<!-- http://themes.whiteboxstud.io/scape/coming-soon-two/ -->
