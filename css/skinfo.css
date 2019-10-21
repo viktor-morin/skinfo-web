@@ -1,15 +1,13 @@
-html {
-    height: 100%;
-}
-
 .body {
-    margin: 0;
     background-image: url('../background.jpg');   
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
-}
+
+    width: 100%;;
+    margin:0;
+    padding: 0;
+} 
 
 a:link, a:visited, a:active {
     font-family: 'Eina03-SemiBold';
@@ -51,7 +49,6 @@ h1 {
 
 .center {
     text-align: center;
-    display: table;
     margin: 0 auto;
 }
 
@@ -69,7 +66,6 @@ input[type=submit]:hover{
 
 .bottom {
     position: absolute;
-    width: 100%;
     bottom: 50px;
 }
 
@@ -102,6 +98,45 @@ input[type=submit]:hover{
     border: 0 solid #212121;
     text-transform: none;
 }
+
+.middlepadding {
+    margin-bottom: 5%;
+}
+
+/* Mobile */
+/* iPhone 6/7/8/X/XS */
+@media only screen and (max-width : 420px) {  
+    .body {
+        background-image: url('../background.jpg');   
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header {
+        margin-top: 15%;
+        font-family: 'Eina03-SemiBold';
+        font-size: 80px;
+    }
+
+    .p {
+        max-width: 70%;
+        font-size: 20px;
+    }  
+
+    .emailInput{
+        width: 40%;
+        margin-right: 15px;
+    }
+
+    .sendButton {
+        left: 116px;
+    }
+
+    .middlepadding {
+        margin-bottom: 23%;
+    }
+}  
 
 /* Fonts */
 @font-face {
