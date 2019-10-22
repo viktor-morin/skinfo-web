@@ -120,7 +120,7 @@ input[type=submit]:hover{
     .header {
         margin-top: 15%;
         font-family: 'Eina03-SemiBold';
-        font-size: 80px;
+        font-size: 70px;
     }
 
     .p {
@@ -131,6 +131,7 @@ input[type=submit]:hover{
     .emailInput{
         width: 40%;
         margin-right: 15px;
+        box-shadow: 0 0 0 1px gray;
     }
 
     .sendButton {
