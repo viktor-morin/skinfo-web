@@ -22,7 +22,7 @@ h1 {
 }
 
 .p{
-    max-width: 50%;
+    max-width: 40%;
     font-family: 'Eina03-Regular';
     text-align: center;
     display: inline-block;
@@ -54,6 +54,10 @@ h1 {
 
 textarea:focus, input:focus{
     outline: none;
+}
+
+input[type=checkbox] {
+    transform: scale(1.2);
 }
 
 input[type=email]:hover{
@@ -108,9 +112,9 @@ input[type=submit]:hover{
 @media only screen and (max-width : 420px) {  
     .body {
         background-image: url('../background.jpg');   
-        background-position: center;
+        background-position: top;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 160%;
     }
 
     .header {

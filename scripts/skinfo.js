@@ -1,10 +1,8 @@
-function susbsribeToSkinfo(email, buttonId) {
-    var result = false;
-    var formData = $(email).serialize();
+function susbsribeToSkinfo(email) {
     $.ajax({
         type: 'POST',
-        url: 'https://jsonplaceholder.typicode.com/posts',
-        data: formData,
+        url: 'https://skinfo-email.azurewebsites.net/api/skinfo-email-subscriber',
+        data: email,
         dataType: 'json',
         success: function () {
 
