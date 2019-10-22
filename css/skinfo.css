@@ -95,7 +95,6 @@ input[type=submit]:hover{
     box-shadow: none!important;
     width: auto;
     height: 44px;
-    line-height: 44px;
     padding: 0 25px;
     border-radius: 50px;
     color: rgba(255,255,255,1)!important;
