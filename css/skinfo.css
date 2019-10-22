@@ -84,6 +84,7 @@ input[type=submit]:hover{
     box-shadow: 0 0 0 1px rgba(236,240,243,1);
     font-family: 'NunitoSans-Regular';
     margin: 0;
+    font-size: 14px;
 }
 
 .sendButton {
