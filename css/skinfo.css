@@ -147,6 +147,9 @@ input[type=submit]:hover{
     }
 
     .extra-note {
+        font-size: 10px; 
+        max-width: unset; 
+        text-align: start;
         margin-top: 10px;
     }
 }  
