@@ -126,7 +126,9 @@ input[type=submit]:hover{
     .emailInput{
         width: 40%;
         margin-right: 15px;
-        box-shadow: 0 0 0 1px gray;
+        border-color: gray;
+        border-width: 1;
+        border-radius: 25px;
     }
 
     .sendButton {
