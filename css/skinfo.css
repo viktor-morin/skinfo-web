@@ -79,8 +79,7 @@ input[type=submit]:hover{
     border-width: 0;
     margin: auto;
     width: 60%;
-    padding: 0px 40% 0px 25px;
-    line-height: 50px;
+    padding: 15px 40% 15px 25px;
     box-shadow: 0 0 0 1px rgba(236,240,243,1);
     font-family: 'NunitoSans-Regular';
     margin: 0;
@@ -120,7 +119,7 @@ input[type=submit]:hover{
     .header {
         margin-top: 15%;
         font-family: 'Eina03-SemiBold';
-        font-size: 70px;
+        font-size: 65px;
     }
 
     .p {
