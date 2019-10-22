@@ -58,13 +58,13 @@ textarea:focus, input:focus{
 
 input[type=email]:hover{
     cursor: text;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 input[type=submit]:hover{
     cursor: pointer;
+}
+
+input[type=submit], input[type=email] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
