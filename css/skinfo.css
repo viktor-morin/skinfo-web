@@ -102,6 +102,12 @@ input[type=submit]:hover{
     margin-bottom: 5%;
 }
 
+.extra-note {
+    font-size: 10px; 
+    max-width: unset; 
+    text-align: start;
+}
+
 /* Mobile */
 /* iPhone 6/7/8/X/XS */
 @media only screen and (max-width : 420px) {  
@@ -133,10 +139,15 @@ input[type=submit]:hover{
 
     .sendButton {
         left: 116px;
+        height: 65px;
     }
 
     .middlepadding {
         margin-bottom: 23%;
+    }
+
+    .extra-note {
+        margin-top: 10px;
     }
 }  
 
