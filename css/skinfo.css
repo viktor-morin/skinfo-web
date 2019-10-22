@@ -56,10 +56,6 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-input[type=checkbox] {
-    transform: scale(1.2);
-}
-
 input[type=email]:hover{
     cursor: text;
 }
