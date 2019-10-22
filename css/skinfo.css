@@ -58,10 +58,16 @@ textarea:focus, input:focus{
 
 input[type=email]:hover{
     cursor: text;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 input[type=submit]:hover{
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .bottom {
@@ -106,12 +112,6 @@ input[type=submit]:hover{
     font-size: 10px; 
     max-width: unset; 
     text-align: start;
-}
-
-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 /* Mobile */
