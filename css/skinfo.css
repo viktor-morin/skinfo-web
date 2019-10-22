@@ -80,7 +80,7 @@ input[type=submit], input[type=email] {
     border-color: transparent !important; 
     border-width: 0;
     margin: auto;
-    width: 65%;
+    width: 85%;
     padding: 15px 15% 15px 25px;
     box-shadow: 0 0 0 1px rgba(236,240,243,1);
     font-family: 'NunitoSans-Regular';
