@@ -84,7 +84,7 @@ input[type=submit]:hover{
 
 .sendButton {
     position: relative;
-    left: 177px;
+    left: 178px;
     top: -47px;
     bottom: 0;
     box-shadow: none!important;
@@ -144,7 +144,7 @@ input {
     }
 
     .sendButton {
-        left: 116px;
+        left: 117px;
     }
 
     .middlepadding {
