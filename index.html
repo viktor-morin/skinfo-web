@@ -41,7 +41,7 @@
                     <div style="display: flex; margin-top: -40px;; margin-left: 24px;">
                         <input type="checkbox" style="float:left; margin-top: 18px; margin-right: 5px;"
                             id="allowCheckbox">
-                        <p class="p extra-note">Jag accepterar att
+                        <p class="p extra-note" id="agree-text">Jag accepterar att
                             Skinfo skickar uppdateringar
                             om lanseringen. </br>
                             Jag
@@ -85,6 +85,11 @@
 
         $('#submit').click(function () {
             if (!isValidForSignup()) {
+                if (!$('#allowCheckbox').is(":checked")) {
+                    $('#agree-text').css('color', 'red');
+                } else {
+                    $('#agree-text').css('color', 'black');
+                }
                 return;
             }
 
