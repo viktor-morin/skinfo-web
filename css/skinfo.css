@@ -137,9 +137,6 @@ input[type=submit], input[type=email] {
 
     .emailInput{
         margin-right: 15px;
-        border-color: gray !important;
-        border-width: 1px;
-        border-radius: 25px;
         width: 55%;
         padding: 15px 25% 15px 25px;
     }
