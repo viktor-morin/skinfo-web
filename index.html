@@ -81,6 +81,12 @@
 
         $('#allowCheckbox').change(function () {
             isValidForSignup();
+
+            if (!$('#allowCheckbox').is(":checked")) {
+                $('#agree-text').css('color', 'red');
+            } else {
+                $('#agree-text').css('color', 'black');
+            }
         });
 
         $('#submit').click(function () {
