@@ -72,13 +72,6 @@
             } else {
                 $('#submit').css('background-color', 'gray');
             }
-            
-            if (!$('#allowCheckbox').is(":checked")) {
-                $('#agree-text').css('color', 'red');
-            } else {
-                $('#agree-text').css('color', 'black');
-            }
-
             return valid;
         }
 
@@ -92,12 +85,17 @@
 
         $('#submit').click(function () {
             if (!isValidForSignup()) {
+                if (!$('#allowCheckbox').is(":checked")) {
+                    $('#agree-text').css('color', 'red');
+                } else {
+                    $('#agree-text').css('color', 'black');
+                }
                 return;
             }
 
             $('#submit').css('background-color', 'gray');
             $('#submit').prop('disabled', true);
-            $('#allowCheckbox').prop('disabled', true);     
+            $('#allowCheckbox').prop('disabled', true);
             $('#agree-text').css('color', 'black');
             $('#submit').val('Tack!');
             $('#emailInput').css('color', 'gray');
