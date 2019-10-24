@@ -1,9 +1,8 @@
 function susbsribeToSkinfo(email) {
     $.ajax({
         type: 'POST',
-        url: 'https://skinfo-email.azurewebsites.net/api/skinfo-email-subscriber',
+        url:  'https://skinfo-email.azurewebsites.net/api/skinfo-email-subscriber',
         data: email,
-        dataType: 'json',
         success: function () {
 
         },
