@@ -24,9 +24,7 @@ function getAvailableSlots() {
     })
 }
 
-function updateAvailableSlots(data) {
-	data = 0;
-	
+function updateAvailableSlots(data) {	
     if (data > 0) {
         $('#spotsleft').html(data + ' <br> platser kvar i första versionen!');
     } else {
