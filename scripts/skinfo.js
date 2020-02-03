@@ -26,7 +26,7 @@ function getAvailableSlots() {
 
 function updateAvailableSlots(data) {	
     if (data > 0) {
-        $('#spotsleft').html(data + ' <br> platser kvar i första versionen!');
+        $('#spotsleft').html(data + ' <br> platser kvar i testversionen!');
     } else {
         $('#spotsleft').html('Skriv upp dig till beta versionen!');
     }
