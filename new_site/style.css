@@ -1,0 +1,191 @@
+body {
+    margin: 0;   
+    font-family: 'Eina03';
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color:black;
+    text-decoration: none;
+}
+
+.button {
+    font-family: 'Eina03-SemiBold';
+    font-size: 16px;
+    background-color: white;
+    color:black;
+    padding: 10px 20px 10px 20px;   
+    border-radius: 36px;
+}
+
+.button2x {
+    font-family: 'Eina03-SemiBold';
+    font-size: 20px;
+    background-color: white;
+    color:black;
+    padding: 15px 25px 15px 25px;   
+    border-radius: 36px;
+}
+
+.comment-box {
+    font-family: 'Arial-Downloaded';
+    border: 1px solid #ccc!important;
+    border-radius: 16px;
+    min-height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    max-width: 200px;
+    float: left;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.arial {
+    font-family: 'Arial-Downloaded';
+}
+
+.title {
+    padding-top: 10px;
+    padding-left: 26%;
+    padding-right: 26%;
+    text-align: center;
+    min-height: 64px;
+    font-family: 'Eina03-SemiBold';
+    background-color: rgb(245,227,231);
+}
+
+.mainDiv {
+    padding: 40px;
+    background-color: rgb(245,227,231);
+    min-height: 800px;
+    height: 100%;
+}
+
+.secondDiv {
+    padding: 40px;
+    background-color: white;
+    min-height: 800px;
+    height: 100%;
+}
+
+.finishDiv {
+    background-color: blueviolet    ;
+    min-height: 800px;
+    height: 100%;
+}
+
+.socialMedia{
+    text-align: center;
+    align-items: center;
+}
+
+.column-left {
+    float: left;
+    max-width: 50%;
+    padding-left: 25%;
+  } 
+
+.column-right {
+    float: left;
+    max-width: 50%;
+    padding-left:   5%;
+    width: 40%;
+  }
+
+.cn {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 800px;
+}
+
+.smartphone-border{
+    border: 1px black solid; width: 362px;     
+    border-radius: 36px;
+    -webkit-box-shadow: 1px 5px 15px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 5px 15px rgba(0,0,0,0.4);
+    box-shadow: 1px 5px 15px rgba(0,0,0,0.4);
+}
+  
+.smartphone-white {
+    position: relative;
+    width: 330px;
+    height: 640px;
+    border: 16px white solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+}
+
+    .smartphone-white .content {
+        background: white;
+        width:100%;
+        height:107%;
+        border:none;
+        border-bottom-left-radius: 36px;
+        border-bottom-right-radius: 36px;
+        overflow: hidden;
+        
+        position: relative;
+        }
+    
+    .smartphone-white .content .screenshot {
+    background: white;
+    width:100%;
+    border:none;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+    display: block;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    }
+
+    .smartphone-white:before {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 5px;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #333;
+        border-radius: 10px;
+    }
+  
+@font-face {
+    font-family: Eina03;
+    src: url(fonts/Eina03-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: Eina03;
+    font-weight: 700;
+    src: url(fonts/Eina03-Bold.ttf);
+  }
+
+  @font-face {
+    font-family: Eina03;
+    font-weight: 600;
+    src: url(fonts/Eina03-SemiBold.ttf);
+  }
+
+  @font-face {
+    font-family: Eina03-Bold;
+    src: url(fonts/Eina03-Bold.ttf);
+  }
+
+  @font-face {
+    font-family: Eina03-SemiBold;
+    src: url(fonts/Eina03-SemiBold.ttf);
+  }
+
+  @font-face {
+    font-family: Arial-Downloaded;
+    src: url(fonts/arial.ttf);
+  }
