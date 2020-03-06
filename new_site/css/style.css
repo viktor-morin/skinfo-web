@@ -51,7 +51,7 @@ td {
     font-family: 'Eina03-SemiBold';
     font-size: 16px;
     background-color: white;
-    color:black;
+    color:rgb(255,96,136);
     padding: 10px 20px 10px 20px;   
     border-radius: 36px;
     float: left;
@@ -121,6 +121,14 @@ td {
     margin-top: 25px;
 }
 
+.footer {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
 .information-links {
     text-align: center;
     margin-left: auto;
@@ -181,7 +189,7 @@ td {
     text-align: center;
     align-items: center;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .links {
