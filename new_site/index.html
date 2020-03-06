@@ -2,7 +2,11 @@
 <html lang="sv">
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/skinfo.js"></script>
+    <script src="scripts/comments.js"></script>
     <title data-rh="true">Skinfo - Transparency</title>
     <!-- <meta data-rh="true" http-equiv="content-language" content="sv"/><meta data-rh="true" charset="utf-8"/><meta data-rh="true" property="og:url" content="https://www.gimitheapp.com/sv/"/><meta data-rh="true" name="apple-itunes-app" content="app-id=935778197"/><meta data-rh="true" name="description" content="Gimi är familjens hjälpreda för att hantera veckopeng, månadspeng, sparande och hushållssysslor."/><meta data-rh="true" property="og:title" content="Hantera veckopengen i mobilen - Gimi"/><meta data-rh="true" property="og:description" content="Gimi är familjens hjälpreda för att hantera veckopeng, månadspeng, sparande och hushållssysslor."/><meta data-rh="true" name="twitter:card" content="summary"/><meta data-rh="true" name="twitter:site" content="@gimitheapp"/><meta data-rh="true" name="twitter:title" content="Hantera veckopengen i mobilen - Gimi"/><meta data-rh="true" name="twitter:description" content="Gimi är familjens hjälpreda för att hantera veckopeng, månadspeng, sparande och hushållssysslor."/><meta data-rh="true" property="og:image" content="https://www.gimitheapp.com/assets/media/gimi-default-share.50ed3e39.jpg"/><meta data-rh="true" name="twitter:image" content="https://www.gimitheapp.com/assets/media/gimi-default-share.50ed3e39.jpg"/>
     <link data-rh="true" rel="canonical" href="https://www.gimitheapp.com/sv/"/><link data-rh="true" rel="alternate" href="https://www.gimitheapp.com/en" hrefLang="en"/><link data-rh="true" rel="alternate" href="https://www.gimitheapp.com/sv" hrefLang="sv"/><link data-rh="true" rel="alternate" href="https://www.gimitheapp.com/no" hrefLang="no"/> -->
@@ -13,12 +17,36 @@
 
 <body>
     <div class="title">
-        <span style="font-size: 30px; float: left;">Skinfo</span>
-        <span class="button" style="float: right;">Ladda ner</span>
-        <span class="button" style="float: right; margin-right: 5px;">Kontaka oss</span>
+        <span class="skinfo-title">Skinfo</span>
+        <span id="company" class="button"><img src="images/company.png" width="22px"
+                style="float: left; padding-right: 5px;">SKINFO
+            FÖR FÖRETAG</span>
+        <span id="contact" class="button" style="margin-right: 5px;">KONTAKA OSS</span>
     </div>
-    <div class="mainDiv">
+    <div class="primary-div">
         <div class="column-left">
+            <div class="information-header">
+                Förstå vad produkter innehåller. <br> Ta bättre beslut för din hy.
+            </div>
+            <div class="information-text">
+                Skinfo är Sveriges första app med vetenskapsgenererad information om ingredienser i hudvård &
+                kosmetika
+            </div>
+            <!-- temp -->
+            <div style="margin-top: 20px;">
+                <span style="font-size: 18px;">Antal platser kvar i testversionen:</span><span id="slots"
+                    style="margin-left: 10px;font-size: 24px;font-weight: bold; color: rgb(255,96,136);">300</span>
+            </div>
+            <!-- temp -->
+            <div class="app-download-div">
+                <a href="https://apps.apple.com/app/id1487334823"><img src="images/apple_download.png"
+                        class="app-download"></a>
+                <a href="https://play.google.com/store/apps/details?id=skinfo.information.app"><img
+                        src="images/google_download.png" class="app-download"></a>
+                <a><img src="images/huawei_download.png" class="app-download" style="opacity: 0.2;"></a>
+            </div>
+        </div>
+        <div class="column-right">
             <div class="smartphone-border">
                 <div class="smartphone-white">
                     <div class="content">
@@ -27,41 +55,10 @@
                 </div>
             </div>
         </div>
-        <div class="column-right">
-            <div style="display: table; height: 800px; overflow: hidden;">
-                <div style="display: table-cell; vertical-align: middle;">
-                    <div style="font-size: 35px; font-family: Eina03-Bold;">
-                        Förstå vad produkter innehåller. <br> Ta bättre beslut för din hy
-                    </div>
-                    <div style="font-size: 35px; margin-top: 20px;">
-                        Skinfo är Sveriges första app med vetenskapsgenererad information om ingredienser i hudvård &
-                        kosmetika
-                    </div>
-                    <div style="padding-top: 50px;">
-                        <a href="https://apps.apple.com/app/id1487334823"><img src="images/apple_download.png"
-                                width="200px"></a>
-                        <a href="https://play.google.com/store/apps/details?id=skinfo.information.app"><img
-                                src="images/google_download.png" width="200px"></a></div>
-                </div>
-            </div>
-        </div>
     </div>
-    <div>
     </div>
-    <div class="secondDiv">
-        <div class="column-left">
-            <div style="display: table; height: 800px; overflow: hidden;">
-                <div style="display: table-cell; vertical-align: middle;">
-                    <div style="font-size: 35px; font-family: Eina03-Bold;">
-                        <img src="images/magnifi.png" width="45px">
-                    </div>
-                    <div style="font-size: 35px; margin-top: 20px; width: 400px;">
-                        Sök eller inspireras av tusentals <b>produkter</b> inom hudvård och kosmetika
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column-right">
+    <div class="secondary-div">
+        <div class="column-left phone">
             <div class="smartphone-border">
                 <div class="smartphone-white">
                     <div class="content">
@@ -70,9 +67,27 @@
                 </div>
             </div>
         </div>
+        <div class="column-right info">
+            <div class="app-header-icon">
+                <img src="images/magnifi.png" class="app-header-icon-image">
+            </div>
+            <div class="information-text">
+                Sök eller inspireras av tusentals <b>produkter</b> inom hudvård och kosmetika
+            </div>
+
+        </div>
     </div>
-    <div class="mainDiv">
+    <div class="primary-div">
         <div class="column-left">
+            <div class="app-header-icon">
+                <img src="images/see.png" class="app-header-icon-image">
+            </div>
+            <div class=information-text>
+                Se komplett <b>ingredienslista</b> efter mängd och deras <b>egenskaper</b> på ett enkelt sätt
+            </div>
+            <div class="button-div"><span class="button2x" id="download_big">LADDA NER</span></div>
+        </div>
+        <div class="column-right">
             <div class="smartphone-border">
                 <div class="smartphone-white">
                     <div class="content">
@@ -81,36 +96,10 @@
                 </div>
             </div>
         </div>
-        <div class="column-right">
-            <div style="display: table; height: 800px; overflow: hidden;">
-                <div style="display: table-cell; vertical-align: middle;">
-                    <div>
-                        <img src="images/see.png" width="45px">
-                    </div>
-                    <div style="font-size: 35px; margin-top: 20px; width: 400px;">
-                        Se komplett <b>ingredienslista</b> efter mängd och deras <b>egenskaper</b> på ett enkelt sätt
-                    </div>
-                    <span class="button2x" style="float: left; margin-top: 30px;">Ladda ner</span>
-                </div>
-            </div>
-        </div>
     </div>
     </div>
-    <div class="secondDiv">
-        <div class="column-left">
-            <div style="display: table; height: 800px; overflow: hidden;">
-                <div style="display: table-cell; vertical-align: middle;">
-                    <div>
-                        <img src="images/toxic2.png" width="45px">
-                    </div>
-                    <div style="font-size: 35px; margin-top: 20px; width: 400px;">
-                        Hormonstörande? Giftigt? <br>
-                        Kolla om produkten innehåller ämnen med <b>anmärkningar</b> för hälsan
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column-right">
+    <div class="secondary-div">
+        <div class="column-left phone">
             <div class="smartphone-border">
                 <div class="smartphone-white">
                     <div class="content">
@@ -119,61 +108,73 @@
                 </div>
             </div>
         </div>
-
+        <div class="column-right info">
+            <div class="app-header-icon">
+                <img src="images/toxic2.png" class="app-header-icon-image">
+            </div>
+            <div class=information-text>
+                Hormonstörande? Giftigt? <br>
+                Kolla om produkten innehåller ämnen med <b>anmärkningar</b> för hälsan
+            </div>
+        </div>
     </div>
-    <div class="mainDiv">
-        <table>
-          
-                <div style="padding-left: 25%; padding-right: 25%;">
-                    <div class="comment-box">Alltså tack tack tack! Älskar redan appen och har använt den i timmar 😍
-                        Tack vare
-                        din app fick jag reda på att några av mina produkter innehöll skadliga ämnen, och nu ligger dom
-                        i
-                        soptunnan! 💕</div>
-                    <div class="comment-box">Hej 👋🏻 Verkligen superbra initiativ! Pratade precis om ämnet med flera av
-                        mina
-                        "skönhetskollegor" och vi är många som tycker det är svårt att hitta bra info, speciellt på
-                        svenska. Så
-                        verkligen toppen 😊 Tack detsamma och hoppas vi hörs igen 💖 Kram</div>
-                    <div class="comment-box">Tack! 😘 Blev så glad när jag hittade appen! Det här är verkligen vad
-                        svenska
-                        beautymarknaden behöver!! Så himla exalterande! Appen är såååå fint! 😍</div>
-                    <div class="comment-box">Hej! Jag heter Sofia och är så imponerad över denna app!! Länge önskat att
-                        något
-                        sånt här ska finnas i Sverige!</div>
-                    <div class="comment-box">Min blivande favortiapp!</div>
-                    <div class="comment-box">ÄLSKAR detta! Så spännande!</div>
-                    <div class="comment-box">Gud vilken bra idé! 😍</div>
-                    <div class="comment-box">Äntligen en app för oss som älskar hudvård! WOW!</div>
-                    <div class="comment-box">Äntligen!! Ladda ner direkt ❤️</div>
-                </div>
-            
-                <div style="margin-top: 50px; text-align: center; display: inline-grid; width:100%">
-                    <span>Betyg på AppStore</span>
-                    <img src="images/stars.png" width="200px" style="text-align: center;">
-                </div>
-            
-        </table>
+    <div class="primary-div comment-div">
+        <div>Användarkommentarer</div>
+        <div id="comment" class="comments"></div>
+        <div class="stars">
+            <span>Betyg på AppStore</span>
+            <img src="images/stars.png" width="200px">
+        </div>
     </div>
-    <div class="finishDiv">
-        <div><a href="aboutus.html">Om oss</a></div>
-        <div>Kontakt</div>
-        <div>För Företag</div>
-        <div>Cookies</div>
-        <div>Användarvillkor & Integritetspolicy</div>
-        <img src="images/sting_logo.png" width="200">
-        <div>We're part of Sting Accelerate 2020. Sting is the leding ecosystem in the Nordics for startups with high
-            groth potential.</div>
+    <div class="last-div">
+        <div class="information-links">
+            <div><a href="about_us.html" class="links">Om oss</a></div>
+            <div><a href="contact.html" class="links">Kontakt</a></div>
+            <div><a href="cookies.html" class="links">Cookies</a></div>
+        </div>
+        <div class="information-links">
+            <div><a href="company.html" class="links">För Företag</a></div>
+            <div><a href="privacypolicy.html" class="links">Användarvillkor & Integritetspolicy</a></div>
+        </div>
+        <div class="sting-info">
+            <img src="images/sting_logo.png" width="200">
+            <div>We're part of Sting Accelerate 2020. Sting is the leding ecosystem in the Nordics for startups with
+                high
+                groth potential.</div>
+        </div>
     </div>
-    <div class="socialMedia">
-        <img src="images/instagram.png" width="100">
-        <img src="images/f_logo_RGB-Blue_512.png" width="100">
-        <img src="images/linkedin.png" width="100">
-    </div>All rights reserved © 2020 Skinfo AB
-    <div>
-
+    <div class="social-media">
+        <a href="https://www.instagram.com/skinfo.official"><img src="images/instagram.png" width="50"></a>
+        <a href="https://www.facebook.com/Skinfo-112112250281156/"><img src="images/facebook.png" width="50"></a>
+        <a href="https://www.linkedin.com/company/skinfo/"><img src="images/linkedin.png" width="50"></a>
     </div>
     </div>
 </body>
 
 </html>
+
+<script type="text/javascript" id="cookieinfo" src="scripts/cookieinfo.min.js" data-bg="#F5F5F5" data-fg="#000000"
+    data-accept-on-scroll="true" data-divlinkbg="#000000" data-divlink="#FFFFFF"
+    data-message="Vi har placerat cookies på din dator för att ge dig en bättre upplevelse." data-linkmsg=""
+    data-cookie="CookieInfoScript" data-text-align="center" data-close-text="Jag förstår">
+    </script>
+<script>
+    $(document).ready(function () {
+        $("#download_big").click(function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        $("#contact").click(function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        $("#company").click(function () {
+
+        });
+
+        doSlotsCountDown();
+        updateComments();
+    });
+</script>

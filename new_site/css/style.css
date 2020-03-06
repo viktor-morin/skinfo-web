@@ -1,0 +1,381 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Eina03';
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color:black;
+    text-decoration: none;
+}
+
+td {
+    padding:2px 55px;
+    text-align: start;
+    font-size: 20px;
+}
+
+.title {
+    padding-top: 10px;
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: center;
+    min-height: 64px;
+    font-family: 'Eina03-SemiBold';
+    background-color: rgb(245,227,231);
+}
+
+.skinfo-title {
+    font-size: 30px; 
+    float: left;
+}
+
+.button {
+    font-family: 'Eina03-SemiBold';
+    font-size: 14px;
+    background-color: white;
+    color:black;
+    padding: 10px 15px 10px 15px;   
+    border-radius: 36px;
+    float: right;
+}
+
+.button2x {
+    font-family: 'Eina03-SemiBold';
+    font-size: 16px;
+    background-color: white;
+    color:black;
+    padding: 10px 20px 10px 20px;   
+    border-radius: 36px;
+    float: left;
+    margin-top: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button2x:hover {
+    cursor: pointer;
+}
+
+.carousel-indicators {
+    bottom: -100px !important;
+}
+
+.carousel-indicators li {
+    border: 1px solid black !important;
+    /* background-color: white !important; */
+}
+
+.carousel-indicators .active {
+    background-color: black !important; 
+}
+
+.comment-div {
+    text-align: center;
+}
+
+.arial {
+    font-family: 'Arial-Downloaded';
+}
+
+.primary-div {
+    padding-top: 25px;
+    padding-bottom: 2%;
+    padding-left: 30%;
+    padding-right: 30%;
+    background-color: rgb(245,227,231);
+    height: 100%;
+    overflow: auto;
+}
+
+.secondary-div {
+    padding-top: 25px;
+    padding-bottom: 2%;
+    padding-left: 30%;
+    padding-right: 30%;
+    background-color: white;
+    height: 100%;
+    overflow: auto;
+}
+
+.last-div {
+    padding-top: 25px;
+    padding-left: 30%;
+    padding-right: 30%;
+    background-color: whitesmoke;
+    height: 100%;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.sting-info {
+    margin-top: 25px;
+}
+
+.information-links {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column-left {
+    float: left;
+    max-width: 70%;
+} 
+
+.column-right {
+    float: right;
+    max-width: 25%;
+}
+
+.information-header {
+    font-size: 2.5rem; 
+    font-family: Eina03-Bold;
+    margin-top: 50px;
+}
+
+.information-text {
+    font-size: 2.0rem; 
+    margin-top: 20px;
+}
+
+.app-download-div {
+    padding-top: 30px;
+}
+
+.app-download {
+    width: 145px;
+}
+
+.app-header-icon {
+    margin-top: 80px;
+}
+
+.app-header-icon-image {
+    width: 45px;
+}
+
+.stars {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width:200px;
+}
+
+.comments {
+    margin-top: 25px;
+    min-height: 100px;
+    font-size: 35px;
+}
+
+.social-media{
+    text-align: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.links {
+    font-weight: bold;
+    color: rgb(255,96,136) !important;
+}
+
+.all-rights-reserved {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.smartphone-border{
+    border: 1px black solid; width: 230px;     
+    border-radius: 36px;
+    -webkit-box-shadow: 1px 5px 15px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 5px 15px rgba(0,0,0,0.4);
+    box-shadow: 1px 5px 15px rgba(0,0,0,0.4);
+}
+  
+.smartphone-white {
+    position: relative;
+    width: 210px;
+    height: 384px;
+    border: 10px white solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+}
+
+    .smartphone-white .content {
+        background: white;
+        width:100%;
+        height:113%;
+        border:none;
+        border-bottom-left-radius: 36px;
+        border-bottom-right-radius: 36px;
+        overflow: hidden;
+        
+        position: relative;
+        }
+    
+    .smartphone-white .content .screenshot {
+    background: white;
+    width:100%;
+    border:none;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+    display: block;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    }
+
+    .smartphone-white:before {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 5px;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #333;
+        border-radius: 10px;
+    }
+
+@media only screen and (max-width : 1900px) {  
+    .information-header {
+        font-size: 2.0rem; 
+        font-family: Eina03-Bold;
+        margin-top: 25px;
+    }
+    
+    .information-text {
+        font-size: 1.5rem; 
+        margin-top: 20px;
+    }
+
+    .app-download-div {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width : 1600px) {  
+    .primary-div {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    
+    .secondary-div {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .last-div {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    .column-left {
+        max-width: 50%;
+    } 
+    
+    .column-right {
+        max-width: 30%;
+    }
+
+    .app-download-div {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width : 1300px) {  
+    .title {
+        padding-top: 10px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .column-left {
+        max-width: 100%;
+    } 
+    
+    .column-right {
+        margin-top: 25px;
+        margin-left: unset;
+        float: left;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .button-div {
+        display: flex;
+    }
+
+    .button2x {
+        margin-left: auto;
+        margin-right: auto;      
+    }
+
+    .app-download-div {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .smartphone-border {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .information-header{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .information-text {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .app-header-icon {
+        margin: unset;
+    }
+
+    .phone {
+        margin-left: auto;
+        margin-right: auto;
+        display: table-footer-group;
+        float:  unset;
+    }
+
+    .info {
+        display: table-header-group; 
+        float:  unset;
+    }
+
+    .comments {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width : 420px) {      
+}
