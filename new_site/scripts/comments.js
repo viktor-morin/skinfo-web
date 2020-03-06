@@ -7,7 +7,7 @@ const comments = [
     'Tack för världens bästa app!',
     'Tack! Blev så glad när jag hittade appen!',
     'Det här är verkligen vad svenska beautymarknaden behöver!',
-    'Alltså tack tack tack! Älskar redan appen och har använt den i timmar ',
+    'Alltså tack tack tack! Älskar redan appen och har använt den i timmar.',
     'Tack vare er app fick jag reda på att några av mina produkter innehöll skadliga ämnen!',
     'Verkligen superbra initiativ!',
     'Länge önskat att något sånt här ska finnas i Sverige!',
@@ -26,7 +26,7 @@ async function updateComments() {
             });
     
             $("#comment").fadeIn("slow", function () { });
-            await sleep(3000);
+            await sleep(4000);
     
             index = index + 1;
             if (index == comments.length - 1) {

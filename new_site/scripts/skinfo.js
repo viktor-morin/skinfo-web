@@ -56,3 +56,21 @@ async function doSlotsCountDown() {
     }
     $('#slots').html(slotsValue);
 }
+
+$(document).ready(function () {
+    $("#download_big").click(function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+
+    $("#contact").click(function () {
+        window.location.href = 'contact.html'
+    });
+
+    $("#company").click(function () {
+        window.location.href = 'company.html'
+    });
+
+    doSlotsCountDown();
+    updateComments();
+});

@@ -17,11 +17,13 @@
 
 <body>
     <div class="title">
-        <span class="skinfo-title">Skinfo</span>
-        <span id="company" class="button"><img src="images/company.png" width="22px"
+        <span class="skinfo-title"><a href="index.html">Skinfo</span>
+        <span id="company" class="button"><img src="images/company.png" width="18px"
                 style="float: left; padding-right: 5px;">SKINFO
             FÖR FÖRETAG</span>
-        <span id="contact" class="button" style="margin-right: 5px;">KONTAKA OSS</span>
+        <span id="contact" class="button" style="margin-right: 5px;"><img src="images/mail.png" width="18px"
+                style="float: left; padding-right: 5px;">KONTAKA
+            OSS</span>
     </div>
     <div class="primary-div">
         <div class="column-left">
@@ -33,7 +35,7 @@
                 kosmetika
             </div>
             <!-- temp -->
-            <div style="margin-top: 20px;">
+            <div class="temp-countdown">
                 <span style="font-size: 18px;">Antal platser kvar i testversionen:</span><span id="slots"
                     style="margin-left: 10px;font-size: 24px;font-weight: bold; color: rgb(255,96,136);">300</span>
             </div>
@@ -137,7 +139,7 @@
             <div><a href="privacypolicy.html" class="links">Användarvillkor & Integritetspolicy</a></div>
         </div>
         <div class="sting-info">
-            <img src="images/sting_logo.png" width="200">
+            <img src="images/sting_logo.png" width="100">
             <div>We're part of Sting Accelerate 2020. Sting is the leding ecosystem in the Nordics for startups with
                 high
                 groth potential.</div>
@@ -157,23 +159,4 @@
     data-accept-on-scroll="true" data-divlinkbg="#000000" data-divlink="#FFFFFF"
     data-message="Vi har placerat cookies på din dator för att ge dig en bättre upplevelse." data-linkmsg=""
     data-cookie="CookieInfoScript" data-text-align="center" data-close-text="Jag förstår">
-    </script>
-<script>
-    $(document).ready(function () {
-        $("#download_big").click(function () {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        });
-
-        $("#contact").click(function () {
-            window.location.href = 'contact.html'
-        });
-
-        $("#company").click(function () {
-            window.location.href = 'company.html'
-        });
-
-        doSlotsCountDown();
-        updateComments();
-    });
 </script>
