@@ -58,19 +58,21 @@ async function doSlotsCountDown() {
 }
 
 $(document).ready(function () {
+    doSlotsCountDown();
+    updateComments();
+
     $("#download_big").click(function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     });
 
     $("#contact").click(function () {
-        window.location.href = 'contact.html'
+        window.location.href = 'contact.html';
+        return false;
     });
 
     $("#company").click(function () {
-        window.location.href = 'company.html'
+        window.location.href = 'company.html';
+        return false;
     });
-
-    doSlotsCountDown();
-    updateComments();
 });

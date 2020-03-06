@@ -133,6 +133,11 @@ td {
     font-weight: bold;
 }
 
+.information-header-main{
+    font-size: 35px;
+    font-weight: bold;
+}
+
 .chapter{
     margin-top: 25px;
 }
@@ -306,6 +311,12 @@ td {
         font-family: Eina03-Bold;
         margin-top: 25px;
     }
+
+    .information-header-main{
+        font-size: 2.0rem; 
+        font-family: Eina03-Bold;
+        margin-top: 25px;
+    }
     
     .information-text {
         font-size: 1.5rem; 
@@ -428,9 +439,10 @@ td {
         margin-right: auto;
     }
 
-    .information-header{
+    .information-header-main{
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
     }
 
     .information-text {
