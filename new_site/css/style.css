@@ -66,19 +66,6 @@ td {
     cursor: pointer;
 }
 
-.carousel-indicators {
-    bottom: -100px !important;
-}
-
-.carousel-indicators li {
-    border: 1px solid black !important;
-    /* background-color: white !important; */
-}
-
-.carousel-indicators .active {
-    background-color: black !important; 
-}
-
 .comment-div {
     text-align: center;
 }
@@ -89,7 +76,7 @@ td {
 
 .primary-div {
     padding-top: 25px;
-    padding-bottom: 2%;
+    padding-bottom: 25px;
     padding-left: 30%;
     padding-right: 30%;
     background-color: rgb(245,227,231);
@@ -99,7 +86,7 @@ td {
 
 .secondary-div {
     padding-top: 25px;
-    padding-bottom: 2%;
+    padding-bottom: 25px;
     padding-left: 30%;
     padding-right: 30%;
     background-color: white;
@@ -107,7 +94,7 @@ td {
     overflow: auto;
 }
 
-.last-div {
+.gray-div {
     padding-top: 25px;
     padding-left: 30%;
     padding-right: 30%;
@@ -343,7 +330,7 @@ td {
         padding-right: 20%;
     }
 
-    .last-div {
+    .gray-div {
         padding-left: 15%;
         padding-right: 15%;
     }
@@ -407,7 +394,7 @@ td {
         padding-right: 5%;
     }
 
-    .last-div {
+    .gray-div {
         padding-left: 5%;
         padding-right: 5%;
     }
@@ -426,6 +413,12 @@ td {
         margin-right: auto;      
     }
 
+    .textinputdiv {
+        width: 400px;
+        position: relative;
+        bottom: 0;
+    }
+
     .app-download-div {
         width: 150px;
         display: flex;
@@ -437,6 +430,10 @@ td {
     .smartphone-border {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .extra-note {
+        font-size: 10px;
     }
 
     .information-header-main{
@@ -496,5 +493,11 @@ td {
 @media only screen and (max-width : 425px) {      
     .cookieinfo-close {
         margin-top: 20px;
+    }
+
+    .textinputdiv {
+        width: 350px;
+        position: relative;
+        bottom: 0;
     }
 }
