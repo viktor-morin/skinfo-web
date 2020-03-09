@@ -112,6 +112,10 @@ td {
     cursor: pointer;
 }
 
+.form-label-special {
+    padding-top: 5px;
+}
+
 .send-button {
     border-radius: 15px;
     font-size: 20px;
@@ -610,6 +614,10 @@ td {
 @media only screen and (max-width : 640px) {      
     .card {
         float: unset;
+    }
+
+    .form-label-special {
+        padding-top: 0px;
     }
 }
 
