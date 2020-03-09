@@ -22,25 +22,78 @@
                 style="float: left; padding-right: 5px;">SKINFO
             FÖR FÖRETAG</span>
         <span id="contact" class="button" style="margin-right: 5px;"><img src="images/mail.png" width="18px"
-                style="float: left; padding-right: 5px;">KONTAKA
+                style="float: left; padding-right: 5px;">KONTAKTA
             OSS</span>
     </div>
     <div class="information-div">
         <div class="information-header">
-            company
+            För företag
         </div>
         <div class="chapter">
-            company
+            Lista dina produkter i Skinfo! Vi skickar kunder till din produktsida. <br> Ni blir ett transparent företag!
+        </div>
+        <br>
+        <div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png">
+                <div>Bli ledande inom <b>produkttransparens</b></div>
+            </div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png">
+                <div>Skapa högre <b>trovärdighet</b> genom en oberoende aktör</div>
+            </div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png">
+                <div>Få trafik från <b>nya och välinfomerade</b> kunder</div>
+            </div>
+        </div>
+        <div class="company-form">
+            <div class="information-header">
+                Berätta mer om er!
+            </div>
+            <div class="company-div">
+                <label class="form-label">Företag</label>
+                <input class="form-input" id="company-input" type="text" placeholder=""><br><br>
+            </div>
+            <div class="company-div">
+                <label class="form-label">Ditt namn</label>
+                <input class="form-input" id="name-input" type="text" placeholder=""><br><br>
+            </div>
+            <div class="company-div">
+                <label class="form-label">Hemsida</label>
+                <input class="form-input" id="homepage-input" type="text" placeholder=""><br><br>
+            </div>
+            <div class="company-div">
+                <label class="form-label">E-post</label>
+                <input class="form-input" id="email-input" type="text" placeholder=""><br><br>
+            </div>
+            <div class="company-div">
+                <label class="form-label">Antal produkter</label>
+                <input class="form-input" id="products-input" type="text" placeholder=""><br><br>
+            </div>
+            <div class="company-div">
+                <div class="checkbox-div">
+                    <label class="form-label" style="padding-top: 5px;">Typ av företag</label>
+                    <input type="checkbox" id="brand-input" />
+                    <label for="myCheckbox">Varumärke</label>
+
+                    <input type="checkbox" id="retailer-input" />
+                    <label for="myCheckbox2">Återförsäljare</label>
+                </div>
+            </div>
+            <div style="display: table; margin-left: auto; margin-right: auto; margin-top: 25px;"><button
+                    class="send-button" id="send-button">Skicka</button></div>
         </div>
     </div>
     <div class="gray-div">
         <div class="information-links">
             <div><a href="about_us.html" class="links">Om oss</a></div>
             <div><a href="contact.html" class="links">Kontakt</a></div>
-            <div><a href="cookies.html" class="links">Cookies</a></div>
-        </div>
-        <div class="information-links">
             <div><a href="company.html" class="links">För Företag</a></div>
+
+        </div>
+        <div class="information-links" style="margin-top:15px">
+            <div><a href="cookies.html" class="links">Cookies</a></div>
             <div><a href="privacypolicy.html" class="links">Användarvillkor & Integritetspolicy</a></div>
         </div>
         <div class="sting-info">
@@ -57,3 +110,30 @@
     </div>
     <div class="footer">Skinfo</div>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $("#send-button").click(function () {
+            var t = $('#company-input').val();
+            console.log(t);
+            var data = { company: $('#company-input').val() };
+            var json = JSON.stringify(data);
+            console.log(json);
+
+            // $.ajax({
+            //     type: 'POST',
+            //     url: 'https://skinfo-api.azurewebsites.net/company',
+            //     data: email,
+            //     success: function () {
+
+            //     },
+            //     error: function () {
+
+            //     },
+            //     complete: function () {
+
+            //     }
+            // });
+        });
+    });
+</script>

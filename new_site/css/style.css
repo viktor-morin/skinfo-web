@@ -16,6 +16,45 @@ a:active {
     text-decoration: none;
 }
 
+    input[type="checkbox"] {
+    display: none;
+  }
+  
+  input[type="checkbox"] + label {
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: #fff;
+    border:solid 1px lightgrey;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  
+  input[type="checkbox"]:checked + label {
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    background-color: rgb(255,96,136); color: white; border-color: rgb(255,96,136);
+  }
+
+input[type="text"] {
+    width: 400px;
+    font-size: 20px;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}  
+
 td {
     padding:2px 55px;
     text-align: start;
@@ -71,6 +110,15 @@ td {
 
 .button2x:hover {
     cursor: pointer;
+}
+
+.send-button {
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 1rem 4rem;
+    color: white;
+    background-color:black;
+    border: 1px solid white;
 }
 
 .temp-countdown {
@@ -161,31 +209,61 @@ td {
 }
 
 .map {
+    margin-top: 50px;
     height: 400px;  
     width: 100%;  
-    margin-top: 50px;
 }
 
 .card {
     background: #fff;
-    height: 250px;
+    height: 180px;
     float: left;
     margin: 1rem;
     position: relative;
-    width: 250px;
+    width: 180px;
     border-radius: 20px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .card-image {
-    margin-left: 50px; 
-    margin-right: 50px;
+    margin-left: 65px; 
+    margin-right: 65px;
     margin-top: 20px;
 }
 
 .card-text {
     text-align: center;
 }
+
+.company-form {
+    margin-top:25px;
+
+    display: table;
+}
+
+.company-div {
+    margin-top: 20px;
+}
+
+.form-label {
+    float:left;
+    margin-right: 25px; 
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-input {
+    float:right;
+}
+
+
+.checkbox-info {
+    margin-top: 10px;
+    display:flex;
+    font-size: 20px;
+}
+    .checkbox-info > img {
+        width: 20px;
+    }
 
 .year {
     font-size: 40px;
@@ -410,22 +488,14 @@ td {
         text-align: center;
     }
 
-    .information-text {
-        text-align: center;
-    }
-
-    .temp-countdown {
-        text-align: center;
-    }
-
     .primary-div {
-        padding-left: 30%;
-        padding-right: 30%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
     
     .secondary-div {
-        padding-left: 30%;
-        padding-right: 30%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 
     .gray-div {
@@ -465,7 +535,7 @@ td {
     .information-header-main{
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
+        font-size: 1.9rem;
     }
 
     .information-text {
@@ -534,6 +604,10 @@ td {
 @media only screen and (max-width : 425px) {      
     .cookieinfo-close {
         margin-top: 20px;
+    }
+
+    .secondary-div {
+        padding-left: 20%;
     }
 
     .textinputdiv {
