@@ -52,7 +52,7 @@ input {
     -webkit-appearance: none;
     background: transparent;
     border-width: 0 0 2px;
-    border-color: green;
+    border-color: black;
     -webkit-border-radius: 0;
     border-radius: 0;
     -webkit-box-shadow: none;
@@ -261,6 +261,11 @@ td {
     float:left;
     width: 400px;
     margin-top: 10px;
+}
+
+.points-text {
+    margin-top: 5px;
+    font-size: 18px;
 }
 
 .form-label-special {
