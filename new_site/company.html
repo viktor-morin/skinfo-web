@@ -74,11 +74,12 @@
             <div class="company-div">
                 <div class="checkbox-div">
                     <label class="form-label" style="padding-top: 5px;">Typ av företag</label>
-                    <input type="checkbox" id="brand-input" />
-                    <label for="myCheckbox">Varumärke</label>
 
-                    <input type="checkbox" id="retailer-input" />
-                    <label for="myCheckbox2">Återförsäljare</label>
+                    <input type="checkbox" id="brand-input" />
+                    <label for="brand-input"> Varumärke</label>
+
+                    <input type="checkbox" id="retailer-input" class="" />
+                    <label for="retailer-input"> Återförsäljare</label>
                 </div>
             </div>
             <div style="display: table; margin-left: auto; margin-right: auto; margin-top: 25px;"><button
@@ -116,7 +117,15 @@
         $("#send-button").click(function () {
             var t = $('#company-input').val();
             console.log(t);
-            var data = { company: $('#company-input').val() };
+            var data = {
+                company: $('#company-input').val(),
+                name: $('#name-input').val(),
+                hompage: $('#homepage-input').val(),
+                email: $('#email-input').val(),
+                products: $('#products-input').val(),
+                brand: $('#brand-input').is(':checked'),
+                retailer: $('#retailer-input').is(':checked'),
+            };
             var json = JSON.stringify(data);
             console.log(json);
 

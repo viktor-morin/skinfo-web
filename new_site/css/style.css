@@ -577,6 +577,34 @@ td {
     .cookieinfo-close {
         margin-top: 10px;
     }
+
+    input[type="text"] {
+        width: 200px;
+    }    
+
+    .form-label {
+        margin-right: 15px;
+        font-size: 17px;
+    }
+
+    input[type="checkbox"] + label {
+        font-size: 14px;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .checkbox-info {
+        font-size:14px
+    }
+
+    .checkbox-info > img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .send-button {
+        font-size: 18px;
+        padding: 1rem 3rem;
+    }
 }
 
 @media only screen and (max-width : 640px) {      
