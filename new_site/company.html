@@ -76,10 +76,10 @@
                     <label class="form-label" style="padding-top: 5px;">Typ av företag</label>
 
                     <input type="checkbox" id="brand-input" />
-                    <label for="brand-input"> Varumärke</label>
+                    <label for="brand-input" id="brand-input-label"> Varumärke</label>
 
                     <input type="checkbox" id="retailer-input" class="" />
-                    <label for="retailer-input"> Återförsäljare</label>
+                    <label for="retailer-input" id="retailer-input-label"> Återförsäljare</label>
                 </div>
             </div>
             <div style="display: table; margin-left: auto; margin-right: auto; margin-top: 25px;"><button
@@ -102,6 +102,12 @@
             <div>We're part of Sting Accelerate 2020. Sting is the leding ecosystem in the Nordics for startups with
                 high
                 groth potential.</div>
+            <div style="display: inline-flex; margin-top: 20px;">
+                <img src="images/EUlogo.png" width="80px;" height="54">
+                <div style="width:80px; font-size: 8px; text-align: left;">EUROPEISKA UNINION Europeiska regionala utvecklingsfonden
+                </div>
+                <div style="width: 160px; font-size: 14px; text-align: left; margin-left: 20px;">Sting driver ett projekt som delfinansieras av Europeiska Unionen</div>
+            </div>
         </div>
     </div>
     <div class="social-media">
@@ -115,24 +121,6 @@
 <script>
     $(document).ready(function () {
         $('#send-button').click(function () {
-
-    
-                $.ajax({
-                    type: 'POST',
-                    url: 'https://skinfo-api.azurewebsites.net/email',
-                    data: 'deleteMe',
-                    success: function () {
-                        console.log('ok');
-                    },
-                    error: function () {
-                        console.log('error');
-                    },
-                    complete: function () {
-                        console.log('complete');
-                    }
-                });
-            
-
             $('#company-input').prop('disabled', true);
             $('#name-input').prop('disabled', true);
             $('#homepage-input').prop('disabled', true);
@@ -153,22 +141,29 @@
                 Brand: $('#brand-input').is(':checked'),
                 Retailer: $('#retailer-input').is(':checked'),
             };
+
             var json = JSON.stringify(data);
+
+            if ($('#brand-input').is(':checked')) {
+                jQuery('#brand-input-label').css('opacity', '0.5');
+            }
+            if ($('#retailer-input').is(':checked')) {
+                jQuery('#retailer-input-label').css('opacity', '0.5');
+            }
+            $('#send-button').prop('disabled', true);
+            $('#send-button').prop('innerText', 'Skickat!');
+            $('#send-button').css('background-color', 'grey');
+            $(".form-label").css('color', 'grey');
 
             $.ajax({
                 type: 'POST',
                 url: 'https://skinfo-api.azurewebsites.net/company',
                 data: json,
-                success: function () {
-                        console.log('ok');
-                    },
-                    error: function () {
-                        console.log('error');
-                    },
-                    complete: function () {
-                        console.log('complete');
-                    }
+                complete: function () {
+
+                }
             });
+
         });
     });
 </script>
