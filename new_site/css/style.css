@@ -52,7 +52,11 @@ input {
     -webkit-appearance: none;
     background: transparent;
     border-width: 0 0 2px;
-    border-color: blue
+    border-color: green;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }  
 
 td {
