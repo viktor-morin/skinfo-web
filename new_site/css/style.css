@@ -651,4 +651,9 @@ td {
         position: relative;
         bottom: 0;
     }
+
+    .column-left > .smartphone-border {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }   
