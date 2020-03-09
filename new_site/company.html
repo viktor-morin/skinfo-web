@@ -114,35 +114,61 @@
 
 <script>
     $(document).ready(function () {
-        $("#send-button").click(function () {
-            var t = $('#company-input').val();
-            console.log(t);
+        $('#send-button').click(function () {
+
+    
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://skinfo-api.azurewebsites.net/email',
+                    data: 'deleteMe',
+                    success: function () {
+                        console.log('ok');
+                    },
+                    error: function () {
+                        console.log('error');
+                    },
+                    complete: function () {
+                        console.log('complete');
+                    }
+                });
+            
+
+            $('#company-input').prop('disabled', true);
+            $('#name-input').prop('disabled', true);
+            $('#homepage-input').prop('disabled', true);
+            $('#email-input').prop('disabled', true);
+            $('#products-input').prop('disabled', true);
+            $('#brand-input').prop('disabled', true);
+            $('#retailer-input').prop('disabled', true);
+
+            $('#brand-input').prop('disabled', true);
+            $('#retailer-input').prop('disabled', true);
+
             var data = {
-                company: $('#company-input').val(),
-                name: $('#name-input').val(),
-                hompage: $('#homepage-input').val(),
-                email: $('#email-input').val(),
-                products: $('#products-input').val(),
-                brand: $('#brand-input').is(':checked'),
-                retailer: $('#retailer-input').is(':checked'),
+                Company: $('#company-input').val(),
+                Name: $('#name-input').val(),
+                Hompage: $('#homepage-input').val(),
+                Email: $('#email-input').val(),
+                Products: $('#products-input').val(),
+                Brand: $('#brand-input').is(':checked'),
+                Retailer: $('#retailer-input').is(':checked'),
             };
             var json = JSON.stringify(data);
-            console.log(json);
 
-            // $.ajax({
-            //     type: 'POST',
-            //     url: 'https://skinfo-api.azurewebsites.net/company',
-            //     data: email,
-            //     success: function () {
-
-            //     },
-            //     error: function () {
-
-            //     },
-            //     complete: function () {
-
-            //     }
-            // });
+            $.ajax({
+                type: 'POST',
+                url: 'https://skinfo-api.azurewebsites.net/company',
+                data: json,
+                success: function () {
+                        console.log('ok');
+                    },
+                    error: function () {
+                        console.log('error');
+                    },
+                    complete: function () {
+                        console.log('complete');
+                    }
+            });
         });
     });
 </script>

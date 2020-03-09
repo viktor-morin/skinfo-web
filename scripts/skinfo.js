@@ -4,13 +4,13 @@ function susbsribeToSkinfo(email) {
         url:  'https://skinfo-api.azurewebsites.net/email',
         data: email,
         success: function () {
-
+            console.log('ok');
         },
-        error: function() {
-
+        error: function () {
+            console.log('error');
         },
-        complete: function() {
-
+        complete: function () {
+            console.log('complete');
         }
     });
 }
