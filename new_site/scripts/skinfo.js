@@ -43,16 +43,16 @@ function sleep(ms) {
 
 async function doSlotsCountDown() {
     getAvailableSlots();
-    var slots = 350;
+    var slots = 300;
     while (!countDownComplete) {
         $('#slots').html(slots);
         slots = slots - 1;
-        await sleep(1);
+        await sleep(3);
     }
     while (slots > slotsValue) {
         $('#slots').html(slots);
         slots = slots - 1;
-        await sleep(10);
+        await sleep(30);
     }
     $('#slots').html(slotsValue);
 }

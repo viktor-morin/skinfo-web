@@ -66,6 +66,10 @@ td {
     cursor: pointer;
 }
 
+.temp-countdown {
+    margin-top:20px;
+}
+
 .comment-div {
     text-align: center;
 }
@@ -183,7 +187,7 @@ td {
 
 .column-right {
     float: right;
-    max-width: 25%;
+    max-width: 50%;
 }
 
 .information-text {
@@ -192,11 +196,13 @@ td {
 }
 
 .app-download-div {
+    text-align: left;
+    flex-direction: row;
     padding-top: 30px;
 }
 
 .app-download {
-    width: 145px;
+    width: 120px;
 }
 
 .app-header-icon {
@@ -309,17 +315,9 @@ td {
         font-size: 1.5rem; 
         margin-top: 20px;
     }
-
-    .app-download-div {
-        width: 150px;
-        display: flex;
-        flex-direction: column;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
 
-@media only screen and (max-width : 1600px) {  
+@media only screen and (max-width : 1630px) {  
     .primary-div {
         padding-left: 20%;
         padding-right: 20%;
@@ -349,9 +347,6 @@ td {
     }
 
     .app-download-div {
-        width: 150px;
-        display: flex;
-        flex-direction: column;
         margin-left: auto;
         margin-right: auto;
     }
@@ -366,6 +361,7 @@ td {
 
     .column-left {
         max-width: 100%;
+        float: unset;
     } 
     
     .column-right {
@@ -374,6 +370,10 @@ td {
         float: left;
         max-width: 100%;
         width: 100%;
+    }
+
+    .app-download-div {
+        text-align: center;
     }
 
     .information-text {
@@ -385,13 +385,13 @@ td {
     }
 
     .primary-div {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 30%;
+        padding-right: 30%;
     }
     
     .secondary-div {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 30%;
+        padding-right: 30%;
     }
 
     .gray-div {
@@ -417,14 +417,6 @@ td {
         width: 400px;
         position: relative;
         bottom: 0;
-    }
-
-    .app-download-div {
-        width: 150px;
-        display: flex;
-        flex-direction: column;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .smartphone-border {
@@ -455,6 +447,7 @@ td {
 
     .app-header-icon {
         margin: unset;
+        text-align: center;
     }
 
     .phone {
@@ -476,19 +469,27 @@ td {
 
 }
 
-@media only screen and (max-width : 600px) {      
-    .button {
-        font-size: 0;
-        padding: 10px 5px 10px 10px;
-    }
-}
-
 @media only screen and (max-width : 670px) {      
     .cookieinfo-close {
         margin-top: 10px;
     }
 }
 
+@media only screen and (max-width : 600px) {      
+    .button {
+        font-size: 0;
+        padding: 10px 5px 10px 10px;
+    }
+
+    .app-download-div {
+        width: 150px;
+        flex-direction: column;
+    }
+
+    .app-download {
+        width: 150px;
+    }
+}
 
 @media only screen and (max-width : 425px) {      
     .cookieinfo-close {
@@ -500,4 +501,4 @@ td {
         position: relative;
         bottom: 0;
     }
-}
+}   
