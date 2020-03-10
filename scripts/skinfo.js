@@ -47,12 +47,12 @@ async function doSlotsCountDown() {
     while (!countDownComplete) {
         $('#slots').html(slots);
         slots = slots - 1;
-        await sleep(3);
+        await sleep(15);
     }
     while (slots > slotsValue) {
         $('#slots').html(slots);
         slots = slots - 1;
-        await sleep(30);
+        await sleep(50);
     }
     $('#slots').html(slotsValue);
 }
