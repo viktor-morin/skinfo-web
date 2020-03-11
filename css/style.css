@@ -83,7 +83,7 @@ td {
 }
 
 .checkbox-div {
-    display: inline;
+    display: table-row;
 }
 
 .skinfo-title {
