@@ -82,6 +82,10 @@ td {
     background-color: rgb(245,227,231);
 }
 
+.checkbox-div {
+    display: inline;
+}
+
 .skinfo-title {
     font-size: 30px; 
     float: left;
