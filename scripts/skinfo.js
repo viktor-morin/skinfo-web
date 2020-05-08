@@ -58,7 +58,7 @@ async function doSlotsCountDown() {
 }
 
 $(document).ready(function () {
-    // doSlotsCountDown();
+    doSlotsCountDown();
     updateComments();
 
     $("#download_big").click(function () {
