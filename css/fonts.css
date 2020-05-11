@@ -35,3 +35,42 @@
     font-family: Arial-Downloaded;
     src: url(../fonts/arial.ttf);
   }
+
+  @font-face {
+    font-family: ChakraPetch;
+    src: url(../fonts/ChakraPetch-Regular.ttf)
+  }
+
+  @font-face {
+    font-family: ChakraPetch;
+    font-weight: 600;
+    src: url(../fonts/ChakraPetch-SemiBold.ttf)
+  }
+ 
+  @font-face {
+    font-family: ChakraPetch;
+    font-weight: 700;
+    src: url(../fonts/ChakraPetch-Bold.ttf)
+  }
+
+  @font-face {
+    font-family: QuickSand;
+    src: url(../fonts/Quicksand-Regular.ttf)
+  }
+
+  @font-face {
+    font-family: QuickSand;
+    font-weight: 600;
+    src: url(../fonts/Quicksand-SemiBold.ttf)
+  }
+
+  @font-face {
+    font-family: QuickSand;
+    font-weight: 700;
+    src: url(../fonts/Quicksand-Bold.ttf)
+  }
+
+  @font-face {
+    font-family: FiraSans;
+    src: url(../fonts/FiraSans-Regular.ttf)
+  }

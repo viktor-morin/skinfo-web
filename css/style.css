@@ -65,6 +65,17 @@ td {
     font-size: 20px;
 }
 
+div#skinfofade {
+    opacity:0;
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;     
+    transition: opacity 2s; 
+    }
+    
+    div#skinfofade.fade {
+    opacity:1;
+    }
+
 .card-holder {
     margin-top:50px; 
     display: table;
@@ -73,22 +84,24 @@ td {
 }
 
 .title {
-    padding-top: 10px;
     padding-bottom: 5px;
     padding-left: 20%;
     padding-right: 20%;
     text-align: center;
     min-height: 44px;
     font-family: 'Eina03-SemiBold';
-    background-color: rgb(245,227,231);
+    background-color: white;
+    border-bottom: 2px solid rgb(60, 0, 200);
 }
 
 .checkbox-div {
     display: table-row;
 }
 
-.skinfo-title {
-    font-size: 30px; 
+.skinfo-title { 
+    font-size: 37px;
+    padding-right: 10px;
+    border-right: 2px solid rgb(60, 0, 200);
     float: left;
 }
 
@@ -100,8 +113,8 @@ td {
     font-family: 'Eina03-SemiBold';
     font-size: 14px;
     background-color: white;
-    color:black;
-    padding: 10px 15px 10px 15px;   
+    color:rgb(60, 0, 200);
+    padding: 15px 15px 10px 15px;   
     border-radius: 36px;
     float: right;
 }
@@ -151,7 +164,7 @@ td {
     padding-bottom: 25px;
     padding-left: 25%;
     padding-right: 25%;
-    background-color: rgb(245,227,231);
+    background-color: white;
     height: 100%;
     overflow: auto;
 }
@@ -193,8 +206,15 @@ td {
 }
 
 .information-header-main{
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 80px;
+    padding-left: 20%;
+    font-family: "ChakraPetch";
+    text-align: left;
+    color: rgb(60, 0, 200)
+}
+
+.information-small-text {
+    font-family: "FiraSans";
 }
 
 .chapter{
@@ -330,8 +350,10 @@ td {
 }
 
 .information-text {
-    font-size: 2.0rem; 
+    font-size: 3.0rem; 
     margin-top: 20px;
+    text-align: center;
+    color: rgb(60, 0, 200);
 }
 
 .app-download-div {
@@ -444,16 +466,15 @@ td {
         margin-top: 25px;
     }
 
-    .information-header-main{
+    /* .information-header-main{
         font-size: 2.0rem; 
-        font-family: Eina03-Bold;
         margin-top: 25px;
     }
     
     .information-text {
         font-size: 1.5rem; 
         margin-top: 20px;
-    }
+    } */
 }
 
 @media only screen and (max-width : 1630px) {  
@@ -493,7 +514,6 @@ td {
 
 @media only screen and (max-width : 1300px) {  
     .title {
-        padding-top: 10px;
         padding-left: 5%;
         padding-right: 5%;
     }
