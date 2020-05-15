@@ -74,3 +74,8 @@
     font-family: FiraSans;
     src: url(../fonts/FiraSans-Regular.ttf)
   }
+
+  @font-face {
+    font-family: HelveticaNeue;
+    src: url(../fonts/HelveticaNeue.ttf)
+  }

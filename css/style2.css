@@ -86,12 +86,20 @@ div#skinfofade {
 .title {
     padding-bottom: 5px;
     padding-left: 20%;
-    padding-right: 20%;
     text-align: center;
     min-height: 44px;
-    font-family: 'Eina03-SemiBold';
+    font-family: 'QuickSand';
+    font-weight: bold;
     background-color: white;
-    border-bottom: 2px solid rgb(60, 0, 200);
+    /* border-bottom: 2px solid rgb(60, 0, 200); */
+}
+
+.background-image {
+    background: url(../images/skinfo-background.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    height: 100%;
+    width: 100%;
 }
 
 .checkbox-div {
@@ -101,7 +109,6 @@ div#skinfofade {
 .skinfo-title { 
     font-size: 37px;
     padding-right: 10px;
-    border-right: 2px solid rgb(60, 0, 200);
     float: left;
 }
 
@@ -109,25 +116,34 @@ div#skinfofade {
     font-size: 18px;
 }
 
+.button-div {
+    display: grid;
+    text-align: center;
+}
+
 .button {
-    font-family: 'Eina03-SemiBold';
-    font-size: 14px;
+    font-family: "QuickSand";
+    font-size: 20px;
+    font-weight: bold;
     background-color: white;
-    color:rgb(60, 0, 200);
+    color:black;
     padding: 15px 15px 10px 15px;   
     border-radius: 36px;
-    float: right;
 }
 
 .button2x {
-    font-family: 'Eina03-SemiBold';
+    font-family: 'QuickSand';
     font-size: 16px;
-    background-color: white;
-    color:rgb(255,96,136);
-    padding: 10px 20px 10px 20px;   
+    font-weight: bold;
+    color: white;
+    /* background-color: rgb(175, 80, 255); */
+    background-color:rgb(60, 0, 200);
+    padding: 20px 20px 20px 20px;   
     border-radius: 36px;
-    float: left;
     margin-top: 20px;
+    width: 150px;
+    margin:auto;
+
 }
 
 .button:hover {
@@ -162,19 +178,17 @@ div#skinfofade {
 .primary-div {
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-left: 25%;
-    padding-right: 25%;
     background-color: white;
-    height: 100%;
+    height: 1000px;
     overflow: auto;
 }
 
 .secondary-div {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 30%;
-    padding-right: 30%;
-    background-color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;    
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: rgb(60, 0, 200);
     height: 100%;
     overflow: auto;
 }
@@ -206,11 +220,14 @@ div#skinfofade {
 }
 
 .information-header-main{
+    min-height: 104px;
     font-size: 80px;
+    margin-top: 100px;
     padding-left: 20%;
     font-family: "ChakraPetch";
+    font-weight: 600;
     text-align: left;
-    color: rgb(60, 0, 200)
+    color: rgb(60, 0, 200);
 }
 
 .information-small-text {
@@ -350,10 +367,43 @@ div#skinfofade {
 }
 
 .information-text {
-    font-size: 3.0rem; 
-    margin-top: 20px;
+    font-family: "QuickSand";
+    font-size: 60px;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: rgba(60,0,200,0.3);
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logotypes {
     text-align: center;
-    color: rgb(60, 0, 200);
+}
+
+.logo-trust {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+    vertical-align: middle;
+    
+}
+
+.information-text-white {
+    font-family: "QuickSand";
+    font-size: 30px;
+    color:white;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.sub-title {
+    font-family: "HelveticaNeue";
+    font-size: 25px;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: rgba(0,0,0,0.3);
+    text-align: left;
+    padding-left: 7px;
 }
 
 .app-download-div {
@@ -477,15 +527,12 @@ div#skinfofade {
     } */
 }
 
-@media only screen and (max-width : 1630px) {  
-    .primary-div {
-        padding-left: 20%;
-        padding-right: 20%;
-    }
-    
+@media only screen and (max-width : 1630px) {    
     .secondary-div {
         padding-left: 20%;
         padding-right: 20%;
+        padding-top: 10%;
+        padding-bottom: 10%;
     }
 
     .gray-div {
@@ -538,11 +585,6 @@ div#skinfofade {
     .app-download-div {
         text-align: center;
     }
-
-    .primary-div {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
     
     .secondary-div {
         padding-left: 5%;
@@ -557,10 +599,6 @@ div#skinfofade {
     .information-div {
         padding-left: 5%;
         padding-right: 5%;
-    }
-
-    .button-div {
-        display: flex;
     }
 
     .button2x {
@@ -586,7 +624,8 @@ div#skinfofade {
     .information-header-main{
         margin-left: auto;
         margin-right: auto;
-        font-size: 1.9rem;
+        margin-top: 100px;
+        font-size: 2.0rem;
     }
 
     .information-text {

@@ -4,16 +4,49 @@ function sleep(ms) {
 
 $(document).ready(function () {
     async function runMainHeaderAnimation() {
-        var text = 'Vi samlar datan';
+        var text = 'The ingredientlist';
+        var extraFirst = 'invented';
+        var extraEnd = 'reinvented';
         
         var mainTitle =  document.getElementById('information-header-main');
-        for (i = 0; i< text.length; i++) {
+        for (i = 0; i < text.length; i++) {
             mainTitle.innerHTML += text[i];
-            await sleep(60);
+            await sleep(40);
         }
-        var subTitle = document.getElementById('skinfofade');
-        subTitle.classList.add('fade');
-        for (i = 0; i< 7; i++) {
+
+        mainTitle =  document.getElementById('information-header-main2');
+        for (i = 0; i < extraFirst.length; i++) {
+            mainTitle.innerHTML += extraFirst[i];
+            await sleep(40);
+        }
+
+        for (i = 0; i < 3; i++) {
+            if (i%2 == 0) {
+                mainTitle.innerHTML += '_'
+            } else {
+                mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
+            } 
+            await sleep(150);
+        }
+
+        for (i = extraFirst.length; i >= 0; i--) {
+            mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
+            await sleep(40);
+        }
+
+        await sleep(250);
+
+        var subTitle = document.getElementsByClassName('fademein');
+        for (i = 0; i < subTitle.length; i++) {
+            subTitle[i].classList.add('fade');
+        }
+
+        for (i = 0; i < extraEnd.length; i++) {
+            mainTitle.innerHTML += extraEnd[i];
+            await sleep(40);
+        }
+        
+        for (i = 0; i < 7; i++) {
             if (i%2 == 0) {
                 mainTitle.innerHTML += '_'
             } else {
@@ -38,7 +71,7 @@ $(document).ready(function () {
         return false;
     });
 
-    $("#company").click(function () {
+    $("#app").click(function () {
         window.location.href = 'app.html';
         return false;
     });
