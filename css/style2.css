@@ -212,7 +212,6 @@ div#skinfofade {
     padding-right: 15%;
     background-color: rgb(60, 0, 200);
     height: 100%;
-    overflow: auto;
 }
 
 .gray-div {
@@ -250,6 +249,17 @@ div#skinfofade {
     font-weight: 600;
     text-align: left;
     color: rgb(60, 0, 200);
+}
+
+.information-header-main-white{
+    min-height: 104px;
+    font-size: 80px;
+    margin-top: 100px;
+    padding-left: 20%;
+    font-family: "ChakraPetch";
+    font-weight: 600;
+    text-align: left;
+    color: white;
 }
 
 .information-small-text {

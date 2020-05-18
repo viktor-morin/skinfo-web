@@ -252,6 +252,17 @@ div#skinfofade {
     color: rgb(60, 0, 200);
 }
 
+.information-header-main-white{
+    min-height: 104px;
+    font-size: 60px;
+    margin-top: 100px;
+    padding-left: 25%;
+    font-family: "ChakraPetch";
+    font-weight: 600;
+    text-align: left;
+    color: white;
+}
+
 .information-small-text {
     font-family: "FiraSans";
 }
@@ -488,7 +499,7 @@ div#skinfofade {
 
 .links {
     font-weight: bold;
-    color: rgb(255,96,136) !important;
+    color:rgba(60,0,200) !important;
 }
 
 .all-rights-reserved {
