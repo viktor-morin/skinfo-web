@@ -103,7 +103,6 @@ div#skinfofade {
     font-family: 'QuickSand';
     font-weight: bold;
     background-color: white;
-    /* border-bottom: 2px solid rgb(60, 0, 200); */
 }
 
 .meny-icon {
@@ -135,7 +134,7 @@ div#skinfofade {
 }
 
 .first-info-button-space {
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .number-of-spots {
@@ -183,7 +182,6 @@ div#skinfofade {
     margin-top: 20px;
     width: 150px;
     margin:auto;
-
 }
 
 .button:hover {
@@ -894,8 +892,8 @@ div#skinfofade {
 @media only screen and (max-width : 670px) {     
     .information-header-main {
         padding-left: 5%;
-        font-size: 45px;
-        min-height: 59px;
+        font-size: 41px;
+        min-height: 51px;
     }
     
     .information-text {
@@ -1011,9 +1009,11 @@ div#skinfofade {
     @media only screen and (max-width : 320px) {          
     .information-header-main {
         margin-top: 55px;
+        font-size: 31px;
+        min-height: 41px;
     }
 
     .first-info-button-space {
-        margin-top: 75px;
+        margin-top: 90px;
     }
 }   
