@@ -58,7 +58,7 @@ $(document).ready(function () {
             } else {
                 mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
             }
-            await sleep(150);
+            await sleep(200);
         }
 
         for (i = extraFirst.length; i >= 0; i--) {
@@ -122,15 +122,13 @@ $(document).ready(function () {
             await sleep(40);
         }
 
-        await sleep(150);
-
         for (q = 0; q < 4; q++) {
             if (q % 2 == 0) {
                 div.innerHTML += '_'
             } else {
                 div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
             }
-            await sleep(150);
+            await sleep(200);
         }
 
         for (q = 4; q > 0; q--) {
@@ -138,7 +136,6 @@ $(document).ready(function () {
             await sleep(40);
         }
 
-        await sleep(350);
 
         for (q = 0; q < textSecond.length; q++) {
             div.innerHTML += textSecond[q];
@@ -151,7 +148,7 @@ $(document).ready(function () {
             } else {
                 div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
             }
-            await sleep(150);
+            await sleep(200);
         }
 
         q = 0;
