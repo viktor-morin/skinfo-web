@@ -9,10 +9,9 @@ body {
 
 hr {
     max-width: 80%;
-    border-width: 0.25px;
+    border-width: 1px;
     overflow: visible;
-    color: rgb(128,128,128, 0.25);
-    margin-top: 40px;
+    color: rgb(128,128,128, 0.5);
     margin-bottom: 75px;
     border-top: none;
     border-right: none;
