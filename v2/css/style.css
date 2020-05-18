@@ -263,6 +263,7 @@ div#skinfofade {
 }
 
 .information-header{
+    font-family: 'QuickSand';
     font-size: 35px;
     font-weight: bold;
 }
@@ -408,7 +409,7 @@ div#skinfofade {
 .roadmap-text-header {
     font-size: 20px;
     font-weight: bold;
-    color:rgb(255,96,136);
+    color:rgb(60,0,200)
 }
 
 .roadmap-text{
@@ -619,7 +620,6 @@ div#skinfofade {
 @media only screen and (max-width : 1900px) {  
     .information-header {
         font-size: 2.0rem; 
-        font-family: Eina03-Bold;
         margin-top: 25px;
     }
 
