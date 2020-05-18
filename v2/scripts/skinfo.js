@@ -90,9 +90,9 @@ $(document).ready(function () {
 
 
 
-    $('#download_big').click(function () {
+    $('#read_more').click(function () {
         document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+        document.getElementsByClassName('two-split-div')[0].scrollIntoView({ behavior: 'smooth' })
     });
 
     $('#contact').click(function () {
@@ -106,6 +106,16 @@ $(document).ready(function () {
     });
 
     $('#app').click(function () {
+        window.location.href = 'app.html';
+        return false;
+    });
+
+    $('#company2').click(function () {
+        window.location.href = 'company.html';
+        return false;
+    });
+
+    $('#app2').click(function () {
         window.location.href = 'app.html';
         return false;
     });
