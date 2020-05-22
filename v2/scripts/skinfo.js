@@ -36,7 +36,7 @@ function onVisibilityChange(el, callback) {
 
 $(document).ready(function () {
     async function runMainHeaderAnimation() {
-        var text = 'The ingredientlist';
+        var text = 'The ingredient list';
         var extraFirst = 'invented';
         var extraEnd = 'reinvented';
 
