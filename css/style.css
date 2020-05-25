@@ -4,7 +4,19 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Eina03';
+    font-family: "HelveticaNeue";
+}
+
+hr {
+    max-width: 80%;
+    border-width: 1px;
+    overflow: visible;
+    color: rgb(128,128,128, 1);
+    margin-top: 0px;
+    margin-bottom: 75px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }
 
 a,
@@ -65,6 +77,17 @@ td {
     font-size: 20px;
 }
 
+div#skinfofade {
+    opacity:0;
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;     
+    transition: opacity 2s; 
+    }
+    
+    div#skinfofade.fade {
+    opacity:1;
+    }
+
 .card-holder {
     margin-top:50px; 
     display: table;
@@ -73,48 +96,99 @@ td {
 }
 
 .title {
-    padding-top: 10px;
     padding-bottom: 5px;
     padding-left: 20%;
-    padding-right: 20%;
     text-align: center;
     min-height: 44px;
-    font-family: 'Eina03-SemiBold';
-    background-color: rgb(245,227,231);
+    font-family: 'QuickSand';
+    font-weight: bold;
+    background-color: white;
+}
+
+.meny-icon {
+    display: none;
+}
+
+.extra-padding {
+    padding-top: 65px !important;
+    padding-bottom: 65px !important;
+}
+
+.background-image {
+    background: url(../images/skinfo-background.png);
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: bottom;
+    height: 100%;
+    width: 100%;
 }
 
 .checkbox-div {
     display: table-row;
 }
 
-.skinfo-title {
-    font-size: 30px; 
+.skinfo-title { 
+    font-size: 37px;
+    padding-right: 10px;
     float: left;
+}
+
+.chapter-header {
+    margin-top: 20px;
+    font-family: 'QuickSand';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.first-info-button-space {
+    margin-top: 120px;
 }
 
 .number-of-spots {
     font-size: 18px;
 }
 
+.button-div {
+    display: grid;
+    text-align: center;
+}
+
+.text-sub-header {
+    margin-top: 25px;
+    font-family: "HelveticaNeue";
+    color: rgba(0,0,0,0.3);
+    font-size: 25px;    
+    text-align: center;
+}
+
+.button-div-row {
+    display: table;
+    text-align: center;
+    margin: auto;
+    margin-top: 25px;
+}
+
 .button {
-    font-family: 'Eina03-SemiBold';
-    font-size: 14px;
+    font-family: "QuickSand";
+    font-size: 20px;
+    font-weight: bold;
     background-color: white;
     color:black;
-    padding: 10px 15px 10px 15px;   
+    padding: 15px 15px 10px 15px;   
     border-radius: 36px;
-    float: right;
 }
 
 .button2x {
-    font-family: 'Eina03-SemiBold';
+    font-family: 'QuickSand';
     font-size: 16px;
-    background-color: white;
-    color:rgb(255,96,136);
-    padding: 10px 20px 10px 20px;   
+    font-weight: bold;
+    color: white;
+    background-color:rgb(60, 0, 200);
+    padding: 20px 10px 20px 10px;   
     border-radius: 36px;
-    float: left;
     margin-top: 20px;
+    width: 150px;
+    margin:auto;
 }
 
 .button:hover {
@@ -146,22 +220,72 @@ td {
     font-family: 'Arial-Downloaded';
 }
 
+.business-stats-image {
+    height: 80px;
+    margin: auto;
+}
+
+.business-stats {
+    max-width: 25%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.buisiness-main-stats {
+    display: flex;
+    margin: auto;
+    text-align: center;
+}
+
+.business-stats-header {
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: "QuickSand";
+}
+
+.business-stats-number {
+    margin-top: 10px;
+    color: white;
+    font-size: 40px;
+    font-family: ChakraPetch;
+}
+
+.business-stats-text {
+    margin-top: 10px;
+    color: white;
+}
+
+.business-reference {
+    text-align: center;
+    margin: auto;
+    font-style: italic;
+    margin-top: 40px;
+    color: white;
+}
+
+.text-header {
+    margin-top: 30px;
+    text-align: center;
+    color: rgb(60, 0, 200);
+    font-family: "QuickSand";
+    font-weight: 600;
+    font-size: 50px;
+}
+
 .primary-div {
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-left: 25%;
-    padding-right: 25%;
-    background-color: rgb(245,227,231);
-    height: 100%;
+    background-color: white;
     overflow: auto;
 }
 
 .secondary-div {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 30%;
-    padding-right: 30%;
-    background-color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;    
+    padding-left: 15%;
+    padding-right: 15%;
+    background-color: rgb(60, 0, 200);
     height: 100%;
     overflow: auto;
 }
@@ -188,13 +312,35 @@ td {
 }
 
 .information-header{
+    font-family: 'QuickSand';
     font-size: 35px;
     font-weight: bold;
 }
 
 .information-header-main{
-    font-size: 35px;
-    font-weight: bold;
+    margin-top: 100px;
+    min-height: 104px;
+    font-size: 80px;
+    margin-top: 100px;
+    padding-left: 20%;
+    font-family: "ChakraPetch";
+    font-weight: 600;
+    text-align: left;
+    color: rgb(60, 0, 200);
+}
+
+.information-header-main-white{
+    font-size: 60px;
+    font-family: "ChakraPetch";
+    font-weight: 600;
+    color: white;
+    display: inline-block; 
+    position: relative;
+    left: 40%;   
+}
+
+.information-small-text {
+    font-family: "FiraSans";
 }
 
 .chapter{
@@ -295,6 +441,31 @@ td {
 .year {
     font-size: 40px;
     font-weight: bold;
+    font-family: "ChakraPetch";
+}
+
+.press-download-link {
+    font-family: "ChakraPetch";
+    color:gray !important;
+}
+
+.press-image {
+    height: 200px;
+}
+
+.press-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.press-main-div {
+    text-align: center;
+    display: flex;
+    margin: auto;
+}
+
+.press-inner-div {
+    margin: auto;
 }
 
 .dot {
@@ -312,7 +483,7 @@ td {
 .roadmap-text-header {
     font-size: 20px;
     font-weight: bold;
-    color:rgb(255,96,136);
+    color:rgb(60,0,200)
 }
 
 .roadmap-text{
@@ -330,14 +501,91 @@ td {
 }
 
 .information-text {
-    font-size: 2.0rem; 
+    font-family: "QuickSand";
+    font-size: 60px;
+    margin: auto;
+    color: rgba(60,0,200,0.3);
+    text-align: left;
+    padding-left: 20%;
+}
+
+.logotypes {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.business-image {
+    display: block;
+    float: left;
+    padding-left: 5%;
+    width:30%;
+    margin: 20px;
+}
+
+.business-image > img {
+    width: 700px;
+}
+
+.left-image {
+    display: block;
+    float: left;
+    padding-left: 10%;
+    width:30%;
+    margin: 20px;
+}
+
+.right-text {
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 35%;
+    float: left;
+}
+
+.logo-trust {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 200px;
+    vertical-align: middle; 
+}
+
+.information-text-white {
+    font-family: "QuickSand";
+    font-size: 30px;
+    color:white;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.logotype-text {
+    font-family: "QuickSand";
+    font-size: 30px;
+    color: rgba(0,0,0,0.3);
+    text-align: center;
+    padding-left: 10px;
     margin-top: 20px;
+}
+
+.sub-title {
+    font-family: "HelveticaNeue";
+    font-size: 25px;
+    margin:auto;
+    padding-left: 20%;
+    color: rgba(0,0,0,0.3);
+    text-align: left;
 }
 
 .app-download-div {
     text-align: left;
     flex-direction: row;
     padding-top: 30px;
+}
+
+.two-split-div {
+    display: table;
+    margin: auto;
+    margin-bottom: 35px;
 }
 
 .app-download {
@@ -372,9 +620,15 @@ td {
     margin-bottom: 10px;
 }
 
+.image-left {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    height: 400px;
+}
+
 .links {
+    font-size: 18px;
     font-weight: bold;
-    color: rgb(255,96,136) !important;
+    color:rgba(60,0,200) !important;
 }
 
 .all-rights-reserved {
@@ -437,34 +691,32 @@ td {
         border-radius: 10px;
     }
 
-@media only screen and (max-width : 1900px) {  
-    .information-header {
-        font-size: 2.0rem; 
-        font-family: Eina03-Bold;
-        margin-top: 25px;
-    }
-
-    .information-header-main{
-        font-size: 2.0rem; 
-        font-family: Eina03-Bold;
-        margin-top: 25px;
-    }
-    
-    .information-text {
-        font-size: 1.5rem; 
-        margin-top: 20px;
+@media only screen and (max-width : 2600px) {  
+    .information-header-main-white {
+        left: 37%;
     }
 }
 
-@media only screen and (max-width : 1630px) {  
-    .primary-div {
-        padding-left: 20%;
-        padding-right: 20%;
+@media only screen and (max-width : 2100px) {  
+    .information-header-main-white {
+        left: 35%;
     }
-    
-    .secondary-div {
-        padding-left: 20%;
-        padding-right: 20%;
+}
+
+@media only screen and (max-width : 1900px) {  
+    .information-header {
+        font-size: 2.0rem; 
+        margin-top: 25px;
+    }
+
+    .information-header-main-white {
+        left: 31%;
+    }
+}
+
+@media only screen and (max-width : 1630px) {    
+    .business-image > img {
+        width: 500px;
     }
 
     .gray-div {
@@ -489,14 +741,37 @@ td {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .text-header {
+        margin-top: 20px;
+    }
+
+    .logo-trust {
+        width: 125px;        
+    }
+}
+
+@media only screen and (max-width : 1400px) {  
+    .information-header-main-white {
+        left: 26%;
+    }
 }
 
 @media only screen and (max-width : 1300px) {  
     .title {
-        padding-top: 10px;
         padding-left: 5%;
         padding-right: 5%;
-        padding-bottom: 5px;
+        text-align: right;
+    }
+
+    .right-text {
+        width: 40%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .image-left {
+        height: 300px;
     }
 
     .column-left {
@@ -519,11 +794,6 @@ td {
     .app-download-div {
         text-align: center;
     }
-
-    .primary-div {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
     
     .secondary-div {
         padding-left: 5%;
@@ -540,8 +810,9 @@ td {
         padding-right: 5%;
     }
 
-    .button-div {
-        display: flex;
+    .button {
+        font-size: 16px;
+        padding: 5px 5px 10px 5px;
     }
 
     .button2x {
@@ -564,17 +835,20 @@ td {
         font-size: 10px;
     }
 
-    .information-header-main{
+    .information-header-main {
         margin-left: auto;
         margin-right: auto;
-        font-size: 1.9rem;
+        margin-top: 100px;
+        padding-left: 10%;
     }
 
     .information-text {
-        margin-left: auto;
-        margin-right: auto;
         margin-bottom: 20px;
-        padding-left: 5%;
+        padding-left: 10%;
+    }
+
+    .sub-title {
+        padding-left: 10%;
     }
 
     .temp-countdown {
@@ -604,9 +878,67 @@ td {
         font-weight: bold;
     }
 
+
+    .information-header-main-white {
+        left: 31%;
+    }
+    
 }
 
-@media only screen and (max-width : 800px) {      
+@media only screen and (max-width : 1200px) {   
+    
+    .business-image {
+        display: block;
+        float: unset;
+        padding-left: unset;
+        width:unset;
+        margin: auto;
+        text-align: center;
+    }
+
+    .business-image > img {
+        width: 700px;
+    }
+
+    .right-text {
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .left-image {
+        display: inherit;
+        float: unset;
+        padding-left: unset;
+        margin: auto;
+    }
+
+    .information-header-main-white {
+        margin-top: 0;
+    }
+
+    .button2x {
+        padding: 20px 10px 20px 10px;   
+        width: 120px;
+        margin-top: 25px;
+    }
+
+
+    .information-header-main-white {
+        left: 26%;
+    }
+    
+}
+
+@media only screen and (max-width : 900px) {  
+    .buisiness-main-stats {
+        display: block;
+    }
+
+    .business-stats {
+        max-width: unset;
+    }
+    
     .map {
         height: 300px;
     }
@@ -615,10 +947,72 @@ td {
         width: 33%;
         margin: 0 auto;
     }
+
+    .sub-title {
+        padding-right: 10%;
+     }
+
+     .information-text-white {
+         font-size: 20px;
+     }
 }
 
+@media only screen and (max-width : 800px) {   
+    .information-header-main{
+        font-size: 60px;
+        min-height: 78px;
+    }
 
-@media only screen and (max-width : 670px) {      
+    .information-text {
+        font-size: 40px;
+    }
+
+    .sub-title {
+       font-size: 20px;
+    }
+      
+    .text-sub-header {
+        font-size: 20px     ;
+    }
+
+
+    .logo-trust {
+        margin-top: 20px;
+    }
+
+
+    .information-header-main-white {
+        left: 30%;
+        font-size: 40px;
+    }
+
+    .secondary-div {
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+    
+}
+
+@media only screen and (max-width : 670px) {     
+    .business-image > img {
+        width: 350px;
+    }
+    .information-header-main {
+        padding-left: 5%;
+        font-size: 41px;
+        min-height: 51px;
+    }
+    
+    .information-text {
+        padding-left: 5%;
+        font-size: 30px;;
+    }
+
+    .sub-title {
+        padding-left: 5%;
+        font-size: 20px;
+     }
+
     .cookieinfo-close {
         margin-top: 10px;
     } 
@@ -655,12 +1049,36 @@ td {
     .card {
         float: unset;
     }
+
+    .background-image {
+        background: url(../images/skinfo-background-mobile.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+    }
+
+    .press-main-div {
+        display: block;
+    }
+
+    .press-inner-div {
+        margin-top: 25px;;
+    }
 }
 
 @media only screen and (max-width : 600px) {      
     .button {
         font-size: 0;
-        padding: 10px 5px 10px 10px;
+        padding: 30px 10px 10px 10px;
+        background-color: black;
+    }
+
+    .information-header-main-white {
+        left: 24%;
+    }  
+
+    .title {
+        margin-top: 5px;
     }
 
     .app-download-div {
@@ -670,6 +1088,15 @@ td {
 
     .app-download {
         width: 150px;
+    }
+
+    .meny-icon {
+        display: inherit;
+        width: 20px;
+    }
+
+    .logotype-text {
+        font-size: 20px;
     }
 }
 
@@ -687,5 +1114,21 @@ td {
     .column-left > .smartphone-border {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .information-header-main-white {
+        left: 8%;
+    }
+}
+
+    @media only screen and (max-width : 320px) {          
+    .information-header-main {
+        margin-top: 55px;
+        font-size: 31px;
+        min-height: 41px;
+    }
+
+    .first-info-button-space {
+        margin-top: 90px;
     }
 }   

@@ -46,60 +46,28 @@
     </div>
     <div class="information-div">
         <div class="information-header">
-            About Us
+            Press
         </div>
-        <div class="chapter-header">
-            Why we do it
+        <div style="margin-top: 25px; margin-bottom: 25px;">
+            For press or media inquiries, please contact <a href="mailto:info@skinfo.se"
+                style="color:rgb(60,0,200); font-weight: bold;">info@skinfo.se</a>
         </div>
-        <div style="font-weight: bold;color:rgb(60, 0, 200)">
-            Delivering impact through transparency
-        </div>
-        <div class="chapter">
-            By combining scientific data from multiple sources and presenting it in an easy-to-understand format, we are building the first-ever scalable solution for Europe’s 500 million personal care consumers.
-        </div>
-        <div class="chapter">
-            The market penetration of some cosmetic products, like deodorants and shampoos, is near 100%. While many people wear no makeup or use no hair styling products, nearly everyone has some form of skin care product, even if it’s just a bottle of lotion or a tube of sunscreen.
-        </div>
-        <div>*Ref. Cosmetics Europe </div>
-        <div class="chapter-header">
-            How we do it
-        </div>
-        <div>
-            Skinfo translates ingredients in cosmetic and skincare products with scientific facts to help more people choose, avoid or discover products based on their ingredients. We have simplified complex data and translated information into Swedish to increase consumers' knowledge and understanding.
-        </div>
-        <div class="chapter">
-            Our database contains over 30,000 ingredients with information about their purpose, function and possible health effects. The information is based on data from authorities and regulations such as the EU's official database for cosmetic ingredients, European Chemicals Agency, Swedish Society for Nature Conservation, the Asthma & Allergy Association, published research on substances and more. 
-        </div>
-        <div class="chapter">
-            Skinfo was founded in 2019 and is an independent actor working to increase product transparency in the cosmetics industry.
-        </div>
-        <div class="roadmap">
-            <div class="year">2019</div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="roadmap-text-header">Founded</div>
-            <div class="roadmap-text">Skinfo is founded by Lena Skiba and Viktor Morin</div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="roadmap-text-header">Alpha version</div>
-            <div class="roadmap-text">First version of the mobile app is released</div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="year">2020</div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="roadmap-text-header">Accelerator</div>
-            <div class="roadmap-text">Skinfo joins Sting's accelerator program for statups with high growth potential</div>
-            <div style="margin-top: 10px;"></div>
+        <div class="press-main-div">
+            <div class="press-inner-div">
+                <div class="press-title">Founders</div>
+                <img src="press/founders_sitting_forward_purple.png" class="press-image"></img>
+                <div><a href="press/skinfo-press.zip" class="press-download-link">Download zip</a></div>
+            </div>
+            <div class="press-inner-div">
+                <div class="press-title">Logotypes</div>
+                <img src="press/skinfo-logo-gradient-RGB.png" class="press-image"></img>
+                <div><a href="press/skinfo-logos.zip" class="press-download-link">Download zip</a></div>
+            </div>
         </div>
     </div>
     <div class="gray-div">
         <div class="information-links">
-            <div><a href="news.html" class="links">News</a></div>
+            <!-- <div><a href="news.html" class="links">News</a></div> -->
             <div><a href="press.html" class="links">Press</a></div>
             <div><a href="contact.html" class="links">Contact</a></div>
         </div>
@@ -134,3 +102,52 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function () {
+        $('#send-button').click(function () {
+            $('#company-input').prop('disabled', true);
+            $('#name-input').prop('disabled', true);
+            $('#homepage-input').prop('disabled', true);
+            $('#email-input').prop('disabled', true);
+            $('#products-input').prop('disabled', true);
+            $('#brand-input').prop('disabled', true);
+            $('#retailer-input').prop('disabled', true);
+
+            $('#brand-input').prop('disabled', true);
+            $('#retailer-input').prop('disabled', true);
+
+            var data = {
+                Company: $('#company-input').val(),
+                Name: $('#name-input').val(),
+                Hompage: $('#homepage-input').val(),
+                Email: $('#email-input').val(),
+                Products: $('#products-input').val(),
+                Brand: $('#brand-input').is(':checked'),
+                Retailer: $('#retailer-input').is(':checked'),
+            };
+
+            var json = JSON.stringify(data);
+
+            if ($('#brand-input').is(':checked')) {
+                jQuery('#brand-input-label').css('opacity', '0.5');
+            }
+            if ($('#retailer-input').is(':checked')) {
+                jQuery('#retailer-input-label').css('opacity', '0.5');
+            }
+            $('#send-button').prop('disabled', true);
+            $('#send-button').prop('innerText', 'Skickat!');
+            $('#send-button').css('background-color', 'grey');
+            $(".form-label").css('color', 'grey');
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://skinfo-api.azurewebsites.net/company',
+                data: json,
+                complete: function () {
+
+                }
+            });
+
+        });
+    });
+</script>
