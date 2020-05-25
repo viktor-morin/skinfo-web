@@ -167,7 +167,7 @@ div#skinfofade {
 .text-sub-header {
     margin-top: 25px;
     font-family: "HelveticaNeue";
-    color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.5);
     font-size: 25px;    
     text-align: center;
 }
@@ -237,7 +237,7 @@ div#skinfofade {
 }
 
 .business-stats {
-    max-width: 25%;
+    max-width: 32%;
     margin: auto;
     margin-top: 50px;
 }
@@ -246,6 +246,14 @@ div#skinfofade {
     display: flex;
     margin: auto;
     text-align: center;
+}
+
+.checkbox-header {
+    margin-top: 50px;
+    font-family: "ChakraPetch";
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(60, 0, 200,1);
 }
 
 .business-stats-header {
@@ -259,7 +267,7 @@ div#skinfofade {
     margin-top: 10px;
     color: white;
     font-size: 40px;
-    font-family: ChakraPetch;
+    font-family: "ChakraPetch";
 }
 
 .business-stats-text {
@@ -281,7 +289,7 @@ div#skinfofade {
     color: rgb(60, 0, 200);
     font-family: "QuickSand";
     font-weight: 600;
-    font-size: 50px;
+    font-size: 35px;
 }
 
 .primary-div {
@@ -583,7 +591,7 @@ div#skinfofade {
     font-size: 25px;
     margin:auto;
     padding-left: 20%;
-    color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.5);
     text-align: left;
 }
 
@@ -1153,7 +1161,7 @@ div#skinfofade {
     }
 
     .text-header {
-        font-size: 40px;
+        font-size: 20px;
     }
 
     .sting-co-financed {
