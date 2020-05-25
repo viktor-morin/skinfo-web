@@ -105,6 +105,13 @@ div#skinfofade {
     background-color: white;
 }
 
+.sting-co-financed {
+    width: 160px; 
+    font-size: 16px; 
+    text-align: left; 
+    margin-left: 15px;
+}
+
 .meny-icon {
     display: none;
 }
@@ -142,6 +149,10 @@ div#skinfofade {
 
 .first-info-button-space {
     margin-top: 120px;
+}
+
+.business-info-button-space {
+    margin-top: 60px;
 }
 
 .number-of-spots {
@@ -1130,5 +1141,24 @@ div#skinfofade {
 
     .first-info-button-space {
         margin-top: 90px;
+    }
+
+    .right-text {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .information-header-main-white {
+        font-size: 38px;
+    }
+
+    .text-header {
+        font-size: 40px;
+    }
+
+    .sting-co-financed {
+        font-size: 14px; 
+        margin-left: 5px;
+        width: 120px;
     }
 }   
