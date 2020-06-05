@@ -117,6 +117,7 @@ td {
     width: 150px;
     margin:auto;
     text-align: center;
+    display: grid;
 }
 
 .button:hover {
