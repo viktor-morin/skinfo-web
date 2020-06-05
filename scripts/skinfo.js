@@ -3,9 +3,12 @@ function sleep(ms) {
 }
 
 function isElementInViewport(el) {
-
     if (typeof jQuery === "function" && el instanceof jQuery) {
         el = el[0];
+    }
+
+    if (el == undefined){
+        return;
     }
 
     var rect = el.getBoundingClientRect();
@@ -41,6 +44,10 @@ $(document).ready(function () {
         var extraEnd = 'reinvented';
 
         var mainTitle = document.getElementById('information-header-main');
+        if (mainTitle == null) {
+            return;
+        }
+
         for (i = 0; i < text.length; i++) {
             mainTitle.innerHTML += text[i];
             await sleep(40);
@@ -120,8 +127,18 @@ $(document).ready(function () {
         return false;
     });
 
+    $('#download_big').click(function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+
     var handler = onVisibilityChange($('#break-div'), async function () {
         var div = document.getElementById('information-header-main-white');
+
+        if (div == null) {
+            return;
+        }
+
         div.innerHTML = ' ';
 
         var textFirst = 'Take care';
