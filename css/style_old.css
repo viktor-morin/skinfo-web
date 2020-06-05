@@ -187,6 +187,13 @@ td {
     margin-top: 25px;
 }
 
+.sting-co-financed {
+    width: 160px;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 15px;
+}
+
 .information-div {
     padding-left: 30%;
     padding-right: 30%;
