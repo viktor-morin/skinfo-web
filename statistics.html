@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/skinfo.js"></script>
+    <script src="scripts/comments.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150835481-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-150835481-1');
+    </script>
+
+    <title>Skinfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="description"
+        content="Skinfo är Sveriges första app med vetenskaplig information om ingredienser i hudvård & kosmetika inom EU" />
+    <meta name="keywords"
+        content="information,ingredienser,hudvård,kosmetika,smink,hudvårdsapp,kosmetik,hudvårdsguide,farliga,dåliga,skadliga,cancerframkallande,hormonstörande,giftiga,irriterande,allergiska,allergi,påverkan,hälsoeffekter,organiska,ekologiska,veganska,naturliga,syntetiska,kemiska,bästa">
+
+    <meta property="og:site_name" content="Skinfo.se" />
+    <meta property="og:url" content="https://www.skinfo.se/" />
+</head>
+
+<body>
+    <div>created</div>
+    <div id="1"></div>
+    <div>numberOfUsersHelped</div>
+    <div id="2"></div>
+    <div>numberOfWidgetsShown</div>
+    <div id="3"></div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $.ajax
+            ({
+                type: "GET",
+                url: "https://api.skinfo.se/information",
+                dataType: 'json',
+                success: function (data) {
+                    $("#1").html(data.created);
+                    $("#2").html(data.numberOfUsersHelped);
+                    $("#3").html(data.numberOfWidgetsShown);
+                }
+            });
+    });
+
+</script>
