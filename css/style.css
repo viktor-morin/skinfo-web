@@ -326,7 +326,7 @@ div#skinfofade {
 .news-row {
     margin-right: 20px;
     margin-left: 20px;
-    display: inline-table;
+    display: flex;
 }
 
 .news-item {
@@ -1009,6 +1009,10 @@ div#skinfofade {
 }
 
 @media only screen and (max-width : 850px) {   
+    .news-row {
+        display: inline-table;
+    }
+
     .news-item {
         padding-bottom: 30px;
         border-bottom: solid 1px lightgray;
