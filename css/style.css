@@ -103,6 +103,11 @@ div#skinfofade {
     font-family: 'QuickSand';
     font-weight: bold;
     background-color: white;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
 }
 
 .sting-co-financed {
@@ -181,10 +186,10 @@ div#skinfofade {
 
 .button {
     font-family: "QuickSand";
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     background-color: white;
-    color:black;
+    color:rgb(60, 0, 200);
     padding: 15px 15px 10px 15px;   
     border-radius: 36px;
 }
@@ -309,6 +314,28 @@ div#skinfofade {
     overflow: auto;
 }
 
+.primary-div-app {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: white;
+    overflow: auto;
+    background-color: rgb(60, 0, 200); 
+    padding-left: 25%; 
+    padding-right: 25%;
+}
+
+.secondary-div-app {
+    padding-top: 5%;
+    padding-bottom: 5%;    
+    padding-left: 15%;
+    padding-right: 15%;
+    height: 100%;
+    overflow: auto;
+    margin: auto; 
+    display: table; 
+    background-color: white;
+}
+
 .gray-div {
     padding-top: 25px;
     padding-left: 30%;
@@ -328,6 +355,52 @@ div#skinfofade {
     margin-left: 20px;
     display: flex;
 }
+
+.skinfo-menu {
+    padding-top: 13px;
+}
+
+.skinfo-menu-mobile {
+    display: none;
+    cursor: pointer; 
+    margin-top: 7px;  
+    width: 40%;
+}
+
+.skinfo-menu-mobile-expanded {
+    display: none;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 3px;
+    background-color: rgb(60, 0, 200);;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .main-menu-change {
+      height: 200px;
+  }
+
+  /* Rotate first bar */
+.change .bar1 {
+    width: 25px;
+    -webkit-transform: rotate(-45deg) translate(-7px, 6px) ;
+    transform: rotate(-45deg) translate(-7px, 6px) ;
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .bar3 {
+    width: 25px;
+    -webkit-transform: rotate(45deg) translate(-6px, -6px) ;
+    transform: rotate(45deg) translate(-6px, -6px) ;
+  }
 
 .news-item {
     display: table-caption;
@@ -633,6 +706,7 @@ div#skinfofade {
     text-align: left;
     flex-direction: row;
     padding-top: 30px;
+    padding-left: 5%    ;
 }
 
 .two-split-div {
@@ -667,10 +741,17 @@ div#skinfofade {
 }
 
 .social-media{
+    margin: auto;
     text-align: center;
     align-items: center;
     margin-top: 25px;
     margin-bottom: 10px;
+    display: flex;
+}
+
+.social-media-icon {
+    width: 50px;
+    display: block;
 }
 
 .image-left {
@@ -808,13 +889,21 @@ div#skinfofade {
     .information-header-main-white {
         left: 26%;
     }
+
+    .primary-div-app {
+        padding-left: 15%; 
+        padding-right: 15%;
+    }
+    
+    .secondary-div-app {   
+        padding-left: 15%;
+        padding-right: 15%;
+    }
 }
 
 @media only screen and (max-width : 1300px) {  
     .title {
-        padding-left: 5%;
-        padding-right: 5%;
-        text-align: right;
+        padding-left: 12%;
     }
 
     .right-text {
@@ -825,6 +914,10 @@ div#skinfofade {
     
     .image-left {
         height: 300px;
+    }
+
+    .app-download-div {
+        padding-left: 0;
     }
 
     .column-left {
@@ -865,7 +958,7 @@ div#skinfofade {
 
     .button {
         font-size: 16px;
-        padding: 5px 5px 10px 5px;
+        padding: 5px 10px 5px 5px;
     }
 
     .button2x {
@@ -1128,21 +1221,39 @@ div#skinfofade {
     .press-inner-div {
         margin-top: 25px;;
     }
+
+    .primary-div-app {
+        padding-left: 5%; 
+        padding-right: 5%;
+    }
+    
+    .secondary-div-app {   
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
-@media only screen and (max-width : 600px) {      
-    .button {
-        font-size: 0;
-        padding: 30px 10px 10px 10px;
-        background-color: black;
+@media only screen and (max-width : 600px) {    
+    .skinfo-menu-mobile {
+        display: block;
+        padding-right: 5%;
+        float: right;
     }
 
+    .skinfo-menu {
+       display: none;
+    }
+
+    .skinfo-title {
+        padding-left: 5%;
+    }
+    
     .information-header-main-white {
         left: 24%;
     }  
 
     .title {
-        margin-top: 5px;
+        padding-left: 0;
     }
 
     .app-download-div {

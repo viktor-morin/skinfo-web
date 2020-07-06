@@ -80,6 +80,11 @@ td {
     font-family: 'QuickSand';
     font-weight: bold;
     background-color: white;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
 }
 
 .checkbox-div {
@@ -91,13 +96,17 @@ td {
     float: left;
 }
 
+.skinfo-menu {
+    padding-top: 13px;
+}
+
 .number-of-spots {
     font-size: 18px;
 }
 
 .button {
     font-family: "QuickSand";
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     background-color: white;
     color:black;
@@ -511,11 +520,8 @@ td {
 
 @media only screen and (max-width : 1300px) {  
     .title {
-        padding-left: 5%;
-        padding-right: 5%;
-        text-align: right;
+        padding-left: 12%;
     }
-
 
     .column-left {
         max-width: 100%;

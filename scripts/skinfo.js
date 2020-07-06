@@ -7,7 +7,7 @@ function isElementInViewport(el) {
         el = el[0];
     }
 
-    if (el == undefined){
+    if (el == undefined) {
         return;
     }
 
@@ -95,8 +95,6 @@ $(document).ready(function () {
         }
     }
 
-
-
     $('#read_more').click(function () {
         document.body.scrollTop = 0;
         document.getElementsByClassName('two-split-div')[0].scrollIntoView({ behavior: 'smooth' })
@@ -127,10 +125,43 @@ $(document).ready(function () {
         return false;
     });
 
+    $('#contact2').click(function () {
+        window.location.href = 'contact.html';
+        return false;
+    });
+
     $('#download_big').click(function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     });
+
+    $('#skinfo-menu-mobile').click(function () {
+        var menu = document.getElementById('skinfo-menu-mobile');
+        var expaned = document.getElementById('skinfo-menu-mobile-expanded');
+        var main = document.getElementById('main-menu');
+        menu.classList.toggle('change');
+        main.classList.toggle('main-menu-change');
+        if (menu.classList.contains('change')) {
+            expaned.style.display = 'block';
+        } else {
+            expaned.style.display = 'none';
+        }
+    });
+
+    window.onresize = function() {
+        if ($(window).width() >= 600) {
+            var menu = document.getElementById('skinfo-menu-mobile');
+            var expaned = document.getElementById('skinfo-menu-mobile-expanded');
+            if (menu.classList.contains('change')) {
+                menu.classList.toggle('change');
+                var main = document.getElementById('main-menu');
+                main.classList.toggle('main-menu-change');
+            }
+            if (expaned.style.display == 'block') {
+                expaned.style.display = 'none';
+            }
+        }
+    }
 
     var handler = onVisibilityChange($('#break-div'), async function () {
         var div = document.getElementById('information-header-main-white');
@@ -183,5 +214,4 @@ $(document).ready(function () {
 
     $(window).on('DOMContentLoaded load resize scroll', handler);
     runMainHeaderAnimation();
-
 });
