@@ -645,7 +645,6 @@ div#skinfofade {
 .business-image {
     display: block;
     float: left;
-    padding-left: 5%;
     width:30%;
     margin: 20px;
 }
@@ -849,10 +848,6 @@ div#skinfofade {
 }
 
 @media only screen and (max-width : 1630px) {    
-    .business-image > img {
-        width: 500px;
-    }
-
     .gray-div {
         padding-left: 15%;
         padding-right: 15%;
