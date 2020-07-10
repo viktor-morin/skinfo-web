@@ -95,6 +95,36 @@ $(document).ready(function () {
         }
     }
 
+    async function runB2BHeaderAnimation() {
+        var text = 'One widget';
+        var extraFirst = 'all ingredients';
+
+        var mainTitle = document.getElementById('company1-title');
+        if (mainTitle == null) {
+            return;
+        }
+
+        for (i = 0; i < text.length; i++) {
+            mainTitle.innerHTML += text[i];
+            await sleep(40);
+        }
+
+        mainTitle = document.getElementById('company2-title');
+        for (i = 0; i < extraFirst.length; i++) {
+            mainTitle.innerHTML += extraFirst[i];
+            await sleep(40);
+        }
+
+        for (i = 0; i < 3; i++) {
+            if (i % 2 == 0) {
+                mainTitle.innerHTML += '_'
+            } else {
+                mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
+            }
+            await sleep(200);
+        }
+    }
+
     $('#read_more').click(function () {
         document.body.scrollTop = 0;
         document.getElementsByClassName('two-split-div')[0].scrollIntoView({ behavior: 'smooth' })
@@ -224,4 +254,5 @@ $(document).ready(function () {
 
     $(window).on('DOMContentLoaded load resize scroll', handler);
     runMainHeaderAnimation();
+    runB2BHeaderAnimation();
 });
