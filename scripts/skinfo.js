@@ -125,6 +125,16 @@ $(document).ready(function () {
         return false;
     });
 
+    $('#company3').click(function () {
+        window.location.href = 'company.html';
+        return false;
+    });
+
+    $('#app3').click(function () {
+        window.location.href = 'app.html';
+        return false;
+    });
+
     $('#contact2').click(function () {
         window.location.href = 'contact.html';
         return false;
