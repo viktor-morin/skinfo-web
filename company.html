@@ -256,12 +256,6 @@
 
 <script>
     $(document).ready(function () {
-        // new Glide('.glide', {
-        //     type: 'carousel',
-        //     autoplay: 2000,
-        //     peek: 100
-        // }).mount();
-
         $('#send-button').click(function () {
             $('#company-input').prop('disabled', true);
             $('#name-input').prop('disabled', true);
@@ -299,7 +293,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'https://skinfo-api.azurewebsites.net/company',
+                url: 'https://api.skinfo.se/information',
                 data: json,
                 complete: function () {
 
