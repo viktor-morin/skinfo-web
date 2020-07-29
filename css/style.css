@@ -46,13 +46,14 @@ a:active {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-family: "ChakraPetch";
   }
 
   
   input[type="checkbox"]:checked + label {
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
-    background-color: rgb(255,96,136); color: white; border-color: rgb(255,96,136);
+    background-color: rgb(60, 0, 200); color: white; border-color: rgb(60, 0, 200);
   }
 
 input[type="text"] {
@@ -220,7 +221,7 @@ div#skinfofade {
     font-size: 20px;
     padding: 1rem 4rem;
     color: white;
-    background-color:black;
+    background-color:rgb(60, 0, 200);
     border: 1px solid white;
 }
 
@@ -536,6 +537,7 @@ div#skinfofade {
     font-size: 20px;
     font-weight: bold;
     width: 100%;
+    font-family: "ChakraPetch";
 }
 
 .form-input {
@@ -555,13 +557,12 @@ div#skinfofade {
 
 .checkbox-info {
     margin-top: 10px;
-    display:flex;
-    font-size: 20px;
+    font-size: 16px;
+    display: flex;
 }
     .checkbox-info > img {
         width: 20px;
         height: 20px;
-        margin-top: 5px;
     }
 
 .year {
@@ -709,9 +710,11 @@ div#skinfofade {
 }
 
 .two-split-div {
-    display: table;
+    display: flex;
     margin: auto;
     margin-bottom: 35px;
+    align-items: center;
+    justify-content: center;
 }
 
 .app-download {

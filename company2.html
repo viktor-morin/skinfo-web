@@ -66,57 +66,93 @@
             <div id="contact2" class="button"><img class="meny-icon" src="images/mail.png"> CONTACT US</div>
         </div>
     </div>
-    <div class="primary-div">
+    <div class="primary-div background-image" style="margin-top: 50px;">
         <div class="information-header-main" id="company1-title">
         </div>
         <div class="information-header-main" style="margin-top: 0px;" id="company2-title">
         </div>
     </div>
+    <div class="secondary-div">
+        <div class="information-text-white">
+            Become a leader in product transparency
+        </div>
+    </div>
     <div class="two-split-div" style="margin-top: 50px;">
-        <div class="right-text" style="padding-right: 0;">
-            <div class="text-header">Become a leader in product transparency</div>
-            <div class="text-sub-header">Powered by Skinfo is a consumer-facing widget available to companies with
+        <div class="left-image"
+            style="padding-left: 0; display: grid; width: unset; border-right: 3px solid rgb(60, 0, 200);">
+            <img src="images/business_design.jpeg" style="max-width: 800px;">
+        </div>
+        <div style="float:left; max-width: 30%;">
+            <div style="margin-top: 10px;">
+                Powered by Skinfo is a consumer-facing widget available to companies with
                 online sales in skincare,
-                cosmetics and hair care products.</div>
-            <div class="text-sub-header">Experience the first-ever ingredient tool for e-commerce, with information that
+                cosmetics and hair care products.
+            </div>
+            <div style="margin-top: 10px;">
+                Experience the first-ever ingredient tool for e-commerce, with information that
                 any consumer can
-                understand at the time of their online purchase.</div>
-        </div>
-        <div class="business-image">
-            <img src="images/business_design.jpeg">
-        </div>
-    </div>
-    <div>
-        <div class="checkbox-header">Key features</div>
-        <div class="checkbox-info">
-            <img src="images/checkbox.png">
-            <div>30,000+ ingredients</b></div>
-        </div>
-        <div class="checkbox-info">
-            <img src="images/checkbox.png">
-            <div>Information based on science, authorities’ data, regulations in EU</div>
-        </div>
-        <div class="checkbox-info">
-            <img src="images/checkbox.png">
-            <div>Skincare, cosmetics and hair care</div>
-        </div>
-        <div class="checkbox-info">
-            <img src="images/checkbox.png">
-            <div>Support for all 24 EU languages</div>
+                understand at the time of their online purchase.
+            </div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png" style="float: left;">
+                <div style="float: left;">30,000+ ingredients</b></div>
+            </div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png" style="float: left;">
+                <div style="float: left;">Information based on science, authorities’ data, regulations in EU</div>
+            </div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png" style="float: left;">
+                <div style="float: left;">Skincare, cosmetics and hair care</div>
+            </div>
+            <div class="checkbox-info">
+                <img src="images/checkbox.png" style="float: left;">
+                <div style="float: left;">Support for all 24 EU languages</div>
+            </div>
         </div>
     </div>
-    <div class="business-contact">
-        <div>
-            CEO
+    <div class="two-split-div" style="margin: auto;">
+        <div class="business-contact">
+            <div>
+                CEO
+            </div>
+            <div>
+                Lena Skiba
+            </div>
+            <div>
+                <a href="mailto:lena@skinfo.se" style="color:rgb(60, 0, 200); font-weight:bold">lena@skinfo.se</a>
+            </div>
+            <div>
+                <a href="tel:+46709416266">+46709416266</a>
+            </div>
         </div>
-        <div>
-            Lena Skiba
-        </div>
-        <div>
-            <a href="mailto:lena@skinfo.se">lena@skinfo.se</a>
-        </div>
-        <div>
-            <a href="tel:+46709416266">+46709416266</a>
+        <div class="company-form">
+            <label class="form-label">Company</label>
+            <input class="form-input" id="company-input" type="text" placeholder="">
+
+            <label class="form-label">Your name</label>
+            <input class="form-input" id="name-input" type="text" placeholder="">
+
+            <label class="form-label">Homepage</label>
+            <input class="form-input" id="homepage-input" type="text" placeholder="">
+
+            <label class="form-label">E-mail</label>
+            <input class="form-input" id="email-input" type="text" placeholder="">
+
+            <label class="form-label">Number of products</label>
+            <input class="form-input" id="products-input" type="text" placeholder="">
+
+            <div class="checkbox-div">
+                <label class="form-label form-label-special">Company Type</label>
+                <input type="checkbox" id="brand-input" />
+                <label for="brand-input" id="brand-input-label" style="margin-right: 5px;"> Brand</label>
+
+                <input type="checkbox" id="retailer-input" class="" />
+                <label for="retailer-input" id="retailer-input-label"> Retailer</label>
+            </div>
+
+            <div style="display: table; margin-left: auto; margin-right: auto; margin-top: 25px;"><button
+                    class="send-button" id="send-button">Skicka</button></div>
         </div>
     </div>
     <div class="secondary-div">
@@ -170,7 +206,8 @@
         <div id="3"></div>
     </div>
     <div class="secondary-div">
-        <div style="color: white;">De har hjälpt oss att blivit mer transparanta i en marknad när det behövs som mest!</div>
+        <div style="color: white;">De har hjälpt oss att blivit mer transparanta i en marknad när det behövs som mest!
+        </div>
         <div style="color: white;">Stefan</div>
         <div style="color: white;">SkinCity</div>
         <div style="color: white;">CEO</div>
@@ -326,6 +363,7 @@
                 type: 'POST',
                 url: 'https://api.skinfo.se/information',
                 data: json,
+                contentType: "application/json; charset=utf-8",
                 complete: function () {
 
                 }
