@@ -64,7 +64,7 @@ input {
     outline: 0;
     -webkit-appearance: none;
     background: transparent;
-    border-width: 0 0 2px;
+    border-width: 0 0 1px;
     border-color: black;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -260,6 +260,10 @@ div#skinfofade {
     font-size: 30px;
     font-weight: 600;
     color: rgba(60, 0, 200,1);
+}
+
+.business-contact {
+    margin-right: 10px;
 }
 
 .business-stats-header {
@@ -523,7 +527,7 @@ div#skinfofade {
 
 .company-form {
     margin-top:25px;
-
+    width: 30%;
     display: table;
 }
 
@@ -535,7 +539,6 @@ div#skinfofade {
     float:left;
     margin-top: 10px;
     font-size: 20px;
-    font-weight: bold;
     width: 100%;
     font-family: "ChakraPetch";
 }
