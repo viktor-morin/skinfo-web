@@ -57,7 +57,7 @@ a:active {
   }
 
 input[type="text"] {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 input {
@@ -163,6 +163,21 @@ div#skinfofade {
 
 .number-of-spots {
     font-size: 18px;
+}
+
+.information-data-header {
+    font-family: "ChakraPetch";
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+.information-data {
+    font-family: "ChakraPetch";
+    font-weight: 700;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
 }
 
 .button-div {
@@ -538,7 +553,7 @@ div#skinfofade {
 .form-label {
     float:left;
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 16px;
     width: 100%;
     font-family: "ChakraPetch";
 }
@@ -761,7 +776,7 @@ div#skinfofade {
 
 .image-left {
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
-    height: 400px;
+    height: 500px;
 }
 
 .links {
