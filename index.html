@@ -35,10 +35,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="google" content="nositelinkssearchbox" />
     <meta name="description"
-    content="The first scalable solution that automatically generate scientific information on ingredients in skincare & cosmetics products. We provide product transparency for consumers and e-commerce actors." />
+        content="The first scalable solution that automatically generate scientific information on ingredients in skincare & cosmetics products. We provide product transparency for consumers and e-commerce actors." />
     <meta name="keywords"
         content="information, ingredients, skincare, cosmetics, makeup, skincare app, skincare guide, health hazard, harmful, bad, carcinogenic, endocrine disruption, toxic, irritant, allergic, allergy, effects, health effects, organic, vegan, natural, synthetic, chemical, spf, sun protection factor,information,ingredienser,hudvård,kosmetika,smink,hudvårdsapp,kosmetik,hudvårdsguide,farliga,dåliga,skadliga,cancerframkallande,hormonstörande,giftiga,irriterande,allergiska,allergi,påverkan,hälsoeffekter,organiska,ekologiska,veganska,naturliga,syntetiska,kemiska,spf">
-        
+
     <meta property="og:site_name" content="Skinfo.se" />
     <meta property="og:url" content="https://www.skinfo.se/" />
 </head>
@@ -226,3 +226,61 @@
     data-message="Vi har sparat en cookie på din dator för att ge dig en bättre upplevelse." data-linkmsg=""
     data-cookie="CookieInfoScript" data-text-align="center" data-close-text="Jag förstår">
     </script>
+
+<script>
+    $(document).ready(function () {
+
+        var handler = onVisibilityChange($('#break-div'), async function () {
+            var div = document.getElementById('information-header-main-white');
+
+            if (div == null) {
+                return;
+            }
+
+            div.innerHTML = ' ';
+
+            var textFirst = 'Take care';
+            var textSecond = '(skin)care';
+
+            for (q = 0; q < textFirst.length; q++) {
+                div.innerHTML += textFirst[q];
+                await sleep(40);
+            }
+
+            for (q = 0; q < 4; q++) {
+                if (q % 2 == 0) {
+                    div.innerHTML += '_'
+                } else {
+                    div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
+                }
+                await sleep(200);
+            }
+
+            for (q = 4; q > 0; q--) {
+                div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
+                await sleep(40);
+            }
+
+
+            for (q = 0; q < textSecond.length; q++) {
+                div.innerHTML += textSecond[q];
+                await sleep(40);
+            }
+
+            for (q = 0; q < 5; q++) {
+                if (q % 2 == 0) {
+                    div.innerHTML += '_'
+                } else {
+                    div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
+                }
+                await sleep(200);
+            }
+
+            q = 0;
+        });
+
+        $(window).on('DOMContentLoaded load resize scroll', handler);
+        runMainHeaderAnimation();
+
+    });
+</script>
