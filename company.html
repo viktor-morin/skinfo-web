@@ -247,7 +247,8 @@
         <div style="color: white; font-weight: bold;">CEO, SkinCity</div>
     </div>
     <div class="primary-div">
-        <div class="information-header-main" style="font-family: QuickSand; font-weight: 600; font-size: 30px; margin-top: 0;">
+        <div class="information-header-main"
+            style="font-family: QuickSand; font-weight: 600; font-size: 30px; margin-top: 0;">
             Customers
         </div>
         <div style="display: flex;">
@@ -347,6 +348,35 @@
 
 <script>
     $(document).ready(function () {
+        async function runB2BHeaderAnimation() {
+            var text = 'One widget';
+            var extraFirst = 'all ingredients';
+
+            var mainTitle = document.getElementById('company1-title');
+            if (mainTitle == null) {
+                return;
+            }
+
+            for (i = 0; i < text.length; i++) {
+                mainTitle.innerHTML += text[i];
+                await sleep(40);
+            }
+
+            mainTitle = document.getElementById('company2-title');
+            for (i = 0; i < extraFirst.length; i++) {
+                mainTitle.innerHTML += extraFirst[i];
+                await sleep(40);
+            }
+
+            for (i = 0; i < 3; i++) {
+                if (i % 2 == 0) {
+                    mainTitle.innerHTML += '_'
+                } else {
+                    mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
+                }
+                await sleep(200);
+            }
+        }
         $.ajax
             ({
                 type: "GET",
@@ -360,7 +390,7 @@
                 }
             });
 
-            runB2BHeaderAnimation();
+        runB2BHeaderAnimation();
     });
 
     $('#send-button').click(function () {
