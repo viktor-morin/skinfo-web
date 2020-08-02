@@ -348,6 +348,10 @@
 
 <script>
     $(document).ready(function () {
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
         async function runB2BHeaderAnimation() {
             var text = 'One widget';
             var extraFirst = 'all ingredients';
