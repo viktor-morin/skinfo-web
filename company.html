@@ -199,9 +199,10 @@
                         <label class="form-label form-label-special">Company Type</label>
                         <input type="checkbox" id="brand-input" />
                         <label for="brand-input" id="brand-input-label" style="margin-right: 5px;"> Brand</label>
-        
                         <input type="checkbox" id="retailer-input" class="" />
-                        <label for="retailer-input" id="retailer-input-label"> Retailer</label>
+                        <label for="retailer-input" id="retailer-input-label" style="margin-right: 5px;"> Retailer</label>
+                        <input type="checkbox" id="distributor-input" class="" />
+                        <label for="distributor-input" id="distributor-input-label" style="margin-right: 5px;"> Distributor</label>
                     </div>
                     <div style="display: table; margin-left: auto; margin-right: auto; margin-top: 50px; margin-bottom: 10px;"><span class="button2x"
                             id="send-button" style="padding-left: 40px; padding-right: 40px;">Send</span></div>
@@ -417,9 +418,7 @@
         $('#markets-input').prop('disabled', true);
         $('#brand-input').prop('disabled', true);
         $('#retailer-input').prop('disabled', true);
-
-        $('#brand-input').prop('disabled', true);
-        $('#retailer-input').prop('disabled', true);
+        $('#distributor-input').prop('disabled', true);
 
         var data = {
             Company: $('#company-input').val(),
@@ -431,6 +430,7 @@
             Markets: $('#markets-input').val(),
             Brand: $('#brand-input').is(':checked'),
             Retailer: $('#retailer-input').is(':checked'),
+            Distributor: $('#distributor-input').is(':checked'),
         };
 
         var json = JSON.stringify(data);
@@ -440,6 +440,9 @@
         }
         if ($('#retailer-input').is(':checked')) {
             jQuery('#retailer-input-label').css('opacity', '0.5');
+        }
+        if ($('#distributor-input').is(':checked')) {
+            jQuery('#distributor-input-label').css('opacity', '0.5');
         }
         $('#send-button').prop('disabled', true);
         $('#send-button').prop('innerText', 'Sent');
