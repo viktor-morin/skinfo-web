@@ -136,8 +136,35 @@ div#skinfofade {
     width: 100%;
 }
 
+.about-the-data {
+    background: url(../images/skum.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: bottom;
+    height: 100%;
+    width: 100%;
+
+    margin: auto; 
+    display: flex; 
+    padding-top: 50px; 
+    padding-bottom: 50px;
+}
+
 .checkbox-div {
     display: table-row;
+}
+
+.widget-bullet {
+    font-family: "HelveticaNeue";
+    font-size: 18px;
+    margin: 20px;
+    width: 275px;
+}
+
+.widget-bullet > div {
+    color: rgba(0,0,0,0.5);
+    font-size: 16px;
+    font-family: "HelveticaNeue";
 }
 
 .skinfo-title { 
@@ -216,10 +243,10 @@ div#skinfofade {
     font-weight: bold;
     color: white;
     background-color:rgb(60, 0, 200);
-    padding: 20px 10px 20px 10px;   
+    padding: 15px 5px 15px 5px;   
     border-radius: 36px;
     margin-top: 20px;
-    width: 150px;
+    width: 175px;
     margin:auto;
 }
 
@@ -253,7 +280,7 @@ div#skinfofade {
 }
 
 .business-stats-image {
-    height: 80px;
+    height: 35px;
     margin: auto;
 }
 
@@ -279,6 +306,8 @@ div#skinfofade {
 
 .business-contact {
     margin-right: 10px;
+    margin-left: 10px;
+    width: 150px;
 }
 
 .business-stats-header {
@@ -291,7 +320,7 @@ div#skinfofade {
 .business-stats-number {
     margin-top: 10px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     font-family: "ChakraPetch";
 }
 
@@ -541,13 +570,25 @@ div#skinfofade {
 }
 
 .company-form {
-    margin-top:25px;
-    width: 30%;
+    width: 200px;
     display: table;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    margin-right: 10px;
 }
 
 .company-div {
     margin-top: 20px;
+}
+
+.b2b-contact-us-button {
+    background-color: rgb(60, 0, 200);
+    border-radius: 10px;
+    color:white;
+    display: flex;
+    margin: auto;
+    padding: 50px;
 }
 
 .form-label {
@@ -647,7 +688,7 @@ div#skinfofade {
 
 .information-text {
     font-family: "QuickSand";
-    font-size: 60px;
+    font-size: 50px;
     margin: auto;
     color: rgba(60,0,200,0.3);
     text-align: left;
@@ -1080,7 +1121,6 @@ div#skinfofade {
     }
 
     .button2x {
-        padding: 20px 10px 20px 10px;   
         width: 120px;
         margin-top: 25px;
     }
