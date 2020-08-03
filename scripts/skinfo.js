@@ -56,7 +56,7 @@ $(document).ready(function () {
         menu.classList.toggle('change');
         main.classList.toggle('main-menu-change');
         if (menu.classList.contains('change')) {
-            expaned.style.display = 'block';
+            expaned.style.display = 'grid';
         } else {
             expaned.style.display = 'none';
         }
