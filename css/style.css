@@ -322,6 +322,10 @@ div#skinfofade {
     color: rgba(60, 0, 200,1);
 }
 
+a:hover {
+    text-decoration: none !important;
+}
+
 .business-contact {
     margin-right: 10px;
     margin-left: 10px;
