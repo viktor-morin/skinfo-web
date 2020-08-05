@@ -199,21 +199,21 @@ div#skinfofade {
 
 .first-info-button-space {
     margin-top: 120px;
+    padding-left: 20%;
 }
 
 .business-info-button-space {
     margin-top: 60px;
 }
 
-.business-main-buttons-div {
-    display: flex;
-    position: relative;
+.business-main-button-div {
+    padding-left: 20%;
 }
 
 .business-main-screenshots-div {
     margin: auto; 
     display: flex; 
-    background-color: rgb(235, 235, 235, 0.3); 
+    background-color: rgb(235, 235, 235, 0.5); 
     padding-top: 50px; 
     padding-bottom: 50px;
 }
@@ -398,7 +398,6 @@ div#skinfofade {
     display: grid;
     text-align: center;
     float: left;
-    padding-left: 10%;
 }
 
 .text-sub-header {
@@ -424,6 +423,8 @@ div#skinfofade {
     color:rgb(60, 0, 200);
     padding: 15px 15px 10px 15px;   
     border-radius: 36px;
+    box-sizing: unset;
+    -webkit-box-sizing: unset;
 }
 
 .button2x {
@@ -436,7 +437,6 @@ div#skinfofade {
     border-radius: 36px;
     margin-top: 20px;
     width: 175px;
-    margin:auto;
 }
 
 .button:hover {
@@ -772,7 +772,7 @@ a:hover {
     display: table;
     border-radius: 10px;
     padding: 20px;
-    background-color: rgb(235, 235, 235, 0.3);
+    background-color: rgb(235, 235, 235, 0.5);
     margin-right: 10px;
 }
 
@@ -1158,6 +1158,10 @@ a:hover {
         padding-left: 12%;
     }
 
+    .business-main-button-div {
+        padding-left: 10%;;
+    }
+
     .right-text {
         width: 40%;
         padding-left: 5%;
@@ -1456,6 +1460,19 @@ a:hover {
         min-height: 78px;
     }
 
+    .first-info-button-space {
+        padding-left: unset;
+    }
+
+    .business-main-button-div {
+        display: flex;
+        padding-left: 10%;
+    }
+
+    .button-div {
+        padding-left: unset;
+    }
+
     .information-text {
         font-size: 40px;
     }
@@ -1548,6 +1565,11 @@ a:hover {
 @media only screen and (max-width : 640px) {      
     .card {
         float: unset;
+    }
+    
+    .business-main-button-div {
+        position: relative;
+        bottom: -70px;
     }
 
     .background-image {
