@@ -206,12 +206,8 @@ div#skinfofade {
 }
 
 .business-main-buttons-div {
-    margin: auto; 
-    display: block; 
     display: flex;
-    padding-top: 40px; 
-    padding-bottom: 50px;
-    padding-left: 20%;
+    position: relative;
 }
 
 .business-main-screenshots-div {
@@ -236,7 +232,7 @@ div#skinfofade {
 .business-screenshot-text {
     text-align: center; 
     font-size: 14px; 
-    margin-top: 10px; 
+    margin-top: 5px; 
     color:gray
 }
 
@@ -271,9 +267,8 @@ div#skinfofade {
 .business-keypoints-items {
     margin: auto; 
     margin-top: 25px; 
-    display: inline-flex; 
-    padding-left: 20%; 
-    padding-right: 20%;
+    display: flex;
+    width: max-content;
 }
 
 .business-see-us-live-header {
@@ -324,6 +319,10 @@ div#skinfofade {
     font-size: 16px
 }
 
+.business-carousel-person {
+    margin: auto;
+}
+
 .business-carousel-person-text {
     color: black; 
     margin-top: 10px; 
@@ -336,11 +335,25 @@ div#skinfofade {
     font-size: 16px;
 }
 
+.business-contact-us-main-div {
+    display: flex; 
+    width: max-content;
+}
+
+.business-carousel-image {
+    border-radius: 100px;
+    width: 150px;
+}
+
 .business-contact-form-div {
     margin: auto; 
     display: flex; 
     padding-top: 50px;
     padding-bottom: 50px; 
+}
+
+.business-form-checkbox-label {
+    margin-right: 5px;
 }
 
 .business-contact-form-send-button-div {
@@ -384,6 +397,8 @@ div#skinfofade {
 .button-div {
     display: grid;
     text-align: center;
+    float: left;
+    padding-left: 10%;
 }
 
 .text-sub-header {
@@ -771,6 +786,7 @@ a:hover {
 }
 
 .form-label {
+    text-align: left;
     float:left;
     margin-top: 10px;
     font-size: 16px;
@@ -1268,7 +1284,6 @@ a:hover {
 }
 
 @media only screen and (max-width : 1200px) {   
-    
     .business-image {
         display: block;
         float: unset;
@@ -1307,6 +1322,70 @@ a:hover {
 
     .information-header-main-white {
         left: 26%;
+    }
+
+    .business-carousel-div {
+        width: 75%;
+        margin: auto;
+    }
+
+    .business-carousel-person-text {
+        margin-top: 2px !important;
+    }
+
+    .carousel-control {
+        top: 95px !important;
+    }
+
+    .slide {
+        min-height: 198px !important;
+    }
+
+    .business-carousel-image {
+        width: 120px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .business-carousel-text {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width : 1100px) {
+    .business-carousel-image {
+        display: none;
+    }
+
+    .carousel-inner {
+        min-height: 230px !important;
+    }
+
+    .business-carousel-div {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width : 1000px) {   
+    .business-main-screenshots-div {
+        display: grid;
+        padding-top: 30px;
+    }
+
+    .business-screenshot-div {
+        width: 100%;
+    }
+
+    .business-screenshot-header-text {
+        margin-top: 20px;
+    }
+
+    .business-keypoints-items {
+        margin: auto; 
+        margin-top: 25px; 
+        display: block;
+        width: max-content;
     }
     
 }
@@ -1347,6 +1426,28 @@ a:hover {
         padding-bottom: 30px;
         border-bottom: solid 1px lightgray;
     }
+
+    .business-carousel-div {
+        display: contents;
+    }
+    
+    .carousel-control {
+        top: 120px !important;
+    }
+
+    .business-carousel-text {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .slide {
+        padding-bottom: 20px;
+        min-height: 255px !important;
+    }
+
+    .carousel-inner {
+        min-height: 300px !important;
+    }
 }
 
 @media only screen and (max-width : 800px) {   
@@ -1382,6 +1483,23 @@ a:hover {
         padding-top: 10%;
         padding-bottom: 10%;
     }
+
+    .button-div {
+        float: unset;
+    }
+
+    .business-contact-us-main-div {
+        display: block;
+        text-align: center;
+    }
+
+    .business-contact-form-div {
+        padding-bottom: 20px;
+    }
+
+    .business-contact-or {
+        padding-bottom: 20px;
+    }
     
 }
 
@@ -1408,17 +1526,6 @@ a:hover {
     .cookieinfo-close {
         margin-top: 10px;
     } 
-
-    .form-label {
-        margin-right: 15px;
-        font-size: 15px;
-    }
-
-    input[type="checkbox"] + label {
-        font-size: 14px;
-        padding: 0.5rem 1.0rem;
-    }
-
     .checkbox-info {
         font-size:14px
     }
@@ -1432,8 +1539,9 @@ a:hover {
         padding: 1rem 3rem;
     }
 
-    .form-input {
-        width: 90%;
+    .business-contact-us-text {
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
 
@@ -1447,6 +1555,7 @@ a:hover {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: bottom;
+        min-height: 540px;
     }
 
     .press-main-div {
@@ -1508,12 +1617,34 @@ a:hover {
     .logotype-text {
         font-size: 20px;
     }
+
+    .business-stats-div {
+        display: block;
+    }
+
+    .carousel-control {
+        top: 140px !important;
+    }
+
+    .carousel-inner {
+        min-height: 330px !important;
+    }
 }
+
+@media only screen and (max-width : 500px) {   
+    .form-input {
+        width: 300px;
+    }
+ }
 
 @media only screen and (max-width : 425px) {      
     .news-row {
         margin-right: unset;
         margin-left: unset;
+    }
+
+    .carousel-control {
+        top: 175px !important;
     }
 
     .thumbnail {
@@ -1538,6 +1669,18 @@ a:hover {
     .information-header-main-white {
         left: 8%;
     }
+
+    .carousel-inner {
+        min-height: 450px !important;
+    }
+
+    .form-input {
+        width: 250px;
+    }
+
+    .business-form-checkbox-label {
+        font-size: 14px !important;
+    }
 }
 
     @media only screen and (max-width : 320px) {          
@@ -1545,6 +1688,10 @@ a:hover {
         margin-top: 55px;
         font-size: 31px;
         min-height: 41px;
+    }
+
+    .carousel-inner {
+        min-height: 500px !important;
     }
 
     .first-info-button-space {
