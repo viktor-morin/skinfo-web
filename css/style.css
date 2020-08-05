@@ -325,7 +325,12 @@ div#skinfofade {
 .business-contact {
     margin-right: 10px;
     margin-left: 10px;
-    width: 150px;
+    background-color: rgb(60, 0, 200);
+    border-radius: 10px;
+    color:white;
+    padding: 30px;
+    font-family: "ChakraPetch";
+    font-size: 16px;
 }
 
 .business-stats-header {
