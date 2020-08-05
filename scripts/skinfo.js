@@ -4,6 +4,16 @@ $(document).ready(function () {
         document.getElementsByClassName('two-split-div')[0].scrollIntoView({ behavior: 'smooth' })
     });
 
+    $('#see_cases').click(function () {
+        document.body.scrollTop = 0;
+        document.getElementById('see_us_live_header').scrollIntoView({ behavior: 'smooth' })
+    });
+
+    $('#get_skinfo').click(function () {
+        document.body.scrollTop = 0;
+        document.getElementById('contact_us_header').scrollIntoView({ behavior: 'smooth' })
+    });
+
     $('#contact').click(function () {
         window.location.href = 'contact.html';
         return false;
