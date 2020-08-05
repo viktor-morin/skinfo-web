@@ -1393,6 +1393,7 @@ a:hover {
 
     .business-screenshot-div {
         width: 100%;
+        margin-left: unset;
     }
 
     .business-screenshot-header-text {
