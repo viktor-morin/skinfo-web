@@ -277,14 +277,13 @@ div#skinfofade {
     font-size: 25px; 
     margin-top: 0; 
     min-height: unset;
-    padding-left: 20%;
+    text-align: center;
     color: rgb(60, 0, 200);
 }
 
 .business-see-us-live-text {
     margin-top: 10px; 
-    padding-left: 20%; 
-    padding-right: 20%;
+    text-align: center;
 }
 
 .business-customer-cases {
