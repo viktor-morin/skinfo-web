@@ -1012,7 +1012,7 @@ a:hover {
 
 .image-left {
     box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
-    height: 500px;
+    height: 420px;
 }
 
 .links {
@@ -1169,7 +1169,7 @@ a:hover {
     }
     
     .image-left {
-        height: 300px;
+        height: 350px;
     }
 
     .app-download-div {
@@ -1302,7 +1302,7 @@ a:hover {
     }
 
     .right-text {
-        width: 80%;
+        width: 35%;
         padding-left: 10%;
         padding-right: 10%;
     }
@@ -1375,6 +1375,21 @@ a:hover {
     .business-main-screenshots-div {
         display: grid;
         padding-top: 30px;
+    }
+
+    .index-split {
+        display: grid;
+    }
+
+    .left-image {
+        width: unset;
+    }
+
+    .right-text {
+        padding-left: 10%;
+        padding-right: 10%;
+        float: unset;
+        width: unset;
     }
 
     .business-screenshot-div {
@@ -1703,6 +1718,11 @@ a:hover {
     .business-form-checkbox-label {
         font-size: 14px !important;
     }
+
+    .right-text {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
 }
 
     @media only screen and (max-width : 320px) {          
@@ -1712,17 +1732,16 @@ a:hover {
         min-height: 41px;
     }
 
+    .information-header-main-white {
+        left: 0%;
+    }
+
     .carousel-inner {
         min-height: 500px !important;
     }
 
     .first-info-button-space {
         margin-top: 90px;
-    }
-
-    .right-text {
-        padding-left: 5%;
-        padding-right: 5%;
     }
 
     .information-header-main-white {
