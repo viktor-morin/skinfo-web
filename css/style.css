@@ -376,20 +376,6 @@ div#skinfofade {
     font-size: 20px;
 }
 
-.right {
-    right: 30px !important;
-}
-
-.left {
-    left: 30px !important;
-}
-
-.carousel-inner {
-    display: table;
-    height: 100%;
-    width: 100%;
-}
-
 .carousel-control {
     margin: -12px;
     top: 50% !important;
