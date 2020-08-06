@@ -297,7 +297,8 @@ div#skinfofade {
     display: grid; 
     text-align: center; 
     height: 200px; 
-    margin-right: 20px; 
+    margin-right: 10px; 
+    margin-left: 10px; 
     border: 1px solid rgb(235, 235, 235, 0.8); 
     border-radius: 10px; 
     padding-left: 10px; 
@@ -373,6 +374,25 @@ div#skinfofade {
     font-family: "ChakraPetch"; 
     font-weight: bold; 
     font-size: 20px;
+}
+
+.right {
+    right: 30px !important;
+}
+
+.left {
+    left: 30px !important;
+}
+
+.carousel-inner {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-control {
+    margin: -12px;
+    top: 50% !important;
 }
 
 .number-of-spots {
