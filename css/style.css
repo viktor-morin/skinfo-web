@@ -544,6 +544,13 @@ a:hover {
     font-size: 35px;
 }
 
+.text-header-undertext {
+    margin-top: 10px; 
+    text-align: center; 
+    padding-left: 20%; 
+    padding-right: 20%;
+}
+
 .primary-div {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -1337,10 +1344,6 @@ a:hover {
         margin-top: 2px !important;
     }
 
-    .carousel-control {
-        top: 95px !important;
-    }
-
     .slide {
         min-height: 198px !important;
     }
@@ -1454,10 +1457,6 @@ a:hover {
         display: contents;
     }
     
-    .carousel-control {
-        top: 140px !important;
-    }
-
     .business-carousel-text {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -1628,6 +1627,11 @@ a:hover {
         float: right;
     }
 
+    .text-header-undertext {
+        padding-left: 10%; 
+        padding-right: 10%;
+    }
+
     .skinfo-menu {
        display: none;
     }
@@ -1666,10 +1670,6 @@ a:hover {
         display: block;
     }
 
-    .carousel-control {
-        top: 140px !important;
-    }
-
     .carousel-inner {
         min-height: 380px !important;
     }
@@ -1700,10 +1700,6 @@ a:hover {
     .news-row {
         margin-right: unset;
         margin-left: unset;
-    }
-
-    .carousel-control {
-        top: 220px !important;
     }
 
     .thumbnail {
@@ -1752,6 +1748,12 @@ a:hover {
     .carousel-inner {
         min-height: 480px !important;
     }
+
+    .text-header-undertext {
+        padding-left: 5%; 
+        padding-right: 5%;
+    }
+    
  }
 
     @media only screen and (max-width : 320px) {          
