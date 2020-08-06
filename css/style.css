@@ -376,6 +376,11 @@ div#skinfofade {
     font-size: 20px;
 }
 
+.contact-main-div {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
 .carousel-control {
     margin: -12px;
     top: 50% !important;
