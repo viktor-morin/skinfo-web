@@ -510,7 +510,7 @@ a:hover {
 
 .business-contact {
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: rgb(60, 0, 200);
     border-radius: 10px;
     color:white;
@@ -1490,6 +1490,10 @@ a:hover {
         min-height: 78px;
     }
 
+    .company-form {
+        margin-right: unset;
+    }
+
     .first-info-button-space {
         padding-left: unset;
     }
@@ -1546,7 +1550,12 @@ a:hover {
 
     .business-contact-or {
         padding-bottom: 20px;
-    }    
+    }   
+    
+    .business-contact {
+        max-width: 178px;
+        margin:auto;
+    }
 }
 
 @media only screen and (max-width : 670px) {     
