@@ -1353,12 +1353,14 @@ a:hover {
 
     .business-carousel-text {
         font-size: 15px;
+        width: 70%;
     }
 }
 
 @media only screen and (max-width : 1100px) {
     .business-carousel-image {
-        display: none;
+        display:block;
+        margin:auto;
     }
 
     .carousel-inner {
@@ -1453,7 +1455,7 @@ a:hover {
     }
     
     .carousel-control {
-        top: 120px !important;
+        top: 140px !important;
     }
 
     .business-carousel-text {
@@ -1467,7 +1469,7 @@ a:hover {
     }
 
     .carousel-inner {
-        min-height: 300px !important;
+        min-height: 355px !important;
     }
 }
 
@@ -1499,7 +1501,7 @@ a:hover {
     }
       
     .text-sub-header {
-        font-size: 20px     ;
+        font-size: 20px;
     }
 
 
@@ -1533,8 +1535,7 @@ a:hover {
 
     .business-contact-or {
         padding-bottom: 20px;
-    }
-    
+    }    
 }
 
 @media only screen and (max-width : 670px) {     
@@ -1576,6 +1577,10 @@ a:hover {
     .business-contact-us-text {
         padding-left: 10%;
         padding-right: 10%;
+    }
+
+    .carousel-inner {
+        min-height: 380px !important;
     }
 }
 
@@ -1666,13 +1671,23 @@ a:hover {
     }
 
     .carousel-inner {
-        min-height: 330px !important;
+        min-height: 380px !important;
     }
 }
+
+@media only screen and (max-width : 540px) {   
+    .carousel-inner {
+        min-height: 420px !important;
+    }
+ }
 
 @media only screen and (max-width : 500px) {   
     .form-input {
         width: 300px;
+    }
+
+    .carousel-inner {
+        min-height: 445px !important;
     }
  }
 
@@ -1683,7 +1698,7 @@ a:hover {
     }
 
     .carousel-control {
-        top: 175px !important;
+        top: 220px !important;
     }
 
     .thumbnail {
@@ -1727,6 +1742,13 @@ a:hover {
     }
 }
 
+
+@media only screen and (max-width : 400px) {   
+    .carousel-inner {
+        min-height: 480px !important;
+    }
+ }
+
     @media only screen and (max-width : 320px) {          
     .information-header-main {
         margin-top: 55px;
@@ -1736,10 +1758,6 @@ a:hover {
 
     .information-header-main-white {
         left: 0%;
-    }
-
-    .carousel-inner {
-        min-height: 500px !important;
     }
 
     .first-info-button-space {
@@ -1752,6 +1770,10 @@ a:hover {
 
     .text-header {
         font-size: 20px;
+    }
+
+    .carousel-inner {
+        min-height: 525px !important;
     }
 
     .sting-co-financed {
