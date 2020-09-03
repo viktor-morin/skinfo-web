@@ -1052,6 +1052,7 @@ a:hover {
     font-size: 18px;
     font-weight: bold;
     color:rgba(60,0,200) !important;
+    max-width: 340px;
 }
 
 .all-rights-reserved {
