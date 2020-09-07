@@ -540,8 +540,10 @@ a:hover {
 }
 
 .business-stats-text {
+    margin: auto;
     margin-top: 10px;
     color: white;
+    max-width: 330px;
 }
 
 .business-reference {
@@ -576,8 +578,8 @@ a:hover {
 }
 
 .secondary-div {
-    padding-top: 5%;
-    padding-bottom: 5%;    
+    padding-top: 30px;
+    padding-bottom: 30px; 
     padding-left: 15%;
     padding-right: 15%;
     background-color: rgb(60, 0, 200);
