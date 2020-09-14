@@ -18,6 +18,7 @@
                 <div class="si-section-header">MINA VAL</div>
                 <div class="si-personal-menu-settings si-unselectable" id="si-settings">&bull;&bull;&bull;</div>
             </div>
+            <div style="margin-top: 12.5px"></div>
             <div class="si-personal-content">INNEHÅLLER</div>
             <div style="margin-top:10px"></div>
             <!-- foreach start -->
@@ -86,9 +87,15 @@
         <div class="si-ingredients-section" id="si-ingredients-section" style="max-height: 310px;">
             <div class="si-split-menu">
                 <div class="si-section-header">INGREDIENSLISTA</div>
-                <div class="si-ingredients-menu si-unselectable">MEST KONCENTRATION<i class="si-arrow si-down"></i>
+                <div class="si-ingredients-menu si-unselectable" id="si-ingredients-menu">MEST KONCENTRATION<i class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>
                 </div>
             </div>
+            <div class="si-ingredients-menu-expanded si-hide" id="si-ingredients-menu-expanded">
+                <div class="si-ingredients-menu-expanded-item">INNEHÅLL</div>
+                <div class="si-ingredients-menu-expanded-item si-selected">MEST KONCENTRATION</div>
+                <div class="si-ingredients-menu-expanded-item">EGENSKAPER (A-Ö)</div>
+            </div>
+            <div style="margin-top:12.5px"></div>
             <!-- foreach start while counter <= 4 -->
             <div class="si-ingredient-item">
                 <div>
@@ -328,7 +335,7 @@
 
     .si-split-menu {
         padding-right: 20px;
-        margin-bottom: 25px;
+        margin-bottom: 12.5px;
         display: flow-root;
     }
 
@@ -527,6 +534,24 @@
         letter-spacing: 0.05em;
         text-transform: uppercase;
         color: #D44055;
+        cursor: pointer;
+    }
+
+    .si-ingredients-menu-expanded {
+        background-color: #F2F2F2;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .si-ingredients-menu-expanded-item {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 140%;
+        color: #070707;
+        text-decoration: underline;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
         cursor: pointer;
     }
 
@@ -763,6 +788,10 @@
         color: #7C7C7C !important;
     }
 
+    .si-selected {
+        color: #D44055;
+    }
+
     .si-unselectable {
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -799,6 +828,7 @@
     .si-up {
         transform: rotate(-135deg);
         -webkit-transform: rotate(-135deg);
+        margin-bottom: 0px !important;
     }
 
     .si-down {
@@ -854,6 +884,21 @@
     document.getElementById('si-settings-back-button').onclick = function () {
         document.getElementById('si-standard-view').classList.remove('si-hide')
         document.getElementById('si-settings-view').classList.add('si-hide')
+    };
+
+    document.getElementById('si-ingredients-menu').onclick = function () {
+        var expandedMenu = document.getElementById('si-ingredients-menu-expanded');
+        var arrow = document.getElementById('si-ingredients-menu-arrow');
+        if (expandedMenu.classList.contains('si-hide')) {
+            expandedMenu.classList.remove('si-hide');
+            arrow.classList.remove('si-down');
+            arrow.classList.add('si-up');
+        } else {
+            expandedMenu.classList.add('si-hide');
+            arrow.classList.add('si-down');
+            arrow.classList.remove('si-up');
+        }
+       
     };
 
     document.getElementById('si-expand-ingrediens').onclick = function () {
