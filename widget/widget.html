@@ -673,6 +673,7 @@
 
     .si-ingredient-my-choise {
         margin-top: 7px;
+        margin-bottom: 5px;
         margin-left: 20px;
         display: flex;
         cursor: pointer;
@@ -887,32 +888,7 @@
     };
 
     document.getElementById('si-ingredients-menu').onclick = function () {
-        var expandedMenu = document.getElementById('si-ingredients-menu-expanded');
-        var arrow = document.getElementById('si-ingredients-menu-arrow');
-        var ingredientsDiv = document.getElementById('si-ingredients-section');
-        var expandedMenyHeight = expandedMenu.offsetHeight;
-        if (expandedMenu.classList.contains('si-hide')) {
-            expandedMenu.classList.remove('si-hide');
-            arrow.classList.remove('si-down');
-            arrow.classList.add('si-up');
-            expandedMenyHeight = expandedMenu.offsetHeight;
-        } else {
-            expandedMenu.classList.add('si-hide');
-            arrow.classList.add('si-down');
-            arrow.classList.remove('si-up');
-        }
-        if (ingredientsDiv.style.maxHeight != null) {
-            var currentHeight = ingredientsDiv.style.maxHeight;
-            currentHeight = currentHeight.replace("px", "");
-            if (expandedMenu.classList.contains('si-hide')) {
-                var newHeight = parseInt(currentHeight) - expandedMenyHeight;
-                ingredientsDiv.style.maxHeight = newHeight + 'px';
-            } else {
-                var newHeight = parseInt(currentHeight) + expandedMenyHeight;
-                ingredientsDiv.style.maxHeight = newHeight + 'px';
-            }
-        }
-
+        toggleMenu();
     };
 
     document.getElementById('si-expand-ingrediens').onclick = function () {
@@ -927,7 +903,15 @@
     var iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
     for (i = 0; i < iterator.length; i++) {
         iterator[i].onclick = function () {
-
+            if (this.classList.contains('si-selected') == false) {
+                var menuItems = document.getElementsByClassName('si-ingredients-menu-expanded-item')
+                for (i = 0; i < menuItems.length; i++) {
+                    menuItems[i].classList.remove('si-selected');
+                }
+                this.classList.add('si-selected');
+                document.getElementById('si-ingredients-menu').innerHTML = this.innerHTML + '<i class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>';
+            }
+            toggleMenu();
         }
     };
 
@@ -978,6 +962,34 @@
     for (i = 0; i < iterator.length; i++) {
         iterator[i].onclick = function () {
             document.getElementById(this.dataset.id).style.display = 'none';
+        }
+    };
+
+    function toggleMenu() {
+        var expandedMenu = document.getElementById('si-ingredients-menu-expanded');
+        var arrow = document.getElementById('si-ingredients-menu-arrow');
+        var ingredientsDiv = document.getElementById('si-ingredients-section');
+        var expandedMenyHeight = expandedMenu.offsetHeight;
+        if (expandedMenu.classList.contains('si-hide')) {
+            expandedMenu.classList.remove('si-hide');
+            arrow.classList.remove('si-down');
+            arrow.classList.add('si-up');
+            expandedMenyHeight = expandedMenu.offsetHeight;
+        } else {
+            expandedMenu.classList.add('si-hide');
+            arrow.classList.add('si-down');
+            arrow.classList.remove('si-up');
+        }
+        if (ingredientsDiv.style.maxHeight != null) {
+            var currentHeight = ingredientsDiv.style.maxHeight;
+            currentHeight = currentHeight.replace("px", "");
+            if (expandedMenu.classList.contains('si-hide')) {
+                var newHeight = parseInt(currentHeight) - expandedMenyHeight;
+                ingredientsDiv.style.maxHeight = newHeight + 'px';
+            } else {
+                var newHeight = parseInt(currentHeight) + expandedMenyHeight;
+                ingredientsDiv.style.maxHeight = newHeight + 'px';
+            }
         }
     };
 </script>
