@@ -16,7 +16,7 @@
         <div class="si-personal-section">
             <div class="si-split-menu">
                 <div class="si-section-header">MINA VAL</div>
-                <div class="si-personal-menu-settings" id="si-settings">&bull;&bull;&bull;</div>
+                <div class="si-personal-menu-settings si-unselectable" id="si-settings">&bull;&bull;&bull;</div>
             </div>
             <div class="si-personal-content">INNEHÅLLER</div>
             <div style="margin-top:10px"></div>
@@ -86,7 +86,7 @@
         <div class="si-ingredients-section" id="si-ingredients-section" style="max-height: 310px;">
             <div class="si-split-menu">
                 <div class="si-section-header">INGREDIENSLISTA</div>
-                <div class="si-ingredients-menu">MEST KONCENTRATION<i class="si-arrow si-down"></i></div>
+                <div class="si-ingredients-menu si-unselectable">MEST KONCENTRATION<i class="si-arrow si-down"></i></div>
             </div>
             <!-- foreach start while counter <= 4 -->
             <div class="si-ingredient-item">
@@ -161,16 +161,16 @@
                 </div>
                 <!-- foreach start -->
                 <div class="si-ingredient-my-choise" data-id="bca34d6b-a5a5-44e9-85c9-74e4804e06dc">
-                    <div class="si-ingredient-my-choise-button">+</div>
-                    <div class="si-ingredient-my-choise-name">Uppmjukande</div>
+                    <div class="si-ingredient-my-choise-button si-unselectable">+</div>
+                    <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
                 </div>
                 <div class="si-ingredient-my-choise" data-id="199a2a38-83ef-4199-b8b1-3a0fedea83b7">
-                    <div class="si-ingredient-my-choise-button">+</div>
-                    <div class="si-ingredient-my-choise-name">Uppmjukande</div>
+                    <div class="si-ingredient-my-choise-button si-unselectable">+</div>
+                    <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
                 </div>
                 <div class="si-ingredient-my-choise" data-id="ae2ee6d3-870b-4590-9732-c680b8784cb9">
-                    <div class="si-ingredient-my-choise-button">+</div>
-                    <div class="si-ingredient-my-choise-name">Uppmjukande</div>
+                    <div class="si-ingredient-my-choise-button si-unselectable">+</div>
+                    <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
                 </div>
                 <!-- foreach stop -->
                 <div style="margin-bottom: 20px;"></div>
@@ -233,7 +233,7 @@
     </div>
     <div class="si-hide si-w3-animate-right" id="si-settings-view">
         <div class="si-settings-section">
-            <div class="si-settings-back-button" id="si-settings-back-button">🠘</div>
+            <div class="si-settings-back-button si-unselectable" id="si-settings-back-button">🠘</div>
             <div class="si-settings-info">
                 <div class="si-settings-info-header">Ändra dina val</div>
                 <div class="si-settings-info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -241,7 +241,21 @@
             </div>
             <!-- foreach start -->
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
-                <div class="si-settings-item-button" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
+                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
+                <div class="si-settings-item-content">
+                    <div class="si-settings-item-header">Sodium Hydroxide</div>
+                    <div class="si-settings-item-text">pH-justerande, Denaturering</div>
+                </div>
+            </div>
+            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
+                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
+                <div class="si-settings-item-content">
+                    <div class="si-settings-item-header">Sodium Hydroxide</div>
+                    <div class="si-settings-item-text">pH-justerande, Denaturering</div>
+                </div>
+            </div>
+            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
+                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Sodium Hydroxide</div>
                     <div class="si-settings-item-text">pH-justerande, Denaturering</div>
@@ -745,6 +759,15 @@
         color: #7C7C7C !important;
     }
 
+    .si-unselectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
     .si-disclaimer {
         font-style: normal;
         font-weight: normal;
@@ -888,5 +911,5 @@
         }
     };
 
-    
+
 </script>
