@@ -87,7 +87,8 @@
         <div class="si-ingredients-section" id="si-ingredients-section" style="max-height: 310px;">
             <div class="si-split-menu">
                 <div class="si-section-header">INGREDIENSLISTA</div>
-                <div class="si-ingredients-menu si-unselectable" id="si-ingredients-menu">MEST KONCENTRATION<i class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>
+                <div class="si-ingredients-menu si-unselectable" id="si-ingredients-menu">MEST KONCENTRATION<i
+                        class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>
                 </div>
             </div>
             <div class="si-ingredients-menu-expanded si-hide" id="si-ingredients-menu-expanded">
@@ -889,16 +890,30 @@
     document.getElementById('si-ingredients-menu').onclick = function () {
         var expandedMenu = document.getElementById('si-ingredients-menu-expanded');
         var arrow = document.getElementById('si-ingredients-menu-arrow');
+        var ingredientsDiv = document.getElementById('si-ingredients-section');
+        var expandedMenyHeight = expandedMenu.offsetHeight;
         if (expandedMenu.classList.contains('si-hide')) {
             expandedMenu.classList.remove('si-hide');
             arrow.classList.remove('si-down');
             arrow.classList.add('si-up');
+            expandedMenyHeight = expandedMenu.offsetHeight;
         } else {
             expandedMenu.classList.add('si-hide');
             arrow.classList.add('si-down');
             arrow.classList.remove('si-up');
         }
-       
+        if (ingredientsDiv.style.maxHeight != null) {
+            var currentHeight = ingredientsDiv.style.maxHeight;
+            currentHeight = currentHeight.replace("px", "");
+            if (expandedMenu.classList.contains('si-hide')) {
+                var newHeight = parseInt(currentHeight) - expandedMenyHeight;
+                ingredientsDiv.style.maxHeight = newHeight + 'px';
+            } else {
+                var newHeight = parseInt(currentHeight) + expandedMenyHeight;
+                ingredientsDiv.style.maxHeight = newHeight + 'px';
+            }
+        }
+
     };
 
     document.getElementById('si-expand-ingrediens').onclick = function () {
@@ -907,6 +922,13 @@
             ingredientDiv.style.maxHeight = null;
             document.getElementById('si-expand-ingrediens-hide').style.display = 'none';
             expanded = true;
+        }
+    };
+
+    var iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
+
         }
     };
 
