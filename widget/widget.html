@@ -86,7 +86,8 @@
         <div class="si-ingredients-section" id="si-ingredients-section" style="max-height: 310px;">
             <div class="si-split-menu">
                 <div class="si-section-header">INGREDIENSLISTA</div>
-                <div class="si-ingredients-menu si-unselectable">MEST KONCENTRATION<i class="si-arrow si-down"></i></div>
+                <div class="si-ingredients-menu si-unselectable">MEST KONCENTRATION<i class="si-arrow si-down"></i>
+                </div>
             </div>
             <!-- foreach start while counter <= 4 -->
             <div class="si-ingredient-item">
@@ -240,25 +241,28 @@
                     eiusmod tempor incididunt ut labore.</div>
             </div>
             <!-- foreach start -->
+            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb4">
+                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb4">-
+                </div>
+                <div class="si-settings-item-content">
+                    <div class="si-settings-item-header">Item 1</div>
+                    <div class="si-settings-item-text">pH-justerande</div>
+                </div>
+            </div>
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
-                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
+                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb">-
+                </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Sodium Hydroxide</div>
                     <div class="si-settings-item-text">pH-justerande, Denaturering</div>
                 </div>
             </div>
-            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
-                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
-                <div class="si-settings-item-content">
-                    <div class="si-settings-item-header">Sodium Hydroxide</div>
-                    <div class="si-settings-item-text">pH-justerande, Denaturering</div>
+            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb5">
+                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb5">-
                 </div>
-            </div>
-            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
-                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
                 <div class="si-settings-item-content">
-                    <div class="si-settings-item-header">Sodium Hydroxide</div>
-                    <div class="si-settings-item-text">pH-justerande, Denaturering</div>
+                    <div class="si-settings-item-header">Item 3</div>
+                    <div class="si-settings-item-text">Denaturering</div>
                 </div>
             </div>
             <!-- foreach stop -->
@@ -836,7 +840,7 @@
         animation: si-animateright 0.4s
     }
 </style>
-<script>
+<script crossorigin="anonymous" SameSite="None">
     var expanded = false;
     document.getElementById('si-settings').onclick = function () {
         var standardView = document.getElementById('si-standard-view');
@@ -910,6 +914,4 @@
             document.getElementById(this.dataset.id).style.display = 'none';
         }
     };
-
-
 </script>
