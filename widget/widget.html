@@ -240,8 +240,8 @@
                     eiusmod tempor incididunt ut labore.</div>
             </div>
             <!-- foreach start -->
-            <div class="si-settings-item">
-                <div class="si-settings-item-button">-</div>
+            <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
+                <div class="si-settings-item-button" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-</div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Sodium Hydroxide</div>
                     <div class="si-settings-item-text">pH-justerande, Denaturering</div>
@@ -712,6 +712,8 @@
         text-align: center;
         background-color: #D44055;
         border-radius: 10px;
+        margin-top: 1px;
+        cursor: pointer;
     }
 
     .si-settings-item-content {
@@ -836,9 +838,9 @@
         }
     };
 
-    var ingredients = document.getElementsByClassName('si-ingredient-item-name');
-    for (i = 0; i < ingredients.length; i++) {
-        ingredients[i].onclick = function () {
+    var iterator = document.getElementsByClassName('si-ingredient-item-name');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
             if (expanded == false) {
                 var ingredientDiv = document.getElementById('si-ingredients-section');
                 ingredientDiv.style.maxHeight = null;
@@ -850,17 +852,17 @@
         }
     };
 
-    var ingredientsClose = document.getElementsByClassName('si-ingredient-item-expanded-close');
-    for (i = 0; i < ingredientsClose.length; i++) {
-        ingredientsClose[i].onclick = function () {
+    var iterator = document.getElementsByClassName('si-ingredient-item-expanded-close');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
             document.getElementById(this.dataset.default).style.display = 'grid';
             document.getElementById(this.dataset.expanded).style.display = 'none';
         }
     };
 
-    var ingredientsClose = document.getElementsByClassName('si-ingredient-my-choise');
-    for (i = 0; i < ingredientsClose.length; i++) {
-        ingredientsClose[i].onclick = function () {
+    var iterator = document.getElementsByClassName('si-ingredient-my-choise');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
             switch (this.firstElementChild.innerHTML) {
                 case '+':
                     this.firstElementChild.innerHTML = '-';
@@ -878,4 +880,13 @@
             var id = this.dataset.id;
         }
     };
+
+    var iterator = document.getElementsByClassName('si-settings-item-button');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
+            document.getElementById(this.dataset.id).style.display = 'none';
+        }
+    };
+
+    
 </script>
