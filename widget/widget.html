@@ -336,12 +336,12 @@
                 <div class="si-section-header">INGREDIENSLISTA</div>
                 <div class="si-ingredients-menu si-unselectable" id="si-ingredients-menu">MEST KONCENTRATION<i
                         class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>
+                    <div class="si-ingredients-menu-expanded si-hide" id="si-ingredients-menu-expanded">
+                        <div class="si-ingredients-menu-expanded-item">Innehåll</div>
+                        <div class="si-ingredients-menu-expanded-item si-selected">Mest koncentration</div>
+                        <div class="si-ingredients-menu-expanded-item">Egenskapeper (a-ö)</div>
+                    </div>
                 </div>
-            </div>
-            <div class="si-ingredients-menu-expanded si-hide" id="si-ingredients-menu-expanded">
-                <div class="si-ingredients-menu-expanded-item">INNEHÅLL</div>
-                <div class="si-ingredients-menu-expanded-item si-selected">MEST KONCENTRATION</div>
-                <div class="si-ingredients-menu-expanded-item">EGENSKAPER (A-Ö)</div>
             </div>
             <div style="margin-top:12.5px"></div>
             <!-- foreach start while counter <= 4 -->
@@ -525,8 +525,8 @@
             <!-- foreach start -->
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb4">
                 <div class="si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb4"><svg class="si-add-svg">
-                    <use href="#remove-settings" />
-                </svg>
+                        <use href="#remove-settings" />
+                    </svg>
                 </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Item 1</div>
@@ -535,8 +535,8 @@
             </div>
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
                 <div class="si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3"><svg class="si-add-svg">
-                    <use href="#remove-settings" />
-                </svg>
+                        <use href="#remove-settings" />
+                    </svg>
                 </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Sodium Hydroxide</div>
@@ -545,8 +545,8 @@
             </div>
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb5">
                 <div class="si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb5"><svg class="si-add-svg">
-                    <use href="#remove-settings" />
-                </svg>
+                        <use href="#remove-settings" />
+                    </svg>
                 </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Item 3</div>
@@ -854,15 +854,24 @@
         line-height: 12px;
         text-align: right;
         letter-spacing: 0.05em;
-        text-transform: uppercase;
         color: #D44055;
         cursor: pointer;
+        position: relative;
     }
 
     .si-ingredients-menu-expanded {
-        background-color: #F2F2F2;
+        /* background-color: #F2F2F2; */
+        background-color: white;
         padding-top: 5px;
         padding-bottom: 5px;
+        position: absolute;
+        right: 0px;
+        top: 20px;
+        z-index: 1000;
+        display: block;
+        width: 200px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .si-ingredients-menu-expanded-item {
@@ -870,9 +879,10 @@
         font-size: 12px;
         line-height: 140%;
         color: #070707;
-        text-align: center;
+        text-align: right;
         padding-top: 7.5px;
         padding-bottom: 7.5px;
+        padding-right: 10px;
         cursor: pointer;
     }
 
@@ -1215,9 +1225,8 @@
                     menuItems[i].classList.remove('si-selected');
                 }
                 this.classList.add('si-selected');
-                document.getElementById('si-ingredients-menu').innerHTML = this.innerHTML + '<i class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>';
+                var arrowElement = document.getElementById('si-ingredients-menu').firstChild.nodeValue = this.innerHTML.toLocaleUpperCase();
             }
-            toggleMenu();
         }
     };
 
@@ -1270,27 +1279,26 @@
         var expandedMenu = document.getElementById('si-ingredients-menu-expanded');
         var arrow = document.getElementById('si-ingredients-menu-arrow');
         var ingredientsDiv = document.getElementById('si-ingredients-section');
-        var expandedMenyHeight = expandedMenu.offsetHeight;
+        // var expandedMenyHeight = expandedMenu.offsetHeight;
         if (expandedMenu.classList.contains('si-hide')) {
             expandedMenu.classList.remove('si-hide');
             arrow.classList.remove('si-down');
             arrow.classList.add('si-up');
-            expandedMenyHeight = expandedMenu.offsetHeight;
         } else {
             expandedMenu.classList.add('si-hide');
             arrow.classList.add('si-down');
             arrow.classList.remove('si-up');
         }
-        if (ingredientsDiv.style.maxHeight != null) {
-            var currentHeight = ingredientsDiv.style.maxHeight;
-            currentHeight = currentHeight.replace("px", "");
-            if (expandedMenu.classList.contains('si-hide')) {
-                var newHeight = parseInt(currentHeight) - expandedMenyHeight;
-                ingredientsDiv.style.maxHeight = newHeight + 'px';
-            } else {
-                var newHeight = parseInt(currentHeight) + expandedMenyHeight;
-                ingredientsDiv.style.maxHeight = newHeight + 'px';
-            }
-        }
+        // if (ingredientsDiv.style.maxHeight != null) {
+        //     var currentHeight = ingredientsDiv.style.maxHeight;
+        //     currentHeight = currentHeight.replace("px", "");
+        //     if (expandedMenu.classList.contains('si-hide')) {
+        //         var newHeight = parseInt(currentHeight) - expandedMenyHeight;
+        //         ingredientsDiv.style.maxHeight = newHeight + 'px';
+        //     } else {
+        //         var newHeight = parseInt(currentHeight) + expandedMenyHeight;
+        //         ingredientsDiv.style.maxHeight = newHeight + 'px';
+        //     }
+        // }
     };
 </script>
