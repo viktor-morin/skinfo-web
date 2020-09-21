@@ -45,6 +45,33 @@
     </svg> -->
 
     <svg style="display: none;">
+        <symbol id="add" viewBox="0 0 23 23">
+            <title />
+            <g>
+                <g>
+                    <circle style="fill: #D44055" cx="12" cy="12" r="11" />
+                    <path style="fill:white"
+                        d="M17.06,11H13V6.94a1,1,0,1,0-2,0V11H6.93a1,1,0,0,0,0,2H11v4.06a1,1,0,0,0,2,0V13h4.06a1,1,0,0,0,0-2Z" />
+                    <rect style="fill:none" />
+                </g>
+            </g>
+        </symbol>
+    </svg>
+
+    <svg style="display: none;">
+        <symbol id="remove" viewBox="0 0 23 23">
+            <title />
+            <g>
+                <g>
+                    <circle style="fill:#7C7C7C" cx="12" cy="12.01" r="11" />
+                    <path style="fill:white" d="M17.06,13H6.93a1,1,0,0,1,0-2H17.06a1,1,0,0,1,0,2Z" />
+                    <rect style="fill: none" height="24" width="24" />
+                </g>
+            </g>
+        </symbol>
+    </svg>
+
+    <svg style="display: none;">
         <symbol id="bacteria" viewBox="24 24 48 48" style="fill:#8F8F8F">
             <path
                 d="M49.999 30.075c-10.985 0-19.924 8.938-19.924 19.925s8.938 19.925 19.924 19.925S69.924 60.987 69.924 50s-8.94-19.925-19.925-19.925zm0 36.849c-9.332 0-16.924-7.593-16.924-16.925s7.592-16.926 16.924-16.926c9.333 0 16.925 7.594 16.925 16.926s-7.592 16.925-16.925 16.925zm-9.025-18.523a3.013 3.013 0 01-.083-2.326 3.017 3.017 0 011.586-1.705 1.502 1.502 0 00.74-1.988 1.498 1.498 0 00-1.987-.74 6 6 0 00-3.149 3.387 6.01 6.01 0 00.166 4.622 1.5 1.5 0 102.727-1.25zm17.051-3.147c.965 0 1.938-.274 2.795-.85a1.5 1.5 0 10-1.668-2.493 2.043 2.043 0 01-2.83-.562 1.499 1.499 0 10-2.492 1.669 5.035 5.035 0 004.195 2.236zm.254 10.583a1.499 1.499 0 00-1.707 1.259 3.02 3.02 0 01-1.203 1.994 3.047 3.047 0 01-2.26.559 1.512 1.512 0 00-1.709 1.259 1.5 1.5 0 001.258 1.709c.307.046.613.068.92.068a5.99 5.99 0 003.57-1.18 6.005 6.005 0 002.391-3.96 1.5 1.5 0 00-1.26-1.708zm-15.984 1.148a1.5 1.5 0 00-2.343 1.873l1.461 1.827c.297.371.732.563 1.172.563a1.498 1.498 0 001.17-2.436l-1.46-1.827zm6.528-17.056a1.5 1.5 0 001.01-.391l1.562-1.422a1.5 1.5 0 00-2.017-2.22l-1.564 1.422a1.502 1.502 0 001.009 2.611zm14.716 10.768a1.5 1.5 0 00-1.715-1.249l-2.07.325a1.5 1.5 0 00.465 2.963l2.07-.325a1.499 1.499 0 001.25-1.714zm-18.513-2.909c-1.811 1.812-1.811 4.761.002 6.573s4.762 1.813 6.572 0l.002-.001a4.652 4.652 0 00-.002-6.572 4.658 4.658 0 00-6.574 0zm4.453 4.453a1.648 1.648 0 11-2.33-2.332 1.648 1.648 0 012.33 2.332z" />
@@ -331,8 +358,8 @@
                 <!-- if active -->
                 <div>
                     <div class="si-ingredient-active-img"> <svg class="si-svg-active-ingredienslist-svg">
-                        <use href="#active" />
-                    </svg></div>
+                            <use href="#active" />
+                        </svg></div>
                     <div class="si-ingredient-active-text">AKTIVE ÄMNE (ANTI AKNE)</div>
                 </div>
                 <!-- if active stop -->
@@ -346,8 +373,8 @@
                 <!-- if active start -->
                 <div>
                     <div class="si-ingredient-active-img"> <svg class="si-svg-active-ingredienslist-svg">
-                        <use href="#active" />
-                    </svg></div>
+                            <use href="#active" />
+                        </svg></div>
                     <div class="si-ingredient-active-text">AKTIVE ÄMNE (ANTI AKNE)</div>
                 </div>
                 <!-- if active stop -->
@@ -399,15 +426,21 @@
                 </div>
                 <!-- foreach start -->
                 <div class="si-ingredient-my-choise" data-id="bca34d6b-a5a5-44e9-85c9-74e4804e06dc">
-                    <div class="si-ingredient-my-choise-button si-unselectable">+</div>
+                    <div class="si-ingredient-my-choise-button si-unselectable"><svg class="si-add-svg">
+                            <use href="#add" />
+                        </svg></div>
                     <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
                 </div>
                 <div class="si-ingredient-my-choise" data-id="199a2a38-83ef-4199-b8b1-3a0fedea83b7">
-                    <div class="si-ingredient-my-choise-button si-unselectable">+</div>
+                    <div class="si-ingredient-my-choise-button si-unselectable"><svg class="si-add-svg">
+                            <use href="#add" />
+                        </svg></div>
                     <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
                 </div>
                 <div class="si-ingredient-my-choise" data-id="ae2ee6d3-870b-4590-9732-c680b8784cb9">
-                    <div class="si-ingredient-my-choise-button si-unselectable">+</div>
+                    <div class="si-ingredient-my-choise-button si-unselectable"><svg class="si-add-svg">
+                            <use href="#add" />
+                        </svg></div>
                     <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
                 </div>
                 <!-- foreach stop -->
@@ -496,7 +529,9 @@
             </div>
             <!-- foreach start -->
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb4">
-                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb4">-
+                <div class="si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb4"><svg class="si-add-svg">
+                    <use href="#remove" />
+                </svg>
                 </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Item 1</div>
@@ -504,7 +539,9 @@
                 </div>
             </div>
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">
-                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3">-
+                <div class="si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb3"><svg class="si-add-svg">
+                    <use href="#remove" />
+                </svg>
                 </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Sodium Hydroxide</div>
@@ -512,7 +549,9 @@
                 </div>
             </div>
             <div class="si-settings-item" id="68b4a8b0-2cef-486d-98f5-eb980036cbb5">
-                <div class="si-settings-item-button si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb5">-
+                <div class="si-unselectable" data-id="68b4a8b0-2cef-486d-98f5-eb980036cbb5"><svg class="si-add-svg">
+                    <use href="#remove" />
+                </svg>
                 </div>
                 <div class="si-settings-item-content">
                     <div class="si-settings-item-header">Item 3</div>
@@ -966,16 +1005,14 @@
         cursor: pointer;
     }
 
+    .si-add-svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .si-ingredient-my-choise-button {
-        font-size: 12px;
-        line-height: 140%;
-        color: white;
-        width: 14px;
-        height: 14px;
-        font-weight: 600;
-        text-align: center;
-        background-color: #D44055;
-        border-radius: 10px;
+        width: 16px;
+        height: 16px;
     }
 
     .si-ingredient-my-choise-name {
@@ -1031,20 +1068,11 @@
         margin-right: 20px;
         margin-bottom: 10px;
         display: flex;
+        cursor: pointer;
     }
 
     .si-settings-item-button {
-        font-size: 12px;
-        line-height: 100%;
-        color: white;
-        width: 14px;
-        height: 14px;
-        font-weight: 600;
-        text-align: center;
-        background-color: #D44055;
-        border-radius: 10px;
-        margin-top: 1px;
-        cursor: pointer;
+       
     }
 
     .si-settings-item-content {
@@ -1227,28 +1255,23 @@
     var iterator = document.getElementsByClassName('si-ingredient-my-choise');
     for (i = 0; i < iterator.length; i++) {
         iterator[i].onclick = function () {
-            switch (this.firstElementChild.innerHTML) {
-                case '+':
-                    this.firstElementChild.innerHTML = '-';
-                    this.firstElementChild.classList.add('si-gray-out-button');
-                    this.lastElementChild.classList.add('si-gray-out');
-                    break;
-                case '-':
-                    this.firstElementChild.innerHTML = '+';
-                    this.firstElementChild.classList.remove('si-gray-out-button');
-                    this.lastElementChild.classList.remove('si-gray-out');
-                    break;
-                default:
-                    break;
+            var useElement = this.getElementsByTagName('use')[0];
+            if (useElement.href.baseVal == '#add') {
+                useElement.href.baseVal = '#remove';
+                this.lastElementChild.classList.add('si-gray-out');
+            }
+            else {
+                useElement.href.baseVal = '#add';
+                this.lastElementChild.classList.remove('si-gray-out');
             }
             var id = this.dataset.id;
         }
     };
 
-    var iterator = document.getElementsByClassName('si-settings-item-button');
+    var iterator = document.getElementsByClassName('si-settings-item');
     for (i = 0; i < iterator.length; i++) {
         iterator[i].onclick = function () {
-            document.getElementById(this.dataset.id).style.display = 'none';
+            this.style.display = 'none';
         }
     };
 
