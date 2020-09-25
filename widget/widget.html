@@ -334,21 +334,34 @@
             <!-- foreach start while counter <= 4 -->
             <div class="si-ingredient-item">
                 <div>
-                    <div class="si-ingredient-item-nbr">1.</div>
-                    <div class="si-ingredient-item-name">Aqua</div>
+                    <table class="si-table">
+                        <tr>
+                            <td class="si-ingredient-item-nbr">1.</td>
+                            <td class="si-ingredient-item-name">Aqua</td>
+                            <td class="si-origin-column">
+                                <svg class="si-svg-origin">
+                                    <use href="#plant" />
+                                </svg>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="si-ingredient-item-functions">Hudkonditionerande</div>
             </div>
             <div class="si-ingredient-item">
                 <div>
-                    <div class="si-ingredient-item-nbr">2.</div>
-                    <div class="si-ingredient-item-name">Glycine Soja Oil</div>
-                    <div class="si-ingredient-item-synonym">(Soybean)</div>
-                    <td class="si-origin-column">
-                        <svg class="si-svg-origin">
-                            <use href="#plant" />
-                        </svg>
-                    </td>
+                    <table class="si-table">
+                        <tr>
+                            <td class="si-ingredient-item-nbr">2.</td>
+                            <td class="si-ingredient-item-name">Glycine Soja Oil</td>
+                            <td class="si-ingredient-item-synonym">(Soybean)</td>
+                            <td class="si-origin-column">
+                                <svg class="si-svg-origin">
+                                    <use href="#plant" />
+                                </svg>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <!-- if active start -->
                 <!-- <div>
@@ -364,26 +377,34 @@
             </div>
             <div class="si-ingredient-item">
                 <div>
-                    <div class="si-ingredient-item-nbr">3.</div>
-                    <div class="si-ingredient-item-name">Mica</div>
-                    <td class="si-origin-column">
-                        <svg class="si-svg-origin">
-                            <use href="#mineral" />
-                        </svg>
-                    </td>
+                    <table class="si-table">
+                        <tr>
+                            <td class="si-ingredient-item-nbr">3.</td>
+                            <td class="si-ingredient-item-name">Mica</td>
+                            <td class="si-origin-column">
+                                <svg class="si-svg-origin">
+                                    <use href="#mineral" />
+                                </svg>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="si-ingredient-item-functions">Absorberande, Transperans-reducerande</div>
             </div>
             <div class="si-ingredient-item" id="423242fe-d738-4cd7-9e8d-9731150b1265">
                 <div>
-                    <div class="si-ingredient-item-nbr">4.</div>
-                    <div class="si-ingredient-item-name" data-default="423242fe-d738-4cd7-9e8d-9731150b1265"
-                        data-expanded="9492775f-4391-47f0-b7ed-78de405c492">Glycerin</div>
-                    <td class="si-origin-column">
-                        <svg class="si-svg-origin">
-                            <use href="#synthetic" />
-                        </svg>
-                    </td>
+                    <table class="si-table">
+                        <tr>
+                            <td class="si-ingredient-item-nbr">4.</td>
+                            <td class="si-ingredient-item-name" data-default="423242fe-d738-4cd7-9e8d-9731150b1265"
+                                data-expanded="9492775f-4391-47f0-b7ed-78de405c492">Glycerin</td>
+                            <td class="si-origin-column">
+                                <svg class="si-svg-origin">
+                                    <use href="#synthetic" />
+                                </svg>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="si-ingredient-item-functions">Uppmjukande, Återfuktande</div>
             </div>
@@ -455,14 +476,18 @@
             <div id="expanded-ingrediens" style="display: none;">
                 <div class="si-ingredient-item">
                     <div>
-                        <div class="si-ingredient-item-nbr">5.</div>
-                        <div class="si-ingredient-item-name">Retinol</div>
-                        <div class="si-ingredient-item-synonym">(Vitamin A)</div>
-                        <td class="si-origin-column">
-                            <svg class="si-svg-origin">
-                                <use href="#synthetic" />
-                            </svg>
-                        </td>
+                        <table class="si-table">
+                            <tr>
+                                <td class="si-ingredient-item-nbr">5.</td>
+                                <td class="si-ingredient-item-name">Retinol</td>
+                                <td class="si-ingredient-item-synonym">(Vitamin A)</td>
+                                <td class="si-origin-column">
+                                    <svg class="si-svg-origin">
+                                        <use href="#synthetic" />
+                                    </svg>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <!-- if active -->
                     <div>
@@ -474,13 +499,18 @@
                 </div>
                 <div class="si-ingredient-item">
                     <div>
-                        <div class="si-ingredient-item-nbr">6.</div>
-                        <div class="si-ingredient-item-name">Lactobacillus</div>
-                        <td class="si-origin-column">
-                            <svg class="si-svg-origin">
-                                <use href="#bacteria" />
-                            </svg>
-                        </td>
+                        <table class="si-table">
+                            <tr>
+                                <td class="si-ingredient-item-nbr">6.</td>
+                                <td class="si-ingredient-item-name">Lactobacillus</td>
+                                <td class="si-ingredient-item-synonym">(Vitamin A)</td>
+                                <td class="si-origin-column">
+                                    <svg class="si-svg-origin">
+                                        <use href="#bacteria" />
+                                    </svg>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <!-- if active -->
                     <div>
@@ -911,10 +941,11 @@
         line-height: 140%;
         color: #8F8F8F;
         float: left;
+        padding-right: 0px;
     }
 
     .si-ingredient-item-name {
-        margin-left: 10px;
+        margin-left: 6px;
         float: left;
         font-weight: 600;
         font-size: 14px;
@@ -1156,7 +1187,6 @@
     /* external-markup arrows */
     .si-arrow {
         border: solid #D44055;
-        ;
         border-width: 0 2px 2px 0;
         display: inline-block;
         padding: 2px;
