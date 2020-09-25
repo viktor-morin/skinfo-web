@@ -1291,7 +1291,7 @@
         iterator[i].onclick = function () {
             if (expanded == false) {
                 var ingredientDiv = document.getElementById('si-ingredients-section');
-                ingredientDiv.style.maxHeight = null;
+                document.getElementById('expanded-ingrediens').style.display = 'block';
                 document.getElementById('si-expand-ingrediens-hide').style.display = 'none';
                 expanded = true;
             }
