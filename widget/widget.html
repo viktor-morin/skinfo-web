@@ -356,174 +356,51 @@
                     <div class="si-ingredients-menu si-unselectable" id="si-ingredients-menu">
                         MEST KONCENTRATION<i class="si-arrow si-down" id="si-ingredients-menu-arrow"></i>
                         <div class="si-ingredients-menu-expanded si-hide" id="si-ingredients-menu-expanded">
-                            <div class="si-ingredients-menu-expanded-item">Innehåll</div>
-                            <div class="si-ingredients-menu-expanded-item si-selected">Mest koncentration</div>
-                            <div class="si-ingredients-menu-expanded-item">Egenskaper (a-ö)</div>
+                            <div class="si-ingredients-menu-expanded-item" data-id="si-original-content">Innehåll</div>
+                            <div class="si-ingredients-menu-expanded-item si-selected" data-id="si-most-concentration">
+                                Mest koncentration</div>
+                            <!-- <div class="si-ingredients-menu-expanded-item">Egenskaper (a-ö)</div> -->
                         </div>
                     </div>
                 </div>
                 <div style="margin-top:12.5px"></div>
                 <!-- foreach start while counter <= 4 -->
-                <div class="si-ingredient-item">
-                    <div>
-                        <table class="si-table">
-                            <tr>
-                                <td class="si-ingredient-item-nbr">1.</td>
-                                <td class="si-ingredient-item-name">Aqua</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="si-ingredient-item-functions">Hudkonditionerande</div>
-                </div>
-                <div class="si-ingredient-item">
-                    <div>
-                        <table class="si-table">
-                            <tr>
-                                <td class="si-ingredient-item-nbr">2.</td>
-                                <td class="si-ingredient-item-name">Glycine Soja Oil</td>
-                                <td class="si-ingredient-item-synonym">(Soybean)</td>
-                                <td class="si-origin-column">
-                                    <svg class="si-svg-origin">
-                                        <use href="#PLANT" />
-                                    </svg>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- if active start -->
-                    <!-- <div>
-                    <div class="si-ingredient-active-img">
-                        <svg class="si-svg-active-ingredienslist-svg">
-                            <use href="#active" />
-                        </svg>
-                    </div>
-                    <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
-                </div> -->
-                    <!-- if active stop -->
-                    <div class="si-ingredient-item-functions">Hudkonditionerande, Antioxidant</div>
-                </div>
-                <div class="si-ingredient-item">
-                    <div>
-                        <table class="si-table">
-                            <tr>
-                                <td class="si-ingredient-item-nbr">3.</td>
-                                <td class="si-ingredient-item-name">Mica</td>
-                                <td class="si-origin-column">
-                                    <svg class="si-svg-origin">
-                                        <use href="#MINERAL" />
-                                    </svg>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="si-ingredient-item-functions">Absorberande, Transperans-reducerande</div>
-                </div>
-                <div class="si-ingredient-item" id="423242fe-d738-4cd7-9e8d-9731150b1265">
-                    <div>
-                        <table class="si-table">
-                            <tr>
-                                <td class="si-ingredient-item-nbr">4.</td>
-                                <td class="si-ingredient-item-name" data-default="423242fe-d738-4cd7-9e8d-9731150b1265"
-                                    data-expanded="9492775f-4391-47f0-b7ed-78de405c492">Glycerin</td>
-                                <td class="si-origin-column">
-                                    <svg class="si-svg-origin">
-                                        <use href="#SYNTHETIC" />
-                                    </svg>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="si-ingredient-item-functions">Uppmjukande, Återfuktande</div>
-                </div>
-                <div class="si-ingredient-item-expanded" id="9492775f-4391-47f0-b7ed-78de405c492">
-                    <div class="si-ingredient-item-expand-main">
-                        <div class="si-ingredient-item-expanded-header">4. Glycerin</div>
-                        <div class="si-ingredient-item-expanded-close"
-                            data-default="423242fe-d738-4cd7-9e8d-9731150b1265"
-                            data-expanded="9492775f-4391-47f0-b7ed-78de405c492">✕</div>
-                    </div>
-                    <!-- if active -->
-                    <!-- <div style="display: flex;">
-                    <div class="si-ingredient-active-img">⬡</div>
-                    <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
-                </div> -->
-                    <!-- if active stop -->
-                    <div class="si-ingredient-item-expanded-func-div">
-                        <!-- foreach start -->
-                        <div class="si-ingredient-item-expanded-function">Uppmjukande</div>
-                        <div class="si-ingredient-item-expanded-function-info">
-                            Fungerar smörjande eller mjukgörande på
-                            hudytan
-                        </div>
-                        <!-- foreach stop -->
-                        <!-- foreach start -->
-                        <div class="si-ingredient-item-expanded-function">Återfuktande</div>
-                        <div class="si-ingredient-item-expanded-function-info">
-                            Bibehåller eller ger fukt
-                        </div>
-                        <!-- foreach stop -->
-                    </div>
-                    <div style="display: flex;">
-                        <div class="si-section-header">LÄGG TILL I MINA VAL</div>
-                    </div>
-                    <!-- foreach start -->
-                    <div class="si-ingredient-my-choise" data-id="bca34d6b-a5a5-44e9-85c9-74e4804e06dc">
-                        <div class="si-ingredient-my-choise-button si-unselectable">
-                            <svg class="si-add-svg">
-                                <use href="#add" />
-                            </svg>
-                        </div>
-                        <div class="si-ingredient-my-choise-name si-unselectable">Glycerin</div>
-                    </div>
-                    <div class="si-ingredient-my-choise" data-id="199a2a38-83ef-4199-b8b1-3a0fedea83b7">
-                        <div class="si-ingredient-my-choise-button si-unselectable">
-                            <svg class="si-add-svg">
-                                <use href="#add" />
-                            </svg>
-                        </div>
-                        <div class="si-ingredient-my-choise-name si-unselectable">Återfuktande</div>
-                    </div>
-                    <div class="si-ingredient-my-choise" data-id="ae2ee6d3-870b-4590-9732-c680b8784cb9">
-                        <div class="si-ingredient-my-choise-button si-unselectable">
-                            <svg class="si-add-svg">
-                                <use href="#add" />
-                            </svg>
-                        </div>
-                        <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
-                    </div>
-                    <!-- foreach stop -->
-                    <div style="margin-bottom: 20px;"></div>
-                </div>
-                <!-- foreach stop -->
-                <div id="si-expand-ingrediens-hide">
-                    <div style="margin-bottom: 20px"></div>
-                    <div class="si-ingredient-expand" id="si-expand-ingrediens">Visa alla 10 ingredienser</div>
-                    <div style="margin-bottom: 20px;"></div>
-                </div>
-                <!-- foreach start counter > 4 -->
-                <div id="expanded-ingrediens" style="display: none;">
+                <div id="si-most-concentration">
                     <div class="si-ingredient-item">
                         <div>
                             <table class="si-table">
                                 <tr>
-                                    <td class="si-ingredient-item-nbr">5.</td>
-                                    <td class="si-ingredient-item-name">Retinol</td>
-                                    <td class="si-ingredient-item-synonym">(Vitamin A)</td>
+                                    <td class="si-ingredient-item-nbr">1.</td>
+                                    <td class="si-ingredient-item-name">Aqua</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="si-ingredient-item-functions">Hudkonditionerande</div>
+                    </div>
+                    <div class="si-ingredient-item">
+                        <div>
+                            <table class="si-table">
+                                <tr>
+                                    <td class="si-ingredient-item-nbr">2.</td>
+                                    <td class="si-ingredient-item-name">Glycine Soja Oil</td>
+                                    <td class="si-ingredient-item-synonym">(Soybean)</td>
                                     <td class="si-origin-column">
                                         <svg class="si-svg-origin">
-                                            <use href="#SYNTHETIC" />
+                                            <use href="#PLANT" />
                                         </svg>
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <!-- if active -->
-                        <div>
-                            <div class="si-ingredient-active-img"> <svg class="si-svg-origin">
-                                    <use href="#active" />
-                                </svg></div>
-                            <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
-                        </div>
+                        <!-- if active start -->
+                        <!-- <div>
+                                <div class="si-ingredient-active-img">
+                                    <svg class="si-svg-active-ingredienslist-svg">
+                                        <use href="#active" />
+                                    </svg>
+                                </div>
+                                <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
+                            </div> -->
                         <!-- if active stop -->
                         <div class="si-ingredient-item-functions">Hudkonditionerande, Antioxidant</div>
                     </div>
@@ -531,24 +408,26 @@
                         <div>
                             <table class="si-table">
                                 <tr>
-                                    <td class="si-ingredient-item-nbr">6.</td>
-                                    <td class="si-ingredient-item-name">Lactobacillus</td>
+                                    <td class="si-ingredient-item-nbr">3.</td>
+                                    <td class="si-ingredient-item-name">Mica</td>
                                     <td class="si-origin-column">
                                         <svg class="si-svg-origin">
-                                            <use href="#BACTERIA" />
+                                            <use href="#MINERAL" />
                                         </svg>
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="si-ingredient-item-functions">Hudkonditionerande</div>
+                        <div class="si-ingredient-item-functions">Absorberande, Transperans-reducerande</div>
                     </div>
-                    <div class="si-ingredient-item">
+                    <div class="si-ingredient-item" id="423242fe-d738-4cd7-9e8d-9731150b1265">
                         <div>
                             <table class="si-table">
                                 <tr>
-                                    <td class="si-ingredient-item-nbr">7.</td>
-                                    <td class="si-ingredient-item-name">Benzyl Benzoate</td>
+                                    <td class="si-ingredient-item-nbr">4.</td>
+                                    <td class="si-ingredient-item-name"
+                                        data-default="423242fe-d738-4cd7-9e8d-9731150b1265"
+                                        data-expanded="9492775f-4391-47f0-b7ed-78de405c492">Glycerin</td>
                                     <td class="si-origin-column">
                                         <svg class="si-svg-origin">
                                             <use href="#SYNTHETIC" />
@@ -557,69 +436,202 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="si-ingredient-item-functions">Parfum</div>
+                        <div class="si-ingredient-item-functions">Uppmjukande, Återfuktande</div>
                     </div>
-                    <div class="si-ingredient-item">
-                        <div>
-                            <table class="si-table">
-                                <tr>
-                                    <td class="si-ingredient-item-nbr">8.</td>
-                                    <td class="si-ingredient-item-name">Zinc Pca</td>
-                                    <td class="si-origin-column">
-                                        <svg class="si-svg-origin">
-                                            <use href="#SYNTHETIC" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                            </table>
+                    <div class="si-ingredient-item-expanded" id="9492775f-4391-47f0-b7ed-78de405c492">
+                        <div class="si-ingredient-item-expand-main">
+                            <div class="si-ingredient-item-expanded-header">4. Glycerin</div>
+                            <div class="si-ingredient-item-expanded-close"
+                                data-default="423242fe-d738-4cd7-9e8d-9731150b1265"
+                                data-expanded="9492775f-4391-47f0-b7ed-78de405c492">✕</div>
                         </div>
                         <!-- if active -->
-                        <div>
-                            <div class="si-ingredient-active-img"> <svg class="si-svg-origin">
-                                    <use href="#active" />
-                                </svg></div>
+                        <!-- <div style="display: flex;">
+                            <div class="si-ingredient-active-img">⬡</div>
                             <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
-                        </div>
+                        </div> -->
                         <!-- if active stop -->
-                        <div class="si-ingredient-item-functions">Hudkonditionerande</div>
-                    </div>
-                    <div class="si-ingredient-item">
-                        <div>
-                            <table class="si-table">
-                                <tr>
-                                    <td class="si-ingredient-item-nbr">9.</td>
-                                    <td class="si-ingredient-item-name">Parfum</td>
-                                    <td class="si-origin-column">
-                                        <svg class="si-svg-origin">
-                                            <use href="#SYNTHETIC" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="si-ingredient-item-expanded-func-div">
+                            <!-- foreach start -->
+                            <div class="si-ingredient-item-expanded-function">Uppmjukande</div>
+                            <div class="si-ingredient-item-expanded-function-info">
+                                Fungerar smörjande eller mjukgörande på
+                                hudytan
+                            </div>
+                            <!-- foreach stop -->
+                            <!-- foreach start -->
+                            <div class="si-ingredient-item-expanded-function">Återfuktande</div>
+                            <div class="si-ingredient-item-expanded-function-info">
+                                Bibehåller eller ger fukt
+                            </div>
+                            <!-- foreach stop -->
                         </div>
-                        <div class="si-ingredient-item-functions">Parfum</div>
-                    </div>
-
-                    <!-- if counter >= 10 -->
-
-                    <div class="si-ingredient-item">
-                        <div>
-                            <table class="si-table">
-                                <tr>
-                                    <td class="si-ingredient-item-nbr si-ingredient-item-double-number">10.</td>
-                                    <td class="si-ingredient-item-name">Beeswax</td>
-                                    <td class="si-origin-column">
-                                        <svg class="si-svg-origin">
-                                            <use href="#ANIMAL" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div style="display: flex;">
+                            <div class="si-section-header">LÄGG TILL I MINA VAL</div>
                         </div>
-                        <div class="si-ingredient-item-functions">Hudkonditionerande, Tjockhetsreglerad</div>
+                        <!-- foreach start -->
+                        <div class="si-ingredient-my-choise" data-id="bca34d6b-a5a5-44e9-85c9-74e4804e06dc">
+                            <div class="si-ingredient-my-choise-button si-unselectable">
+                                <svg class="si-add-svg">
+                                    <use href="#add" />
+                                </svg>
+                            </div>
+                            <div class="si-ingredient-my-choise-name si-unselectable">Glycerin</div>
+                        </div>
+                        <div class="si-ingredient-my-choise" data-id="199a2a38-83ef-4199-b8b1-3a0fedea83b7">
+                            <div class="si-ingredient-my-choise-button si-unselectable">
+                                <svg class="si-add-svg">
+                                    <use href="#add" />
+                                </svg>
+                            </div>
+                            <div class="si-ingredient-my-choise-name si-unselectable">Återfuktande</div>
+                        </div>
+                        <div class="si-ingredient-my-choise" data-id="ae2ee6d3-870b-4590-9732-c680b8784cb9">
+                            <div class="si-ingredient-my-choise-button si-unselectable">
+                                <svg class="si-add-svg">
+                                    <use href="#add" />
+                                </svg>
+                            </div>
+                            <div class="si-ingredient-my-choise-name si-unselectable">Uppmjukande</div>
+                        </div>
+                        <!-- foreach stop -->
+                        <div style="margin-bottom: 20px;"></div>
                     </div>
                     <!-- foreach stop -->
-                    <div style="margin-bottom: 20px;"></div>
+                    <div id="si-expand-ingrediens-hide">
+                        <div style="margin-bottom: 20px"></div>
+                        <div class="si-ingredient-expand" id="si-expand-ingrediens">Visa alla 10 ingredienser</div>
+                        <div style="margin-bottom: 20px;"></div>
+                    </div>
+                    <!-- foreach start counter > 4 -->
+                    <div id="expanded-ingrediens" style="display: none;">
+                        <div class="si-ingredient-item">
+                            <div>
+                                <table class="si-table">
+                                    <tr>
+                                        <td class="si-ingredient-item-nbr">5.</td>
+                                        <td class="si-ingredient-item-name">Retinol</td>
+                                        <td class="si-ingredient-item-synonym">(Vitamin A)</td>
+                                        <td class="si-origin-column">
+                                            <svg class="si-svg-origin">
+                                                <use href="#SYNTHETIC" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- if active -->
+                            <div>
+                                <div class="si-ingredient-active-img"> <svg class="si-svg-origin">
+                                        <use href="#active" />
+                                    </svg></div>
+                                <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
+                            </div>
+                            <!-- if active stop -->
+                            <div class="si-ingredient-item-functions">Hudkonditionerande, Antioxidant</div>
+                        </div>
+                        <div class="si-ingredient-item">
+                            <div>
+                                <table class="si-table">
+                                    <tr>
+                                        <td class="si-ingredient-item-nbr">6.</td>
+                                        <td class="si-ingredient-item-name">Lactobacillus</td>
+                                        <td class="si-origin-column">
+                                            <svg class="si-svg-origin">
+                                                <use href="#BACTERIA" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="si-ingredient-item-functions">Hudkonditionerande</div>
+                        </div>
+                        <div class="si-ingredient-item">
+                            <div>
+                                <table class="si-table">
+                                    <tr>
+                                        <td class="si-ingredient-item-nbr">7.</td>
+                                        <td class="si-ingredient-item-name">Benzyl Benzoate</td>
+                                        <td class="si-origin-column">
+                                            <svg class="si-svg-origin">
+                                                <use href="#SYNTHETIC" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="si-ingredient-item-functions">Parfum</div>
+                        </div>
+                        <div class="si-ingredient-item">
+                            <div>
+                                <table class="si-table">
+                                    <tr>
+                                        <td class="si-ingredient-item-nbr">8.</td>
+                                        <td class="si-ingredient-item-name">Zinc Pca</td>
+                                        <td class="si-origin-column">
+                                            <svg class="si-svg-origin">
+                                                <use href="#ANIMAL" />
+                                            </svg>
+                                            <span class="si-svg-spacer">/</span>
+                                            <svg class="si-svg-origin">
+                                                <use href="#SYNTHETIC" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- if active -->
+                            <div>
+                                <div class="si-ingredient-active-img"> <svg class="si-svg-origin">
+                                        <use href="#active" />
+                                    </svg></div>
+                                <div class="si-ingredient-active-text">AKTIVT ÄMNE (ANTI AKNE)</div>
+                            </div>
+                            <!-- if active stop -->
+                            <div class="si-ingredient-item-functions">Hudkonditionerande</div>
+                        </div>
+                        <div class="si-ingredient-item">
+                            <div>
+                                <table class="si-table">
+                                    <tr>
+                                        <td class="si-ingredient-item-nbr">9.</td>
+                                        <td class="si-ingredient-item-name">Parfum</td>
+                                        <td class="si-origin-column">
+                                            <svg class="si-svg-origin">
+                                                <use href="#SYNTHETIC" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="si-ingredient-item-functions">Parfum</div>
+                        </div>
+
+                        <!-- if counter >= 10 -->
+
+                        <div class="si-ingredient-item">
+                            <div>
+                                <table class="si-table">
+                                    <tr>
+                                        <td class="si-ingredient-item-nbr si-ingredient-item-double-number">10.</td>
+                                        <td class="si-ingredient-item-name">Beeswax</td>
+                                        <td class="si-origin-column">
+                                            <svg class="si-svg-origin">
+                                                <use href="#ANIMAL" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="si-ingredient-item-functions">Hudkonditionerande, Tjockhetsreglerad</div>
+                        </div>
+                        <!-- foreach stop -->
+                        <div style="margin-bottom: 20px;"></div>
+                    </div>
+                </div>
+                <div class="si-original-content si-hide" id="si-original-content">
+                    Aqua, Glycine Soja Oil, Mica, Glycerin, Retinol, Lactobacillus, Benzyl Benzoate, Zinc Pca, Parfum,
+                    Beeswax
                 </div>
             </div>
             <!-- foreach stop -->
@@ -822,6 +834,12 @@
         vertical-align: top;
         float: right;
         display: flex;
+    }
+
+    .si-svg-spacer {
+        color: #8F8F8F;
+        float: right;
+        font-size: 18px;
     }
 
     .si-svg-origin {
@@ -1247,6 +1265,17 @@
         margin-left: 5px;
     }
 
+    .si-original-content {
+        float: left;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 140%;
+        color: #070707;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
     .si-settings-section {
         width: 353px;
         border: 1px solid #eeeeee;
@@ -1409,6 +1438,40 @@
         position: relative;
         animation: si-animateright 0.4s
     }
+
+    @keyframes si-animateup {
+        from {
+            bottom: -300px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1
+        }
+    }
+
+    .si-w3-animate-up {
+        position: relative;
+        animation: si-animateup 0.4s
+    }
+
+    @keyframes si-animatedown {
+        from {
+            bottom: 0px;
+            opacity: 1
+        }
+
+        to {
+            bottom: -300px;
+            opacity: 0
+        }
+    }
+
+    .si-w3-animate-down {
+        position: relative;
+        animation: si-animatedown 0.4s
+    }
 </style>
 <script crossorigin="anonymous" SameSite="None">
     var expanded = false;
@@ -1446,8 +1509,11 @@
                 var menuItems = document.getElementsByClassName('si-ingredients-menu-expanded-item')
                 for (i = 0; i < menuItems.length; i++) {
                     menuItems[i].classList.remove('si-selected');
+                    document.getElementById(menuItems[i].dataset.id).classList.add('si-hide');
                 }
                 this.classList.add('si-selected');
+                document.getElementById(this.dataset.id).classList.remove('si-hide');
+                document.getElementById(this.dataset.id).classList.add('si-w3-animate-up');
                 var arrowElement = document.getElementById('si-ingredients-menu').firstChild.nodeValue = this.innerHTML.toLocaleUpperCase();
             }
         }
