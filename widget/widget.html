@@ -194,8 +194,9 @@
                                 </td>
                                 <td class="si-origin-column">
                                     <svg class="si-svg-origin">
-                                        <use href="#PLANT" />
+                                        <use href="#PLANT" />             
                                     </svg>
+                                    <span class="si-tooltiptext">VÄXT</span>
                                 </td>
                             </tr>
                         </table>
@@ -834,6 +835,26 @@
         vertical-align: top;
         float: right;
         display: flex;
+        position: relative;
+    }
+
+    .si-origin-column .si-tooltiptext {
+        visibility: hidden;
+        background-color: #8F8F8F;
+        color: #fff;
+        text-align: center;
+        padding: 5px 5px 5px 10px;
+        border-radius: 6px; 
+        font-size: 12px;
+        position: absolute;
+        z-index: 1;
+        right: 0px;
+        text-align: left;
+        min-width: 80px;
+    }
+
+    .si-origin-column:hover .si-tooltiptext {
+        visibility: visible;
     }
 
     .si-svg-spacer {
@@ -846,7 +867,7 @@
         float: right;
         width: 15px;
         height: 15px;
-        padding: 2px;
+        padding: 2px; 
     }
 
     .si-svg-active {
@@ -1561,6 +1582,13 @@
     for (i = 0; i < iterator.length; i++) {
         iterator[i].onclick = function () {
             this.style.display = 'none';
+        }
+    };
+
+    var iterator = document.getElementsByClassName('si-svg-origin');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onfocus = function () {
+            this.too
         }
     };
 
