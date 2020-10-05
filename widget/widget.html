@@ -1588,7 +1588,7 @@
     var iterator = document.getElementsByClassName('si-origin-column');
     for (i = 0; i < iterator.length; i++) {
         iterator[i].ontouchstart = function () {
-            var tooltip = this.childNodes[i].querySelector('.si-tooltiptext');
+            var tooltip = this.childNodes.querySelector('.si-tooltiptext');
             tooltip.style.visibility='visible';
             setTimeout(function () {
                 tooltip.style.visibility='hidden';
