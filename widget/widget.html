@@ -194,7 +194,7 @@
                                 </td>
                                 <td class="si-origin-column">
                                     <svg class="si-svg-origin">
-                                        <use href="#PLANT" />             
+                                        <use href="#PLANT" />
                                     </svg>
                                     <span class="si-tooltiptext">VÄXT</span>
                                 </td>
@@ -844,7 +844,7 @@
         color: #fff;
         text-align: center;
         padding: 5px 5px 5px 10px;
-        border-radius: 6px; 
+        border-radius: 6px;
         font-size: 12px;
         position: absolute;
         z-index: 1;
@@ -853,7 +853,7 @@
         min-width: 80px;
     }
 
-    .si-origin-column:hover .si-tooltiptext, .si-origin-column:active .si-tooltiptext {
+    .si-origin-column:hover .si-tooltiptext {
         visibility: visible;
     }
 
@@ -867,7 +867,7 @@
         float: right;
         width: 15px;
         height: 15px;
-        padding: 2px; 
+        padding: 2px;
     }
 
     .si-svg-active {
@@ -1520,7 +1520,7 @@
             document.getElementById('si-expand-ingrediens-hide').style.display = 'none';
             document.getElementById('expanded-ingrediens').style.display = 'block';
             expanded = true;
-        }
+        };
     };
 
     var iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
@@ -1537,7 +1537,7 @@
                 document.getElementById(this.dataset.id).classList.add('si-w3-animate-up');
                 var arrowElement = document.getElementById('si-ingredients-menu').firstChild.nodeValue = this.innerHTML.toLocaleUpperCase();
             }
-        }
+        };
     };
 
     var iterator = document.getElementsByClassName('si-ingredient-item-name');
@@ -1551,7 +1551,7 @@
             }
             document.getElementById(this.dataset.default).style.display = 'none';
             document.getElementById(this.dataset.expanded).style.display = 'grid';
-        }
+        };
     };
 
     var iterator = document.getElementsByClassName('si-ingredient-item-expanded-close');
@@ -1559,7 +1559,7 @@
         iterator[i].onclick = function () {
             document.getElementById(this.dataset.default).style.display = 'grid';
             document.getElementById(this.dataset.expanded).style.display = 'none';
-        }
+        };
     };
 
     var iterator = document.getElementsByClassName('si-ingredient-my-choise');
@@ -1575,21 +1575,25 @@
                 this.lastElementChild.classList.remove('si-gray-out');
             }
             var id = this.dataset.id;
-        }
+        };
     };
 
     var iterator = document.getElementsByClassName('si-settings-item');
     for (i = 0; i < iterator.length; i++) {
         iterator[i].onclick = function () {
             this.style.display = 'none';
-        }
+        };
     };
 
-    var iterator = document.getElementsByClassName('si-svg-origin');
+    var iterator = document.getElementsByClassName('si-origin-column');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onfocus = function () {
-            this.too
-        }
+        iterator[i].ontouchstart = function () {
+            var tooltip = this.childNodes[i].querySelector('.si-tooltiptext');
+            tooltip.style.visibility='visible';
+            setTimeout(function () {
+                tooltip.style.visibility='hidden';
+            }, 1500);
+        };
     };
 
     function toggleMenu() {
