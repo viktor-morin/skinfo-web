@@ -342,8 +342,13 @@
                             </td>
                             <td class="si-active-origin-img">
                                 <svg class="si-svg-origin">
+                                    <use href="#ANIMAL" />
+                                </svg>
+                                <span class="si-svg-spacer">/</span>
+                                <svg class="si-svg-origin">
                                     <use href="#SYNTHETIC" />
                                 </svg>
+                                <span class="si-tooltiptext">Animalisk/Syntetisk</span>
                             </td>
                         </tr>
                     </table>
@@ -632,7 +637,7 @@
                     </div>
                 </div>
                 <div class="si-original-content si-hide" id="si-original-content">
-                    Aqua, Glycine Soja Oil, Mica, Glycerin, Retinol, Lactobacillus, Benzyl Benzoate, Zinc Pca, Parfum,
+                    Aqua, Glycine Soja Oil, Mica, Glycerin, Retinol, Lactobacillus, Benzyl Benzoate, Parfum,
                     Beeswax
                 </div>
             </div>
@@ -837,6 +842,23 @@
         float: right;
         display: flex;
         position: relative;
+    }
+    
+    .si-active-origin-img .si-tooltiptext {
+        visibility: hidden;
+        color: #8F8F8F;
+        text-align: center;
+        padding: 5px 35px 5px 10px;
+        background-color: #ffffff;
+        border-radius: 6px;
+        font-size: 12px;
+        position: absolute;
+        z-index: 1;
+        right: -5px;
+        top: -2px;
+        border: 1px solid #8F8F8F;
+        text-align: left;
+        min-width: 50px;
     }
 
     .si-origin-column .si-tooltiptext {
@@ -1592,9 +1614,20 @@
     for (i = 0; i < iterator.length; i++) {
         iterator[i].ontouchstart = function () {
             var tooltip = this.querySelector('.si-tooltiptext');
-            tooltip.style.visibility='visible';
+            tooltip.style.visibility = 'visible';
             setTimeout(function () {
-                tooltip.style.visibility='hidden';
+                tooltip.style.visibility = 'hidden';
+            }, 1500);
+        };
+    };
+
+    var iterator = document.getElementsByClassName('si-active-origin-img');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].ontouchstart = function () {
+            var tooltip = this.querySelector('.si-tooltiptext');
+            tooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                tooltip.style.visibility = 'hidden';
             }, 1500);
         };
     };
