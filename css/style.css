@@ -238,11 +238,13 @@ div#skinfofade {
 }
 
 .business-screenshot-image {
-    width: 300px; 
+    width: 370px; 
     display: block;
     margin: auto;
     margin-top: 10px; 
     border-radius: 10px;
+    background-color: white;
+    height: 600px; 
 }
 
 .business-stats-header {
