@@ -5110,11 +5110,18 @@
 
     iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onclick = function (e) {
-            e.stopPropagation();
-            var url = 'https://www.skinfo.se/widget';
-            var redirectWindow = window.open(url, '_blank');
-            redirectWindow.location;
+        iterator[i].onclick = function () {
+            if (this.classList.contains('si-selected') == false) {
+                var menuItems = document.getElementsByClassName('si-ingredients-menu-expanded-item')
+                for (i = 0; i < menuItems.length; i++) {
+                    menuItems[i].classList.remove('si-selected');
+                    document.getElementById(menuItems[i].dataset.id).classList.add('si-hide');
+                }
+                this.classList.add('si-selected');
+                document.getElementById(this.dataset.id).classList.remove('si-hide');
+                document.getElementById(this.dataset.id).classList.add('si-w3-animate-up');
+                document.getElementById('si-ingredients-menu').firstChild.nodeValue = this.innerHTML.toLocaleUpperCase();
+            }
         }
     };
 
