@@ -5140,13 +5140,13 @@
 
     iterator = document.getElementsByClassName('si-ingredient-my-choise');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onclick = function (e) { }
-        e.stopPropagation();
-        var url = 'https://www.skinfo.se/widget';
-        var redirectWindow = window.open(url, '_blank');
-        redirectWindow.location;
+        iterator[i].onclick = function (e) { 
+            e.stopPropagation();
+            var url = 'https://www.skinfo.se/widget';
+            var redirectWindow = window.open(url, '_blank');
+            redirectWindow.location;
+        }
     }
-        };
 
     iterator = document.getElementsByClassName('si-origin-column');
     for (i = 0; i < iterator.length; i++) {
