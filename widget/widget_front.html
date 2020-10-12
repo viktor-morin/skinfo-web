@@ -5073,14 +5073,14 @@
     function handleSettings() {
     }
 
-    document.getElementById('si-settings').onclick = function () {
+    document.getElementById('si-settings').onclick = function (e) {
         e.stopPropagation();
         var url = 'https://www.skinfo.se/widget';
         var redirectWindow = window.open(url, '_blank');
         redirectWindow.location;
     };
 
-    document.getElementById('si-settings-back-button').onclick = function () {
+    document.getElementById('si-settings-back-button').onclick = function (e) {
         e.stopPropagation();
         var url = 'https://www.skinfo.se/widget';
         var redirectWindow = window.open(url, '_blank');
@@ -5091,7 +5091,7 @@
         toggleMenu();
     };
 
-    document.getElementById('si-expand-ingrediens').onclick = function () {
+    document.getElementById('si-expand-ingrediens').onclick = function (e) {
         e.stopPropagation();
         var url = 'https://www.skinfo.se/widget';
         var redirectWindow = window.open(url, '_blank');
@@ -5100,7 +5100,7 @@
 
     var iterator = document.getElementsByClassName('si-active-item-name');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onclick = function () {
+        iterator[i].onclick = function (e) {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
@@ -5110,7 +5110,7 @@
 
     iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onclick = function () {
+        iterator[i].onclick = function (e) {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
@@ -5120,7 +5120,7 @@
 
     iterator = document.getElementsByClassName('si-ingredient-item-name');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onclick = function () {
+        iterator[i].onclick = function (e) {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
@@ -5130,7 +5130,7 @@
 
     iterator = document.getElementsByClassName('si-ingredient-item-expanded-close');
     for (i = 0; i < iterator.length; i++) {
-        iterator[i].onclick = function () {
+        iterator[i].onclick = function (e) {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
