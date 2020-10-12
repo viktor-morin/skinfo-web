@@ -5071,207 +5071,148 @@
     };
 
     function handleSettings() {
-        var parent = document.getElementById('si-personal-section');
-        var settingsItem = {};
-        for (i = 0; i < parent.childNodes.length; i++) {
-            if (parent.childNodes[i].classList == undefined) {
-                continue;
-            }
+    }
 
-            if (parent.childNodes[i].classList.contains('si-personal-content-ingrediens') && !parent.childNodes[i].classList.contains('si-hide')) {
-                var ingredientsId = parent.childNodes[i].id.substring(9);
-                settingsItem[ingredientsId] = ingredientsId;
-            } else if (parent.childNodes[i].classList.contains('si-personal-content-functions') && !parent.childNodes[i].classList.contains('si-hide')) {
-                var functionsId = parent.childNodes[i].id.substring(9);
-                var functionsName = parent.childNodes[i].querySelector('.si-personal-content-functions-name').innerText.split(' (')[0];
-                settingsItem[functionsId] = functionsName;
-            }
-        }
+    document.getElementById('si-settings').onclick = function () {
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    };
 
-        for (const [key, value] of Object.entries(notIncluded)) {
-            settingsItem[key] = value;
-        }
+    document.getElementById('si-settings-back-button').onclick = function () {
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    };
 
-        parent = document.getElementById('settings-parent');
-        parent.innerHTML = '';
-        for (const [key, value] of Object.entries(settingsItem)) {
-            var firstUnderChild = document.createElement('div');
-            firstUnderChild.classList.add('si-unselectable');
+    document.getElementById('si-ingredients-menu').onclick = function () {
+        toggleMenu();
+    };
 
-            var svgChild = document.createElement('svg');
-            svgChild.innerHTML = '<svg class="si-add-svg"><use href="#remove-settings" /></svg>';
-            firstUnderChild.appendChild(svgChild);
+    document.getElementById('si-expand-ingrediens').onclick = function () {
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    };
 
-            var secondUnderChild = document.createElement('div');
-            secondUnderChild.classList.add('si-settings-item-content');
-
-            var secondFirstUnderChild = document.createElement('div');
-            secondFirstUnderChild.classList.add('si-settings-item-header');
-            secondFirstUnderChild.innerText = value;
-            var secondSecondUnderChild = document.createElement('div');
-            secondSecondUnderChild.classList.add('si-settings-item-text');
-            if (key == value) {
-                secondSecondUnderChild.innerText = 'Ingrediens';
-            } else {
-                secondSecondUnderChild.innerText = 'Funktion';
-            }
-            secondUnderChild.appendChild(secondFirstUnderChild);
-            secondUnderChild.appendChild(secondSecondUnderChild);
-
-            var child = document.createElement('div');
-            child.classList.add('si-settings-item');
-            child.id = key;
-            child.appendChild(firstUnderChild);
-            child.appendChild(secondUnderChild);
-
-            child.onclick = function () {
-                e.stopPropagation();
-                var url = 'https://www.skinfo.se/widget';
-                var redirectWindow = window.open(url, '_blank');
-                redirectWindow.location;
-            }
-        }
-
-        document.getElementById('si-settings').onclick = function () {
-            e.stopPropagation();
-            var url = 'https://www.skinfo.se/widget';
-            var redirectWindow = window.open(url, '_blank');
-            redirectWindow.location;
-        };
-
-        document.getElementById('si-settings-back-button').onclick = function () {
-            e.stopPropagation();
-            var url = 'https://www.skinfo.se/widget';
-            var redirectWindow = window.open(url, '_blank');
-            redirectWindow.location;
-        };
-
-        document.getElementById('si-ingredients-menu').onclick = function () {
-            toggleMenu();
-        };
-
-        document.getElementById('si-expand-ingrediens').onclick = function () {
-            e.stopPropagation();
-            var url = 'https://www.skinfo.se/widget';
-            var redirectWindow = window.open(url, '_blank');
-            redirectWindow.location;
-        };
-
-        var iterator = document.getElementsByClassName('si-active-item-name');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].onclick = function () {
-                e.stopPropagation();
-                var url = 'https://www.skinfo.se/widget';
-                var redirectWindow = window.open(url, '_blank');
-                redirectWindow.location;
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].onclick = function () {
-                e.stopPropagation();
-                var url = 'https://www.skinfo.se/widget';
-                var redirectWindow = window.open(url, '_blank');
-                redirectWindow.location;
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-ingredient-item-name');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].onclick = function () {
-                e.stopPropagation();
-                var url = 'https://www.skinfo.se/widget';
-                var redirectWindow = window.open(url, '_blank');
-                redirectWindow.location;
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-ingredient-item-expanded-close');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].onclick = function () {
-                e.stopPropagation();
-                var url = 'https://www.skinfo.se/widget';
-                var redirectWindow = window.open(url, '_blank');
-                redirectWindow.location;
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-ingredient-my-choise');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].onclick = function (e) {}       
-                e.stopPropagation();
-                var url = 'https://www.skinfo.se/widget';
-                var redirectWindow = window.open(url, '_blank');
-                redirectWindow.location;
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-origin-column');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].ontouchstart = function () {
-                var tooltip = this.querySelector('.si-tooltiptext');
-                tooltip.style.visibility = 'visible';
-                setTimeout(function () {
-                    tooltip.style.visibility = 'hidden';
-                }, 1500);
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-active-origin-img');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].ontouchstart = function () {
-                var tooltip = this.querySelector('.si-tooltiptext');
-                tooltip.style.visibility = 'visible';
-                setTimeout(function () {
-                    tooltip.style.visibility = 'hidden';
-                }, 1500);
-            }
-        };
-
-        iterator = document.getElementsByClassName('si-personal-origin-img');
-        for (i = 0; i < iterator.length; i++) {
-            iterator[i].ontouchstart = function () {
-                var tooltip = this.querySelector('.si-tooltiptext');
-                tooltip.style.visibility = 'visible';
-                setTimeout(function () {
-                    tooltip.style.visibility = 'hidden';
-                }, 1500);
-            }
-        };
-
-        document.getElementById('si-logo').onclick = function (e) {
+    var iterator = document.getElementsByClassName('si-active-item-name');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
             redirectWindow.location;
         }
+    };
 
-        document.getElementById('si-terms').onclick = function (e) {
+    iterator = document.getElementsByClassName('si-ingredients-menu-expanded-item');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
             redirectWindow.location;
         }
+    };
 
-        document.getElementById('si-policy').onclick = function (e) {
+    iterator = document.getElementsByClassName('si-ingredient-item-name');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
             e.stopPropagation();
             var url = 'https://www.skinfo.se/widget';
             var redirectWindow = window.open(url, '_blank');
             redirectWindow.location;
         }
+    };
 
-        function skinfolog(eventdata) {
-
+    iterator = document.getElementsByClassName('si-ingredient-item-expanded-close');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
+            e.stopPropagation();
+            var url = 'https://www.skinfo.se/widget';
+            var redirectWindow = window.open(url, '_blank');
+            redirectWindow.location;
         }
+    };
 
-        function skinfosave(data) {
+    iterator = document.getElementsByClassName('si-ingredient-my-choise');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function (e) { }
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    }
+        };
 
+    iterator = document.getElementsByClassName('si-origin-column');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].ontouchstart = function () {
+            var tooltip = this.querySelector('.si-tooltiptext');
+            tooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                tooltip.style.visibility = 'hidden';
+            }, 1500);
         }
+    };
 
-        function skinfolog(eventdata) {
-
+    iterator = document.getElementsByClassName('si-active-origin-img');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].ontouchstart = function () {
+            var tooltip = this.querySelector('.si-tooltiptext');
+            tooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                tooltip.style.visibility = 'hidden';
+            }, 1500);
         }
+    };
 
-        document.getElementById('si-loading').classList.add('si-hide');
+    iterator = document.getElementsByClassName('si-personal-origin-img');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].ontouchstart = function () {
+            var tooltip = this.querySelector('.si-tooltiptext');
+            tooltip.style.visibility = 'visible';
+            setTimeout(function () {
+                tooltip.style.visibility = 'hidden';
+            }, 1500);
+        }
+    };
+
+    document.getElementById('si-logo').onclick = function (e) {
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    }
+
+    document.getElementById('si-terms').onclick = function (e) {
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    }
+
+    document.getElementById('si-policy').onclick = function (e) {
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
+    }
+
+    function skinfolog(eventdata) {
+
+    }
+
+    function skinfosave(data) {
+
+    }
+
+    function skinfolog(eventdata) {
+
+    }
+
+    document.getElementById('si-loading').classList.add('si-hide');
 </script>
