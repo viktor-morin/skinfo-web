@@ -5056,20 +5056,6 @@
     var expanded = false;
     var notIncluded = {};
 
-    function toggleMenu() {
-        var expandedMenu = document.getElementById('si-ingredients-menu-expanded');
-        var arrow = document.getElementById('si-ingredients-menu-arrow');
-        if (expandedMenu.classList.contains('si-hide')) {
-            expandedMenu.classList.remove('si-hide');
-            arrow.classList.remove('si-down');
-            arrow.classList.add('si-up');
-        } else {
-            expandedMenu.classList.add('si-hide');
-            arrow.classList.add('si-down');
-            arrow.classList.remove('si-up');
-        }
-    };
-
     function handleSettings() {
     }
 
@@ -5087,7 +5073,7 @@
         redirectWindow.location;
     };
 
-    document.getElementById('si-ingredients-menu').onclick = function () {
+    document.getElementById('si-ingredients-menu').onclick = function (e) {
         e.stopPropagation();
         var url = 'https://www.skinfo.se/widget';
         var redirectWindow = window.open(url, '_blank');
