@@ -556,6 +556,20 @@ a:hover {
     color: white;
 }
 
+.searchbardiv {
+    display: flex;
+  }
+  
+.searchbar {
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    min-width: 350px;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid rgb(220, 220, 220, 1);
+} 
+
 .text-header {
     margin-top: 30px;
     text-align: center;
