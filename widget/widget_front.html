@@ -5088,7 +5088,10 @@
     };
 
     document.getElementById('si-ingredients-menu').onclick = function () {
-        toggleMenu();
+        e.stopPropagation();
+        var url = 'https://www.skinfo.se/widget';
+        var redirectWindow = window.open(url, '_blank');
+        redirectWindow.location;
     };
 
     document.getElementById('si-expand-ingrediens').onclick = function (e) {
