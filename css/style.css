@@ -575,6 +575,7 @@ a:hover {
     display: grid;
     padding: 10px 15px 10px 15px;
     max-width: 750px;
+    background-color: white;
 } 
 
 .searchbar-suggestions {
