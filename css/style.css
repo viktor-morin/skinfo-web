@@ -72,11 +72,11 @@ input {
     box-shadow: none;
 }  
 
-td {
+/* td {
     padding:2px 55px;
     text-align: start;
     font-size: 20px;
-}
+} */
 
 .arrow-si {
     border: solid black;
