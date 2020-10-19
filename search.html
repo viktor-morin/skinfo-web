@@ -81,12 +81,13 @@
                     </svg>
                 </div>
                 <input id="searchbox" type="text" placeholder="Search any ingredient or paste an ingredient list..."
-                style="width: 80%; padding-left: 10px; float: left; text-decoration: none; border-bottom: none!important; box-shadow: none!important;">
+                    style="width: 80%; padding-left: 10px; float: left; text-decoration: none; border-bottom: none!important; box-shadow: none!important;">
                 </input>
             </div>
             <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
     </div>
-    <div style="margin:auto; color: rgb(60, 0, 200); font-family: ChakraPetch; max-width: 700px; text-align: right;">Try the beta version (Swedish)</div>
+    <div style="margin:auto; color: rgb(60, 0, 200); font-family: ChakraPetch; max-width: 700px; text-align: right;">Try
+        the beta version (Swedish)</div>
     <div class="searchbar-main-div">
         <div style="margin:auto">
             <div c id="data"></div>
@@ -96,6 +97,7 @@
 
 <script>
     var url = 'https://staging.skinfo.se/';
+    var selectCounter = -1;
     $(document).ready(function () {
 
         function getParameterByName(name, url = window.location.href) {
@@ -136,11 +138,40 @@
                     window.location.href = 'search?id=' + parent.firstChild.innerText;
                 }
             }
+
+            else if (key == 'ArrowDown') {
+                var parent = document.getElementById('searchbar-suggestions');
+                if (selectCounter < parent.childNodes.length - 1) {
+                    selectCounter++;
+                }
+                parent.childNodes.forEach(child => {
+                    child.classList.remove('search-selected');
+                });
+                if (selectCounter > -1) {
+                    parent.childNodes[selectCounter].classList.add('search-selected');
+                    $('#searchbox').val(parent.childNodes[selectCounter].innerText);
+                }
+            }
+            else if (key == 'ArrowUp') {
+                var parent = document.getElementById('searchbar-suggestions');
+                var parent = document.getElementById('searchbar-suggestions');
+                if (selectCounter > -1) {
+                    selectCounter--;
+                }
+                parent.childNodes.forEach(child => {
+                    child.classList.remove('search-selected');
+                });
+                if (selectCounter > -1) {
+                    parent.childNodes[selectCounter].classList.add('search-selected');
+                    $('#searchbox').val(parent.childNodes[selectCounter].innerText);
+                }
+            }
         });
 
         $('#searchbox').on('input', function (e) {
             var parent = document.getElementById('searchbar-suggestions');
             var text = $('#searchbox').val();
+            selectCounter = -1;
 
             if (text.length == 0) {
                 parent.innerHTML = '';

@@ -561,6 +561,10 @@ a:hover {
     display: flex;
 }
 
+.search-selected {
+    background-color: rgba(0,0,0,0.1) !important;
+}
+
 .searchbardiv {
     display: flex;
   }
