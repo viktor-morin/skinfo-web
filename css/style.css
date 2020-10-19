@@ -567,13 +567,14 @@ a:hover {
   
 .searchbar {
     border-radius: 10px;
-    margin: auto;
+    width: 100%;
     margin-left: 10px;
     margin-right: 10px;
-    width: 100%;
+    margin: auto;
     border: 1px solid lightgray;
     display: grid;
     padding: 10px 15px 10px 15px;
+    max-width: 750px;
 } 
 
 .searchbar-suggestions {
