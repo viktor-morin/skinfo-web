@@ -82,8 +82,15 @@ $(document).ready(function () {
                 window.location.href = 'search?id=' + text;
             }
             else {
+                
                 var parent = document.getElementById('searchbar-suggestions');
-                window.location.href = 'search?id=' + parent.firstChild.innerText;
+                var result = parent.querySelector(".search-selected");
+                if (result == null) {
+                    window.location.href = 'search?id=' + parent.firstChild.innerText;
+                } else {
+                    window.location.href = 'search?id=' + result.innerText;
+                }
+                
             }
         }
 
