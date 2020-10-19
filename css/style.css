@@ -558,7 +558,7 @@ a:hover {
 
 .searchbar-main-div {
     margin-top: 100px; 
-    display: inherit;
+    display: flex;
 }
 
 .searchbardiv {
@@ -1640,8 +1640,8 @@ a:hover {
         min-width: 700px !important;
     }
 
-    .searchbar-main-div{
-        display: flex !important;
+    .searchbar-main-div {
+        display: inherit !important;
     }
 }
 
