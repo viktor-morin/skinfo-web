@@ -111,11 +111,10 @@
                 url: url + 'search/get?query=' + id,
                 dataType: 'html',
                 complete: function (result) {
-                    $('#data').innerHTML = result;
+                    $('#data').innerHTML = result.responseText;
                 }
             });
         }
-
 
         $('#searchbox').on('keydown', function (e) {
             const key = e.key;
