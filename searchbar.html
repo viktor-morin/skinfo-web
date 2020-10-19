@@ -69,7 +69,7 @@
                             parent.style.display = 'inherit';
                             parent.innerHTML = '';
                             var text = $('#searchbox').val();
-                            if (text.length == 0) {
+                            if (text.length == 0 || text.includes(',')) {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
                                 return;
