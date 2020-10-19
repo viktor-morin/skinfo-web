@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <script src="scripts/skinfo.js"></script>
+    <script src="scripts/search.js"></script>
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
@@ -84,7 +85,8 @@
             Skinfo helps companies become more transparent and consumers <br />
             understand the content of products
         </div> -->
-        <div style="color: rgb(60, 0, 200); margin-top: 40px; margin-bottom: 5px; font-family: ChakraPetch; text-align: center;">
+        <div
+            style="color: rgb(60, 0, 200); margin-top: 40px; margin-bottom: 5px; font-family: ChakraPetch; text-align: center;">
             Behind every ingredient is a scientific story
         </div>
         <div class="searchbardiv">
@@ -103,7 +105,9 @@
                 </div>
                 <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
         </div>
-        <div style="margin:auto; color: rgb(60, 0, 200); font-family: ChakraPetch; max-width: 700px; text-align: right;">Try the beta version (Swedish)</div>
+        <div
+            style="margin:auto; color: rgb(60, 0, 200); font-family: ChakraPetch; max-width: 700px; text-align: right;">
+            Try the beta version (Swedish)</div>
         <div class="first-info-button-space">
             <div class="button-div"><span class="button2x" id="read_more">READ MORE</span></div>
         </div>
@@ -415,102 +419,6 @@
 
             q = 0;
         });
-
-        var url = 'https://staging.skinfo.se/';
-        var selectCounter = -1;
-        $(document).ready(function () {
-
-            $('#searchbox').on('keydown', function (e) {
-            const key = e.key;
-            if (key == 'Enter') {
-                var text = $('#searchbox').val();
-                if (text.length == 0) {
-                    return;
-                }
-
-                if (text.includes(',')) {
-                    window.location.href = 'search?id=' + text;
-                }
-                else {
-                    var parent = document.getElementById('searchbar-suggestions');
-                    window.location.href = 'search?id=' + parent.firstChild.innerText;
-                }
-            }
-
-            else if (key == 'ArrowDown') {
-                var parent = document.getElementById('searchbar-suggestions');
-                if (selectCounter < parent.childNodes.length - 1) {
-                    selectCounter++;
-                }
-                parent.childNodes.forEach(child => {
-                    child.classList.remove('search-selected');
-                });
-                if (selectCounter > -1) {
-                    parent.childNodes[selectCounter].classList.add('search-selected');
-                    $('#searchbox').val(parent.childNodes[selectCounter].innerText);
-                }
-            }
-            else if (key == 'ArrowUp') {
-                var parent = document.getElementById('searchbar-suggestions');
-                var parent = document.getElementById('searchbar-suggestions');
-                if (selectCounter > -1) {
-                    selectCounter--;
-                }
-                parent.childNodes.forEach(child => {
-                    child.classList.remove('search-selected');
-                });
-                if (selectCounter > -1) {
-                    parent.childNodes[selectCounter].classList.add('search-selected');
-                    $('#searchbox').val(parent.childNodes[selectCounter].innerText);
-                }
-            }
-        });
-
-            $('#searchbox').on('input', function (e) {
-                var parent = document.getElementById('searchbar-suggestions');
-                var text = $('#searchbox').val();
-
-                if (text.length == 0) {
-                    parent.innerHTML = '';
-                    parent.style.display = 'none';
-                }
-                else if (text.includes(',')) {
-                    parent.innerHTML = '';
-                    parent.style.display = 'none';
-                }
-                else {
-                    $.ajax({
-                        type: 'GET',
-                        url: url + 'search/suggestion?query=' + text,
-                        contentType: "application/json; charset=utf-8",
-                        complete: function (result) {
-                            if (result.responseJSON.length > 0) {
-                                parent.style.display = 'inherit';
-                                parent.innerHTML = '';
-                                var text = $('#searchbox').val();
-                                if (text.length == 0 || text.includes(',')) {
-                                    parent.innerHTML = '';
-                                    parent.style.display = 'none';
-                                    return;
-                                }
-
-                                result.responseJSON.forEach(element => {
-                                    var child = document.createElement('div');
-                                    child.innerText = element;
-                                    child.classList.add('searchbar-item');
-                                    child.onclick = function () {
-                                        window.location.href = 'search?id=' + element;
-                                    }
-                                    parent.appendChild(child);
-                                });
-                            } else {
-                                parent.style.display = 'none';
-                            }
-                        }
-                    });
-                }
-            });
-        })
 
         $(window).on('DOMContentLoaded load resize scroll', handler);
         runMainHeaderAnimation();
