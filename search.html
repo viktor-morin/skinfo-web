@@ -111,7 +111,7 @@
                 url: url + 'search/get?query=' + id,
                 dataType: 'html',
                 complete: function (result) {
-                    $('#data').innerHTML = result.responseText;
+                    $('#data').html(result.responseText);
                 }
             });
         }
