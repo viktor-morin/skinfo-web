@@ -563,6 +563,7 @@ a:hover {
 
 .search-selected {
     background-color: rgba(0,0,0,0.1) !important;
+    border-radius: 5px;
 }
 
 .searchbardiv {
