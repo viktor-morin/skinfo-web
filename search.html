@@ -88,7 +88,7 @@
     </div>
     <div style="margin-top: 100px; display: flex;">
         <div style="margin:auto">
-            <div id="data"></div>
+            <div c id="data"></div>
         </div>
     </div>
 </body>
@@ -107,7 +107,7 @@
         }
 
         var id = getParameterByName('id');
-        if (id != '') {
+        if (id != null) {
             $.ajax({
                 type: 'GET',
                 url: url + 'search/get?query=' + id,
