@@ -97,7 +97,11 @@ $(document).ready(function () {
             });
             if (selectCounter > -1) {
                 parent.childNodes[selectCounter].classList.add('search-selected');
-                $('#searchbox').val(parent.childNodes[selectCounter].innerText);
+                var searchBox = $('#searchbox');
+                searchBox.val(parent.childNodes[selectCounter].innerText);
+                setTimeout(function () {
+                    searchBox[0].setSelectionRange(-1, -1);
+                }, 1);
             }
         }
         else if (key == 'ArrowUp') {
@@ -111,7 +115,12 @@ $(document).ready(function () {
             });
             if (selectCounter > -1) {
                 parent.childNodes[selectCounter].classList.add('search-selected');
-                $('#searchbox').val(parent.childNodes[selectCounter].innerText);
+                var searchBox = $('#searchbox');
+                searchBox.val(parent.childNodes[selectCounter].innerText);
+                setTimeout(function () {
+                    searchBox[0].setSelectionRange(-1, -1);
+                }, 1);
+
             }
         }
     });
