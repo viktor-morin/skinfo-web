@@ -28,20 +28,7 @@
 <script>
     var url = 'https://staging.skinfo.se/';
     $(document).ready(function () {
-
-        function getParameterByName(name, url = window.location.href) {
-            name = name.replace(/[\[\]]/g, '\\$&');
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-
-        var id = getParameterByName('id');
-        console.log(id);
-
-
+        
         $('#searchbox').on('keydown', function (e) {
             const key = e.key;
             if (key == 'Enter') {
