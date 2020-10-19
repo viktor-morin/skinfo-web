@@ -86,6 +86,9 @@
             </div>
             <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
     </div>
+    <div style="margin-top: 100px;">
+        <div id="data"></div>
+    </div>
 </body>
 
 <script>
@@ -102,7 +105,16 @@
         }
 
         var id = getParameterByName('id');
-        console.log(id);
+        if (id != '') {
+            $.ajax({
+                type: 'GET',
+                url: url + 'search/get?query=' + id,
+                dataType: 'html',
+                complete: function (result) {
+                    $('#data').innerHTML = result;
+                }
+            });
+        }
 
 
         $('#searchbox').on('keydown', function (e) {
