@@ -199,7 +199,7 @@ div#skinfofade {
 
 .first-info-button-space {
     margin-top: 120px;
-    padding-left: 20%;
+    display: flex;
 }
 
 .business-info-button-space {
@@ -572,11 +572,10 @@ a:hover {
   
 .searchbar {
     border-radius: 10px;
-    width: 90%;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 80%;
     margin: auto;
-    border: 1px solid lightgray;
+    margin-top: 15px;
+    border: 1px solid gray;
     display: grid;
     padding: 10px 15px 10px 15px;
     max-width: 670px;
@@ -769,13 +768,22 @@ a:hover {
 .information-header-main{
     margin-top: 100px;
     min-height: 104px;
-    font-size: 80px;
+    font-size: 70px;
     margin-top: 100px;
-    padding-left: 20%;
     font-family: "ChakraPetch";
     font-weight: 600;
-    text-align: left;
+    text-align: center;
     color: rgb(60, 0, 200);
+}
+
+.search-info-header {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    font-family: HelveticaNeue;
+    text-align: center;
+    font-size: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .information-header-main-white{
@@ -1341,7 +1349,8 @@ a:hover {
         margin-left: auto;
         margin-right: auto;
         margin-top: 100px;
-        padding-left: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     .information-text {
@@ -1664,7 +1673,7 @@ a:hover {
     }
     .information-header-main {
         padding-left: 5%;
-        font-size: 41px;
+        font-size: 30px;
         min-height: 51px;
     }
     
@@ -1746,6 +1755,10 @@ a:hover {
         display: block;
         padding-right: 5%;
         float: right;
+    }
+
+    .search-info-header {
+        font-size: 14px;
     }
 
     .text-header-undertext {

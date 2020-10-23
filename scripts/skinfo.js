@@ -1,7 +1,9 @@
 $(document).ready(function () {
-    $('#read_more').click(function () {
-        document.body.scrollTop = 0;
-        document.getElementsByClassName('two-split-div')[0].scrollIntoView({ behavior: 'smooth' })
+    $('#b2b_button').click(function () {
+        window.location.href = 'company.html';
+        return false;
+        // document.body.scrollTop = 0;
+        // document.getElementsByClassName('two-split-div')[0].scrollIntoView({ behavior: 'smooth' })
     });
 
     $('#see_cases').click(function () {
