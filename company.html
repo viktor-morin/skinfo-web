@@ -469,8 +469,9 @@
         }
 
         async function runB2BHeaderAnimation() {
-            var text = 'One widget';
-            var extraFirst = 'all ingredients';
+            var text = 'The ingredient list';
+            var extraFirst = 'invented';
+            var extraEnd = 'reinvented';
 
             var mainTitle = document.getElementById('company1-title');
             if (mainTitle == null) {
@@ -497,9 +498,30 @@
                 await sleep(200);
             }
 
+            for (i = extraFirst.length; i >= 0; i--) {
+                mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
+                await sleep(40);
+            }
+
+            await sleep(250);
+
             var subTitle = document.getElementsByClassName('fademein');
             for (i = 0; i < subTitle.length; i++) {
                 subTitle[i].classList.add('fade');
+            }
+
+            for (i = 0; i < extraEnd.length; i++) {
+                mainTitle.innerHTML += extraEnd[i];
+                await sleep(40);
+            }
+
+            for (i = 0; i < 7; i++) {
+                if (i % 2 == 0) {
+                    mainTitle.innerHTML += '_'
+                } else {
+                    mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
+                }
+                await sleep(200);
             }
         }
         $.ajax
@@ -515,8 +537,11 @@
                 }
             });
 
+            
         runB2BHeaderAnimation();
     });
+
+    
 
     $('#send-button').click(function () {
         $('#company-input').prop('disabled', true);
