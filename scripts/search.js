@@ -1,4 +1,4 @@
-var url = 'https://staging.skinfo.se/';
+var url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 $(document).ready(function () {
 
