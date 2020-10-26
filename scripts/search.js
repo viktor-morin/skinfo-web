@@ -2,51 +2,9 @@ var url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 $(document).ready(function () {
 
-    // function logdata(eventtype, url, filter, platform, os_name, os_version, widget_version, type, show, widget_id, data) {
-    //     var dict = new Object();
-    //     dict['userId'] = getSkinfoId();
-    //     dict['eventType'] = ;
-    //     dict['url'] = url;
-
-    //     dict['platform'] = platform;
-    //     dict['osName'] = os_name;
-    //     dict['osVersion'] = os_version;
-    //     dict['widgetVersion'] = widget_version;
-
-    //     var eventProperties = new Object();
-    //     if (filter) {
-    //         eventProperties['filter'] = filter;
-    //     }
-    //     if (type) {
-    //         eventProperties['type'] = type;
-    //     }
-    //     if (show) {
-    //         eventProperties['show'] = show;
-    //     }
-    //     if (widget_id) {
-    //         eventProperties['widgetId'] = widget_id;
-    //     }
-    //     if (data) {
-    //         eventProperties['data'] = data;
-    //     }
-    //     dict['eventProperties'] = eventProperties;
-
-    //     skinfolog({
-    //         eventtype: 'setting_removed',
-    //         url: window.location.href,
-    //         platform: navigator.platform,
-    //         os_name: navigator.userAgent,
-    //         os_version: navigator.appVersion,
-    //         widget_version: '@Model.WidgetVersion.ToString()',
-    //         widget_id: '@Model.Id',
-    //         data: value,
-    //     });
-
-    //     var json = JSON.stringify(dict);
-    //     var xhttp = new XMLHttpRequest();
-    //     xhttp.open('POST', url + 'log', true);
-    //     xhttp.send(json);
-    // }
+    function skinfolog(eventdata) {
+        document.getElementById('skinfo-log-iframe').contentWindow.postMessage(eventdata, '*');
+    }
 
     function getParameterByName(name, url = window.location.href) {
         name = name.replace(/[\[\]]/g, '\\$&');
@@ -79,6 +37,14 @@ $(document).ready(function () {
             }
 
             if (text.includes(',')) {
+                skinfolog({
+                    eventtype: 'web_search',
+                    url: 'https://www.skinfo.se',
+                    platform: navigator.platform,
+                    os_name: navigator.userAgent,
+                    os_version: navigator.appVersion,
+                    data: text,
+                });
                 window.location.href = 'search?id=' + text;
             }
             else {
@@ -86,8 +52,24 @@ $(document).ready(function () {
                 var parent = document.getElementById('searchbar-suggestions');
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
+                    skinfolog({
+                        eventtype: 'web_search',
+                        url: 'https://www.skinfo.se',
+                        platform: navigator.platform,
+                        os_name: navigator.userAgent,
+                        os_version: navigator.appVersion,
+                        data: parent.firstChild.innerText,
+                    });
                     window.location.href = 'search?id=' + parent.firstChild.innerText;
                 } else {
+                    skinfolog({
+                        eventtype: 'web_search',
+                        url: 'https://www.skinfo.se',
+                        platform: navigator.platform,
+                        os_name: navigator.userAgent,
+                        os_version: navigator.appVersion,
+                        data: result.innerText,
+                    });
                     window.location.href = 'search?id=' + result.innerText;
                 }
                 
