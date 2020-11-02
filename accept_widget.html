@@ -48,8 +48,16 @@
 </head>
 
 <body>
-    <button id='acccept'>Accept</button>>
+    <div style="padding-left: 10%; padding-right: 10%; margin-top: 50px;">
+        <div style="text-align: center;"><b>Personal settings</b></div>
+        <div style="text-align: center">I accept that Skinfo store data as cookie on my device (no personal information
+            is tracked).</div>
+        <div id="accept-widget-settings" style="margin:auto; margin-top: 20px; text-align: center;" class="button2x">
+            Accept</button>
+        </div>
+    </div>
 </body>
+
 </html>
 
 <script>
@@ -74,8 +82,8 @@
         return id;
     }
 
-    document.getElementById('acccept').onclick = function() {
+    document.getElementById('accept-widget-settings').onclick = function () {
         getSkinfoId();
-    }
-    
+        close();
+    }    
 </script>
