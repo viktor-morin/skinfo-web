@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/skinfo.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+
+    <link rel="preload" href="fonts/HelveticaNeue.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/ChakraPetch-Regular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/ChakraPetch-SemiBold.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/ChakraPetch-Bold.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Quicksand-Regular.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Quicksand-SemiBold.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Quicksand-Bold.ttf" as="font" crossorigin="anonymous">
+    <link rel="preload" href="fonts/FiraSans-Regular.ttf" as="font" crossorigin="anonymous">
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-150835481-1', {
+            cookieFlags: 'max-age=7200;secure;samesite=none'
+        });
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+    <title>Skinfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="description"
+        content="The first scalable solution that automatically generate scientific information on ingredients in skincare & cosmetics products. We provide product transparency for consumers and e-commerce actors." />
+    <meta name="keywords"
+        content="information, ingredients, skincare, cosmetics, makeup, skincare app, skincare guide, health hazard, harmful, bad, carcinogenic, endocrine disruption, toxic, irritant, allergic, allergy, effects, health effects, organic, vegan, natural, synthetic, chemical, spf, sun protection factor,information,ingredienser,hudvård,kosmetika,smink,hudvårdsapp,kosmetik,hudvårdsguide,farliga,dåliga,skadliga,cancerframkallande,hormonstörande,giftiga,irriterande,allergiska,allergi,påverkan,hälsoeffekter,organiska,ekologiska,veganska,naturliga,syntetiska,kemiska,spf">
+
+    <meta property="og:site_name" content="Skinfo.se" />
+    <meta property="og:url" content="https://www.skinfo.se/" />
+</head>
+
+<body>
+    <button id='acccept'>Accept</button>>
+</body>
+</html>
+
+<script>
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = 16 * Math.random() | 0; return ('x' == c ? r : r & 3 | 8).toString(16) });
+    }
+
+    function getSkinfoId() {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf('skinfo-id=');
+            if (c_start != -1) {
+                c_start = c_start + 'skinfo-id'.length + 1;
+                c_end = document.cookie.indexOf(';', c_start);
+                if (c_end == -1) {
+                    c_end = document.cookie.length;
+                }
+                return unescape(document.cookie.substring(c_start, c_end));
+            }
+        }
+        var id = uuidv4();
+        document.cookie = 'skinfo-id' + "=" + id + '; SameSite=None; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
+        return id;
+    }
+
+    document.getElementById('acccept').onclick = function() {
+        getSkinfoId();
+    }
+    
+</script>
