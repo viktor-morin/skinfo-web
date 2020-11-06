@@ -642,6 +642,14 @@ a:hover {
     background-color: white;
 }
 
+.try-search {
+    margin: auto;
+    color: rgb(60, 0, 200);
+    font-family: "ChakraPetch";
+    max-width: 700px;
+    text-align: center;
+}
+
 .gray-div {
     padding-top: 25px;
     padding-left: 30%;
@@ -1673,6 +1681,9 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     .text-header-undertext {
         padding-left: 10%;
         padding-right: 10%;
+    }
+    .try-search   {
+        font-size: 14px;
     }
     .skinfo-menu {
         display: none;
