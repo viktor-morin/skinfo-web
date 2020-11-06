@@ -48,7 +48,7 @@ $(document).ready(function () {
                 window.location.href = 'search?id=' + text;
             }
             else {
-                
+
                 var parent = document.getElementById('searchbar-suggestions');
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
@@ -72,7 +72,7 @@ $(document).ready(function () {
                     });
                     window.location.href = 'search?id=' + result.innerText;
                 }
-                
+
             }
         }
 
@@ -94,7 +94,6 @@ $(document).ready(function () {
             }
         }
         else if (key == 'ArrowUp') {
-            var parent = document.getElementById('searchbar-suggestions');
             var parent = document.getElementById('searchbar-suggestions');
             if (selectCounter > -1) {
                 selectCounter--;
@@ -150,6 +149,22 @@ $(document).ready(function () {
                             child.onclick = function () {
                                 window.location.href = 'search?id=' + element;
                             }
+
+                            child.addEventListener("mouseover", function (e) {
+                                var parent = document.getElementById('searchbar-suggestions');
+                                parent.childNodes.forEach(child => {
+                                    child.classList.remove('search-selected');
+                                });
+                                child.classList.add('search-selected');
+                            });
+
+                            child.addEventListener("mouseout", function (e) {
+                                var parent = document.getElementById('searchbar-suggestions');
+                                parent.childNodes.forEach(child => {
+                                    child.classList.remove('search-selected');
+                                });
+                            });
+
                             parent.appendChild(child);
                         });
                     } else {
