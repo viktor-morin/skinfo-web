@@ -565,7 +565,7 @@ a:hover {
     width: 80%;
     margin: auto;
     margin-top: 15px;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     display: grid;
     padding: 10px 15px 10px 15px;
     max-width: 670px;
