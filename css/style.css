@@ -234,6 +234,7 @@ div#skinfofade.fade {
     border-radius: 10px;
     background-color: white;
     height: 515px;
+    border: 1px solid lightgray;
 }
 
 .business-stats-header {
@@ -1728,6 +1729,10 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     }
     input[type="checkbox"]+label {
         padding: 0.5rem 0.6rem;
+    }
+
+    .business-screenshot-image {
+        border: unset;
     }
 }
 
