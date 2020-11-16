@@ -78,13 +78,15 @@ $(document).ready(function () {
         if ($(window).width() >= 600) {
             var menu = document.getElementById('skinfo-menu-mobile');
             var expaned = document.getElementById('skinfo-menu-mobile-expanded');
-            if (menu.classList.contains('change')) {
-                menu.classList.toggle('change');
-                var main = document.getElementById('main-menu');
-                main.classList.toggle('main-menu-change');
-            }
-            if (expaned.style.display == 'block') {
-                expaned.style.display = 'none';
+            if (menu && expanded) {
+                if (menu.classList.contains('change')) {
+                    menu.classList.toggle('change');
+                    var main = document.getElementById('main-menu');
+                    main.classList.toggle('main-menu-change');
+                }
+                if (expaned.style.display == 'block') {
+                    expaned.style.display = 'none';
+                }
             }
         }
     }
