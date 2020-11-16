@@ -447,7 +447,13 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
-        console.log(getParameterByName('tag'));
-
+        var element = document.getElementById(getParameterByName('position'));
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            });
+        }
     });
 </script>
