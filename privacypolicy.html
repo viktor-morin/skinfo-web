@@ -449,11 +449,9 @@
 
         var element = document.getElementById(getParameterByName('position'));
         if (element) {
-            element.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-                inline: "nearest"
-            });
+            const yOffset = -60; 
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({top: y, behavior: 'smooth'});
         }
     });
 </script>
