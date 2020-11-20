@@ -1376,6 +1376,12 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     }
 }
 
+@media only screen and (max-width: 1230px) {
+    .logo-trust {
+        margin-top: 20px;
+    }
+}
+
 @media only screen and (max-width: 1200px) {
     .business-image {
         display: block;
@@ -1552,9 +1558,6 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     }
     .text-sub-header {
         font-size: 20px;
-    }
-    .logo-trust {
-        margin-top: 20px;
     }
     .information-header-main-white {
         left: 30%;
