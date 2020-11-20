@@ -999,7 +999,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 
 .logotypes {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 5%;
     margin-right: 5%;
 }
