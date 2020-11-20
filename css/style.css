@@ -1033,6 +1033,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 .logo-trust {
     margin-left: 15px;
     margin-right: 15px;
+    margin-top: 20px;
     width: 200px;
     vertical-align: middle;
 }
@@ -1373,12 +1374,6 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     }
     .information-header-main-white {
         left: 31%;
-    }
-}
-
-@media only screen and (max-width: 1230px) {
-    .logo-trust {
-        margin-top: 20px;
     }
 }
 
