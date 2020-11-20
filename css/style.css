@@ -314,6 +314,7 @@ div#skinfofade.fade {
 
 .business-carousel-person {
     margin: auto;
+    display: grid;
 }
 
 .business-carousel-person-text {
@@ -336,6 +337,7 @@ div#skinfofade.fade {
 .business-carousel-image {
     border-radius: 100px;
     width: 150px;
+    margin: auto;
 }
 
 .business-contact-form-div {
