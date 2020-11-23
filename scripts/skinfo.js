@@ -78,7 +78,7 @@ $(document).ready(function () {
         if ($(window).width() >= 600) {
             var menu = document.getElementById('skinfo-menu-mobile');
             var expaned = document.getElementById('skinfo-menu-mobile-expanded');
-            if (menu && expanded) {
+            if (menu && expaned) {
                 if (menu.classList.contains('change')) {
                     menu.classList.toggle('change');
                     var main = document.getElementById('main-menu');
