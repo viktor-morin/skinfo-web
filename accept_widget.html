@@ -73,19 +73,19 @@
     </div>
     <div style="padding-left: 5%; padding-right: 5%; margin-top: 75px;">
         <div><b>Personal settings</b></div>
-        <div
-            style="margin-top:10px; padding: 20px; border-radius: 10px;">
-            I accept that Skinfo store a cookie on my device to enable personal settings. 
+        <div style="margin-top:10px; padding: 20px; border-radius: 10px;">
+            I accept that Skinfo store a cookie on my device to enable personal settings.
             <br><br>No identifiable information will
-            be stored.<br><br> You can read more information regarding Skinfo's terms & condition and privacy policy here:<br><br><a href="/privacypolicy"
-            style="font-weight: bold; color:rgb(60, 0, 200)">Terms & Condition <br> Privacy Policy</a></div>
+            be stored.<br><br> You can read more information regarding Skinfo's terms & condition and privacy policy
+            here:<br><br><a href="/privacypolicy" style="font-weight: bold; color:rgb(60, 0, 200)">Terms & Condition
+                <br> Privacy Policy</a></div>
 
         <div id="accept-widget-settings"
-            style="margin:auto; margin-top: 10px; text-align: center; padding: 12px 5px 12px 5px;"
-            class="button2x">
+            style="margin:auto; margin-top: 10px; text-align: center; padding: 12px 5px 12px 5px;" class="button2x">
             Accept</button>
         </div>
-        <div style="text-align: center; font-style: italic; font-size: 12px; margin-top: 8px; color:gray">Click "Accept" to close this page</div>
+        <div style="text-align: center; font-style: italic; font-size: 12px; margin-top: 8px; color:gray">Click "Accept"
+            to close this page</div>
     </div>
 </body>
 
@@ -115,6 +115,10 @@
 
     document.getElementById('accept-widget-settings').onclick = function () {
         getSkinfoId();
-        close();
+        try {
+            window.close();
+        } catch (e) {
+            history.back();
+        }
     }    
 </script>
