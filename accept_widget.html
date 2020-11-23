@@ -115,6 +115,11 @@
 
     document.getElementById('accept-widget-settings').onclick = function () {
         getSkinfoId();
+        var parent = window.opener;
+        var data = {
+            savedSkinfoId : true
+        };
+        parent.postMessage(data, "*");
         try {
             window.close();
         } catch (e) {
