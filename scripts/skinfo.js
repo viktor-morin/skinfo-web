@@ -1,26 +1,4 @@
 $(document).ready(function () {
-    function uuidv4() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = 16 * Math.random() | 0; return ('x' == c ? r : r & 3 | 8).toString(16) });
-    }
-
-    function getSkinfoId() {
-        if (document.cookie.length > 0) {
-            c_start = document.cookie.indexOf('skinfo-id=');
-            if (c_start != -1) {
-                c_start = c_start + 'skinfo-id'.length + 1;
-                c_end = document.cookie.indexOf(';', c_start);
-                if (c_end == -1) {
-                    c_end = document.cookie.length;
-                }
-                return unescape(document.cookie.substring(c_start, c_end));
-            }
-        }
-        var id = uuidv4();
-        document.cookie = 'skinfo-id' + "=" + id + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
-        return id;
-    }
-
-
     $('#b2b_button').click(function () {
         window.location.href = 'company.html';
         return false;
