@@ -1,4 +1,4 @@
-var url = 'https://api.skinfo.se/';
+var url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 $(document).ready(function () {
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
     if (id != null) {
         $.ajax({
             type: 'GET',
-            url: url + 'search2/get?query=' + id,
+            url: url + 'search/get?query=' + id,
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
