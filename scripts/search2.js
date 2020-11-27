@@ -19,7 +19,7 @@ $(document).ready(function () {
     if (id != null) {
         $.ajax({
             type: 'GET',
-            url: url + 'search/get?query=' + id,
+            url: url + 'search2/get?query=' + id,
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
@@ -70,7 +70,7 @@ $(document).ready(function () {
                         os_version: navigator.appVersion,
                         data: result.innerText,
                     });
-                    window.location.href = 'search?id=' + result.innerText;
+                    window.location.href = 'search2?id=' + result.innerText;
                 }
 
             }
@@ -147,7 +147,7 @@ $(document).ready(function () {
                             child.innerText = element;
                             child.classList.add('searchbar-item');
                             child.onclick = function () {
-                                window.location.href = 'search?id=' + element;
+                                window.location.href = 'search2?id=' + element;
                             }
 
                             child.addEventListener("mouseover", function (e) {
