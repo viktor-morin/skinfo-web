@@ -15,14 +15,13 @@
 </html>
 
 
-
 <script>
     isDesktop = function () {
         return typeof window.orientation == 'undefined';
     };
     document.getElementById('button').onclick = function () {
         if (isDesktop() == false) {
-            window.open("https://www.skinfo.se/accept_widget");;
+            window.open('https://www.skinfo.se/accept_widget', '', 'width=500,height=500');;
         }
         else {
             alert('computer');
