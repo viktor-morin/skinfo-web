@@ -39,6 +39,12 @@
 
         if (window.focus) newWindow.focus();
     }
+
+    function popupwindow(url, title, w, h) {
+        var left = (screen.width / 2) - (w / 2);
+        var top = (screen.height / 2) - (h / 2);
+        return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    }
     document.getElementById('button').onclick = function () {
         // if (isDesktop() == false) {
         //     window.open('https://www.skinfo.se/accept_widget', '', 'width=500,height=500');
@@ -48,6 +54,7 @@
         // }
         //window.open('https://www.skinfo.se/accept_widget', '', 'width=500,height=500');
 
-        popupCenter({url: 'https://www.skinfo.se/accept_widget', title: 'xtf', w: 400, h: 600});  
+        //popupCenter({ url: 'https://www.skinfo.se/accept_widget', title: 'xtf', w: 400, h: 600 });
+        popupwindow('https://www.skinfo.se/accept_widget', '', 400, 600);
     }
 </script>
