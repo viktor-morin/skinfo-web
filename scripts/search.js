@@ -192,7 +192,7 @@ $(document).ready(function () {
 
         var json = JSON.stringify(dict);
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "https://api.skinfo.se/search/log", true);
+        xhttp.open("POST", url +"search/log", true);
         xhttp.send(json);
     }
 })
