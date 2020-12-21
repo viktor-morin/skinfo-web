@@ -1738,6 +1738,14 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     .business-screenshot-image {
         border: unset;
     }
+
+    .business-customer-case-link {
+        margin-top: 15px;
+    }
+
+    .business-customer-cases {
+        display: initial;
+    }
 }
 
 @media only screen and (max-width: 425px) {
