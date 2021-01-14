@@ -1746,6 +1746,10 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     .business-customer-cases {
         display: initial;
     }
+
+    .business-customer-cases-additionalrow {
+        margin-top: 0px;
+    }
 }
 
 @media only screen and (max-width: 425px) {
