@@ -209,30 +209,30 @@ $(document).ready(function () {
         }
     }
 
-    function loadSwe() {
+    function loadSwe(caller) {
         document.getElementById('eng').style.webkitFilter = 'grayscale(1)';
         document.getElementById('eng').style.filter = 'grayscale(1)';
         document.getElementById('eng').style.opacity = 0.5;
-        this.style.webkitFilter = '';
-        this.style.opacity = 1;
+        caller.style.webkitFilter = '';
+        caller.style.opacity = 1;
         setLanguage('sv-SE');
     }
 
-    function loadEng() {
+    function loadEng(caller) {
         document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
         document.getElementById('swe').style.filter = 'grayscale(1)';
         document.getElementById('swe').style.opacity = 0.5;
-        this.style.webkitFilter = '';
-        this.style.opacity = 1;
+        caller.style.webkitFilter = '';
+        caller.style.opacity = 1;
         setLanguage('en-US');
     }
 
     document.getElementById('swe').onclick = function () {
-        loadSwe();
+        loadSwe(this);
     }
 
     document.getElementById('eng').onclick = function () {
-        loadEng();
+        loadEng(this);
     }
 
     loadSettings();
