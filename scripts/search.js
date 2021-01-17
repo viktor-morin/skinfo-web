@@ -175,9 +175,9 @@ $(document).ready(function () {
 
     function getLanguage() {
         if (document.cookie.length > 0) {
-            c_start = document.cookie.indexOf('skinfo-language=');
+            c_start = document.cookie.indexOf('_skinfo-language=');
             if (c_start != -1) {
-                c_start = c_start + 'skinfo-language'.length + 1;
+                c_start = c_start + '_skinfo-language'.length + 1;
                 c_end = document.cookie.indexOf(';', c_start);
                 if (c_end == -1) {
                     c_end = document.cookie.length;
@@ -186,12 +186,12 @@ $(document).ready(function () {
             }
         }
         var lang = 'en-US';
-        document.cookie = 'skinfo-language' + "=" + lang + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
+        document.cookie = '_skinfo-language' + "=" + lang + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
         return lang;
     }
 
     function setLanguage(value) {
-        document.cookie = 'skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
+        document.cookie = '_skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
     }
 
     function loadSettings() {
