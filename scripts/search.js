@@ -217,6 +217,7 @@ $(document).ready(function () {
         caller.style.filter = '';
         caller.style.opacity = 1;
         setLanguage('sv-SE');
+        location.reload();
     }
 
     function loadEng(caller) {
@@ -227,6 +228,7 @@ $(document).ready(function () {
         caller.style.filter = '';
         caller.style.opacity = 1;
         setLanguage('en-US');
+        location.reload();
     }
 
     document.getElementById('swe').onclick = function () {
