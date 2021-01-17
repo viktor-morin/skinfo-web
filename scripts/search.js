@@ -14,7 +14,7 @@ $(document).ready(function () {
     if (id != null) {
         $.ajax({
             type: 'GET',
-            url: url + 'search/get?query=' + id,
+            url: url + 'search/get?query=' + id + '&language=' + getLanguage(),
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
@@ -168,7 +168,72 @@ $(document).ready(function () {
 
         var json = JSON.stringify(dict);
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", url +"search/log", true);
+        xhttp.open("POST", url + "search/log", true);
         xhttp.send(json);
     }
+
+    function getLanguage() {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf('skinfo-language=');
+            if (c_start != -1) {
+                c_start = c_start + 'skinfo-language'.length + 1;
+                c_end = document.cookie.indexOf(';', c_start);
+                if (c_end == -1) {
+                    c_end = document.cookie.length;
+                }
+                return unescape(document.cookie.substring(c_start, c_end));
+            }
+        }
+        var lang = 'en-US';
+        document.cookie = 'skinfo-language' + "=" + lang + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
+        return lang;
+    }
+
+    function setLanguage(value) {
+        document.cookie = 'skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 19 Jan 2038 03:14:07 UTC';
+    }
+
+    function loadSettings() {
+        var language = getLanguage();
+        switch (language) {
+            case 'en-US':
+                document.getElementById('searchbox').placeholder = 'Search any ingredient/ingredients..';
+                loadEng();
+                break;
+            case 'sv-SE':
+                document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
+                loadSwe();
+                break;
+            default:
+                break;
+        }
+    }
+
+    function loadSwe() {
+        document.getElementById('eng').style.webkitFilter = 'grayscale(1)';
+        document.getElementById('eng').style.filter = 'grayscale(1)';
+        document.getElementById('eng').style.opacity = 0.5;
+        this.style.webkitFilter = '';
+        this.style.opacity = 1;
+        setLanguage('sv-SE');
+    }
+
+    function loadEng() {
+        document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
+        document.getElementById('swe').style.filter = 'grayscale(1)';
+        document.getElementById('swe').style.opacity = 0.5;
+        this.style.webkitFilter = '';
+        this.style.opacity = 1;
+        setLanguage('en-US');
+    }
+
+    document.getElementById('swe').onclick = function () {
+        loadSwe();
+    }
+
+    document.getElementById('eng').onclick = function () {
+        loadEng();
+    }
+
+    loadSettings();
 })
