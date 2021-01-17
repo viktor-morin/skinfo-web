@@ -163,6 +163,7 @@ $(document).ready(function () {
 
         var eventProperties = new Object();
         eventProperties['query'] = query;
+        eventProperties['language'] = getLanguage();
 
         dict['eventProperties'] = eventProperties;
 
