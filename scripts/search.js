@@ -214,6 +214,7 @@ $(document).ready(function () {
         document.getElementById('eng').style.filter = 'grayscale(1)';
         document.getElementById('eng').style.opacity = 0.5;
         caller.style.webkitFilter = '';
+        caller.style.filter = '';
         caller.style.opacity = 1;
         setLanguage('sv-SE');
     }
@@ -223,6 +224,7 @@ $(document).ready(function () {
         document.getElementById('swe').style.filter = 'grayscale(1)';
         document.getElementById('swe').style.opacity = 0.5;
         caller.style.webkitFilter = '';
+        caller.style.filter = '';
         caller.style.opacity = 1;
         setLanguage('en-US');
     }
