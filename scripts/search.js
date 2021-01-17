@@ -198,11 +198,11 @@ $(document).ready(function () {
         switch (language) {
             case 'en-US':
                 document.getElementById('searchbox').placeholder = 'Search any ingredient/ingredients..';
-                loadEng();
+                loadEng(document.getElementById('eng'));
                 break;
             case 'sv-SE':
                 document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
-                loadSwe();
+                loadSwe(document.getElementById('swe'));
                 break;
             default:
                 break;
