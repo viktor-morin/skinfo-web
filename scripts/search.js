@@ -220,7 +220,7 @@ $(document).ready(function () {
     }
 
     function loadEng(caller) {
-        document.getElementById('searchbox').placeholder = 'Search any ingredient/ingredients..';
+        document.getElementById('searchbox').placeholder = 'Search any ingredients..';
         document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
         document.getElementById('swe').style.filter = 'grayscale(1)';
         document.getElementById('swe').style.opacity = 0.5;
