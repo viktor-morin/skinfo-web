@@ -130,6 +130,17 @@ div#skinfofade.fade {
     margin-left: 15px;
 }
 
+.searchbox {
+    -webkit-appearance: searchfield; 
+    padding-top: 2px;
+    width: 80%; 
+    padding-left: 10px; 
+    float: left;
+    text-decoration: none; 
+    border-bottom: none!important; 
+    box-shadow: none!important;
+}
+
 .meny-icon {
     display: none;
 }
@@ -1750,6 +1761,10 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     .business-customer-cases-additionalrow {
         margin-top: 0px;
     }
+
+    .searchbox {
+        width: unset !important;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -1825,5 +1840,9 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
         font-size: 14px;
         margin-left: 5px;
         width: 120px;
+    }
+
+    .searchbox {
+        width: 65% !important;
     }
 }
