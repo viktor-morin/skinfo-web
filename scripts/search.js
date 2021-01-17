@@ -198,11 +198,9 @@ $(document).ready(function () {
         var language = getLanguage();
         switch (language) {
             case 'en-US':
-                document.getElementById('searchbox').placeholder = 'Search any ingredient/ingredients..';
                 loadEng(document.getElementById('eng'));
                 break;
             case 'sv-SE':
-                document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
                 loadSwe(document.getElementById('swe'));
                 break;
             default:
@@ -211,6 +209,7 @@ $(document).ready(function () {
     }
 
     function loadSwe(caller) {
+        document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
         document.getElementById('eng').style.webkitFilter = 'grayscale(1)';
         document.getElementById('eng').style.filter = 'grayscale(1)';
         document.getElementById('eng').style.opacity = 0.5;
@@ -221,6 +220,7 @@ $(document).ready(function () {
     }
 
     function loadEng(caller) {
+        document.getElementById('searchbox').placeholder = 'Search any ingredient/ingredients..';
         document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
         document.getElementById('swe').style.filter = 'grayscale(1)';
         document.getElementById('swe').style.opacity = 0.5;
