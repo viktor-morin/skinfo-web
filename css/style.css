@@ -715,7 +715,8 @@ a:hover {
 }
 
 .main-menu-change {
-    height: 200px;
+    height: 150px;
+    /* height: 200px; */
 }
 
 /*remove x in search input */
