@@ -1404,6 +1404,10 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 }
 
 @media only screen and (max-width: 1200px) {
+    .business-main-screenshots-div {
+        display: grid;
+        padding-top: 30px;
+    }
     .business-image {
         display: block;
         float: unset;
@@ -1472,10 +1476,6 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 }
 
 @media only screen and (max-width: 1000px) {
-    .business-main-screenshots-div {
-        display: grid;
-        padding-top: 30px;
-    }
     .index-split {
         display: grid;
     }
