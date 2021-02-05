@@ -1294,7 +1294,6 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
     }
     .business-main-button-div {
         padding-left: 10%;
-        ;
     }
     .right-text {
         width: 40%;
@@ -1408,6 +1407,11 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
         display: grid;
         padding-top: 30px;
     }
+    .business-screenshot-div {
+        width: 100%;
+        margin-left: unset !important;
+        margin-right: unset !important;
+    }
     .business-image {
         display: block;
         float: unset;
@@ -1487,11 +1491,6 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
         padding-right: 10%;
         float: unset;
         width: unset;
-    }
-    .business-screenshot-div {
-        width: 100%;
-        margin-left: unset !important;
-        margin-right: unset !important;
     }
     .business-screenshot-header-text {
         margin-top: 20px;
