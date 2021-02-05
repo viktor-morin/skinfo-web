@@ -662,8 +662,8 @@
                 dataType: 'json',
                 success: function (data) {
                     $("#1").html(data.created);
-                    $("#2").html(Math.round(data.numberOfUsersHelped / 100) / 10 + " k");
-                    $("#3").html(Math.round(data.numberOfWidgetsShown / 100) / 10 + " k");
+                    $("#2").html(Math.round(data.numberOfUsersHelped / 1000) + " k");
+                    $("#3").html(Math.round(data.numberOfWidgetsShown / 1000) + " k");
                     $("#4").html(Math.round(data.uniqueProducts / 100) / 10 + " k");
                     $("#5").html(Math.round(data.numberOfSearchs / 100) / 10 + " k");
                 }
