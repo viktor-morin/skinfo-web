@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/fonts.css">
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <script src="scripts/skinfo.js"></script>
-    <script src="scripts/search.js"></script>
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
@@ -36,8 +35,7 @@
     <!-- End Google Analytics -->
 
     <title>Skinfo</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="google" content="nositelinkssearchbox" />
     <meta name="description"
@@ -73,130 +71,161 @@
             <div id="contact2" class="button"><img class="meny-icon" src="images/mail.png"> CONTACT US</div>
         </div>
     </div>
-    <div class="primary-div background-image" style="margin-top: 50px;">
-        <div class="information-header-main" id="information-header-main">
-        </div>
-        <div class="information-header-main" style="margin-top: 0px;" id="information-header-main2">
-        </div>
-        <!-- <div class="information-text fademein" id="skinfofade">
-            Powered by science
-        </div> -->
-        <!-- <div class="sub-title fademein" id="skinfofade">
-            Skinfo helps companies become more transparent and consumers <br />
-            understand the content of products
-        </div> -->
-        <div class="search-info-header">
-            Ingredients. Functions. Vitamins. Origins. Concerns.
-        </div>
-        <div class="searchbardiv">
-            <div= class="searchbar">
-                <div>
-                    <div style="width: 20px; height: 20px; float: left;">
-                        <svg focusable="false" xmlns="http://www.w3.org/2000/svg" fill="#9aa0a6" viewBox="0 0 20 20">
-                            <path
-                                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                            </path>
-                        </svg>
-                    </div>
-                    <form action="/search?id=">
-                        <input id="searchbox" autofocus autocomplete="false" type="search" name="id" class="searchbox">
-                        </input>
-                    </form>
-                    <div style="float: right; display: flex; cursor: pointer;">
-                        <div id="swe">
-                            <b>SE</b>
-                        </div>
-                        <div style="font-weight: bold; margin-left: 3px; margin-right: 3px;">/</div>
-                        <div id="eng" style="cursor: pointer;">
-                            <b>EN</b>
-                        </div>
-                    </div>
-                </div>
-                <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
-        </div>
-        <div class="try-search">
-            Try beta version</div>
-        <!-- <div class="first-info-button-space">
-            <div class="button-div" style="margin: auto;"><span class="button2x" id="b2b_button">FOR BUSINIESS</span></div>
-        </div> -->
-    </div>
-    <hr style="margin-bottom: 20px; margin-top: 20px;">
-    <div class="primary-div extra-padding" style="padding-top: 0px !important">
-        <div class="logotype-text">Based on information from</div>
-        <div class="logotypes">
-            <img class="logo-trust" src="logotypes/1200px-ECHA_Logo.svg.png">
-            <img class="logo-trust" src="logotypes/Chemsec.png">
-            <img class="logo-trust" style="max-width: 150px;" src="logotypes/European_Commission.png">
-            <img class="logo-trust" src="logotypes/oecd_small-1140x530.jpg">
-        </div>
-        <div class="logotypes">
-            <img class="logo-trust" src="logotypes/Logotyp_SVART.jpg">
-            <img class="logo-trust" style="max-width: 100px;" src="logotypes/NAA_Logo_Colour.png">
-            <img class="logo-trust" src="logotypes/PersonalCareProductsCouncilLogo.png">
-        </div>
-    </div>
-    <div class="secondary-div">
-        <div class="information-text-white">
-            Every day, 500 million people in Europe use products that land on their skin. Now, there is an easy way to
-            instantly access reliable information on the ingredients, in one place.
-        </div>
-    </div>
-    </div>
-    <div class="primary-div extra-padding">
-        <div class="logotype-text">Customers</div>
-        <div class="logotypes">
-            <img class="logo-trust" src="customers/LloydsApotek-sv.png">
-            <img class="logo-trust" src="customers/mossnoor_logo_black.png">
-            <img class="logo-trust" src="customers/om-se_logo.png">
-            <img class="logo-trust" src="customers/skin_wardrobe.png">
-            <img class="logo-trust" src="customers/faceittea.png">
-            <img class="logo-trust" src="customers/itchy.png">
-        </div>
-    </div>
-    <hr>
-    <div class="two-split-div index-split">
-        <div class="left-image">
-            <img src="images/purple-image.jpg" class="image-left">
-        </div>
-        <div class="right-text">
-            <div class="text-header">
-                Knowledge is health
-            </div>
-            <div class="text-sub-header">
-                We believe that everyone should easily be able to access health information on products affecting their
-                body.
-            </div>
-            <div class="text-sub-header">
-                Science helps us understand the function, purpose, and the wanted or unwanted effects from products we
-                use. With that knowledge, we can all make better decisions.
-            </div>
-            <div class="text-sub-header">
-                That’s why we love science.
-            </div>
-
-            <div class="button-div-row"><span class="button2x" id="app2"
-                    style="float: left; margin-right: 10px;">CONSUMER</span>
-                <span class="button2x" id="company2" style="float: left;">BUSINESS</span>
-            </div>
-        </div>
-    </div>
-    <div class="secondary-div" id="break-div">
-        <div>
-            <div class="information-header-main-white" id="information-header-main-white">
-            </div>
-        </div>
-    </div>
-    <div class="primary-div extra-padding">
-        <div class="logotype-text">Featured in</div>
-        <div class="logotypes">
-            <img class="logo-trust" src="images/allergia.png">
-            <img class="logo-trust" src="images/daisy-logo.png">
-            <img class="logo-trust" src="images/di_digital_logo.svg">
-            <img class="logo-trust" src="images/my-news-desk-logo.svg">
-            <img class="logo-trust" src="images/handelstrander-logo.PNG">
-            <img class="logo-trust" src="images/e-handel-logo.png">
-            <img class="logo-trust" src="images/breakit-logo.svg">
-        </div>
+    <div class="information-div" style="margin-top: 75px;">
+        <div class="information-header">Terms & Conditions</div>
+        <br>
+        <i>Updated November 2020</i>
+        <br>
+        <br>
+        These user terms and conditions (hereinafter referred to as the "User Terms") apply to any use of Skinfo’s
+        website (hereinafter referred to as the "Website"), including - but not limited to www.skinfo.se, and Skinfo’s
+        Services (hereinafter referred to as the "Service") and Skinfo’s App (hereinafter referred to as the "App").
+        <br>
+        <br>
+        <b>1. User-Generated Content from Users</b>
+        <br>
+        <br>
+        <b>1.1</b> You hereby grant us the worldwide, non-exclusive, perpetual, irrevocable, royalty-free right and
+        license to publish, display, reproduce, modify, create derivative works of and commercially exploit any
+        material, information, notifications, reviews, articles or other types of communication (hereinafter referred to
+        as the "User-Generated Content" or "UGC") which you create on the Website and/or through Skinfo’s customers to
+        which the UGC relates. We may freely use and transfer the UGC and disclose the UGC to third parties.
+        <br>
+        <br>
+        <b>1.2</b> Users are liable for the UGC they publish on the Website.
+        <br>
+        <br>
+        <b>1.3</b> Users must not, and must not allow any third party to, publish UGC on the website which:
+        <br>
+        <br>
+        <i>*has a disloyal or unlawful purpose and/or content (or promotes unlawful purposes), or is technically harmful
+            (including without limitation computer viruses, logic bombs, Trojan horses, worms, harmful components,
+            corrupted data or other malicious software, harmful data or conduct).</i>
+        <br>
+        <br>
+        <b>1.4</b> Contributors of UGC warrant in every context that the UGC is lawful and in compliance with the User
+        Terms. If Skinfo receives notice or otherwise becomes aware that UGC violates current legislation and/or the
+        User Terms, we may delete the UGC without any notice, and we - dependent on the character of the violation - may
+        inform the violated party and/or the authorities of the violation. Our right to delete will not be conditioned
+        on an explanation, although we will strive to inform the Registered User about the deletion and the reason
+        hereof.
+        <br>
+        <br>
+        <b>1.5</b> The User hereby grants us the right to initiate and take any legal actions which we deem necessary in
+        case of infringement of the User's UGC.
+        The Registered User must guarantee to indemnify us for any claims which may be made against us as a consequence
+        of the Registered User's violation of the User Terms or current legislation. The Registered User must indemnify
+        and hold us harmless from and against any claim or loss due to third party claims against us resulting from the
+        UGC of the User.
+        <br>
+        <br>
+        <b>2. Rights</b>
+        <br>
+        <br>
+        <b>2.1</b> The Website and the services we offer via the Website, including all underlying technology and
+        intellectual property rights embodied therein, are and remain our sole and exclusive property, and no license or
+        any other right is granted to any such underlying technology. If you provide feedback, ideas or suggestions
+        regarding the Website or the services offered on the website we are free to fully exploit such Feedback.
+        <br>
+        <br>
+        <b>2.2</b> The content on the Website, including but not limited to the intellectual property rights, text,
+        characteristics, graphics, icons, photos, calculations, references and software is or will be our property or
+        the property of a third party and is protected by applicable international legislation, including without
+        limitation applicable copyright and trademark laws.
+        <br>
+        <br>
+        <b>2.3</b> Unauthorized copying, distribution, presentation or other use of the Website or part hereof is a
+        violation of the applicable law and may thus result in civil and/or criminal penalties.
+        <br>
+        <br>
+        <b>2.4</b> Downloading and other digital copying of the content on the Website or parts and Skinfo’s Service
+        hereof are not allowed.
+        <br>
+        <br>
+        <b>2.5</b> All company names, trademarks and other business characteristics on the Website is or will be our
+        property or the property of a third party (other than the User) and must only be used for business purposes upon
+        prior approval from us or the third party owner, respectively.
+        <br>
+        <br>
+        <b>3. Personal Data</b>
+        <br>
+        <br>
+        <b>3.1</b> We collect non-personal data in connection with the use of the Website, Service and App. Our
+        processing of user data takes place under observance of our Privacy Policy. By accepting these User Terms, you
+        confirm to have read and accepted our Privacy Policy.
+        <br>
+        <br>
+        <b>4. Disclaimers</b>
+        <br>
+        <br>
+        Skinfo retrieves relevant information from authorities and organizations where chemists, researchers and
+        business experts have provided relevant information on substances in cosmetics and skin care products and which
+        may pose a risk to health indirectly or directly, and other available information related to ingredients.
+        <br>
+        <br>
+        Please note that information may change over time as new information on substances may be available and the
+        content of products may also be changed by manufacturers. Therefore, always check that ingredients listed in the
+        Skinfo App, Website or Service match the physical product ingredient label.
+        <br>
+        <br>
+        Skinfo does not have access to specific concentrations of the ingredients listed on products. The data is
+        general without consideration to the concentration, based on the knowledge available to us regarding
+        ingredients. We assume that companies follow the current EU and industry guidelines that are required to
+        distribute their products. We are constantly working to improve information and welcome feedback.
+        <br>
+        <br>
+        Some assumptions in the product ingredient list have been made on special occasions where unclear/missing
+        information or misspellings have occurred in the product ingredient list. Initial descriptions from sources have
+        been simplified to provide information in an easily understandable format.
+        <br>
+        <br>
+        Skinfo is not liable for any inaccurate data from its original source or the data presented on the Website,
+        Service or App.
+        <br>
+        <br>
+        The content found on the Website, App or Service is not to be considered as personal advice. Always seek
+        professional help for consultation related to your skin and health. Skinfo AB takes no responsibility for any
+        consequences that may arise from actions or actions taken based on the content in the Website, App or Service.
+        <br>
+        <br>
+        The available version of the App should be considered a test version. Some deviations may therefore occur.
+        <br>
+        <br>
+        <b>5. Limitation of Liability</b>
+        <br>
+        <br>
+        <b>5.1</b> We shall in no case be held liable, whether in contract, tort (including negligence) or otherwise for
+        damages for the use of the website, even if we have been advised of the possibility of such damages, including
+        (I) loss of profits, contracts, turnover, business, business opportunity, loss or corruption of data or recovery
+        of data, goodwill, security breach resulting from a failure of third party telecommunications and/or the
+        internet, anticipated savings or revenue (regardless of whether any of these are direct, indirect or
+        consequential) (ii) any loss or damage arising in connection with liabilities to third parties (whether direct,
+        indirect or consequential) or (iii) any indirect, special, punitive, incidental or consequential loss or damage
+        whatsoever. Some states and other jurisdictions do not allow the exclusion or limitation of liability for
+        incidental or consequential damages, so the above limitations and exclusions may not apply to you.
+        <br>
+        <br>
+        <b>5.2</b> Our total aggregate liability, including without limitation liability for breach of contract,
+        misrepresentation (whether tortious or statutory),
+        tort (including negligence), breach of statutory duty or otherwise, arising from or in connection with the user
+        terms,
+        the website or our services will never for any and all actionable circumstances exceed one hundred dollars
+        ($100.00).
+        You further agree that no claims or actions arising out of, or related to, the use of our website or services or
+        these user terms may be brought by you more than one (1) year after the actionable event. Nothing in the user
+        terms
+        excludes or limits either party's liability for matters which cannot be excluded or limited under applicable
+        law.
+        <br>
+        <br>
+        <b>6. Term and termination</b>
+        <br>
+        <br>
+        <b>6.1</b> We may terminate your right to access and use the services offered on the Website, App or Service at
+        any time for any reason without liability. If we do so, or if you elect to delete your profile, any rights
+        granted to you herein will immediately cease.
+        <br>
+        <br>
     </div>
     <div class="gray-div">
         <div class="information-links">
@@ -287,144 +316,22 @@
 
 </html>
 
-<script type="text/javascript" id="cookieinfo" src="scripts/cookieinfo.min.js" data-bg="#F5F5F5" data-fg="#000000"
-    data-accept-on-scroll="true" data-divlinkbg="#000000" data-divlink="#FFFFFF" data-text-align="left"
-    data-message="We have saved a cookie on your computer to give you a better experience on our site!" data-linkmsg=""
-    data-cookie="CookieInfoScript" data-text-align="center" data-close-text="I understand">
-    </script>
-
 <script>
     $(document).ready(function () {
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
-        function isElementInViewport(el) {
-            if (typeof jQuery === "function" && el instanceof jQuery) {
-                el = el[0];
-            }
-
-            if (el == undefined) {
-                return;
-            }
-
-            var rect = el.getBoundingClientRect();
-
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
+        var element = document.getElementById(getParameterByName('position'));
+        if (element) {
+            const yOffset = -60;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
-
-        function onVisibilityChange(el, callback) {
-            var old_visible = false;
-            return function () {
-                if (old_visible == true) {
-                    return;
-                }
-                var visible = isElementInViewport(el);
-                if (visible != old_visible) {
-                    old_visible = visible;
-                    if (typeof callback == 'function') {
-                        callback();
-                    }
-                }
-            }
-        }
-
-
-        async function runMainHeaderAnimation() {
-            var text = 'Behind every ingredient';
-            var extraFirst = 'is a scientific story';
-
-            var mainTitle = document.getElementById('information-header-main');
-            if (mainTitle == null) {
-                return;
-            }
-
-            for (i = 0; i < text.length; i++) {
-                mainTitle.innerHTML += text[i];
-                await sleep(40);
-            }
-
-            mainTitle = document.getElementById('information-header-main2');
-            for (i = 0; i < extraFirst.length; i++) {
-                mainTitle.innerHTML += extraFirst[i];
-                await sleep(40);
-            }
-
-            for (i = 0; i < 3; i++) {
-                if (i % 2 == 0) {
-                    mainTitle.innerHTML += '_'
-                } else {
-                    mainTitle.innerHTML = mainTitle.innerHTML.substring(0, mainTitle.innerHTML.length - 1);
-                }
-                await sleep(200);
-            }
-
-            await sleep(250);
-
-            var subTitle = document.getElementsByClassName('fademein');
-            for (i = 0; i < subTitle.length; i++) {
-                subTitle[i].classList.add('fade');
-            }
-        }
-
-
-        var handler = onVisibilityChange($('#break-div'), async function () {
-            var div = document.getElementById('information-header-main-white');
-
-            if (div == null) {
-                return;
-            }
-
-            div.innerHTML = ' ';
-
-            var textFirst = 'Take care';
-            var textSecond = '(skin)care';
-
-            for (q = 0; q < textFirst.length; q++) {
-                div.innerHTML += textFirst[q];
-                await sleep(40);
-            }
-
-            for (q = 0; q < 4; q++) {
-                if (q % 2 == 0) {
-                    div.innerHTML += '_'
-                } else {
-                    div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
-                }
-                await sleep(200);
-            }
-
-            for (q = 4; q > 0; q--) {
-                div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
-                await sleep(40);
-            }
-
-
-            for (q = 0; q < textSecond.length; q++) {
-                div.innerHTML += textSecond[q];
-                await sleep(40);
-            }
-
-            for (q = 0; q < 5; q++) {
-                if (q % 2 == 0) {
-                    div.innerHTML += '_'
-                } else {
-                    div.innerHTML = div.innerHTML.substring(0, div.innerHTML.length - 1);
-                }
-                await sleep(200);
-            }
-
-            q = 0;
-        });
-
-        $(window).on('DOMContentLoaded load resize scroll', handler);
-
-        runMainHeaderAnimation();
-
     });
 </script>
