@@ -30,10 +30,8 @@ a, a:link, a:visited, a:hover, a:active {
 
 .title {
     padding-bottom: 5px;
-    padding-left: 20%;
     text-align: center;
     min-height: 44px;
-    font-family: 'QuickSand';
     font-weight: bold;
     background-color: white;
     z-index: 99;
@@ -43,12 +41,10 @@ a, a:link, a:visited, a:hover, a:active {
     border-bottom: 1px solid lightgrey;
 }
 
-.meny-icon {
-    display: none;
-}
-
 .skinfo-menu {
     padding-top: 13px;
+    width: 90%;
+    margin: auto;
 }
 
 .skinfo-menu-mobile {
@@ -84,7 +80,7 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 
-.button {
+.menu-button {
     font-size: 16px;
     font-weight: bold;
     background-color: white;
@@ -93,6 +89,7 @@ a, a:link, a:visited, a:hover, a:active {
     border-radius: 36px;
     box-sizing: unset;
     -webkit-box-sizing: unset;
+    text-align: right;
 }
 
 
@@ -116,21 +113,18 @@ a, a:link, a:visited, a:hover, a:active {
     transform: rotate(45deg) translate(-6px, -6px);
 }
 
+.one-edge-shadow {
+	-webkit-box-shadow: 0 5px 10px -10px black;
+	   -moz-box-shadow: 0 5px 10px -10px black;
+	        box-shadow: 0 5px 10px -10px black;
+}
 
-@media only screen and (max-width: 600px) {
-    .meny-icon {
-        display: inherit;
-        width: 20px;
-    }
 
-    .skinfo-title {
-        padding-left: 5%;
-    }
-
+@media only screen and (max-width: 700px) {
     .skinfo-menu-mobile {
         display: block;
-        padding-right: 5%;
-        float: right;
+        width: 100%;
+        margin-right: 30px;
     }
 
     .skinfo-menu {

@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fonts.css">
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
@@ -38,27 +37,31 @@
 </head>
 
 <body>
-    <div id="main-menu" class="title">
-        <span class="skinfo-title"><a href="index.html"><img src="images/skinfo-logo-black-RGB.png" width="110"
-                    style="padding-top: 10px;"></a></span>
+    <div id="main-menu" class="title one-edge-shadow">
         <div class="skinfo-menu">
-            <!-- <span id="app" class="button"><img class="meny-icon" src="images/mobile2.png"> APP</span> -->
-            <span id="company" class="button"><img class="meny-icon" src="images/company.png">SKINFO
-                FOR BUSINESS</span>
-            <span id="contact" class="button"><img class="meny-icon" src="images/mail.png"> CONTACT US</span>
+            <span class="skinfo-title"><a href="index.html"><img src="svg/skinfo-logo-color-RGB.svg" height="20px"
+                        style="padding-left: 20px;"></a></span>
+            <div style="float: right;">
+                <span id="how1" class="menu-button">How it works</span>
+                <span id="price1" class="menu-button">Price</span>
+                <span id="search1" class="menu-button">Ingredient search</span>
+                <span id="us1" class="menu-button">About us</span>
+            </div>
         </div>
         <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
-            <div style="float: right;">
+            <span class="skinfo-title"><a href="index.html"><img src="svg/skinfo-logo-color-RGB.svg" height="20px"
+                        style="padding-left: 20px; padding-top:10px"></a></span>
+            <div style="float: right; padding-right: 20px;">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
         </div>
-        <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%;">
-            <!-- <div id="app3" class="button"><img class="meny-icon" src="images/mobile2.png"> APP</div> -->
-            <div id="company3" class="button"><img class="meny-icon" src="images/company.png">SKINFO
-                FOR BUSINESS</div>
-            <div id="contact2" class="button"><img class="meny-icon" src="images/mail.png"> CONTACT US</div>
+        <div id="skinfo-menu-mobile-expanded" class="one-edge-shadow" style="display: none; width: 100%;">
+            <span id="how2" class="menu-button">How it works</span>
+            <span id="price2" class="menu-button">Price</span>
+            <span id="search2" class="menu-button">Ingredient search</span>
+            <span id="us2" class="menu-button">About us</span>
         </div>
     </div>
 </body>
@@ -78,7 +81,7 @@
         }
     });
     window.onresize = function () {
-        if ($(window).width() >= 600) {
+        if ($(window).width() >= 700) {
             var menu = document.getElementById('skinfo-menu-mobile');
             var expaned = document.getElementById('skinfo-menu-mobile-expanded');
             if (menu && expaned) {
