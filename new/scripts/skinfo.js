@@ -1,0 +1,33 @@
+$(document).ready(function () {
+    $('#skinfo-menu-mobile').click(function () {
+        var menu = document.getElementById('skinfo-menu-mobile');
+        var expaned = document.getElementById('skinfo-menu-mobile-expanded');
+        var main = document.getElementById('main-menu');
+        menu.classList.toggle('change');
+        main.classList.toggle('main-menu-change');
+        if (menu.classList.contains('change')) {
+            expaned.style.display = 'grid';
+        } else {
+            expaned.style.display = 'none';
+        }
+    });
+    window.onresize = function () {
+        if ($(window).width() >= 700) {
+            var menu = document.getElementById('skinfo-menu-mobile');
+            var expaned = document.getElementById('skinfo-menu-mobile-expanded');
+            if (menu && expaned) {
+                if (menu.classList.contains('change')) {
+                    menu.classList.toggle('change');
+                    var main = document.getElementById('main-menu');
+                    main.classList.toggle('main-menu-change');
+                }
+                if (expaned.style.display == 'block') {
+                    expaned.style.display = 'none';
+                }
+            }
+        }
+    }
+});
+
+
+
