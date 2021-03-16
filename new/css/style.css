@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
 hr {
     max-width: 80%;
     border-width: 1px;
@@ -21,6 +25,19 @@ hr {
 a, a:link, a:visited, a:hover, a:active {
     color: black;
     text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    padding: 15px 25px 15px 25px;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 4px 10px -3px black;
+    -moz-box-shadow: 0 4px 10px -3px black;
+         box-shadow: 0 4px 10px -3px black;
 }
 
 .skinfo-title {
@@ -67,10 +84,9 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 .bar1, .bar2, .bar3 {
-    width: 35px;
+    width: 30px;
     height: 3px;
     background-color: rgb(60, 0, 200);
-    ;
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -85,7 +101,6 @@ a, a:link, a:visited, a:hover, a:active {
     background-color: white;
     color: rgb(60, 0, 200);
     padding: 15px 15px 10px 15px;
-    border-radius: 36px;
     box-sizing: unset;
     -webkit-box-sizing: unset;
     text-align: right;
@@ -113,8 +128,62 @@ a, a:link, a:visited, a:hover, a:active {
 	        box-shadow: 0 5px 10px -10px black;
 }
 
+.one-block {
+    margin: 10px 20px 10px 20px;
+}
 
-@media only screen and (max-width: 700px) {
+.two-block {
+    margin: 10px 0px 10px 0px;
+    display: flex;
+
+    align-items: center;
+    
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+.inside-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+}
+
+.inside-block-img {
+    
+}
+
+.skinfocolor {
+    color: rgb(60, 0, 200)
+}
+
+.skinfobackgroundcolor {
+    background-color: rgb(60, 0, 200)
+}
+
+.checklistitem {
+    display: flex;
+}
+
+.checklisttext {
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+.checkbox {
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.logo {
+    min-height: 30px;
+    max-height: 30px;
+    filter: contrast(160%) grayscale(100%);    
+}
+
+@media only screen and (max-width: 769px) {
     .skinfo-menu-mobile {
         display: block;
         width: 100%;
@@ -127,5 +196,17 @@ a, a:link, a:visited, a:hover, a:active {
 
     .main-menu {
         padding-left: 0;
+    }
+
+    .two-block {
+        display: block;
+    }
+
+    .two-block-breaker {
+        margin-top:20px;
+    }
+
+    .inside-block {
+        max-width: 100%;
     }
 }
