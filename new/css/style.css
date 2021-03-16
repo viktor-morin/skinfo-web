@@ -216,10 +216,6 @@ button {
     height: 25px;
 }
 
-.point-icons {
-    
-}
-
 @media only screen and (max-width: 769px) {
     .skinfo-menu-mobile {
         display: block;
