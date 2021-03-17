@@ -45,7 +45,7 @@ button {
 }
 
 button:hover {
-    opacity: 0.9;
+    opacity: 0.5;
 }
 
 .skinfo-title {
@@ -100,10 +100,11 @@ button:hover {
 }
 
 .main-menu-change {
-    height: 150px;
+    height: 208px;
 }
 
 .menu-button {
+    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     background-color: white;
@@ -112,6 +113,10 @@ button:hover {
     box-sizing: unset;
     -webkit-box-sizing: unset;
     text-align: right;
+}
+
+.menu-button:hover {
+    opacity: 0.5;
 }
 
 .change .bar1 {
@@ -202,6 +207,8 @@ button:hover {
     padding: 15px 20px 10px 20px;
     max-width: 390px;
     min-width: 250px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }
 
 .customer-feedback-author {
@@ -222,6 +229,42 @@ button:hover {
 .customer-feedback-img {
     margin: auto;
     height: 25px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.footer-item {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.footer-header {
+    margin: auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.social-media {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.social-media-icon {
+    width: 50px;
+    display: block;
+}
+
+.instafeed a img {
+    width: 20px;
 }
 
 @media only screen and (max-width: 769px) {

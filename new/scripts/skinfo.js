@@ -27,7 +27,28 @@ $(document).ready(function () {
             }
         }
     }
+
+    var menuItems = document.getElementsByClassName('menu-button');
+    for (i = 0; i < menuItems.length; i++) {
+        menuItems[i].onclick = function () {
+            console.log(this.dataset.url);
+        }
+    }
+
+    function getIfAccessToken() {
+        $.ajax({
+            type: 'GET',
+            url: '' + 'information' + text,
+            contentType: "application/json; charset=utf-8",
+            complete: function (result) {
+                var json = JSON.parse(result.responseJSON);
+                return result;
+            }
+        });
+    }
+
+    var feed = new Instafeed({
+        accessToken: getIgAccessToken()
+    });
+    feed.run();
 });
-
-
-

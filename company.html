@@ -660,7 +660,7 @@
         $.ajax
             ({
                 type: "GET",
-                url: "https://api.skinfo.se/information",
+                url: "https://api.skinfo.se/information/stats",
                 dataType: 'json',
                 success: function (data) {
                     $("#1").html(data.created);
