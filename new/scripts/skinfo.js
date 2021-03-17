@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    try {
+        var currentUrl = window.location.href.split('.html')[0];
+        window.history.replaceState(null, null, currentUrl);
+    }
+    catch {
+
+    }
+
     $('#skinfo-menu-mobile').click(function () {
         var menu = document.getElementById('skinfo-menu-mobile');
         var expaned = document.getElementById('skinfo-menu-mobile-expanded');
@@ -31,10 +39,9 @@ $(document).ready(function () {
     var menuItems = document.getElementsByClassName('menu-button');
     for (i = 0; i < menuItems.length; i++) {
         menuItems[i].onclick = function () {
-            console.log(this.dataset.url);
+            window.location.href = this.dataset.url;
         }
     }
-
     $.ajax({
         type: 'GET',
         url: 'https://api.skinfo.se/information/instagram',
