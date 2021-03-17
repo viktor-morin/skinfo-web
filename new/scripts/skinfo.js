@@ -35,20 +35,16 @@ $(document).ready(function () {
         }
     }
 
-    function getIfAccessToken() {
-        $.ajax({
-            type: 'GET',
-            url: '' + 'information' + text,
-            contentType: "application/json; charset=utf-8",
-            complete: function (result) {
-                var json = JSON.parse(result.responseJSON);
-                return result;
-            }
-        });
-    }
-
-    var feed = new Instafeed({
-        accessToken: getIgAccessToken()
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.skinfo.se/information/instagram',
+        contentType: "application/json; charset=utf-8",
+        complete: function (result) {
+            var feed = new Instafeed({
+                accessToken: result.responseJSON,
+                limit: 8
+            });
+            feed.run();
+        }
     });
-    feed.run();
 });
