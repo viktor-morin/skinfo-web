@@ -1,12 +1,4 @@
 $(document).ready(function () {
-    try {
-        var currentUrl = window.location.href.split('.html')[0];
-        window.history.replaceState(null, null, currentUrl);
-    }
-    catch {
-
-    }
-
     $('#skinfo-menu-mobile').click(function () {
         var menu = document.getElementById('skinfo-menu-mobile');
         var expaned = document.getElementById('skinfo-menu-mobile-expanded');
