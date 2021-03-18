@@ -56,11 +56,6 @@ $(document).ready(function () {
         }
     });
 
-    // function validateEmail(email) {
-    //     var re = /^[^\s@]+@[^\s@]+$/;
-    //     return re.test(email);
-    // }
-
     function validateEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
@@ -70,20 +65,35 @@ $(document).ready(function () {
         document.getElementById('send-email-button').onclick = function () {
             var email = document.getElementById('send-email-input').value;
             if (validateEmail(email)) {
-                $.ajax({
-                    type: 'POST',
-                    url: 'https://api.skinfo.se/information/email?email=' + email,
-                    contentType: "application/json; charset=utf-8",
-                    error: function (result) {
-                        console.log('error');
-                    },
-                    success: function (result) {
-                        console.log('success');
-                    }
-                });
+                document.getElementById('send-email').style.display = 'none';
+                document.getElementById('send-email-succesful').style.display = 'block';
+
+                setTimeout(function () {
+                    document.getElementById('send-email-succesful').style.opacity = '1.0';
+                }, 10);
+                // $.ajax({
+                //     type: 'POST',
+                //     url: 'https://api.skinfo.se/information/email?email=' + email,
+                //     contentType: "application/json; charset=utf-8",
+                //     error: function () {
+                //         document.getElementById('send-email-input').focus();
+                //         console.log('error');
+                //     },
+                //     success: function () {
+                //         document.getElementById('send-email').style.display = 'none';
+                //         document.getElementById('send-email-succesful').style.display = 'block';
+
+                //         setTimeout(function () {
+                //             document.getElementById('send-email-succesful').style.opacity = '1.0';
+                //         }, 10);
+
+                //         console.log('success');
+                //     }
+                // });
             }
             else {
-
+                console.log('before-error');
+                document.getElementById('send-email-input').focus();
             }
         }
     }
