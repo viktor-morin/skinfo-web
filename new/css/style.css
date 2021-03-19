@@ -329,6 +329,116 @@ textarea {
     padding: 0.75rem 0;
 }
 
+.searchbox {
+    -webkit-appearance: searchfield; 
+    padding-top: 2px;
+    width: 80%; 
+    padding-left: 10px; 
+    float: left;
+    height: 34px;
+    font-size: 16px;
+    text-decoration: none; 
+    border-bottom: none!important; 
+    box-shadow: none!important;
+    word-wrap: break-word;
+    flex: 100%;
+    padding-bottom: 5px;
+}
+.searchbar-main-div {
+    margin-top: 20px;
+    display: flex;
+}
+
+.search-selected {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.searchbardiv {
+    
+}
+
+.searchbar {
+    border-radius: 0.75rem;
+    width: 80%;
+    margin: auto;
+    height: 37px;
+    margin-top: 15px;
+    border: 1px solid lightgray;
+    display: grid;
+    padding: 5px 4px 0 16px;
+    padding-left: 14px;
+    max-width: 670px;
+    background-color: white;
+    -webkit-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+         box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+}
+
+.searchbar-suggestions {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    width:80%;
+    max-width: 670px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -8px;
+    left: 0;
+    right: 0;
+    text-align: left;
+    background-color: white;
+    padding: 5px 4px 0 16px;
+    padding-left: 14px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+}
+
+.searchbar-item {
+    padding: 5px;
+    padding-left: 30px;
+    margin-left: -14px;
+    margin-right: -4px;
+    padding-left: 44px !important;
+}
+
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+input {
+    outline: 0;
+    -webkit-appearance: none;
+    background: transparent;
+    border-width: 0 0 1px;
+    border-color: black;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+}
+
 .footer {
     display: flex;
     flex-direction: row;
