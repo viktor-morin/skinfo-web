@@ -99,10 +99,14 @@ $(document).ready(function () {
 
         if (text.length == 0) {
             parent.innerHTML = '';
+            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
         else if (text.includes(',')) {
             parent.innerHTML = '';
+            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';;
+            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
         else {
@@ -113,10 +117,14 @@ $(document).ready(function () {
                 complete: function (result) {
                     if (result.responseJSON.length > 0) {
                         parent.style.display = 'inherit';
+                        document.getElementById('searchbar').style.borderBottomLeftRadius = '0px';
+                        document.getElementById('searchbar').style.borderBottomRightRadius = '0px';
                         parent.innerHTML = '';
                         var text = $('#searchbox').val();
                         if (text.length == 0 || text.includes(',')) {
                             parent.innerHTML = '';
+                            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+                            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                             parent.style.display = 'none';
                             return;
                         }
@@ -156,6 +164,8 @@ $(document).ready(function () {
                             parent.appendChild(child);
                         });
                     } else {
+                        document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+                        document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                         parent.style.display = 'none';
                     }
                 }
