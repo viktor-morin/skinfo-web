@@ -31,14 +31,26 @@ $(document).ready(function () {
     var menuItems = document.getElementsByClassName('menu-button');
     for (i = 0; i < menuItems.length; i++) {
         menuItems[i].onclick = function () {
+            if (this.dataset.url.startsWith('https'))
+            window.open(
+                this.dataset.url,
+                '_blank'
+            );
+        else
             window.location.href = this.dataset.url;
         }
     }
 
     var footerItems = document.getElementsByClassName('footer-link');
     for (i = 0; i < footerItems.length; i++) {
-        footerItems[i].onclick = function() {
-            window.location.href = this.dataset.url;
+        footerItems[i].onclick = function () {
+            if (this.dataset.url.startsWith('https'))
+                window.open(
+                    this.dataset.url,
+                    '_blank'
+                );
+            else
+                window.location.href = this.dataset.url;
         }
     }
 
