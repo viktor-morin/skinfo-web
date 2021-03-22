@@ -35,6 +35,13 @@ $(document).ready(function () {
         }
     }
 
+    var footerItems = document.getElementsByClassName('footer-link');
+    for (i = 0; i < footerItems.length; i++) {
+        footerItems[i].onclick = function() {
+            window.location.href = this.dataset.url;
+        }
+    }
+
     $.ajax({
         type: 'GET',
         url: 'https://api.skinfo.se/information/instagram',

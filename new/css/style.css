@@ -523,10 +523,22 @@ iframe::-webkit-scrollbar {
     display: block;
 }
 
+.social-media-icon:hover {
+    opacity: 0.5;
+}
+
 .instafeed a img {
     width: 100px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.footer-link {
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    opacity: 0.5;
 }
 
 @media only screen and (max-width: 1000px) {
