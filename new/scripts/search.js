@@ -19,7 +19,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             headers: { 'apikey': '6h[-yENBfB' },
-            url: url + 'website/get?query=' + id + '&language=' + getLanguage(),
+            url: url + 'website/ingredient?ingredient=' + id + '&language=' + getLanguage(),
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
@@ -113,7 +113,7 @@ $(document).ready(function () {
         else {
             $.ajax({
                 type: 'GET',
-                url: url + 'website/suggestion?query=' + text,
+                url: url + 'website/suggestion?ingredient=' + text,
                 headers: { 'apikey': '6h[-yENBfB' },
                 contentType: "application/json; charset=utf-8",
                 complete: function (result) {
