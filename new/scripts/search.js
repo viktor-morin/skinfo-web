@@ -95,6 +95,8 @@ $(document).ready(function () {
             var parent = document.getElementById('searchbar-suggestions');
             if (selectCounter < parent.childNodes.length - 1) {
                 selectCounter++;
+                if (selectCounter == 0)
+                    selectCounter++;
             }
             parent.childNodes.forEach(child => {
                 child.classList.remove('search-selected');
@@ -112,6 +114,8 @@ $(document).ready(function () {
             var parent = document.getElementById('searchbar-suggestions');
             if (selectCounter > -1) {
                 selectCounter--;
+                if (selectCounter == 0)
+                    selectCounter--;
             }
             parent.childNodes.forEach(child => {
                 child.classList.remove('search-selected');
