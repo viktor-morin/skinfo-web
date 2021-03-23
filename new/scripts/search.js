@@ -31,7 +31,6 @@ $(document).ready(function () {
 
     $('form input').keydown(function (e) {
         if (e.keyCode == 13) {
-            console.log('ville');
             e.preventDefault();
             return false;
         }
@@ -85,8 +84,11 @@ $(document).ready(function () {
                         }
                     });
                 }
-
             }
+            parent.innerHTML = '';
+            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
+            parent.style.display = 'none';
         }
 
         else if (key == 'ArrowDown') {
@@ -178,6 +180,10 @@ $(document).ready(function () {
                             child.innerHTML = createInnerElementForSuggestion(text, element);
                             child.classList.add('searchbar-item');
                             child.onclick = function () {
+                                parent.innerHTML = '';
+                                document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+                                document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
+                                parent.style.display = 'none';
                                 logData(element);
                                 $.ajax({
                                     type: 'GET',
