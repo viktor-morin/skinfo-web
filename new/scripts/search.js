@@ -58,7 +58,7 @@ $(document).ready(function () {
                 });
             }
 
-            if (document.getElementById('searchbar-suggestions').style.css == 'none') {
+            if (document.getElementById('searchbar-suggestions').style.display == 'none') {
                 return;
             }
 
