@@ -113,7 +113,7 @@ $(document).ready(function () {
         else {
             $.ajax({
                 type: 'GET',
-                url: url + 'website/suggestion?ingredient=' + text,
+                url: url + 'website/suggestion?query=' + text,
                 headers: { 'apikey': '6h[-yENBfB' },
                 contentType: "application/json; charset=utf-8",
                 complete: function (result) {
