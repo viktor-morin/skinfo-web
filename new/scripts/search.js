@@ -29,7 +29,7 @@ $(document).ready(function () {
     }
 
 
-    $('#searchbox').on('submit', function (e) {
+    $('#searchform').on('submit', function (e) {
         e.stopPropagation();
         console.log('inside submit');
     })
