@@ -145,7 +145,7 @@ $(document).ready(function () {
                             child.classList.add('searchbar-item');
                             child.onclick = function () {
                                 logData(element);
-                                window.location.href = 'search?id=' + element;
+                                window.location.href = 'website/ingredient?ingredient=' + element;
                             }
 
                             child.addEventListener("mouseover", function (e) {
