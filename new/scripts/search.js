@@ -62,11 +62,11 @@ $(document).ready(function () {
                 var parent = document.getElementById('searchbar-suggestions');
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
-                    logData(parent.children[1].innerText;
+                    logData(parent.children[1].innerText);
                     $.ajax({
                         type: 'GET',
                         headers: { 'apikey': '6h[-yENBfB' },
-                        url: url + 'website/ingredient?ingredient=' + parent.firstChild.innerText + '&language=' + getLanguage(),
+                        url: url + 'website/ingredient?ingredient=' + parent.children[1].innerText + '&language=' + getLanguage(),
                         dataType: 'html',
                         complete: function (result) {
                             $('#data').html(result.responseText);
