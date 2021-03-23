@@ -496,11 +496,14 @@ iframe::-webkit-scrollbar {
     flex-direction: row;
     margin: auto;
     max-width: 1200px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .footer-item {
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 25%;
 }
 
 .footer-header {
@@ -513,9 +516,8 @@ iframe::-webkit-scrollbar {
     margin: auto;
     text-align: center;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 10px;
-    display: flex;
 }
 
 .social-media-icon {
@@ -535,6 +537,7 @@ iframe::-webkit-scrollbar {
 
 .footer-link {
     cursor: pointer;
+    line-height: 1.75;
 }
 
 .footer-link:hover {
