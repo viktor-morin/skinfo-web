@@ -84,7 +84,8 @@
                         </svg>
                     </div>
                     <form id="searchform" autocomplete="off" action="/search?id=">
-                        <input id="searchbox" autocomplete="off" autofocus type="search" name="id" class="searchbox">
+                        <input id="searchbox" autocomplete="off" autofocus onSubmit="search();return false;"
+                            type="search" name="id" class="searchbox">
                         </input>
                     </form>
                 </div>
