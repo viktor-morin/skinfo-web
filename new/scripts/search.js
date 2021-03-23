@@ -38,7 +38,15 @@ $(document).ready(function () {
 
             if (text.includes(',')) {
                 logData(text);
-                window.location.href = 'search?id=' + text;
+                $.ajax({
+                    type: 'GET',
+                    headers: { 'apikey': '6h[-yENBfB' },
+                    url: url + 'website/ingredient?ingredient=' + text + '&language=' + getLanguage(),
+                    dataType: 'html',
+                    complete: function (result) {
+                        $('#data').html(result.responseText);
+                    }
+                });
             }
             else {
 
@@ -46,10 +54,26 @@ $(document).ready(function () {
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
                     logData(parent.firstChild.innerText);
-                    window.location.href = 'search?id=' + parent.firstChild.innerText;
+                    $.ajax({
+                        type: 'GET',
+                        headers: { 'apikey': '6h[-yENBfB' },
+                        url: url + 'website/ingredient?ingredient=' + parent.firstChild.innerText + '&language=' + getLanguage(),
+                        dataType: 'html',
+                        complete: function (result) {
+                            $('#data').html(result.responseText);
+                        }
+                    });
                 } else {
                     logData(result.innerText);
-                    window.location.href = 'search?id=' + result.innerText;
+                    $.ajax({
+                        type: 'GET',
+                        headers: { 'apikey': '6h[-yENBfB' },
+                        url: url + 'website/ingredient?ingredient=' + result.innerText + '&language=' + getLanguage(),
+                        dataType: 'html',
+                        complete: function (result) {
+                            $('#data').html(result.responseText);
+                        }
+                    });
                 }
 
             }
@@ -145,9 +169,16 @@ $(document).ready(function () {
                             child.classList.add('searchbar-item');
                             child.onclick = function () {
                                 logData(element);
-                                window.location.href = 'search?id=' + element;
+                                $.ajax({
+                                    type: 'GET',
+                                    headers: { 'apikey': '6h[-yENBfB' },
+                                    url: url + 'website/ingredient?ingredient=' + element + '&language=' + getLanguage(),
+                                    dataType: 'html',
+                                    complete: function (result) {
+                                        $('#data').html(result.responseText);
+                                    }
+                                });
                             }
-
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');
                                 parent.childNodes.forEach(child => {
