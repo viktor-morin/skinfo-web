@@ -62,7 +62,7 @@ $(document).ready(function () {
                 var parent = document.getElementById('searchbar-suggestions');
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
-                    logData(parent.firstChild.innerText);
+                    logData(parent.children[1].innerText;
                     $.ajax({
                         type: 'GET',
                         headers: { 'apikey': '6h[-yENBfB' },
