@@ -38,7 +38,7 @@ $(document).ready(function () {
 
             if (text.includes(',')) {
                 logData(text);
-                window.location.href = 'search?id=' + text;
+                window.location.href = 'new/search?id=' + text;
             }
             else {
 
@@ -46,10 +46,10 @@ $(document).ready(function () {
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
                     logData(parent.firstChild.innerText);
-                    window.location.href = 'search?id=' + parent.firstChild.innerText;
+                    window.location.href = 'new/search?id=' + parent.firstChild.innerText;
                 } else {
                     logData(result.innerText);
-                    window.location.href = 'search?id=' + result.innerText;
+                    window.location.href = 'new/search?id=' + result.innerText;
                 }
 
             }
@@ -145,7 +145,7 @@ $(document).ready(function () {
                             child.classList.add('searchbar-item');
                             child.onclick = function () {
                                 logData(element);
-                                window.location.href = 'website/ingredient?ingredient=' + element;
+                                window.location.href = 'new/search?id=' + element;
                             }
 
                             child.addEventListener("mouseover", function (e) {
