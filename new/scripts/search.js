@@ -57,6 +57,11 @@ $(document).ready(function () {
                     }
                 });
             }
+
+            if (document.getElementById('searchbar-suggestions').style.css == 'none') {
+                return;
+            }
+
             else {
 
                 var parent = document.getElementById('searchbar-suggestions');
@@ -72,6 +77,7 @@ $(document).ready(function () {
                             $('#data').html(result.responseText);
                         }
                     });
+                    $('#searchbox').val(parent.children[1].innerText);
                 } else {
                     logData(result.innerText);
                     $.ajax({
@@ -82,7 +88,9 @@ $(document).ready(function () {
                         complete: function (result) {
                             $('#data').html(result.responseText);
                         }
+
                     });
+                    $('#searchbox').val(result.innerText);
                 }
             }
             parent.innerHTML = '';
