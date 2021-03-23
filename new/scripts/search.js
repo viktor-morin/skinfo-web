@@ -29,10 +29,13 @@ $(document).ready(function () {
     }
 
 
-    $('#searchform').on('submit', function (e) {
-        e.stopPropagation();
-        console.log('inside submit');
-    })
+    $('form input').keydown(function (e) {
+        if (e.keyCode == 13) {
+            console.log('ville');
+            e.preventDefault();
+            return false;
+        }
+    });
 
     $('#searchbox').on('keydown', function (e) {
         e.stopPropagation();
