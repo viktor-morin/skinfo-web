@@ -1,4 +1,4 @@
-var url = 'https://api.skinfo.se/';
+var url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 $(document).ready(function () {
     function getParameterByName(name, url = window.location.href) {
@@ -18,7 +18,8 @@ $(document).ready(function () {
     if (id != null) {
         $.ajax({
             type: 'GET',
-            url: url + 'search/get?query=' + id + '&language=' + getLanguage(),
+            headers: { 'apikey': '6h[-yENBfB' },
+            url: url + 'website/get?query=' + id + '&language=' + getLanguage(),
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
@@ -112,7 +113,8 @@ $(document).ready(function () {
         else {
             $.ajax({
                 type: 'GET',
-                url: url + 'search/suggestion?query=' + text,
+                url: url + 'website/suggestion?query=' + text,
+                headers: { 'apikey': '6h[-yENBfB' },
                 contentType: "application/json; charset=utf-8",
                 complete: function (result) {
                     if (result.responseJSON.length > 0) {
@@ -191,7 +193,8 @@ $(document).ready(function () {
 
         var json = JSON.stringify(dict);
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", url + "search/log", true);
+        xhttp.open("POST", url + "website/log", true);
+        xhttp.setRequestHeader('apikey', '6h[-yENBfB');
         xhttp.send(json);
     }
 
