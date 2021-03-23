@@ -29,6 +29,7 @@ $(document).ready(function () {
     }
 
     $('#searchbox').on('keydown', function (e) {
+        e.stopPropagation();
         const key = e.key;
         if (key == 'Enter') {
             var text = $('#searchbox').val();
