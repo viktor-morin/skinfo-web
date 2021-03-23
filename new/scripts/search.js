@@ -28,6 +28,12 @@ $(document).ready(function () {
         $('#searchbox').val(id);
     }
 
+
+    $('#searchbox').on('submit', function (e) {
+        e.stopPropagation();
+        console.log('inside submit');
+    })
+
     $('#searchbox').on('keydown', function (e) {
         e.stopPropagation();
         const key = e.key;
