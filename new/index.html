@@ -157,12 +157,13 @@
                 <h1>Customers</h1>
             </div>
         </div>
-        <div style="width: 60%; margin: auto; display:flex; justify-content: space-between;">
+        <div class="logo-div">
             <img class="logo" src="customers_logo/faceittea.png">
             <img class="logo" src="customers_logo/itchy.png">
-            <img class="logo" src="customers_logo/LloydsApotek-sv.png">
-            <img class="logo" src="customers_logo/mossnoor_logo_black_295x.png">
-            <img class="logo" src="customers_logo/om-se_logo.png">
+            <img class="logo" style="min-height: 25px;max-height: 25px;" src="customers_logo/LloydsApotek-sv.png">
+            <img class="logo" style="min-height: 20px;max-height: 20px;"
+                src="customers_logo/mossnoor_logo_black_295x.png">
+            <img class="logo" style="min-height: 25px;max-height: 25px;" src="customers_logo/om-se_logo.png">
             <img class="logo" src="customers_logo/skin_wardrobe_long.png">
         </div>
     </div>
@@ -255,13 +256,14 @@
             </div>
         </div>
     </div>
-    <div class="one-block" style="min-height: 400px;">
+    <div class="one-block-fullwidth" style="min-height: 400px;">
         <div style="display: flex; margin: 20px;">
             <div style="margin: auto;">
                 <h1>What does our customers say?</h1>
             </div>
         </div>
         <div style="display: flex;">
+            <div class="left-arrow"></div>
             <div class="customer-feedback-grp">
                 <div class="customer-feedback">
                     <div class="customer-feedback-logo">
@@ -310,7 +312,7 @@
                 </div>
             </div>
             <div class="customer-feedback-grp" style="display: none;">
-                <div class="customer-feedback" style="opacity: 0;">
+                <div class="customer-feedback">
                     <div class="customer-feedback-logo">
                         <img class="customer-feedback-img" src="customers_logo/mossnoor_logo_black_295x.png">
                     </div>
@@ -330,7 +332,7 @@
                         Tom Flumé, CEO, Moss & Noor
                     </div>
                 </div>
-                <div class="customer-feedback" style="opacity: 0;">
+                <div class="customer-feedback">
                     <div class="customer-feedback-logo">
                         <img class="customer-feedback-img" src="customers_logo/faceittea.png">
                     </div>
@@ -342,7 +344,7 @@
                         Michael Adjovi, Founder, Faceitea
                     </div>
                 </div>
-                <div class="customer-feedback" style="opacity: 0;">
+                <div class="customer-feedback">
                     <div class="customer-feedback-logo">
                         <img class="customer-feedback-img" src="customers_logo/itchy.png">
                     </div>
@@ -356,6 +358,7 @@
                     </div>
                 </div>
             </div>
+            <div class="right-arrow"></div>
         </div>
     </div>
     <div class="one-block-fullwidth">
@@ -478,42 +481,93 @@
         if (elements.length == showIndexNumber)
             showIndexNumber = 0;
 
-        setTimeout(function () {
-            if (showIndexNumber === 0) {
-                var children = elements[elements.length - 1].children;
-                for (var i = 0; i < children.length; i++) {
-                    children[i].style.opacity = '0.0';
-                }
-                setTimeout(function () {
-                    elements[elements.length - 1].style.display = 'none';
-                    elements[showIndexNumber].style.display = 'flex';
-                    setTimeout(function () {
-                        var children = elements[showIndexNumber].children;
-                        for (var i = 0; i < children.length; i++) {
-                            children[i].style.opacity = '1.0';
-                        }
-                    }, 10);
-                }, 800);
-            } else {
-                var children = elements[showIndexNumber - 1].children;
-                for (var i = 0; i < children.length; i++) {
-                    children[i].style.opacity = '0.0';
-                }
-                setTimeout(function () {
-                    elements[showIndexNumber - 1].style.display = 'none';
-                    elements[showIndexNumber].style.display = 'flex';
-                    setTimeout(function () {
-                        var children = elements[showIndexNumber].children;
-                        for (var i = 0; i < children.length; i++) {
-                            children[i].style.opacity = '1.0';
-                        }
-                    }, 10);
-                }, 800);
-            }
-            updateCustomerFeedback(showIndexNumber + 1);
-        }, 1000 * 10);
+        // setTimeout(function () {
+        //     if (showIndexNumber === 0) {
+        //         var children = elements[elements.length - 1].children;
+        //         for (var i = 0; i < children.length; i++) {
+        //             children[i].style.opacity = '0.0';
+        //         }
+        //         setTimeout(function () {
+        //             elements[elements.length - 1].style.display = 'none';
+        //             elements[showIndexNumber].style.display = 'flex';
+        //             setTimeout(function () {
+        //                 var children = elements[showIndexNumber].children;
+        //                 for (var i = 0; i < children.length; i++) {
+        //                     children[i].style.opacity = '1.0';
+        //                 }
+        //             }, 10);
+        //         }, 800);
+        //     } else {
+        //         var children = elements[showIndexNumber - 1].children;
+        //         for (var i = 0; i < children.length; i++) {
+        //             children[i].style.opacity = '0.0';
+        //         }
+        //         setTimeout(function () {
+        //             elements[showIndexNumber - 1].style.display = 'none';
+        //             elements[showIndexNumber].style.display = 'flex';
+        //             setTimeout(function () {
+        //                 var children = elements[showIndexNumber].children;
+        //                 for (var i = 0; i < children.length; i++) {
+        //                     children[i].style.opacity = '1.0';
+        //                 }
+        //             }, 10);
+        //         }, 800);
+        //     }
+        //     updateCustomerFeedback(showIndexNumber + 1);
+        // }, 1000 * 10);
     }
 
+    var left = document.getElementsByClassName('left-arrow');
+    for (i = 0; i < left.length; i++) {
+        left[i].onclick = function () {
+            var children = this.parentElement.children;
+            for (j = 0; j < children.length; j++) {
+                if (children[j].classList.contains('left-arrow') || children[j].classList.contains('right-arrow'))
+                    continue;
+
+                if (children[j].style.display == 'none')
+                    continue;
+
+                children[j].style.display = 'none';
+
+                if (j + 2 == children.length) {
+                    children[1].classList.add('animate-in-left');
+                    children[1].style.display = 'flex';
+                } else {
+                    children[j + 1].classList.add('animate-in-left');
+                    children[j + 1].style.display = 'flex';
+                }
+
+                return;
+            }
+        }
+    }
+
+    var right = document.getElementsByClassName('right-arrow');
+    for (i = 0; i < right.length; i++) {
+        right[i].onclick = function () {
+            var children = this.parentElement.children;
+            for (j = 0; j < children.length; j++) {
+                if (children[j].classList.contains('left-arrow') || children[j].classList.contains('right-arrow'))
+                    continue;
+
+                if (children[j].style.display == 'none')
+                    continue;
+
+                children[j].style.display = 'none';
+
+                if (j == 1) {
+                    children[children.length - 2].classList.add('animate-in-right');
+                    children[children.length - 2].style.display = 'flex';
+                } else {
+                    children[j - 1].classList.add('animate-in-right');
+                    children[j - 1].style.display = 'flex';
+                }
+
+                return;
+            }
+        }
+    }
 
     document.getElementById('try_it_here').onclick = function () {
         console.log('try_it_here');

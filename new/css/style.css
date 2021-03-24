@@ -197,6 +197,24 @@ textarea {
     background-color: rgb(60, 0, 200)
 }
 
+.right-arrow {
+    min-width: 30px;
+    max-width: 30px;
+    opacity: 0.5;
+    margin-right: 50px;
+    margin-left: 50px;
+    background: url(../svg/arrow-right.svg) no-repeat center center;
+}
+
+.left-arrow {
+    min-width: 30px;
+    max-width: 30px;
+    opacity: 0.5;
+    margin-right: 50px;
+    margin-left: 50px;
+    background: url(../svg/arrow-left.svg) no-repeat center center;
+}
+
 .checklistitem {
     display: flex;
 }
@@ -213,9 +231,19 @@ textarea {
     max-height: 20px;
 }
 
+.logo-div {
+    justify-content: space-between;
+    margin: 0 auto;
+    display:grid; 
+    gap: 2rem;
+    justify-content: space-between;
+    grid-template-columns: repeat(6,1fr)
+}
+
 .logo {
     min-height: 30px;
     max-height: 30px;
+    margin: auto;
     filter: contrast(160%) grayscale(100%);    
 }
 
@@ -237,8 +265,41 @@ textarea {
 .customer-feedback-grp {
     display: flex;
     flex-direction: row;
-    margin: auto;
-    max-width: 1200px;
+    margin: auto;    
+}
+
+@keyframes animateinleft {
+    from {
+        left: 500px;
+        opacity: 0
+    }
+
+    to {
+        left: 0px;
+        opacity: 1
+    }
+}
+
+.animate-in-left {
+    position: relative;
+    animation: animateinleft 0.6s
+}
+
+@keyframes animateinright {
+    from {
+        right: 500px;
+        opacity: 0
+    }
+
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+.animate-in-right {
+    position: relative;
+    animation: animateinright 0.6s
 }
 
 .customer-feedback-author {
@@ -283,7 +344,7 @@ textarea {
 .price-plan-main {
     max-width: 1300px;
     margin: 0 auto;
-    display:grid; 
+    display: grid; 
     gap: 2rem;
     justify-content: space-between;
     grid-template-columns: repeat(4,1fr)
@@ -553,8 +614,6 @@ iframe::-webkit-scrollbar {
     background-color: black;
     opacity: 1.0;
 }
-
-
 
 .insta-div a img {
         max-width: none;
