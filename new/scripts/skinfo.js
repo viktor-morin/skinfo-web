@@ -32,12 +32,12 @@ $(document).ready(function () {
     for (i = 0; i < menuItems.length; i++) {
         menuItems[i].onclick = function () {
             if (this.dataset.url.startsWith('https'))
-            window.open(
-                this.dataset.url,
-                '_blank'
-            );
-        else
-            window.location.href = this.dataset.url;
+                window.open(
+                    this.dataset.url,
+                    '_blank'
+                );
+            else
+                window.location.href = this.dataset.url;
         }
     }
 
@@ -61,7 +61,8 @@ $(document).ready(function () {
         complete: function (result) {
             var feed = new Instafeed({
                 accessToken: result.responseJSON,
-                limit: 8
+                limit: 5,
+                template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>'
             });
             feed.run();
         }

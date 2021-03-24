@@ -529,10 +529,31 @@ iframe::-webkit-scrollbar {
     opacity: 0.5;
 }
 
-.instafeed a img {
-    width: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
+.instafeed {
+    margin: 0 auto;
+    display: flex;
+}
+
+.insta-div {
+    width: 25%;
+}
+
+.insta-div {
+    background: url(../images/instagram-icon.svg) no-repeat center center;
+    background-size: 30px 30px;
+    background-color: black;
+    opacity: 1.0;
+}
+
+.insta-div a img {
+    width: 100%;
+    height: 100%;
+}
+
+.insta-div a img:hover {
+    opacity: 0.5;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
 }
 
 .footer-link {
