@@ -548,7 +548,7 @@ iframe::-webkit-scrollbar {
     color: #fff;
     width: 20.000000%;
     padding-top: 20.000000%;
-    background: url(../images/instagram-icon.svg) no-repeat center center;
+    background: url(../svg/instagram-icon.svg) no-repeat center center;
     background-size: 30px 30px;
     background-color: black;
     opacity: 1.0;
