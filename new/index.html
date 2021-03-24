@@ -476,51 +476,31 @@
 
 </html>
 <script>
-    async function updateCustomerFeedback(showIndexNumber) {
-        var elements = document.getElementsByClassName('customer-feedback-grp');
-        if (elements.length == showIndexNumber)
-            showIndexNumber = 0;
+    var clicked = false;
+    async function updateCustomerFeedback() {
+        setTimeout(function () {
+            if (clicked) {
+                clicked = false;
+                updateCustomerFeedback();
+                return;
+            }
+            var left = document.getElementsByClassName('left-arrow');
+            for (i = 0; i < left.length; i++)
+                left[i].click();
 
-        // setTimeout(function () {
-        //     if (showIndexNumber === 0) {
-        //         var children = elements[elements.length - 1].children;
-        //         for (var i = 0; i < children.length; i++) {
-        //             children[i].style.opacity = '0.0';
-        //         }
-        //         setTimeout(function () {
-        //             elements[elements.length - 1].style.display = 'none';
-        //             elements[showIndexNumber].style.display = 'flex';
-        //             setTimeout(function () {
-        //                 var children = elements[showIndexNumber].children;
-        //                 for (var i = 0; i < children.length; i++) {
-        //                     children[i].style.opacity = '1.0';
-        //                 }
-        //             }, 10);
-        //         }, 800);
-        //     } else {
-        //         var children = elements[showIndexNumber - 1].children;
-        //         for (var i = 0; i < children.length; i++) {
-        //             children[i].style.opacity = '0.0';
-        //         }
-        //         setTimeout(function () {
-        //             elements[showIndexNumber - 1].style.display = 'none';
-        //             elements[showIndexNumber].style.display = 'flex';
-        //             setTimeout(function () {
-        //                 var children = elements[showIndexNumber].children;
-        //                 for (var i = 0; i < children.length; i++) {
-        //                     children[i].style.opacity = '1.0';
-        //                 }
-        //             }, 10);
-        //         }, 800);
-        //     }
-        //     updateCustomerFeedback(showIndexNumber + 1);
-        // }, 1000 * 10);
+            updateCustomerFeedback();
+        }, 8000);
     }
 
     var left = document.getElementsByClassName('left-arrow');
     for (i = 0; i < left.length; i++) {
         left[i].onclick = function () {
+            clicked = true;
             var children = this.parentElement.children;
+            for (j = 0; j < children.length; j++) {
+                children[j].classList.remove('animate-in-left');
+                children[j].classList.remove('animate-in-right');
+            }
             for (j = 0; j < children.length; j++) {
                 if (children[j].classList.contains('left-arrow') || children[j].classList.contains('right-arrow'))
                     continue;
@@ -546,7 +526,12 @@
     var right = document.getElementsByClassName('right-arrow');
     for (i = 0; i < right.length; i++) {
         right[i].onclick = function () {
+            clicked = true;
             var children = this.parentElement.children;
+            for (j = 0; j < children.length; j++) {
+                children[j].classList.remove('animate-in-left');
+                children[j].classList.remove('animate-in-right');
+            }
             for (j = 0; j < children.length; j++) {
                 if (children[j].classList.contains('left-arrow') || children[j].classList.contains('right-arrow'))
                     continue;
@@ -577,5 +562,5 @@
         console.log('contact_us');
     }
 
-    updateCustomerFeedback(1);
+    updateCustomerFeedback();
 </script>
