@@ -552,8 +552,8 @@ iframe::-webkit-scrollbar {
 
 .insta-div a img:hover {
     opacity: 0.5;
-    transition: opacity 1s;
-    -webkit-transition: opacity 1s;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
 }
 
 .footer-link {
