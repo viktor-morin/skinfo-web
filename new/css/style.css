@@ -151,6 +151,10 @@ textarea {
     margin: auto;
 }
 
+.one-block-fullwidth {
+    margin: auto;
+}
+
 .two-block {
     max-width: 1300px;
     margin: auto;
@@ -530,24 +534,43 @@ iframe::-webkit-scrollbar {
 }
 
 .instafeed {
+    text-align: center;
+    clear: both;
     margin: 0 auto;
     display: flex;
 }
 
 .insta-div {
-    width: 25%;
-}
-
-.insta-div {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    padding: 0;
+    color: #fff;
+    width: 20.000000%;
+    padding-top: 20.000000%;
     background: url(../images/instagram-icon.svg) no-repeat center center;
     background-size: 30px 30px;
     background-color: black;
     opacity: 1.0;
 }
 
+
+
 .insta-div a img {
-    width: 100%;
-    height: 100%;
+        max-width: none;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        transform: initial;
+        display: initial;
+        opacity: 1;
 }
 
 .insta-div a img:hover {
