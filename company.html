@@ -661,6 +661,7 @@
             ({
                 type: "GET",
                 url: "https://api.skinfo.se/information/stats",
+                headers: { 'apikey': '6h[-yENBfB' },
                 dataType: 'json',
                 success: function (data) {
                     $("#1").html(data.created);
@@ -722,6 +723,7 @@
             type: 'POST',
             url: 'https://api.skinfo.se/information',
             contentType: "application/json; charset=utf-8",
+            headers: { 'apikey': '6h[-yENBfB' },
             data: json,
             complete: function () {
             }
