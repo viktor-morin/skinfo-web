@@ -57,6 +57,7 @@ $(document).ready(function () {
     $.ajax({
         type: 'GET',
         url: 'https://api.skinfo.se/information/instagram',
+        headers: { 'apikey': '6h[-yENBfB' },
         contentType: "application/json; charset=utf-8",
         complete: function (result) {
             var feed = new Instafeed({
@@ -87,6 +88,7 @@ $(document).ready(function () {
                 //     type: 'POST',
                 //     url: 'https://api.skinfo.se/information/email?email=' + email,
                 //     contentType: "application/json; charset=utf-8",
+                //     headers: { 'apikey': '6h[-yENBfB' },
                 //     error: function () {
                 //         document.getElementById('send-email-input').focus();
                 //         console.log('error');
