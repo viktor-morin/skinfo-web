@@ -324,6 +324,32 @@ textarea {
     height: 25px;
 }
 
+.business-stats-header {
+    margin: auto;
+    display: table;
+    font-size: 30px;
+}
+
+.business-stats-div {
+    margin: auto;
+    display: flex;
+    margin-top: 30px;
+    width: max-content;
+}
+
+.business-stats-element {
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.business-keypoints-items {
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    width: max-content;
+}
+
 .customer-example {
     cursor: pointer;
     background-color: whitesmoke;
