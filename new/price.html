@@ -192,6 +192,111 @@
             </div>
         </div>
     </div>
+    <div class="one-block-fullwidth" style="min-height: 400px;">
+        <div style="display: flex; margin: 20px;">
+            <div style="margin: auto;">
+                <h1>What does our customers say?</h1>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="left-arrow"></div>
+            <div class="customer-feedback-grp">
+                <div class="customer-feedback">
+                    <div class="customer-feedback-logo">
+                        <img class="customer-feedback-img" src="customers_logo/om-se_logo.png">
+                    </div>
+                    <div class="customer-feedback-text">
+                        "OM-SE has from the very start been all about ingredients.
+                        Partnering with Skinfo was a natural choice to show transparency and how proud we are of our
+                        100
+                        per cent organic and plant-based products.
+                        <br><br>
+                        We believe honesty is the future."
+                    </div>
+                    <div class="customer-feedback-author">
+                        Jenny & Jacob Huurinainen, founders OM-SE
+                    </div>
+                </div>
+                <div class="customer-feedback">
+                    <div class="customer-feedback-logo">
+                        <img class="customer-feedback-img" src="customers_logo/LloydsApotek-sv.png">
+                    </div>
+                    <div class="customer-feedback-text">
+                        "It feels fantastic that start a collaboration with Skinfo.
+                        <br><br>
+                        The collaboration enables us to offer our customers a deeperunderstanding about their skin
+                        health with an innovative solution"
+                    </div>
+                    <div class="customer-feedback-author">
+                        Helena Tolf, Head of Personal Care, Lloyds Apotek
+                    </div>
+                </div>
+                <div class="customer-feedback">
+                    <div class="customer-feedback-logo">
+                        <img class="customer-feedback-img" src="customers_logo/skin_wardrobe_long.png">
+                    </div>
+                    <div class="customer-feedback-text">
+                        "Skinfo applies an objective scientific definition to all
+                        skincare, haircare and cosmetic ingredients.
+                        <br><br>
+                        We are the first to offer this tool and level of
+                        ingredient transparency in the skincare and cosmetic industry in New Zealand and Australia."
+                    </div>
+                    <div class="customer-feedback-author">
+                        Catherine Tong, founder The Skin Wardrobe
+                    </div>
+                </div>
+            </div>
+            <div class="customer-feedback-grp" style="display: none;">
+                <div class="customer-feedback">
+                    <div class="customer-feedback-logo">
+                        <img class="customer-feedback-img" src="customers_logo/mossnoor_logo_black_295x.png">
+                    </div>
+                    <div class="customer-feedback-text">
+                        "Skinfo
+                        is a company
+                        with
+                        big goals that match our level of ambition. We are very proud of the formulations in all our
+                        products and want to tell the world about them. That's why Skinfo is such a fantastic
+                        service.
+                        <br><br>
+                        Placing this knowledge and power about our ingredients in the hands of consumers is
+                        something we
+                        firmly believe in. Skinfo will become an industry standard."
+                    </div>
+                    <div class="customer-feedback-author">
+                        Tom Flumé, CEO, Moss & Noor
+                    </div>
+                </div>
+                <div class="customer-feedback">
+                    <div class="customer-feedback-logo">
+                        <img class="customer-feedback-img" src="customers_logo/faceittea.png">
+                    </div>
+                    <div class="customer-feedback-text">
+                        "Ingredient transparency is at the core of our mission and
+                        nobody helps us achieve this better than Skinfo."
+                    </div>
+                    <div class="customer-feedback-author">
+                        Michael Adjovi, Founder, Faceitea
+                    </div>
+                </div>
+                <div class="customer-feedback">
+                    <div class="customer-feedback-logo">
+                        <img class="customer-feedback-img" src="customers_logo/itchy.png">
+                    </div>
+                    <div class="customer-feedback-text">
+                        "Excited to partner with Skinfo to bring more transparency to
+                        specialised skincare, giving our customers more insight into Itchy’s unique products for
+                        Psoriasis and Atopic Dermatitis."
+                    </div>
+                    <div class="customer-feedback-author">
+                        Caj Westlund, CMO, ITCHY
+                    </div>
+                </div>
+            </div>
+            <div class="right-arrow"></div>
+        </div>
+    </div>
     <div class="one-block-fullwidth">
         <div style="display: flex; margin: 20px;">
             <div style="margin: auto;">
@@ -307,4 +412,83 @@
 
 </html>
 <script>
+    var clicked = false;
+    async function updateCustomerFeedback() {
+        setTimeout(function () {
+            if (clicked) {
+                clicked = false;
+                updateCustomerFeedback();
+                return;
+            }
+            var left = document.getElementsByClassName('left-arrow');
+            for (i = 0; i < left.length; i++)
+                left[i].click();
+
+            updateCustomerFeedback();
+        }, 8000);
+    }
+
+    var left = document.getElementsByClassName('left-arrow');
+    for (i = 0; i < left.length; i++) {
+        left[i].onclick = function () {
+            clicked = true;
+            var children = this.parentElement.children;
+            for (j = 0; j < children.length; j++) {
+                children[j].classList.remove('animate-in-left');
+                children[j].classList.remove('animate-in-right');
+            }
+            for (j = 0; j < children.length; j++) {
+                if (children[j].classList.contains('left-arrow') || children[j].classList.contains('right-arrow'))
+                    continue;
+
+                if (children[j].style.display == 'none')
+                    continue;
+
+                children[j].style.display = 'none';
+
+                if (j + 2 == children.length) {
+                    children[1].classList.add('animate-in-left');
+                    children[1].style.display = 'flex';
+                } else {
+                    children[j + 1].classList.add('animate-in-left');
+                    children[j + 1].style.display = 'flex';
+                }
+
+                return;
+            }
+        }
+    }
+
+    var right = document.getElementsByClassName('right-arrow');
+    for (i = 0; i < right.length; i++) {
+        right[i].onclick = function () {
+            clicked = true;
+            var children = this.parentElement.children;
+            for (j = 0; j < children.length; j++) {
+                children[j].classList.remove('animate-in-left');
+                children[j].classList.remove('animate-in-right');
+            }
+            for (j = 0; j < children.length; j++) {
+                if (children[j].classList.contains('left-arrow') || children[j].classList.contains('right-arrow'))
+                    continue;
+
+                if (children[j].style.display == 'none')
+                    continue;
+
+                children[j].style.display = 'none';
+
+                if (j == 1) {
+                    children[children.length - 2].classList.add('animate-in-right');
+                    children[children.length - 2].style.display = 'flex';
+                } else {
+                    children[j - 1].classList.add('animate-in-right');
+                    children[j - 1].style.display = 'flex';
+                }
+
+                return;
+            }
+        }
+    }
+
+    updateCustomerFeedback();
 </script>
