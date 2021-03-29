@@ -62,7 +62,7 @@ $(document).ready(function () {
         complete: function (result) {
             var feed = new Instafeed({
                 accessToken: result.responseJSON,
-                limit: 5,
+                limit: 8,
                 template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>'
             });
             feed.run();

@@ -165,6 +165,15 @@ textarea {
     -webkit-box-align: center;
 }
 
+.two-block-fullwidth {
+    margin: auto;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
 .two-block-header {
     display: flex;
     margin: 20px;
@@ -233,6 +242,76 @@ textarea {
     max-height: 20px;
 }
 
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 15));
+        transform: translateX(calc(-250px * 15));
+    }
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 15));
+        transform: translateX(calc(-250px * 15));
+    }
+}
+
+.slider {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slider .slide-track {
+    -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 30);
+    max-width: calc(250px * 30);
+}
+
+.slider .slide {
+    height: 100px;
+    width: 250px;
+}
+
+.slide img {
+    height:100px; 
+    width:250px;
+}
+
 .logo-div {
     justify-content: space-between;
     margin: 0 auto;
@@ -246,7 +325,6 @@ textarea {
     min-height: 30px;
     max-height: 30px;
     margin: auto;
-    filter: contrast(160%) grayscale(100%);    
 }
 
 .customer-feedback {
@@ -634,10 +712,12 @@ iframe::-webkit-scrollbar {
 }
 
 .instafeed {
+    max-width: 1300px;
     text-align: center;
     clear: both;
     margin: 0 auto;
     display: flex;
+    padding: 0 50px;
 }
 
 .insta-div {
@@ -646,12 +726,12 @@ iframe::-webkit-scrollbar {
     vertical-align: top;
     padding: 0;
     color: #fff;
-    width: 20.000000%;
-    padding-top: 20.000000%;
+    width: 12.500000%;
+    padding-top: 12.500000%;
     background: url(../svg/instagram-icon.svg) no-repeat center center;
     background-size: 30px 30px;
-    background-color: black;
     opacity: 1.0;
+    background-color: black;
 }
 
 .insta-div a img {
