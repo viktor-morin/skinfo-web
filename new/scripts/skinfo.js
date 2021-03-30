@@ -28,9 +28,9 @@ $(document).ready(function () {
         }
     }
 
-    var menuItems = document.getElementsByClassName('menu-button');
-    for (i = 0; i < menuItems.length; i++) {
-        menuItems[i].onclick = function () {
+    var actionbuttons = document.getElementsByClassName('actionbutton');
+    for (i = 0; i < actionbuttons.length; i++) {
+        actionbuttons[i].onclick = function () {
             if (this.dataset.url.startsWith('https'))
                 window.open(
                     this.dataset.url,
