@@ -22,3 +22,14 @@
   font-style: italic;
   src: url(../fonts/HelveticaNeueLTPro-Normal-Italic.otf)
 }
+
+@font-face {
+  font-family: NeuzeitGrotesk;
+  src: url(../fonts/NeuzeitGro-Reg.ttf)
+}
+
+@font-face {
+  font-family: NeuzeitGrotesk;
+  font-weight: bold;
+  src: url(../fonts/NeuzeitGro-Bol.ttf)
+}

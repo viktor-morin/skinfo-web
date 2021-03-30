@@ -63,6 +63,11 @@ textarea {
     padding: 20px;
 }
 
+.margintext {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .main-menu {
     padding-bottom: 5px;
     text-align: center;
@@ -230,8 +235,12 @@ textarea {
     background-color: rgb(243, 247, 254)
 }
 
+.headercolor {
+    color: rgba(31, 31, 34);
+}
+
 .graybackgroundcolor {
-    background-color: whitesmoke;
+    background-color: #F8F8F8;
 }
 
 .right-arrow {
