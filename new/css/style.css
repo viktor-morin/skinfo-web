@@ -53,6 +53,22 @@ textarea {
     resize: none;
 }
 
+.page-container {
+    min-height: calc(100vh - 100px);
+    position: relative;
+}
+
+.content {
+    padding-bottom:  15rem;
+}
+
+.footer-main {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15rem;
+}
+
 .skinfo-title {
     padding-right: 10px;
     padding-left: 20px;
@@ -169,8 +185,6 @@ textarea {
 }
 
 .two-block {
-    margin-top: 6rem;;
-    margin-bottom: 6rem;
     max-width: 1300px;
     margin: auto;
     display: flex;
@@ -181,8 +195,6 @@ textarea {
 }
 
 .two-block-fullwidth {
-    margin-top: 6rem;;
-    margin-bottom: 6rem;
     margin: auto;
     display: flex;
     align-items: center;  
@@ -194,6 +206,10 @@ textarea {
 .two-block-header {
     display: flex;
     margin: 20px;
+}
+
+.margin-div-between-big-block {
+    margin-top: 6rem;
 }
 
 .inside-block {
@@ -241,6 +257,10 @@ textarea {
 
 .graybackgroundcolor {
     background-color: #F8F8F8;
+}
+
+.border-radius {
+    border-radius: 0.75rem;
 }
 
 .right-arrow {
@@ -711,6 +731,8 @@ iframe::-webkit-scrollbar {
     display: none;
 }
 
+
+
 .footer {
     display: flex;
     flex-direction: row;
@@ -773,20 +795,21 @@ iframe::-webkit-scrollbar {
 }
 
 .insta-div a img {
-        max-width: none;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        transform: initial;
-        display: initial;
-        opacity: 1;
+    filter: grayscale(50%);
+    max-width: none;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    transform: initial;
+    display: initial;
+    opacity: 1;
 }
 
 .insta-div a img:hover {
