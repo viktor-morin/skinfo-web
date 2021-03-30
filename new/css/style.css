@@ -672,66 +672,57 @@ input:-webkit-autofill:active  {
     cursor: pointer;
     border-radius: 0.5rem;
     display: flex;
+    flex-direction: column;
     border: 1px solid lightgray;
     margin: 10px auto;
     padding: 10px;
+    width: -moz-available;         
+    width: -webkit-fill-available;  
+    width: fill-available;
     -webkit-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
     -moz-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
          box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
 }
 
-.news-logo {
-    width: 200px;
-    margin: auto;
+.news-main-div {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    margin: 0 auto;
+    display:grid; 
+    gap: 2rem;
+    justify-content: space-between;
+    grid-template-columns: repeat(3,1fr)
 }
 
-.news-title {
+.news-logo {
+    height: 25px;
     margin: auto;
 }
 
 .news-date {
     margin: auto;
+    padding-top: 5px;
+    font-size: 1rem;
+    font-family: "NeuzeitGrotesk";
 }
 
-.news-iframe-div {
-    position: relative;
-}
-
-.news-iframe-div::after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);
-    width: 100%;
-    height: 4em;
-  }
-
-.news-iframe {
-    height: 25vh;
-    width: 100%;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.news-expand {
+.news-title {
     margin: auto;
-    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: "NeuzeitGrotesk";
 }
 
-.news-iframe-expanded {
-    height: 100vh;
-    width: 100%;
-    overflow: unset;
+.news-readmore {
+    margin: auto; 
+    font-weight: bold; 
+    font-family: "NeuzeitGrotesk";
 }
-
-iframe::-webkit-scrollbar {
-    display: none;
-}
-
-
 
 .footer {
     display: flex;
