@@ -68,9 +68,9 @@
         </div>
     </div>
     <div style="margin-top:50px;"></div>
-    <div class="two-block-fullwidth" style="background: linear-gradient(to bottom, rgb(243,247,254) 45%, white 45%);">
-        <div class="inside-block" style="position: relative; left:20%">
-            <div class="inside-block-left">
+    <div class="two-block-fullwidth first-section-background first-section-fullwidth">
+        <div class="inside-block first-section-first-block">
+            <div class="inside-block-left first-section-first-block-left">
                 <div>
                     <h1>
                         Skinfo Ingredient Widget
@@ -86,34 +86,19 @@
             </div>
         </div>
         <div class="two-block-breaker"></div>
-        <div class="inside-block" style="min-width: 80%;">
-            <div class="inside-block-right" style="position: relative; left:-175px">
-                <div id="start-div" style="display: flex; min-height: 65vh; background-size: contain; background-repeat: no-repeat; background-image: url(images/start1.png);-webkit-transition: background-image 0.5s ease-in-out;
-                transition: background-image 0.5s ease-in-out;">
+        <div class="inside-block first-section-second-block">
+            <div class="inside-block-right">
+                <div id="first-section-image-div" class="first-section-image-div">
                 </div>
             </div>
         </div>
+        <!-- used to pre-load-images -->
+        <div style="display: none;">
+            <img src="images/start1.png">
+            <img src="images/start2.png">
+            <img src="images/start3.png">
+        </div>
     </div>
-
-    <!-- <div class="one-block-fullwidth"
-        style="display: flex; background: linear-gradient(to bottom, rgb(243,247,254) 55%, white 45%);">
-        <div style="position: relative; top:50px; width: 150px; max-width: 20%;">
-            <h1>
-                Skinfo Ingredient Widget
-            </h1>
-            <h2>Used by shoppers 10,000+ times daily</h2>
-            <h3>Increase sales through trust and transparency, help shoppers understand every ingredient</h3>
-        </div>
-        <div id="start-div" style="float: right; min-width: 80%; max-width: 80%; display: flex; min-height: 80vh; background-size: contain; background-repeat: no-repeat; background-image: url(images/start1.png);-webkit-transition: background-image 0.5s ease-in-out;
-            transition: background-image 0.5s ease-in-out;">
-        </div>
-        <div>
-            <div style="margin-top: 20px;">
-                <button id="try_it_here" class="skinfobackgroundcolor">Start free trial</button>
-                <button id="contact_us" class="skinfobackgroundcolor">Request a Demo</button>
-            </div>
-        </div>
-    </div> -->
     <div class="one-block-fullwidth">
         <div style="display: flex; margin: 20px;">
             <div style="margin: auto;">
@@ -419,15 +404,72 @@
 </body>
 
 </html>
+<style>
+    .first-section-background {
+        background: linear-gradient(to bottom, rgb(243, 247, 254) 55%, white 55%);
+    }
+
+    .first-section-first-block {
+        float: left;
+        width: 20%;
+    }
+
+    .first-section-first-block-left {
+        position: relative;
+        left: 40%;
+        z-index: 1;
+    }
+
+    .first-section-second-block {
+        min-width: 80%;
+    }
+
+    .first-section-image-div {
+        display: flex;
+        min-height: 45vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url(images/start1.png);
+        -webkit-transition: background-image 0.5s ease-in-out;
+        transition: background-image 0.5s ease-in-out;
+    }
+
+    @media only screen and (max-width: 1350px) {
+        .first-section-background {
+            background: linear-gradient(to bottom, rgb(243, 247, 254) 65%, white 35%);
+        }
+
+        .first-section-fullwidth {
+            display: block;
+        }
+
+        .first-section-first-block {
+            float: unset;
+            width: unset;
+            margin: auto;
+            text-align: center;
+        }
+
+        .first-section-first-block-left {
+            position: unset;
+            left: unset;
+        }
+
+        .first-section-second-block {
+            margin: auto;
+        }
+
+        .first-section-image-div {
+            background-position: center;
+        }
+    }
+</style>
 <script>
-
-
-
     async function updateStartDivBackground(value) {
         setTimeout(function () {
             if (value > 3)
                 value = 1;
-            var maindiv = document.getElementById('start-div');
+            var maindiv = document.getElementById('first-section-image-div');
             maindiv.style.backgroundImage = 'url("images/start' + value + '.png")'
             updateStartDivBackground(value + 1);
         }, 5000);
@@ -458,5 +500,4 @@
 
 
     updateStartDivBackground(2);
-
 </script>

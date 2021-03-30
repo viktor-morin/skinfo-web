@@ -791,6 +791,10 @@ iframe::-webkit-scrollbar {
         display: block;
     }
 
+    .two-block-fullwidth {
+        display: block;
+    }
+
     .two-block-breaker {
         margin-top:20px;
     }
