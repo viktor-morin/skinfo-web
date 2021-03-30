@@ -54,20 +54,22 @@ $(document).ready(function () {
         }
     }
 
-    $.ajax({
-        type: 'GET',
-        url: 'https://api.skinfo.se/information/instagram',
-        headers: { 'apikey': '6h[-yENBfB' },
-        contentType: "application/json; charset=utf-8",
-        complete: function (result) {
-            var feed = new Instafeed({
-                accessToken: result.responseJSON,
-                limit: 8,
-                template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>'
-            });
-            feed.run();
-        }
-    });
+    if (document.getElementById('instafeed')) {
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.skinfo.se/information/instagram',
+            headers: { 'apikey': '6h[-yENBfB' },
+            contentType: "application/json; charset=utf-8",
+            complete: function (result) {
+                var feed = new Instafeed({
+                    accessToken: result.responseJSON,
+                    limit: 8,
+                    template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>'
+                });
+                feed.run();
+            }
+        });
+    }
 
     function validateEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
