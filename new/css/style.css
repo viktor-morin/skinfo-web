@@ -59,6 +59,10 @@ textarea {
     float: left;
 }
 
+.padding {
+    padding: 20px;
+}
+
 .main-menu {
     padding-bottom: 5px;
     text-align: center;
@@ -149,13 +153,19 @@ textarea {
 .one-block {
     max-width: 1300px;
     margin: auto;
+    margin-top: 6rem;;
+    margin-bottom: 6rem;
 }
 
 .one-block-fullwidth {
     margin: auto;
+    margin-top: 6rem;;
+    margin-bottom: 6rem;
 }
 
 .two-block {
+    margin-top: 6rem;;
+    margin-bottom: 6rem;
     max-width: 1300px;
     margin: auto;
     display: flex;
@@ -166,6 +176,8 @@ textarea {
 }
 
 .two-block-fullwidth {
+    margin-top: 6rem;;
+    margin-bottom: 6rem;
     margin: auto;
     display: flex;
     align-items: center;  
@@ -208,6 +220,18 @@ textarea {
 
 .skinfobordercolor {
     border: 2px solid rgb(60, 0, 200)
+}
+
+.bluetextcolor {
+    color: rgb(14,65,148);
+}
+
+.bluebackgroundcolor {
+    background-color: rgb(243, 247, 254)
+}
+
+.graybackgroundcolor {
+    background-color: whitesmoke;
 }
 
 .right-arrow {
