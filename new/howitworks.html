@@ -719,7 +719,6 @@
     .first-section-safari-div-part2 {
         display: flex;
         margin: auto;
-        min-height: 600px;
         background-size: contain;
         background-repeat: repeat-y;
         background-image: url(images/safari_background_part2.png);
@@ -776,6 +775,15 @@
         }).filter(ingredient => ingredient);
     }
 
+
+    function outputsize(element) {
+        var test = document.getElementsByClassName('first-section-safari-div-part2')[0];
+        document.getElementsByClassName('first-section-safari-div-part2')[0].style.minHeight = (600 - 72 + element[0].target.offsetHeight) + 'px';
+        console.log(element[0].target.offsetHeight);
+    }
+
+    new ResizeObserver(outputsize).observe(document.getElementById('ingredients-textarea'));
+
     document.getElementById('test-widget-button').onclick = function () {
         var data = {
             'name': 'PRODUCT NAME',
@@ -791,7 +799,6 @@
             headers: { 'apikey': '6h[-yENBfB' },
             contentType: 'application/json',
             success: function (data) {
-                document.getElementsByClassName('first-section-safari-div')[0].style.backgroundImage = 'url(images/safari_background_expanded.png)';
                 $('#ingredients-textarea').html(data.html);
             },
             error: function (data) {
