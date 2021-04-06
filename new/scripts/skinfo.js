@@ -116,6 +116,7 @@ $(document).ready(function () {
                 }
 
                 if (action) {
+                    var mainInstagramDiv = document.getElementById('instafeed');
                     var imageSize = getInstagramImageSize(hideCounter);
                     for (i = mainInstagramDiv.children.length - 1; i >= 0; i--) {
                         if (hideCounter > 0) {
