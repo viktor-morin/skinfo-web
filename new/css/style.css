@@ -767,7 +767,6 @@ input:-webkit-autofill:active  {
     text-align: center;
     clear: both;
     margin: 0 auto;
-    display: flex;
     padding: 0 50px;
 }
 
@@ -822,6 +821,10 @@ input:-webkit-autofill:active  {
     .price-plan-main {
         grid-template-columns: repeat(2,1fr)
     }
+
+    .hide-1000 {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -842,6 +845,10 @@ input:-webkit-autofill:active  {
         display: block;
         width: 100%;
         margin-right: 30px;
+    }
+
+    .hide-769 {
+        display: none;
     }
 
     .skinfo-menu {

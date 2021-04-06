@@ -54,7 +54,41 @@ $(document).ready(function () {
         }
     }
 
+    var oldSize = document.body.clientWidth;
     if (document.getElementById('instafeed')) {
+        window.onresize = function () {
+            var mainInstagramDiv = document.getElementById('instafeed');
+            if (mainInstagramDiv) {
+                var newSize = document.body.clientWidth;
+                var action = false;
+                var hideCounter = 0;
+                if (newSize > 1000 && oldSize <= 1000) {
+                    action = true;
+                } else if (newSize < 1000 && oldSize >= 1000) {
+                    action = true;
+                    hideCounter = 2;
+                } else if (newSize < 600 && oldSize <= 600) {
+                    action = true;
+                    hideCounter = 4;
+                }
+
+                if (action) {
+                    var imageSize = getInstagramImageSize(hideCounter);
+                    for (i = mainInstagramDiv.children.length - 1; i >= 0; i--) {
+                        if (hideCounter > 0) {
+                            mainInstagramDiv.children[i].style.display = 'none';
+                            hideCounter--;
+                        } else {
+                            mainInstagramDiv.children[i].style.display = 'inline-block';
+                            mainInstagramDiv.children[i].style.width = imageSize;
+                            mainInstagramDiv.children[i].style.paddingTop = imageSize;
+                        }
+                    }
+                }
+
+                oldSize = newSize;
+            }
+        };
         $.ajax({
             type: 'GET',
             url: 'https://api.skinfo.se/information/instagram',
@@ -64,7 +98,7 @@ $(document).ready(function () {
                 var feed = new Instafeed({
                     accessToken: result.responseJSON,
                     limit: 8,
-                    template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a></div>'
+                    template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a></div>'
                 });
                 feed.run();
             }
@@ -111,6 +145,17 @@ $(document).ready(function () {
                 console.log('before-error');
                 document.getElementById('send-email-input').focus();
             }
+        }
+    }
+
+    function getInstagramImageSize(numberOfHiddenChildren) {
+        switch (numberOfHiddenChildren) {
+            case 0:
+                return '12.5%';
+            case 2:
+                return '16.6%';
+            case 4:
+                return '25%';
         }
     }
 });
