@@ -23,6 +23,10 @@ hr {
     border-left: none;
 }
 
+span {
+    font-family: "NeuzeitGrotesk";
+}
+
 a, a:link, a:visited, a:hover, a:active {
     color: black;
     text-decoration: none;
@@ -174,14 +178,14 @@ textarea {
 .one-block {
     max-width: 1300px;
     margin: auto;
-    margin-top: 6rem;;
-    margin-bottom: 6rem;
+    margin-top: 4rem;;
+    margin-bottom: 4rem;
 }
 
 .one-block-fullwidth {
     margin: auto;
-    margin-top: 6rem;;
-    margin-bottom: 6rem;
+    margin-top: 4rem;;
+    margin-bottom: 4rem;
 }
 
 .two-block {
@@ -209,7 +213,7 @@ textarea {
 }
 
 .margin-div-between-big-block {
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 .inside-block {
@@ -232,7 +236,7 @@ textarea {
 }
 
 .skinfocolor {
-    color: rgb(60, 0, 200)
+    color: rgb(60, 0, 200) !important;
 }
 
 .skinfobackgroundcolor {
@@ -550,6 +554,7 @@ textarea {
     margin-bottom: 15px;
     font-size: 20px;
     top: 30px;
+    text-align: center;
 }
 
 .price-plan-list-item {
@@ -845,6 +850,10 @@ input:-webkit-autofill:active  {
         display: block;
         width: 100%;
         margin-right: 30px;
+    }
+
+    .price-plan-main {
+        grid-template-columns: repeat(1,1fr)
     }
 
     .hide-769 {
