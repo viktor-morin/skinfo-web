@@ -101,6 +101,33 @@ $(document).ready(function () {
                     template: '<div class="insta-div"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a></div>'
                 });
                 feed.run();
+
+                var newSize = document.body.clientWidth;
+                var action = false;
+                var hideCounter = 0;
+                if (newSize > 1000) {
+                    action = true;
+                } else if (newSize < 1000) {
+                    action = true;
+                    hideCounter = 2;
+                } else if (newSize < 600) {
+                    action = true;
+                    hideCounter = 4;
+                }
+
+                if (action) {
+                    var imageSize = getInstagramImageSize(hideCounter);
+                    for (i = mainInstagramDiv.children.length - 1; i >= 0; i--) {
+                        if (hideCounter > 0) {
+                            mainInstagramDiv.children[i].style.display = 'none';
+                            hideCounter--;
+                        } else {
+                            mainInstagramDiv.children[i].style.display = 'inline-block';
+                            mainInstagramDiv.children[i].style.width = imageSize;
+                            mainInstagramDiv.children[i].style.paddingTop = imageSize;
+                        }
+                    }
+                }
             }
         });
     }
