@@ -622,6 +622,15 @@ textarea {
     margin-top: 10px;
 }
 
+.press-main-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.press-img {
+    height: 200px;
+}
+
 .searchbox {
     -webkit-appearance: searchfield; 
     padding-top: 2px;
@@ -963,6 +972,15 @@ input:-webkit-autofill:active  {
     .left-arrow {
         margin-left: 5px;
         margin-right: 0px;
+    }
+
+    .press-main-div {
+        flex-direction: column;
+    }
+
+    .press-img {
+        height: auto;
+        width: 250px;
     }
 }
 
