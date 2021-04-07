@@ -389,20 +389,21 @@ textarea {
 }
 
 .customer-feedback {
-    background-color: whitesmoke;
     border-radius: 0.5rem;
-    margin-left: 10px;
-    margin-right: 10px;
     padding: 15px 20px 10px 20px;
-    max-width: 390px;
+    max-width: 80%;
     min-width: 250px;
-    -webkit-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    /* -webkit-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
     -moz-box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
-         box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+         box-shadow: 0 4px 10px rgb(0 0 0 / 10%); */
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
 
+/* animate in */
 .customer-feedback-grp {
     display: flex;
     flex-direction: row;
@@ -443,15 +444,58 @@ textarea {
     animation: animateinright 1s
 }
 
+/* animate out */
+@keyframes animateoutleft {
+    from {
+        left: 0;
+        opacity: 1
+    }
+
+    to {
+        left: -50vh;
+        opacity: 0
+    }
+}
+
+.animate-out-left {
+    position: relative;
+    animation: animateoutleft 500ms
+}
+
+@keyframes animateoutright {
+    from {
+        right: 0px;
+        opacity: 1
+    }
+
+    to {
+        right: -50vh;
+        opacity: 0
+    }
+}
+
+.animate-out-right {
+    position: relative;
+    animation: animateoutright 500ms
+}
+
 .customer-feedback-author {
-    color:white;
-    background-color: black;
-    font-size: 12px;
+    color:black;
+    font-size: 40px;
     margin-top: 10px;
+    font-family: "Creattion";
+    text-align: center;
 }
 
 .customer-feedback-text {
     margin-top: 10px;
+    font-family: "NeuzeitGrotesk";
+}
+
+.customer-feedback-company {
+    margin-top: 10px;
+    margin: auto;
+    font-family: "NeuzeitGrotesk";
 }
 
 .customer-feedback-logo {
@@ -460,7 +504,18 @@ textarea {
 
 .customer-feedback-img {
     margin: auto;
-    height: 25px;
+    height: 35px;
+    margin-top: 5px;
+}
+
+.customer-feedback-from {
+    display: grid;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.customer-feedback-from-text {
+    display: grid;
 }
 
 .business-stats-header {
@@ -899,8 +954,37 @@ input:-webkit-autofill:active  {
     }
 }
 
+@media only screen and (max-width: 600px) {
+    .right-arrow {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    
+    .left-arrow {
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+}
+
 @media only screen and (max-width: 400px) {
+    h1 {
+        text-align: center;
+    }
+
     .price-button-grp {
         display: block; 
+    }
+
+    .right-arrow {
+        display: none;
+    }
+    
+    .left-arrow {
+        display: none;
+    }
+
+    .customer-feedback-img {
+        max-width: 200px;
+        height: auto;
     }
 }
