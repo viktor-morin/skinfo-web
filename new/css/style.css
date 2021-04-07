@@ -562,6 +562,11 @@ textarea {
     padding: 0.75rem 0;
 }
 
+.price-button-grp {
+    display: flex; 
+    margin-top: 10px;
+}
+
 .searchbox {
     -webkit-appearance: searchfield; 
     padding-top: 2px;
@@ -891,5 +896,11 @@ input:-webkit-autofill:active  {
     
     .inside-block-right {
         margin-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .price-button-grp {
+        display: block; 
     }
 }
