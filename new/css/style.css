@@ -518,6 +518,11 @@ textarea {
     display: grid;
 }
 
+.about-us-text {
+    font-family: NeuzeitGrotesk; 
+    font-size: 1.3rem;
+}
+
 .business-stats-header {
     margin: auto;
     display: table;
@@ -892,6 +897,14 @@ input:-webkit-autofill:active  {
     opacity: 0.5;
 }
 
+@media only screen and (max-width: 1200px){
+    .about-us-text {
+        font-size: 1rem;
+    }
+   
+}
+
+
 @media only screen and (max-width: 1000px) {
     .price-plan-main {
         grid-template-columns: repeat(2,1fr)
@@ -920,6 +933,10 @@ input:-webkit-autofill:active  {
         display: block;
         width: 100%;
         margin-right: 30px;
+    }
+
+    .about-us-first-div {
+        margin-bottom: 0px !important;
     }
 
     .price-plan-main {
