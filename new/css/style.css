@@ -247,6 +247,10 @@ textarea {
     color: rgb(14,65,148);
 }
 
+.blueborder {
+    border: 2px solid rgb(14,65,148);
+}
+
 .bluebackgroundcolor {
     background-color: rgb(243, 247, 254)
 }
@@ -473,6 +477,39 @@ textarea {
 .animate-out-right {
     position: relative;
     animation: animateoutright 500ms
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%, 80% {
+        transform: translate3d(2px, 0, 0);
+      }
+    
+      30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+    
+      40%, 60% {
+        transform: translate3d(4px, 0, 0);
+      }
+}
+
+.shake-me { 
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;  
+}
+
+
+.email-input {
+    width: 225px; 
+    padding:14px;
+    border:solid 1px gray; 
+    border-right: 0px;
 }
 
 .customer-feedback-author {
@@ -1012,5 +1049,9 @@ input:-webkit-autofill:active  {
     .customer-feedback-img {
         max-width: 200px;
         height: auto;
+    }
+
+    .email-input {
+        width: auto; 
     }
 }

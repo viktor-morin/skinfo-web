@@ -145,8 +145,9 @@ $(document).ready(function () {
         var email = document.getElementById('send-email-input').value;
         if (validateEmail(email)) {
             document.getElementById('send-email').style.display = 'none';
+            document.getElementById('send-email-succesful').parentElement.parentElement.style.marginTop = '25px';
+            document.getElementById('send-email-succesful').parentElement.parentElement.style.marginBottom = '100px';
             document.getElementById('send-email-succesful').style.display = 'block';
-
             setTimeout(function () {
                 document.getElementById('send-email-succesful').style.opacity = '1.0';
             }, 10);
@@ -172,7 +173,11 @@ $(document).ready(function () {
             // });
         }
         else {
-            console.log('before-error');
+
+            document.getElementById('send-email').classList.add('shake-me');
+            setTimeout(function () {
+                document.getElementById('send-email').classList.remove('shake-me');
+            }, 1000);
             document.getElementById('send-email-input').focus();
         }
     }
