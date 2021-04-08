@@ -139,42 +139,53 @@ $(document).ready(function () {
         return re.test(String(email).toLowerCase());
     }
 
+
+
+    function requestDemo() {
+        var email = document.getElementById('send-email-input').value;
+        if (validateEmail(email)) {
+            document.getElementById('send-email').style.display = 'none';
+            document.getElementById('send-email-succesful').style.display = 'block';
+
+            setTimeout(function () {
+                document.getElementById('send-email-succesful').style.opacity = '1.0';
+            }, 10);
+            // $.ajax({
+            //     type: 'POST',
+            //     url: 'https://api.skinfo.se/information/email?email=' + email,
+            //     contentType: "application/json; charset=utf-8",
+            //     headers: { 'apikey': '6h[-yENBfB' },
+            //     error: function () {
+            //         document.getElementById('send-email-input').focus();
+            //         console.log('error');
+            //     },
+            //     success: function () {
+            //         document.getElementById('send-email').style.display = 'none';
+            //         document.getElementById('send-email-succesful').style.display = 'block';
+
+            //         setTimeout(function () {
+            //             document.getElementById('send-email-succesful').style.opacity = '1.0';
+            //         }, 10);
+
+            //         console.log('success');
+            //     }
+            // });
+        }
+        else {
+            console.log('before-error');
+            document.getElementById('send-email-input').focus();
+        }
+    }
+
     if (document.getElementById('send-email')) {
         document.getElementById('send-email-button').onclick = function () {
-            var email = document.getElementById('send-email-input').value;
-            if (validateEmail(email)) {
-                document.getElementById('send-email').style.display = 'none';
-                document.getElementById('send-email-succesful').style.display = 'block';
-
-                setTimeout(function () {
-                    document.getElementById('send-email-succesful').style.opacity = '1.0';
-                }, 10);
-                // $.ajax({
-                //     type: 'POST',
-                //     url: 'https://api.skinfo.se/information/email?email=' + email,
-                //     contentType: "application/json; charset=utf-8",
-                //     headers: { 'apikey': '6h[-yENBfB' },
-                //     error: function () {
-                //         document.getElementById('send-email-input').focus();
-                //         console.log('error');
-                //     },
-                //     success: function () {
-                //         document.getElementById('send-email').style.display = 'none';
-                //         document.getElementById('send-email-succesful').style.display = 'block';
-
-                //         setTimeout(function () {
-                //             document.getElementById('send-email-succesful').style.opacity = '1.0';
-                //         }, 10);
-
-                //         console.log('success');
-                //     }
-                // });
-            }
-            else {
-                console.log('before-error');
-                document.getElementById('send-email-input').focus();
-            }
+            requestDemo();
         }
+        document.getElementById('send-email-input').addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                requestDemo();
+            }
+        })
     }
 
     function getInstagramImageSize(numberOfHiddenChildren) {
