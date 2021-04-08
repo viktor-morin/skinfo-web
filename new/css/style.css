@@ -255,10 +255,6 @@ textarea {
     background-color: rgb(243, 247, 254)
 }
 
-.headercolor {
-    color: rgba(31, 31, 34);
-}
-
 .graybackgroundcolor {
     background-color: #F8F8F8;
 }
@@ -285,6 +281,16 @@ textarea {
     margin-right: 50px;
     margin-left: 50px;
     background: url(../svg/arrow-left.svg) no-repeat center center;
+}
+
+.stats-figure {
+    font-weight: bolder; 
+    font-size: 2rem;
+}
+
+.stats-text {
+    font-size: 2rem; 
+    margin-left: 10px;
 }
 
 .checklistitem {

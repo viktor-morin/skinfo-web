@@ -113,9 +113,10 @@
                 </div>
             </div>
             <div class="one-block-fullwidth" style="margin-top: 0; margin-bottom: 0;">
-                <div style="display: flex; margin: 20px;">
+                <div style="display: flex; margin: 20px; margin-bottom: 40px;">
                     <div style="margin: auto;">
-                        <h1 class="headercolor">Seen together with more than 180+ brands</h1>
+                        <h1 class="bluetextcolor" style="text-align: center;">Seen together with more than 180+ brands
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -217,7 +218,7 @@
             </div>
             <div class="two-block-fullwidth graybackgroundcolor">
                 <div class="inside-block">
-                    <div class="inside-block-left" style="display: block;">
+                    <div class="inside-block-left padding" style="display: block; margin: auto;">
                         <h1 class="bluetextcolor">
                             <div style="display: flex;">
                                 <div id="2" style="margin-right: 5px;">xx k</div>
@@ -295,16 +296,16 @@
                 <div style="margin:auto">
                     <h1 class="bluetextcolor">Serve answers, keep the customer</h1>
                     <div class="bluetextcolor" style="display: flex;">
-                        <div class="bluetextcolor" style="font-weight: bolder; font-size: 2rem;">94%</div>
-                        <div class="bluetextcolor" style="font-size: 2rem; margin-left: 10px;">of shoppers are ready to
+                        <div class="bluetextcolor stats-figure">94%</div>
+                        <div class="bluetextcolor stats-text">of shoppers are ready to
                             learn
                             more
                             about ingredients,
                             but</div>
                     </div>
                     <div style="display: flex;">
-                        <div class="bluetextcolor" style="font-weight: bolder; font-size: 2rem;">69%</div>
-                        <div class="bluetextcolor" style="font-size: 2rem; margin-left: 10px;">search for ingredient
+                        <div class="bluetextcolor stats-figure">69%</div>
+                        <div class="bluetextcolor stats-text">search for ingredient
                             information
                             elsewhere.</div>
                     </div>
@@ -484,6 +485,7 @@
 
         .first-section-fullwidth {
             display: block;
+            padding-top: 50px;
         }
 
         .first-section-first-block {
@@ -504,6 +506,91 @@
 
         .first-section-image-div {
             background-position: center;
+        }
+
+        .logo-div {
+            grid-template-columns: repeat(3, 2fr);
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .two-block-fullwidth {
+            display: block;
+        }
+
+        .inside-block {
+            max-width: 100%;
+            padding: unset !important;
+        }
+
+        .inside-block-right {
+            margin-right: 0px;
+        }
+
+        .stats-figure {
+            font-size: 1.5rem;
+        }
+
+        .stats-text {
+            font-size: 1.5rem;
+        }
+    }
+
+
+    @media only screen and (max-width: 800px) {
+        h1 {
+            font-size: 1.75rem;
+
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        .logo-div {
+            grid-template-columns: repeat(2, 4fr);
+        }
+
+        .stats-figure {
+            font-size: 1.2rem;
+        }
+
+        .stats-text {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media only screen and (max-width: 450px) {
+        .first-section-image-div {
+            background-position: top;
+        }
+
+        .first-section-image-div {
+            min-height: 33vh;
+        }
+
+        .logo-div {
+            grid-template-columns: repeat(1, 6fr);
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        h1 {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1rem;
         }
     }
 </style>
