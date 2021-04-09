@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
     });
     window.onresize = function () {
-        if ($(window).width() >= 700) {
+        if ($(window).width() >= 830) {
             var menu = document.getElementById('skinfo-menu-mobile');
             var expaned = document.getElementById('skinfo-menu-mobile-expanded');
             if (menu && expaned) {

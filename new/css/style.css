@@ -541,8 +541,13 @@ textarea {
 
 .customer-feedback-img {
     margin: auto;
-    height: 35px;
-    margin-top: 5px;
+    display: flex;
+    width: 250px;
+    cursor: pointer;
+}
+
+.customer-feedback-img:hover {
+    opacity: 0.5;
 }
 
 .customer-feedback-from {
@@ -587,7 +592,6 @@ textarea {
 
 .customer-example {
     cursor: pointer;
-    background-color: whitesmoke;
     border-radius: 0.5rem;
     margin-left: 10px;
     margin-right: 10px;
@@ -819,7 +823,8 @@ input:-webkit-autofill:active  {
 .news-date {
     margin: auto;
     padding-top: 5px;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
 }
 
 .news-title {
@@ -827,14 +832,11 @@ input:-webkit-autofill:active  {
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: center;
-    font-size: 1.25rem;
 }
 
 .news-readmore {
     cursor: pointer;
     margin: auto; 
-    font-weight: bold; 
-    font-size: 1.2rem;
 }
 
 .footer {
@@ -937,7 +939,6 @@ input:-webkit-autofill:active  {
    
 }
 
-
 @media only screen and (max-width: 1000px) {
     .price-plan-main {
         grid-template-columns: repeat(2,1fr)
@@ -945,6 +946,22 @@ input:-webkit-autofill:active  {
 
     .hide-1000 {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .skinfo-menu-mobile {
+        display: block;
+        width: 100%;
+        margin-right: 30px;
+    }
+
+    .skinfo-menu {
+        display: none;
+    }
+
+    .main-menu {
+        padding-left: 0;
     }
 }
 
@@ -962,12 +979,6 @@ input:-webkit-autofill:active  {
 }
 
 @media only screen and (max-width: 769px) {
-    .skinfo-menu-mobile {
-        display: block;
-        width: 100%;
-        margin-right: 30px;
-    }
-
     .about-us-first-div {
         margin-bottom: 0px !important;
     }
@@ -978,14 +989,6 @@ input:-webkit-autofill:active  {
 
     .hide-769 {
         display: none;
-    }
-
-    .skinfo-menu {
-        display: none;
-    }
-
-    .main-menu {
-        padding-left: 0;
     }
 
     .two-block {
