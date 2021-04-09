@@ -394,6 +394,20 @@ textarea {
     margin: auto;
 }
 
+.source-div {
+    margin: auto; 
+    display:grid; 
+    grid-template-columns: repeat(7,1fr);
+    justify-content: space-between;
+}
+
+.source {
+    min-height: 40px;
+    max-height: 40px;
+    margin: auto;
+    margin: 20px;
+}
+
 .customer-feedback {
     border-radius: 0.5rem;
     padding: 15px 20px 10px 20px;
@@ -932,6 +946,20 @@ input:-webkit-autofill:active  {
     opacity: 0.5;
 }
 
+@media only screen and (max-width: 1200px) {
+    .source-div {
+        margin: auto;
+        grid-template-columns: repeat(4,2fr);
+    }
+
+    .source {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+}
+
 @media only screen and (max-width: 1200px){
     .about-us-text {
         font-size: 1rem;
@@ -975,6 +1003,11 @@ input:-webkit-autofill:active  {
         margin:auto;
         margin-bottom: 10px;
         text-align: center;
+    }
+
+    .source-div {
+        margin: auto;
+        grid-template-columns: repeat(2,4fr);
     }
 }
 
@@ -1062,5 +1095,10 @@ input:-webkit-autofill:active  {
 
     .email-input {
         width: auto; 
+    }
+
+    .source-div {
+        margin: auto;
+        grid-template-columns: repeat(1,10fr);
     }
 }
