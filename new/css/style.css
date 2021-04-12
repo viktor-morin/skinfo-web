@@ -293,11 +293,11 @@ textarea {
 
 .stats-figure {
     font-weight: bolder; 
-    font-size: 2rem;
+    font-size: 2rem; 
 }
 
 .stats-text {
-    font-size: 2rem; 
+    font-size: 1.2rem; 
     margin-left: 10px;
 }
 
