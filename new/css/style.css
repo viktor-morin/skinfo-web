@@ -321,6 +321,8 @@ textarea {
     height: 100px;
     overflow: hidden;
     position: relative;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }
 
 .slider::before,
@@ -370,8 +372,8 @@ textarea {
 }
 
 .slider .slide-track {
-    -webkit-animation: scroll 40s linear infinite;
-    animation: scroll 40s linear infinite;
+    /* -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite; */
     display: flex;
     width: calc(250px * 30);
     max-width: calc(250px * 30);
@@ -393,7 +395,9 @@ textarea {
     display:grid; 
     gap: 2rem;
     justify-content: space-between;
-    grid-template-columns: repeat(6,1fr)
+    grid-template-columns: repeat(6,1fr);
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }
 
 .logo {
