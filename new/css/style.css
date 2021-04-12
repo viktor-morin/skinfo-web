@@ -861,6 +861,7 @@ input:-webkit-autofill:active  {
 .news-readmore {
     cursor: pointer;
     margin: auto; 
+    font-weight: bold;
 }
 
 .footer {
