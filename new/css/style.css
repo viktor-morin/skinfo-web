@@ -9,6 +9,8 @@ body {
 
 h1, h2, h3, h4 {
     margin: 0;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 hr {
@@ -124,7 +126,8 @@ textarea {
 .bar1, .bar2, .bar3 {
     width: 30px;
     height: 3px;
-    background-color: rgb(60, 0, 200);
+    /* background-color: rgb(60, 0, 200); */
+    background-color: black;
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -138,7 +141,8 @@ textarea {
     font-size: 16px;
     font-weight: bold;
     background-color: white;
-    color: rgb(60, 0, 200);
+    /* color: rgb(60, 0, 200); */
+    color: black;
     padding: 15px 15px 10px 15px;
     box-sizing: unset;
     -webkit-box-sizing: unset;
@@ -232,23 +236,28 @@ textarea {
 }
 
 .skinfocolor {
-    color: rgb(60, 0, 200) !important;
+    color: rgb(60, 0, 200, 1) !important;
+    /* color: rgb(60, 0, 200) !important; */
 }
 
 .skinfobackgroundcolor {
-    background-color: rgb(60, 0, 200)
+    background-color: rgb(60, 0, 200, 1);
+    color:white;
+    font-family: "HelveticaNeue";
+    /* background-color: rgb(60, 0, 200); */
 }
 
 .skinfobordercolor {
-    border: 2px solid rgb(60, 0, 200)
+    /* border: 2px solid  rgb(14,65,148); */
+     border: 2px solid  rgb(60, 0, 200); 
 }
 
 .bluetextcolor {
-    color: rgb(14,65,148);
+    color: rgb(0,0,0, 0.8);
 }
 
 .blueborder {
-    border: 2px solid rgb(14,65,148);
+    border: 2px solid rgb(60, 0, 200, 1);
 }
 
 .bluebackgroundcolor {
@@ -556,8 +565,8 @@ textarea {
 .customer-feedback-img {
     margin: auto;
     display: flex;
-    width: 250px;
     cursor: pointer;
+    height: 30px;
 }
 
 .customer-feedback-img:hover {
@@ -669,6 +678,7 @@ textarea {
     font-size: 20px;
     top: 30px;
     text-align: center;
+    color: rgb(60, 0, 200, 1) !important;
 }
 
 .price-plan-list-item {
@@ -1089,8 +1099,7 @@ input:-webkit-autofill:active  {
     }
 
     .customer-feedback-img {
-        max-width: 200px;
-        height: auto;
+        height: 25px;
     }
 
     .email-input {
