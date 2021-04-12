@@ -89,13 +89,13 @@ textarea {
     padding-bottom: 5px;
     text-align: center;
     min-height: 44px;
-    font-weight: bold;
+  
     background-color: white;
     z-index: 99;
     position: fixed;
     top: 0;
     width: 100%;
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
 }
 
 .skinfo-menu {
@@ -137,8 +137,8 @@ textarea {
 
 .menu-button {
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
+
     background-color: white;
     /* color: rgb(60, 0, 200); */
     color: black;
@@ -569,7 +569,8 @@ textarea {
     margin: auto;
     display: flex;
     cursor: pointer;
-    height: 30px;
+    height: 250px;
+
 }
 
 .customer-feedback-img:hover {
