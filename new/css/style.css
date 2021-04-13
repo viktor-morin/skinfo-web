@@ -133,6 +133,10 @@ textarea {
     height: 160px;
 }
 
+#send-email-button:disabled {
+    opacity: 0.3;
+}
+
 .menu-button {
     cursor: pointer;
     font-size: 14px;
