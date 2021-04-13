@@ -38,3 +38,8 @@
   font-family: Creattion;
   src: url(../fonts/Creattion.otf)
 }
+
+@font-face {
+  font-family: HKGrotesk;
+  src: url(../fonts/HKGrotesk-Regular.woff)
+}

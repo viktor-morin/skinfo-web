@@ -568,8 +568,7 @@ textarea {
     margin: auto;
     display: flex;
     cursor: pointer;
-    height: 250px;
-
+    height: 30px;
 }
 
 .customer-feedback-img:hover {
@@ -839,7 +838,7 @@ input:-webkit-autofill:active  {
     display:grid; 
     gap: 2rem;
     justify-content: space-between;
-    grid-template-columns: repeat(1,1fr)
+    grid-template-columns: repeat(3,1fr)
 }
 
 .news-logo {
@@ -989,6 +988,10 @@ input:-webkit-autofill:active  {
     .hide-1000 {
         display: none;
     }
+
+    .news-main-div {
+        grid-template-columns: repeat(2,1fr)
+    }
 }
 
 @media only screen and (max-width: 830px) {
@@ -1082,6 +1085,10 @@ input:-webkit-autofill:active  {
     .press-img {
         height: auto;
         width: 250px;
+    }
+
+    .news-main-div {
+        grid-template-columns: repeat(1,1fr)
     }
 }
 
