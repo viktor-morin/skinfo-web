@@ -26,7 +26,7 @@ hr {
 }
 
 a, a:link, a:visited, a:hover, a:active {
-    color: black;
+    color: rgb(60, 0, 200);
     text-decoration: none;
 }
 
@@ -298,6 +298,18 @@ textarea {
 .stats-text {
     font-size: 1.2rem; 
     margin-left: 10px;
+}
+
+.contact-us-logos {
+    display:grid; 
+    gap: 2rem;
+    justify-content: space-between;
+    grid-template-columns: repeat(3,3fr);
+}
+
+.contact-us-logos img {
+    width: 150px;
+    margin: auto;
 }
 
 .checklistitem {
@@ -1089,6 +1101,14 @@ input:-webkit-autofill:active  {
 
     .news-main-div {
         grid-template-columns: repeat(1,1fr)
+    }
+
+    .contact-us-logos {
+        grid-template-columns: repeat(2,2fr)
+    }
+
+    .contact-us-logos img {
+       width: 125px;
     }
 }
 
