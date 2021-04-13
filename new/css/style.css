@@ -415,6 +415,7 @@ textarea {
     min-height: 30px;
     max-height: 30px;
     margin: auto;
+    width: 100%;
 }
 
 .source-div {
