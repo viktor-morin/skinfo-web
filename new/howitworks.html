@@ -468,7 +468,7 @@
                         <div class="customer-reference-div">
                             <div class="customer-reference">
                                 <img class="customer-reference-img"
-                                    data-url="https://mos.customer-referencesnoor.se/produkt/after-workout-hand-mousse-3-pack"
+                                    data-url="https://mossnoor.se/produkt/after-workout-hand-mousse-3-pack"
                                     src="reference_imgs/moss.jpeg">
                                 <div style="text-align: center; ">Visit to see Skinfo</div>
                             </div>
@@ -878,7 +878,7 @@
     // var month = months[now.getMonth()];
     // document.getElementById('seconddatedelivery').innerText = day.substring(0, 3) + '. ' + month.substring(0, 3) + '. ' + now.getDate();
 
-    var customerExamples = document.getElementsByClassName('customer-feedback-img');
+    var customerExamples = document.getElementsByClassName('customer-reference-img');
     for (i = 0; i < customerExamples.length; i++) {
         customerExamples[i].onclick = function () {
             window.open(this.dataset.url, '_blank').focus();
@@ -910,12 +910,6 @@
         }).filter(ingredient => ingredient);
     }
 
-    // function outputsize(element) {
-    //     document.getElementsByClassName('first-section-safari-div-part2')[0].style.minHeight = (600 - 72 + element[0].target.offsetHeight) + 'px';
-    // }
-
-    // new ResizeObserver(outputsize).observe(document.getElementById('ingredients-textarea'));
-
     var mockupButtons = document.getElementsByClassName('test-widget-button');
     for (i = 0; i < mockupButtons.length; i++) {
         mockupButtons[i].onclick = function () {
@@ -942,14 +936,4 @@
             });
         }
     }
-
-    // if ($(window).width() <= 1200) {
-    //     document.getElementsByClassName('first-section-safari-div-part2')[0].style.minHeight = (600 - 72 + 500 + document.getElementById('ingredients-textarea').offsetHeight) + 'px';
-    //     bigScreen = false;
-    //     console.log('1');
-    // } else if ($(window).width() > 1200) {
-    //     document.getElementsByClassName('first-section-safari-div-part2')[0].style.minHeight = (600 - 72 + document.getElementById('ingredients-textarea').offsetHeight) + 'px';
-    //     bigScreen = true;
-    //     console.log('2');
-    // }
 </script>
