@@ -560,6 +560,7 @@ textarea {
     padding:14px;
     border:solid 1px gray; 
     border-right: 0px;
+    background-color: white;
 }
 
 .customer-feedback-author {
@@ -1141,10 +1142,6 @@ input:-webkit-autofill:active  {
 
     .contact-us-logos img {
        width: 125px;
-    }
-
-    .blacktextcolor {
-        font-size: 1.4rem;
     }
 }
 
