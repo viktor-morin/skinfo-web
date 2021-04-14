@@ -142,29 +142,22 @@ $(document).ready(function () {
     function requestDemo() {
         var email = document.getElementById('send-email-input').value;
         if (validateEmail(email)) {
-            document.getElementById('send-email-button').disabled = true;
+            document.getElementById('send-email').style.display = 'none';
+            document.getElementById('send-email-button').disabled = false;
+            document.getElementById('send-email-succesful').parentElement.parentElement.style.marginTop = '25px';
+            document.getElementById('send-email-succesful').parentElement.parentElement.style.marginBottom = '100px';
+            document.getElementById('send-email-succesful').style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('send-email-succesful').style.opacity = '1.0';
+            }, 10);
             $.ajax({
                 type: 'POST',
                 url: 'https://api.skinfo.se/information/email?email=' + email,
                 contentType: "application/json; charset=utf-8",
                 headers: { 'apikey': '6h[-yENBfB' },
                 error: function () {
-                    document.getElementById('send-email').classList.add('shake-me');
-                    setTimeout(function () {
-                        document.getElementById('send-email').classList.remove('shake-me');
-                    }, 1000);
-                    document.getElementById('send-email-input').focus();
-                    document.getElementById('send-email-button').disabled = false;
                 },
                 success: function () {
-                    document.getElementById('send-email').style.display = 'none';
-                    document.getElementById('send-email-button').disabled = false;
-                    document.getElementById('send-email-succesful').parentElement.parentElement.style.marginTop = '25px';
-                    document.getElementById('send-email-succesful').parentElement.parentElement.style.marginBottom = '100px';
-                    document.getElementById('send-email-succesful').style.display = 'block';
-                    setTimeout(function () {
-                        document.getElementById('send-email-succesful').style.opacity = '1.0';
-                    }, 10);
                 }
             });
         }
