@@ -1,45 +1,23 @@
 @font-face {
   font-family: HelveticaNeue;
-  font-weight: bold;
-  src: url(../fonts/HelveticaNeueLTPro-Bold.otf)
-}
-
-@font-face {
-  font-family: HelveticaNeue;
-  font-weight: bold;
-  font-style: italic;
-  src: url(../fonts/HelveticaNeueLTPro-Bold-Italic.otf)
-}
-
-@font-face {
-  font-family: HelveticaNeue;
   font-weight: normal;
-  src: url(../fonts/HelveticaNeue.ttf)
+  src: url(../fonts/HelveticaNeueLTPro-Roman.otf)
+}
+
+@font-face {
+  font-family: HelveticaNeue;
+  font-weight: bold;
+  src: url(../fonts/HelveticaNeueLTPro-Bd.otf)
 }
 
 @font-face {
   font-family: HelveticaNeue;
   font-style: italic;
-  src: url(../fonts/HelveticaNeueLTPro-Normal-Italic.otf)
+  src: url(../fonts/HelveticaNeueLTPro-It.otf)
 }
 
-@font-face {
-  font-family: NeuzeitGrotesk;
-  src: url(../fonts/NeuzeitGro-Reg.ttf)
-}
-
-@font-face {
-  font-family: NeuzeitGrotesk;
-  font-weight: bold;
-  src: url(../fonts/NeuzeitGro-Bol.ttf)
-}
 
 @font-face {
   font-family: Creattion;
   src: url(../fonts/Creattion.otf)
-}
-
-@font-face {
-  font-family: HKGrotesk;
-  src: url(../fonts/HKGrotesk-Regular.woff)
 }
