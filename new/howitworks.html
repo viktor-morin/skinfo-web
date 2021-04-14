@@ -69,21 +69,20 @@
                 </div>
             </div>
             <div style="margin-top:50px;"></div>
-            <div style="display: flex;">
-                <div style="margin: auto; margin-top: 25px;;">
-                    <h1>Interactive test shop </h1>
-                </div>
-            </div>
             <div class="two-block special-two-block">
                 <div class="inside-block special-shrink" style="flex-direction: column;">
                     <div style="display: flex;">
-                        <div style="margin: auto; display: flex;">
-                            <span style="display: flex; padding-left: 20px; padding-right: 20px;">
-                                In this interactive test shop, you can experience and compare Skinfo with an ordinary
+                        <div style="margin: auto; display: flex; flex-direction: column;">
+                            <h1 class="interactive-test-text">Interactive test shop</h1>
+                            <span class="interactive-test-text" style="margin-top: 10px; display: flex;">
+                                In this interactive test shop, you can experience and compare Skinfo with an
+                                ordinary
                                 ingredient list. All features and scientific ingredient information from Skinfo is
                                 provided
-                                automatically in our one-click-setup. Click to see how this product could look with
-                                Skinfo.
+                                automatically in our one-click-setup.
+                            </span>
+                            <span class="interactive-test-text" style="margin-top: 20px; display: flex;">
+                                Click to see how this product could look with Skinfo.
                             </span>
                         </div>
                     </div>
@@ -100,7 +99,8 @@
                         <div class="first-section-safari-div-part2">
                             <div class="how-it-works-main">
                                 <div class="mockup-image">
-                                    <img id="scollmeintoview" src="images/mockup.png" style="border-radius: 0.75rem;">
+                                    <img id="scollmeintoview" src="images/mockup.png"
+                                        style="height: 200px; width: 200px; border-radius: 0.75rem;">
                                 </div>
                                 <div>
                                     <div class="mockup-right-side">
@@ -276,7 +276,8 @@
 
                                                 </div>
                                             </div>
-                                            <div id="ingredients-textarea" style="margin-top:5px; margin-bottom: 10px;">
+                                            <div id="ingredients-textarea"
+                                                style="margin-top:5px; margin-bottom: 10px; background-color: white;">
                                                 Egg Yolk Extract, Panthenol, Lactobacillus, Mica, Persea Gratissima Oil,
                                                 Zinc
                                                 PCA,
@@ -292,26 +293,32 @@
                     </div>
                 </div>
             </div>
-
             <div class="two-block-fullwidth graybackgroundcolor padding"
-                style="padding-top: 6rem; padding-bottom: 6rem;">
+                style="padding-top: 6rem !important; padding-bottom: 6rem !important;">
                 <div class="two-block-breaker"></div>
                 <div class="inside-block-right">
                     <div style="display: flex;">
                         <div style="margin:auto">
                             <div style="display: flex; flex-direction: row;">
-                                <div
-                                    style="display: flex; flex-direction: column; margin-top: 20px; margin-left: 20px;">
+                                <div style="display: flex; flex-direction: column; margin-top: 20px;">
                                     <div style="margin:auto; margin-top: 10px; margin-bottom: 10px;">
-                                        <button class="actionbutton blackbackgroundcolor" data-url="price">Start free
-                                            trial</button>
-                                        <button class="actionbutton blackcolor blackborder" data-url="contactus"
-                                            style="padding: 13px 23px 13px 23px; background-color: transparent;">Book
-                                            a
-                                            Demo</button>
-                                        <div style="display: flex; margin-top: 20px;">
-                                            <div style="margin-top: 5px; margin-right: 5px;">Integrates with</div>
-                                            <img style="height: 25px;" src="images/shopify_logo_2018.svg">
+                                        <h1 class="blacktextcolor" style="margin-bottom: 25px;">Become transparent
+                                            today!</h1>
+                                        <div style="display: flex;">
+                                            <div style="margin:auto;">
+                                                <button class="actionbutton blackbackgroundcolor" data-url="price">Start
+                                                    free
+                                                    trial</button>
+                                                <button class="actionbutton blackcolor blackborder" data-url="contactus"
+                                                    style="padding: 13px 23px 13px 23px; background-color: transparent;">Book
+                                                    a
+                                                    Demo</button>
+                                                <div style="display: flex; margin-top: 10px;">
+                                                    <div style="margin-top: 2px; margin-right: 5px;">Integrates with
+                                                    </div>
+                                                    <img style="height: 20px;" src="images/shopify_logo_2018.svg">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -435,7 +442,7 @@
                 </div>
             </div>
             <div class="one-block-fullwidth graybackgroundcolor padding"
-                style="padding-top: 4rem; padding-bottom: 4rem;">
+                style="padding-top: 6rem !important; padding-bottom: 6rem !important;">
                 <h1 class="blacktextcolor" style="text-align: center;">Request a demo with Skinfo</h1>
                 <div style="display: flex; margin-top: 75px;">
                     <div style="margin:auto">
@@ -614,6 +621,10 @@
 
 </html>
 <style>
+    .si-ingredients-menu-expanded {
+        background-color: white;
+    }
+
     .how-it-works-main {
         padding-top: 25px;
     }
@@ -630,6 +641,11 @@
     .mockup-image img {
         margin: auto;
         width: 300px;
+    }
+
+    .interactive-test-text {
+        padding-left: 20px;
+        padding-right: 15%;
     }
 
     .first-section-safari-div-part1 {
@@ -695,7 +711,7 @@
     }
 
     .mockup-font-size {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .test-widget-button-div {
@@ -728,8 +744,16 @@
         }
 
         .special-shrink {
-            max-width: 30%;
-            min-width: 30%;
+            max-width: 35%;
+            min-width: 35%;
+        }
+
+        .interactive-test-text {
+            padding-left: 0px;
+        }
+
+        .test-widget-button-div {
+            margin-left: 0px;
         }
     }
 
@@ -774,10 +798,16 @@
             display: grid;
         }
 
+        .interactive-test-text {
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
         .test-widget-button-div {
             margin: auto;
             margin-top: 25px;
             margin-bottom: 20px;
+            padding-bottom: 3rem;
         }
     }
 
@@ -802,7 +832,7 @@
         }
 
         .mockup-font-size {
-            font-size: 20px;
+            font-size: 16px;
         }
 
         .how-it-works-main {
@@ -844,6 +874,12 @@
         .mockup-right-side {
             padding-left: 25px;
             padding-right: 25px;
+        }
+
+        .interactive-test-text {
+            padding-left: 0px;
+            padding-right: 0px;
+            text-align: center;
         }
     }
 
