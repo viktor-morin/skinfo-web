@@ -11,7 +11,8 @@ $(document).ready(function () {
             expaned.style.display = 'none';
         }
     });
-    window.onresize = function () {
+
+    $(window).resize(function () {
         if ($(window).width() >= 830) {
             var menu = document.getElementById('skinfo-menu-mobile');
             var expaned = document.getElementById('skinfo-menu-mobile-expanded');
@@ -21,12 +22,12 @@ $(document).ready(function () {
                     var main = document.getElementById('main-menu');
                     main.classList.toggle('main-menu-change');
                 }
-                if (expaned.style.display == 'block') {
+                if (expaned.style.display == 'grid') {
                     expaned.style.display = 'none';
                 }
             }
         }
-    }
+    });
 
     var actionbuttons = document.getElementsByClassName('actionbutton');
     for (i = 0; i < actionbuttons.length; i++) {
