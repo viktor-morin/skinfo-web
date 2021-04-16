@@ -1,4 +1,4 @@
-var url = 'https://api.skinfo.se/';
+var url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 $(document).ready(function () {
     function getParameterByName(name, url = window.location.href) {
@@ -10,11 +10,16 @@ $(document).ready(function () {
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
+    function createInnerElementForSuggestion(query, element) {
+        return query + '<b>' + element.replace(query, '') + '</b>';
+    }
+
     var id = getParameterByName('id');
     if (id != null) {
         $.ajax({
             type: 'GET',
-            url: url + 'search/get?query=' + id + '&language=' + getLanguage(),
+            headers: { 'apikey': '6h[-yENBfB' },
+            url: url + 'website/ingredient?ingredient=' + id + '&language=' + getLanguage(),
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
@@ -23,7 +28,16 @@ $(document).ready(function () {
         $('#searchbox').val(id);
     }
 
+
+    $('form input').keydown(function (e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
     $('#searchbox').on('keydown', function (e) {
+        e.stopPropagation();
         const key = e.key;
         if (key == 'Enter') {
             var text = $('#searchbox').val();
@@ -33,27 +47,64 @@ $(document).ready(function () {
 
             if (text.includes(',')) {
                 logData(text);
-                window.location.href = 'search?id=' + text;
+                $.ajax({
+                    type: 'GET',
+                    headers: { 'apikey': '6h[-yENBfB' },
+                    url: url + 'website/ingredient?ingredient=' + text + '&language=' + getLanguage(),
+                    dataType: 'html',
+                    complete: function (result) {
+                        $('#data').html(result.responseText);
+                    }
+                });
             }
+
+            if (document.getElementById('searchbar-suggestions').style.display == 'none') {
+                return;
+            }
+
             else {
 
                 var parent = document.getElementById('searchbar-suggestions');
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
-                    logData(parent.firstChild.innerText);
-                    window.location.href = 'search?id=' + parent.firstChild.innerText;
+                    logData(parent.children[1].innerText);
+                    $.ajax({
+                        type: 'GET',
+                        headers: { 'apikey': '6h[-yENBfB' },
+                        url: url + 'website/ingredient?ingredient=' + parent.children[1].innerText + '&language=' + getLanguage(),
+                        dataType: 'html',
+                        complete: function (result) {
+                            $('#data').html(result.responseText);
+                        }
+                    });
+                    $('#searchbox').val(parent.children[1].innerText);
                 } else {
                     logData(result.innerText);
-                    window.location.href = 'search?id=' + result.innerText;
-                }
+                    $.ajax({
+                        type: 'GET',
+                        headers: { 'apikey': '6h[-yENBfB' },
+                        url: url + 'website/ingredient?ingredient=' + result.innerText + '&language=' + getLanguage(),
+                        dataType: 'html',
+                        complete: function (result) {
+                            $('#data').html(result.responseText);
+                        }
 
+                    });
+                    $('#searchbox').val(result.innerText);
+                }
             }
+            parent.innerHTML = '';
+            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
+            parent.style.display = 'none';
         }
 
         else if (key == 'ArrowDown') {
             var parent = document.getElementById('searchbar-suggestions');
             if (selectCounter < parent.childNodes.length - 1) {
                 selectCounter++;
+                if (selectCounter == 0)
+                    selectCounter++;
             }
             parent.childNodes.forEach(child => {
                 child.classList.remove('search-selected');
@@ -71,6 +122,8 @@ $(document).ready(function () {
             var parent = document.getElementById('searchbar-suggestions');
             if (selectCounter > -1) {
                 selectCounter--;
+                if (selectCounter == 0)
+                    selectCounter--;
             }
             parent.childNodes.forEach(child => {
                 child.classList.remove('search-selected');
@@ -95,37 +148,65 @@ $(document).ready(function () {
 
         if (text.length == 0) {
             parent.innerHTML = '';
+            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
         else if (text.includes(',')) {
             parent.innerHTML = '';
+            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';;
+            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
         else {
             $.ajax({
                 type: 'GET',
-                url: url + 'search/suggestion?query=' + text,
+                url: url + 'website/suggestion?query=' + text,
+                headers: { 'apikey': '6h[-yENBfB' },
                 contentType: "application/json; charset=utf-8",
                 complete: function (result) {
                     if (result.responseJSON.length > 0) {
                         parent.style.display = 'inherit';
+                        document.getElementById('searchbar').style.borderBottomLeftRadius = '0px';
+                        document.getElementById('searchbar').style.borderBottomRightRadius = '0px';
                         parent.innerHTML = '';
                         var text = $('#searchbox').val();
                         if (text.length == 0 || text.includes(',')) {
                             parent.innerHTML = '';
+                            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+                            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                             parent.style.display = 'none';
                             return;
                         }
 
+                        var breakChild = document.createElement('div');
+                        breakChild.style.marginLeft = '20px';
+                        breakChild.style.marginRight = '20px';
+                        breakChild.style.backgroundColor = 'lightgray';
+                        breakChild.style.height = '1px';
+                        breakChild.style.maxWidth = '648px';
+                        parent.appendChild(breakChild);
+
                         result.responseJSON.forEach(element => {
                             var child = document.createElement('div');
-                            child.innerText = element;
+                            child.innerHTML = createInnerElementForSuggestion(text, element);
                             child.classList.add('searchbar-item');
                             child.onclick = function () {
+                                parent.innerHTML = '';
+                                document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+                                document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
+                                parent.style.display = 'none';
                                 logData(element);
-                                window.location.href = 'search?id=' + element;
+                                $.ajax({
+                                    type: 'GET',
+                                    headers: { 'apikey': '6h[-yENBfB' },
+                                    url: url + 'website/ingredient?ingredient=' + element + '&language=' + getLanguage(),
+                                    dataType: 'html',
+                                    complete: function (result) {
+                                        $('#data').html(result.responseText);
+                                    }
+                                });
                             }
-
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');
                                 parent.childNodes.forEach(child => {
@@ -144,6 +225,8 @@ $(document).ready(function () {
                             parent.appendChild(child);
                         });
                     } else {
+                        document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
+                        document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                         parent.style.display = 'none';
                     }
                 }
@@ -169,11 +252,14 @@ $(document).ready(function () {
 
         var json = JSON.stringify(dict);
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", url + "search/log", true);
+        xhttp.open("POST", url + "website/log", true);
+        xhttp.setRequestHeader('apikey', '6h[-yENBfB');
         xhttp.send(json);
     }
 
     function getLanguage() {
+        return 'en-US';
+
         if (document.cookie.length > 0) {
             c_start = document.cookie.indexOf('_skinfo-language=');
             if (c_start != -1) {
@@ -190,57 +276,57 @@ $(document).ready(function () {
         return lang;
     }
 
-    function setLanguage(value) {
-        document.cookie = '_skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
-    }
+    // function setLanguage(value) {
+    //     document.cookie = '_skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
+    // }
 
-    function loadSettings() {
-        var language = getLanguage();
-        switch (language) {
-            case 'en-US':
-                loadEng(document.getElementById('eng'));
-                break;
-            case 'sv-SE':
-                loadSwe(document.getElementById('swe'));
-                break;
-            default:
-                break;
-        }
-    }
+    // function loadSettings() {
+    //     var language = getLanguage();
+    //     switch (language) {
+    //         case 'en-US':
+    //             loadEng(document.getElementById('eng'));
+    //             break;
+    //         case 'sv-SE':
+    //             loadSwe(document.getElementById('swe'));
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
 
-    function loadSwe(caller) {
-        document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
-        document.getElementById('eng').style.webkitFilter = 'grayscale(1)';
-        document.getElementById('eng').style.filter = 'grayscale(1)';
-        document.getElementById('eng').style.opacity = 0.5;
-        caller.style.webkitFilter = '';
-        caller.style.filter = '';
-        caller.style.opacity = 1;
-        setLanguage('sv-SE');
-    }
+    // function loadSwe(caller) {
+    //     document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
+    //     document.getElementById('eng').style.webkitFilter = 'grayscale(1)';
+    //     document.getElementById('eng').style.filter = 'grayscale(1)';
+    //     document.getElementById('eng').style.opacity = 0.5;
+    //     caller.style.webkitFilter = '';
+    //     caller.style.filter = '';
+    //     caller.style.opacity = 1;
+    //     setLanguage('sv-SE');
+    // }
 
-    function loadEng(caller) {
-        document.getElementById('searchbox').placeholder = 'Search any ingredients..';
-        document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
-        document.getElementById('swe').style.filter = 'grayscale(1)';
-        document.getElementById('swe').style.opacity = 0.5;
-        caller.style.webkitFilter = '';
-        caller.style.filter = '';
-        caller.style.opacity = 1;
-        setLanguage('en-US');
-    }
+    // function loadEng(caller) {
+    //     document.getElementById('searchbox').placeholder = 'Search any ingredients..';
+    //     document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
+    //     document.getElementById('swe').style.filter = 'grayscale(1)';
+    //     document.getElementById('swe').style.opacity = 0.5;
+    //     caller.style.webkitFilter = '';
+    //     caller.style.filter = '';
+    //     caller.style.opacity = 1;
+    //     setLanguage('en-US');
+    // }
 
-    document.getElementById('swe').onclick = function () {
-        loadSwe(this);
-        if (location.pathname.includes('search'))
-            location.reload();
-    }
+    // document.getElementById('swe').onclick = function () {
+    //     loadSwe(this);
+    //     if (location.pathname.includes('search'))
+    //         location.reload();
+    // }
 
-    document.getElementById('eng').onclick = function () {
-        loadEng(this);
-        if (location.pathname.includes('search'))
-            location.reload();
-    }
+    // document.getElementById('eng').onclick = function () {
+    //     loadEng(this);
+    //     if (location.pathname.includes('search'))
+    //         location.reload();
+    // }
 
-    loadSettings();
+    // loadSettings();
 })

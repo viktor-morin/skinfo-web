@@ -1,81 +1,23 @@
 @font-face {
-    font-family: Eina03;
-    src: url(../fonts/Eina03-Regular.ttf);
-  }
+  font-family: HelveticaNeue;
+  font-weight: normal;
+  src: url(../fonts/HelveticaNeueLTPro-Roman.otf)
+}
 
-  @font-face {
-    font-family: Eina03;
-    font-style: italic;
-    src: url(../fonts/Eina03-RegularItalic.ttf);
-  }
+@font-face {
+  font-family: HelveticaNeue;
+  font-weight: bold;
+  src: url(../fonts/HelveticaNeueLTPro-Bd.otf)
+}
 
-  @font-face {
-    font-family: Eina03;
-    font-weight: 700;
-    src: url(../fonts/Eina03-Bold.ttf);
-  }
+@font-face {
+  font-family: HelveticaNeue;
+  font-style: italic;
+  src: url(../fonts/HelveticaNeueLTPro-It.otf)
+}
 
-  @font-face {
-    font-family: Eina03;
-    font-weight: 600;
-    src: url(../fonts/Eina03-SemiBold.ttf);
-  }
 
-  @font-face {
-    font-family: Eina03-Bold;
-    src: url(../fonts/Eina03-Bold.ttf);
-  }
-
-  @font-face {
-    font-family: Eina03-SemiBold;
-    src: url(../fonts/Eina03-SemiBold.ttf);
-  }
-
-  @font-face {
-    font-family: Arial-Downloaded;
-    src: url(../fonts/arial.ttf);
-  }
-
-  @font-face {
-    font-family: ChakraPetch;
-    src: url(../fonts/ChakraPetch-Regular.ttf)
-  }
-
-  @font-face {
-    font-family: ChakraPetch;
-    font-weight: 600;
-    src: url(../fonts/ChakraPetch-SemiBold.ttf)
-  }
- 
-  @font-face {
-    font-family: ChakraPetch;
-    font-weight: 700;
-    src: url(../fonts/ChakraPetch-Bold.ttf)
-  }
-
-  @font-face {
-    font-family: QuickSand;
-    src: url(../fonts/Quicksand-Regular.ttf)
-  }
-
-  @font-face {
-    font-family: QuickSand;
-    font-weight: 600;
-    src: url(../fonts/Quicksand-SemiBold.ttf)
-  }
-
-  @font-face {
-    font-family: QuickSand;
-    font-weight: 700;
-    src: url(../fonts/Quicksand-Bold.ttf)
-  }
-
-  @font-face {
-    font-family: FiraSans;
-    src: url(../fonts/FiraSans-Regular.ttf)
-  }
-
-  @font-face {
-    font-family: HelveticaNeue;
-    src: url(../fonts/HelveticaNeue.ttf)
-  }
+@font-face {
+  font-family: Creattion;
+  src: url(../fonts/Creattion.otf)
+}
