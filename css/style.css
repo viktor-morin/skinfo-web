@@ -294,6 +294,12 @@ textarea {
     background: url(../svg/arrow-left.svg) no-repeat center center;
 }
 
+.moss-noor-text {
+    font-weight: bolder; 
+    font-size: 1.8rem; 
+    color :rgb(0,0,0, 0.8) !important;
+}
+
 .stats-figure {
     font-weight: bolder; 
     font-size: 2rem; 
@@ -561,6 +567,7 @@ textarea {
     border:solid 1px gray; 
     border-right: 0px;
     background-color: white;
+    margin-right: 0px;
 }
 
 .customer-feedback-author {
@@ -627,6 +634,12 @@ textarea {
 
 .customer-reference-img:hover {
     opacity: 0.5;
+}
+
+.customer-reference-text {
+    margin-top:3px;
+    text-align: center; 
+    font-size: 0.8rem;
 }
 
 .about-us-text {
@@ -1037,6 +1050,14 @@ input:-webkit-autofill:active  {
     .customer-reference {
         padding: 10px 5px 10px 5px
     }
+
+    .moss-noor-text { 
+        font-size: 1.65rem;
+    }
+
+    .customer-reference-text { 
+        font-size: 0.6rem;
+    }
 }
 
 @media only screen and (max-width: 830px) {
@@ -1110,6 +1131,10 @@ input:-webkit-autofill:active  {
         display: inline-grid;
         grid-template-columns: repeat(2,2fr)
     }
+
+    .moss-noor-text { 
+        font-size: 1.4rem;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1143,6 +1168,10 @@ input:-webkit-autofill:active  {
     .contact-us-logos img {
        width: 125px;
     }
+
+    .customer-reference-text { 
+        font-size: 0.5rem;
+    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -1171,6 +1200,6 @@ input:-webkit-autofill:active  {
     }
 
     .customer-reference-img {
-        height: 20vh;
+        height: 30vh;
     }
 }

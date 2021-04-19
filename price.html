@@ -71,7 +71,7 @@
             <div class="one-block">
                 <div style="display: flex; margin: 20px;">
                     <div style="margin: auto;">
-                        <h1>Find the right plan for you</h1>
+                        <h1 class="mobile-fit">Find the right plan for you</h1>
                     </div>
                 </div>
                 <div style="display: flex; margin: 20px;">
@@ -124,6 +124,7 @@
                             <div class="price-plan-list-item">Botanical names</div>
                             <div class="price-plan-list-item">Vitamins & Acids</div>
                             <div class="price-plan-list-item">Concerns (optional)</div>
+                            <div class="price-plan-list-item" style="color:gray; text-decoration:line-through;" >INCI correction</div>
                         </div>
                     </div>
                     <div class="price-plan">
@@ -140,6 +141,7 @@
                             <div class="price-plan-list-item">Botanical names</div>
                             <div class="price-plan-list-item">Vitamins & Acids</div>
                             <div class="price-plan-list-item">Concerns (optional)</div>
+                            <div class="price-plan-list-item" style="color:gray; text-decoration:line-through;" >INCI correction</div>
                         </div>
                     </div>
                     <div class="price-plan">
@@ -388,10 +390,10 @@
             <div class="one-block-fullwidth padding" style="display: flex; padding-bottom: 2rem;">
                 <div style="margin:auto">
                     <div class="" style="display: flex; flex-direction: column;">
-                        <div class="stats-figure" style="color: black !important;">Hear how <img style="height: 30px;"
+                        <div class="moss-noor-text" style="color: black !important;">Hear how <img style="height: 30px;"
                                 src="customers_logo/mossnoor_logo_yellow.png">,
                         </div>
-                        <div class="stats-figure" style="color: black !important;">the
+                        <div class="moss-noor-text" style="color: black !important;">the
                             "Nike for
                             skincare" used
                             Skinfo
@@ -518,6 +520,13 @@
 </body>
 
 </html>
+<style>
+    @media only screen and (max-width: 1000px) {
+    .mobile-fit {
+        font-size: 1.8rem;
+    }
+}
+</style>
 <script>
     var clicked = false;
     async function updateCustomerFeedback() {
