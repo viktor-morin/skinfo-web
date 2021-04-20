@@ -150,6 +150,7 @@ $(document).ready(function () {
             document.getElementById('send-email-succesful').style.display = 'block';
             setTimeout(function () {
                 document.getElementById('send-email-succesful').style.opacity = '1.0';
+                document.getElementById('send-email-succesful').innerHTML = document.getElementById('send-email-succesful').innerText + '<br>' + '<b>' + email + '</b>';
             }, 10);
             $.ajax({
                 type: 'POST',

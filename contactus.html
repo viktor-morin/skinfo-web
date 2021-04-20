@@ -73,11 +73,11 @@
             </div>
             <div class="two-block" style="padding-bottom: 3rem;">
                 <div class="inside-block left-side-demo-request">
-                    <h1 class="blacktextcolor" style="text-align: left;">Request a demo with Skinfo</h1>
+                    <h1 class="blacktextcolor font-resize" style="text-align: left;">Request a demo with Skinfo</h1>
                     <div class="contact-us-logo-title">
                         Seen on <b>180+</b> skincare & cosmetic brands
                     </div>
-                    <div style="display: flex; margin-top: 75px;">
+                    <div class="mail-section">
                         <div>
                             <div id="send-email" style="display: flex;">
                                 <input id="send-email-input" class="email-input" placeholder="yourname@company.com"
@@ -88,7 +88,7 @@
                             </div>
                             <div id="send-email-succesful"
                                 style="opacity: 0;transition: opacity 1s ease-in-out; margin-bottom: 10px;">
-                                Thanks! We will get back to you soon.
+                                Thanks! We will get back to you soon at
                             </div>
                             <div>
                                 <div class="blacktextcolor" style="text-align: left; font-weight: bold;">Sales</div>
@@ -262,6 +262,11 @@
         opacity: 0.75;
     }
 
+    .mail-section {
+        display: flex;
+        margin-top: 75px;
+    }
+
     @media only screen and (max-width: 1400px) {
         .left-side-demo-request {
             max-width: 40%;
@@ -280,17 +285,19 @@
         }
     }
 
-    @media only screen and (max-width: 435px) {
-        .contact-us-logo-title {
-            padding-left: 40px;
-            padding-right: 40px;
-        }
-    }
-
-    @media only screen and (max-width: 350px) {
+    @media only screen and (max-width: 450px) {
         .contact-us-logo-title {
             padding-left: 0px;
             padding-right: 0px;
+            font-size: 0.9rem;
+        }
+
+        .font-resize {
+            font-size: 1.2rem;
+        }
+
+        .mail-section {
+            margin-top: 25px;
         }
     }
 </style>
