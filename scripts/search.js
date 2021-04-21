@@ -1,4 +1,5 @@
 var url = 'https://staging.skinfo.se/';
+url = 'https://localhost:5001/'
 var selectCounter = -1;
 $(document).ready(function () {
     function getParameterByName(name, url = window.location.href) {
@@ -11,6 +12,7 @@ $(document).ready(function () {
     }
 
     function createInnerElementForSuggestion(query, element) {
+        query = query.toLowerCase();
         return query + '<b>' + element.replace(query, '') + '</b>';
     }
 
@@ -19,7 +21,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             headers: { 'apikey': '6h[-yENBfB' },
-            url: url + 'website/ingredient?ingredient=' + id + '&language=' + getLanguage(),
+            url: url + 'website/link?id=' + id + '&language=' + getLanguage(),
             dataType: 'html',
             complete: function (result) {
                 $('#data').html(result.responseText);
@@ -28,6 +30,19 @@ $(document).ready(function () {
         $('#searchbox').val(id);
     }
 
+    function getCookieData() {
+        $.ajax({
+            type: 'GET',
+            url: 'https://api.skinfo.se/' + 'cookie/get?language=' + getLanguage(),
+            dataType: 'json',
+            complete: function (result) {
+                if (result.responseText) {
+                    var json = JSON.parse(result.responseText);
+                }
+            }
+        });
+        $('#searchbox').val(id);
+    }
 
     $('form input').keydown(function (e) {
         if (e.keyCode == 13) {
@@ -35,6 +50,359 @@ $(document).ready(function () {
             return false;
         }
     });
+
+    function getIngredientData(searchValue) {
+        $.ajax({
+            type: 'GET',
+            headers: { 'apikey': '6h[-yENBfB' },
+            url: url + 'website/ingredient?ingredients=' + searchValue + '&language=' + getLanguage(),
+            dataType: 'html',
+            complete: function (result) {
+                var mainDiv = document.getElementById('search-main-div');
+                mainDiv.innerHTML = '';
+                var json = JSON.parse(result.responseText);
+                if (json.widget) {
+                    $('#widget').html(json.widget);
+                } else {
+
+
+                    var ingredients = json.single.ingredients;
+                    for (i = 0; i < ingredients.length; i++) {
+                        var child = document.createElement('h1');
+                        if (ingredients[i].synonyms.length > 0) {
+                            child = document.createElement('h1');
+                            child.classList.add('seo-fact-header');
+                            child.innerHTML = synonymsHeader;
+                            mainDiv.appendChild(child);
+                        }
+
+                        for (j = 0; j < ingredients[i].synonyms.length; j++) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-fact-synonyms');
+                            child.innerText = ingredients[i].synonyms[j];
+                            mainDiv.appendChild(child);
+                        }
+
+                        if (ingredients[i].functions.length > 0) {
+                            child = document.createElement('h1');
+                            child.classList.add('seo-fact-header');
+                            child.innerHTML = functionsHeader;
+                            mainDiv.appendChild(child);
+                        }
+                        for (j = 0; j < ingredients[i].functions.length; j++) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-fact-functions');
+                            child.innerText = ingredients[i].functions[j].short;
+                            child.dataset.id = 'f-' + ingredients[i].functions[j].id;
+                            mainDiv.appendChild(child);
+                            child = document.createElement('div');
+                            child.classList.add('seo-fact-functions');
+                            child.innerText = ingredients[i].functions[j].long;
+                            mainDiv.appendChild(child);
+                        }
+
+                        if (ingredients[i].concerns.length > 0) {
+                            child = document.createElement('h1');
+                            child.classList.add('seo-fact-header');
+                            child.innerHTML = concernsHeader;
+                            mainDiv.appendChild(child);
+                        }
+                        for (j = 0; j < ingredients[i].concerns.length; j++) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-fact-concerns');
+                            child.innerText = ingredients[i].concerns[j].short;
+                            child.dataset.id = 'c-' + ingredients[i].concerns[j].id;
+                            mainDiv.appendChild(child);
+                            child = document.createElement('div');
+                            child.classList.add('seo-fact-concerns');
+                            child.innerText = ingredients[i].concerns[j].long;
+                            mainDiv.appendChild(child);
+                        }
+
+                        if (ingredients[i].origins.length > 0) {
+                            child = document.createElement('h1');
+                            child.classList.add('seo-fact-header');
+                            child.innerHTML = originsHeader;
+                            mainDiv.appendChild(child);
+                        }
+                        for (j = 0; j < ingredients[i].origins.length; j++) {
+                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            child.classList.add('seo-svg-origin');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#' + ingredients[i].origins[j].key);
+                            child.appendChild(use);
+                            mainDiv.appendChild(child);
+                        }
+
+                        child = document.createElement('h1');
+                        child.classList.add('seo-settings');
+                        child.innerText = settingsHeader;
+                        mainDiv.appendChild(child);
+
+                        for (j = 0; j < ingredients[i].functions.length; j++) {
+
+                            var mainChild = document.createElement('div');
+                            mainChild.classList.add('seo-choice');
+
+                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            child.classList.add('seo-svg-settings');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
+                            child.appendChild(use);
+                            mainChild.appendChild(child);
+
+                            child = document.createElement('div');
+                            child.innerText = ingredients[i].functions[j].short;
+                            child.dataset.id = 'f-' + ingredients[i].functions[j].id;
+                            mainChild.appendChild(child);
+
+                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            child.classList.add('seo-svg-settings');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
+                            child.appendChild(use);
+                            mainChild.appendChild(child);
+                            mainDiv.appendChild(mainChild);
+                        }
+                        for (j = 0; j < ingredients[i].concerns.length; j++) {
+
+                            var mainChild = document.createElement('div');
+                            mainChild.classList.add('seo-choice');
+
+                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            child.classList.add('seo-svg-settings');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
+                            child.appendChild(use);
+                            mainChild.appendChild(child);
+
+                            child = document.createElement('div');
+                            child.innerText = ingredients[i].concerns[j].short;
+                            child.dataset.id = 'c-' + ingredients[i].concerns[j].id;
+                            mainChild.appendChild(child);
+
+                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            child.classList.add('seo-svg-settings');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
+                            child.appendChild(use);
+                            mainChild.appendChild(child);
+                            mainDiv.appendChild(mainChild);
+                        }
+                        //1
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isSafeToUse.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isSafeToUse) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isSafeToUseYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isSafeToUseNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //2
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isGoodForYourSkin.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isGoodForYourSkin) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isGoodForYourSkinYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isGoodForYourSkinNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //3
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isDangerous.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isDangerous) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isDangerousYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isDangerousNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //4
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isBadForYourSkin.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isBadForYourSkin) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isBadForYourSkinYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isBadForYourSkinNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //5
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isSafeDuringPregnancy.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isSafeDuringPregnancy) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isSafeDuringPregnancyYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isSafeDuringPregnancyNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //6
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isBadForSensitiveSkin.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isBadForSensitiveSkin) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isBadForSensitiveSkinYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isBadForSensitiveSkinNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //7
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isExfoliating.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isExfoliating) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isExfoliatingYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isExfoliatingNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //8
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isVegan.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isVegan) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isVeganYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isVeganNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //9
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isGoodForDrySkin.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isGoodForDrySkin) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isGoodForDrySkinYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isGoodForDrySkinNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //10
+                        child = document.createElement('h1');
+                        child.classList.add('seo-question');
+                        child.innerText = isGoodForOilySkin.replace('X', ingredients[i].displayName);
+                        mainDiv.appendChild(child);
+                        if (ingredients[i].isGoodForOilySkin) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isGoodForOilySkinYes;
+                            mainDiv.appendChild(child);
+                        } else {
+                            child = document.createElement('div');
+                            child.classList.add('seo-answer');
+                            child.innerText = isGoodForOilySkinNo;
+                            mainDiv.appendChild(child);
+                        }
+                        //11
+                        // child = document.createElement('h1');
+                        // child.classList.add('seo-question');
+                        // child.innerText = isPatent.replace('X', ingredients[i].displayName);
+                        // mainDiv.appendChild(child);
+                        // if (ingredients[i].patent) {
+                        //     child = document.createElement('div');
+                        //     child.classList.add('seo-answer');
+                        //     child.innerText = isPatentYes;
+                        //     mainDiv.appendChild(child);
+                        // } else {
+                        //     child = document.createElement('div');
+                        //     child.classList.add('seo-answer');
+                        //     child.innerText = isPatentNo;
+                        //     mainDiv.appendChild(child);
+                        // }
+                        //12
+                        // child = document.createElement('h1');
+                        // child.classList.add('seo-question');
+                        // child.innerText = isSkinIdentical.replace('X', ingredients[i].displayName);
+                        // mainDiv.appendChild(child);
+                        // if (ingredients[i].skinIdential) {
+                        //     child = document.createElement('div');
+                        //     child.classList.add('seo-answer');
+                        //     child.innerText = isSkinIdenticalYes;
+                        //     mainDiv.appendChild(child);
+                        // } else {
+                        //     child = document.createElement('div');
+                        //     child.classList.add('seo-answer');
+                        //     child.innerText = isSkinIdenticalNo;
+                        //     mainDiv.appendChild(child);
+                        // }
+                        //13
+                        // child = document.createElement('h1');
+                        // child.classList.add('seo-question');
+                        // child.innerText = isActive.replace('X', ingredients[i].displayName);
+                        // mainDiv.appendChild(child);
+                        // if (ingredients[i].active) {
+                        //     child = document.createElement('div');
+                        //     child.classList.add('seo-answer');
+                        //     child.innerText = isActiveYes;
+                        //     mainDiv.appendChild(child);
+
+                        // } else {
+                        //     child = document.createElement('div');
+                        //     child.classList.add('seo-answer');
+                        //     child.innerText = isActiveNo;
+                        //     mainDiv.appendChild(child);
+                        // }
+                    }
+                }
+            }
+        });
+    }
 
     $('#searchbox').on('keydown', function (e) {
         e.stopPropagation();
@@ -47,15 +415,7 @@ $(document).ready(function () {
 
             if (text.includes(',')) {
                 logData(text);
-                $.ajax({
-                    type: 'GET',
-                    headers: { 'apikey': '6h[-yENBfB' },
-                    url: url + 'website/ingredient?ingredient=' + text + '&language=' + getLanguage(),
-                    dataType: 'html',
-                    complete: function (result) {
-                        $('#data').html(result.responseText);
-                    }
-                });
+                getIngredientData(text);
             }
 
             if (document.getElementById('searchbar-suggestions').style.display == 'none') {
@@ -68,28 +428,11 @@ $(document).ready(function () {
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
                     logData(parent.children[1].innerText);
-                    $.ajax({
-                        type: 'GET',
-                        headers: { 'apikey': '6h[-yENBfB' },
-                        url: url + 'website/ingredient?ingredient=' + parent.children[1].innerText + '&language=' + getLanguage(),
-                        dataType: 'html',
-                        complete: function (result) {
-                            $('#data').html(result.responseText);
-                        }
-                    });
+                    getIngredientData(parent.children[1].innerText);
                     $('#searchbox').val(parent.children[1].innerText);
                 } else {
                     logData(result.innerText);
-                    $.ajax({
-                        type: 'GET',
-                        headers: { 'apikey': '6h[-yENBfB' },
-                        url: url + 'website/ingredient?ingredient=' + result.innerText + '&language=' + getLanguage(),
-                        dataType: 'html',
-                        complete: function (result) {
-                            $('#data').html(result.responseText);
-                        }
-
-                    });
+                    getIngredientData(result.innerText);
                     $('#searchbox').val(result.innerText);
                 }
             }
@@ -185,6 +528,7 @@ $(document).ready(function () {
                         breakChild.style.backgroundColor = 'lightgray';
                         breakChild.style.height = '1px';
                         breakChild.style.maxWidth = '648px';
+                        breakChild.style.marginBottom = '3px';
                         parent.appendChild(breakChild);
 
                         result.responseJSON.forEach(element => {
@@ -197,15 +541,8 @@ $(document).ready(function () {
                                 document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
-                                $.ajax({
-                                    type: 'GET',
-                                    headers: { 'apikey': '6h[-yENBfB' },
-                                    url: url + 'website/ingredient?ingredient=' + element + '&language=' + getLanguage(),
-                                    dataType: 'html',
-                                    complete: function (result) {
-                                        $('#data').html(result.responseText);
-                                    }
-                                });
+                                getIngredientData(element);
+                                document.getElementById('searchbox').value = element;
                             }
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');
@@ -275,6 +612,8 @@ $(document).ready(function () {
         document.cookie = '_skinfo-language' + "=" + lang + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
         return lang;
     }
+
+    getCookieData();
 
     // function setLanguage(value) {
     //     document.cookie = '_skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
