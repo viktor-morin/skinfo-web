@@ -55,7 +55,9 @@ $(document).ready(function () {
             }
         }
 
+
         xhttp.open('GET', 'https://api.skinfo.se/cookie/get?language=' + getLanguage(), true);
+        xhttp.withCredentials = true;
         xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
         xhttp.send();
     }
