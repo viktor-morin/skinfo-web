@@ -43,7 +43,21 @@ $(document).ready(function () {
                 }
             }
         });
-        $('#searchbox').val(id);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            if (xhttp.status == 200) {
+                if (xhttp.responseText) {
+                    var json = JSON.parse(xhttp.responseText);
+                }
+            } else {
+                console.log(xhttp.responseText);
+            }
+        }
+
+        xhttp.open('GET', 'https://api.skinfo.se/cookie/get?language=' + getLanguage(), true);
+        xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhttp.send();
     }
 
     $('form input').keydown(function (e) {
