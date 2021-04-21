@@ -34,7 +34,9 @@ $(document).ready(function () {
         $.ajax({
             type: 'GET',
             url: 'https://api.skinfo.se/' + 'cookie/get?language=' + getLanguage(),
-            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
             complete: function (result) {
                 if (result.responseText) {
                     var json = JSON.parse(result.responseText);
