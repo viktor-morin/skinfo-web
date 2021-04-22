@@ -19,7 +19,7 @@ $(document).ready(function () {
     }
 
     var id = getParameterByName('id');
-    if (id != null) {
+    if (id) {
         $.ajax({
             type: 'GET',
             headers: { 'apikey': '6h[-yENBfB' },
@@ -30,6 +30,12 @@ $(document).ready(function () {
             }
         });
         $('#searchbox').val(id);
+    }
+
+    var ingredient = getParameterByName('ingredient');
+    if (ingredient) {
+        getIngredientData(ingredient);
+        $('#searchbox').val(ingredient);
     }
 
     $('form input').keydown(function (e) {
@@ -434,7 +440,7 @@ $(document).ready(function () {
         e.stopPropagation();
         const key = e.key;
         if (key == 'Enter') {
-            var text = $('#searchbox').val();
+            var text = $('#searchbox').val().trimStart();
             if (text.length == 0) {
                 return;
             }
@@ -511,7 +517,7 @@ $(document).ready(function () {
     $('#searchbox').on('input', function (e) {
         e.stopPropagation();
         var parent = document.getElementById('searchbar-suggestions');
-        var text = $('#searchbox').val();
+        var text = $('#searchbox').val().trimStart();
         selectCounter = -1;
 
         if (text.length == 0) {
@@ -533,12 +539,12 @@ $(document).ready(function () {
                 headers: { 'apikey': '6h[-yENBfB' },
                 contentType: "application/json; charset=utf-8",
                 complete: function (result) {
-                    if (result.responseJSON.length > 0) {
+                    if (result.responseJSON && result.responseJSON.length > 0) {
                         parent.style.display = 'inherit';
                         document.getElementById('searchbar').style.borderBottomLeftRadius = '0px';
                         document.getElementById('searchbar').style.borderBottomRightRadius = '0px';
                         parent.innerHTML = '';
-                        var text = $('#searchbox').val();
+                        var text = $('#searchbox').val().trimStart();
                         if (text.length == 0 || text.includes(',')) {
                             parent.innerHTML = '';
                             document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
