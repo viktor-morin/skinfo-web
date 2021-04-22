@@ -395,13 +395,26 @@
         if (data.id.startsWith('f-')) {
             data.id = data.id.substring(2);
             data.type = 'function';
+            if (add)
+                globalFunctions.push(id);
+            else
+                globalFunctions.splice(globalFunctions.indexOf(id), 1);
         }
         else if (data.id.startsWith('c-')) {
             data.id = data.id.substring(2);
             data.type = 'concern';
+            if (add)
+                globalConcerns.push(id);
+            else
+                globalConcerns.splice(globalConcerns.indexOf(id), 1);
         }
-        else
+        else {
             data.type = 'ingredient';
+            if (add)
+                globalIngredients.push(id);
+            else
+                globalIngredients.splice(globalIngredients.indexOf(id), 1);
+        }
 
         document.getElementById('skinfo-settings-iframe').contentWindow.postMessage(data, '*');
     }
@@ -412,9 +425,11 @@
             var action = e.target.firstChild.firstChild.getAttribute('xlink:href');
             if (action.includes('add')) {
                 updateSettings(id, true);
+                e.target.firstChild.firstChild.setAttribute('xlink:href', '#remove');
             }
             else {
                 updateSettings(id, false);
+                e.target.firstChild.firstChild.setAttribute('xlink:href', '#add');
             }
 
         } else if (e.target.parentNode && e.target.parentNode.classList.contains('seo-choice')) {
@@ -422,9 +437,11 @@
             var action = e.target.parentNode.firstChild.firstChild.getAttribute('xlink:href');
             if (action.includes('add')) {
                 updateSettings(id, true);
+                e.target.parentNode.firstChild.firstChild.setAttribute('xlink:href', '#remove');
             }
             else {
                 updateSettings(id, false);
+                e.target.parentNode.firstChild.firstChild.setAttribute('xlink:href', '#add');
             }
         }
     });
