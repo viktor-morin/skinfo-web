@@ -61,6 +61,7 @@ $(document).ready(function () {
                         if (ingredients[i].synonyms.length > 0) {
                             child = document.createElement('h1');
                             child.classList.add('seo-fact-header');
+                            child.style.marginTop = '20px';
                             child.innerHTML = synonymsHeader;
                             mainDiv.appendChild(child);
                         }
