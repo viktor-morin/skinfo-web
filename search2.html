@@ -454,17 +454,14 @@
             var functions = json.functions;
 
             for (i = 0; i < ingredients.length; i++) {
-                console.log(ingredients[i]);
                 globalIngredients.push(ingredients[i]);
             }
 
             for (const [key, value] of Object.entries(functions)) {
-                console.log(key);
                 globalFunctions.push('f-' + key);
             }
 
             for (const [key, value] of Object.entries(concerns)) {
-                console.log(key);
                 globalConcerns.push('c-' + key);
             }
         }
