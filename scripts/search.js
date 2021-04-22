@@ -218,6 +218,12 @@ $(document).ready(function () {
                         child.style.marginTop = '20px';
                         mainDiv.appendChild(child);
 
+                        child = document.createElement('div');
+                        child.style.marginTop = '20px';
+                        child.style.marginBottom = '20px';
+                        child.style.borderTop = '1px solid black';
+                        mainDiv.appendChild(child);
+
                         //1
                         child = document.createElement('h1');
                         child.classList.add('seo-question');
