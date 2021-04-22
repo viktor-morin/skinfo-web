@@ -55,6 +55,9 @@ $(document).ready(function () {
                     var ingredients = json.single.ingredients;
                     for (i = 0; i < ingredients.length; i++) {
                         var child = document.createElement('h1');
+                        child.classList.add('seo-displayname');
+                        child.innerHTML = ingredients[i].displayName;
+                        mainDiv.appendChild(child);
                         if (ingredients[i].synonyms.length > 0) {
                             child = document.createElement('h1');
                             child.classList.add('seo-fact-header');
@@ -65,6 +68,25 @@ $(document).ready(function () {
                             child = document.createElement('div');
                             child.classList.add('seo-fact-synonyms');
                             child.innerText = ingredients[i].synonyms[j];
+                            mainDiv.appendChild(child);
+                        }
+                        if (ingredients[i].origins.length > 0) {
+                            child = document.createElement('h1');
+                            child.style.marginTop = '20px';
+                            child.classList.add('seo-fact-header');
+                            child.innerHTML = originsHeader;
+                            mainDiv.appendChild(child);
+                        }
+                        for (j = 0; j < ingredients[i].origins.length; j++) {
+                            child = document.createElement('div');
+                            child.classList.add('seo-svg-origin-text');
+                            child.innerText = ingredients[i].origins[j].value;
+                            var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            svgChild.classList.add('seo-svg-origin');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#' + ingredients[i].origins[j].key);
+                            svgChild.appendChild(use);
+                            child.appendChild(svgChild);
                             mainDiv.appendChild(child);
                         }
                         if (ingredients[i].functions.length > 0) {
@@ -98,7 +120,6 @@ $(document).ready(function () {
                             child.innerText = ingredients[i].concerns[j].short;
                             child.dataset.id = 'c-' + ingredients[i].concerns[j].id;
 
-
                             var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                             svgChild.classList.add('seo-svg-concern');
                             var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
@@ -110,25 +131,6 @@ $(document).ready(function () {
                             child = document.createElement('div');
                             child.classList.add('seo-fact-concerns-long');
                             child.innerText = ingredients[i].concerns[j].long;
-                            mainDiv.appendChild(child);
-                        }
-                        if (ingredients[i].origins.length > 0) {
-                            child = document.createElement('h1');
-                            child.style.marginTop = '20px';
-                            child.classList.add('seo-fact-header');
-                            child.innerHTML = originsHeader;
-                            mainDiv.appendChild(child);
-                        }
-                        for (j = 0; j < ingredients[i].origins.length; j++) {
-                            child = document.createElement('div');
-                            child.classList.add('seo-svg-origin-text');
-                            child.innerText = ingredients[i].origins[j].value;
-                            var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                            svgChild.classList.add('seo-svg-origin');
-                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#' + ingredients[i].origins[j].key);
-                            svgChild.appendChild(use);
-                            child.appendChild(svgChild);
                             mainDiv.appendChild(child);
                         }
                         child = document.createElement('h1');
