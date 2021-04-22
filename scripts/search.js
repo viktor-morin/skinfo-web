@@ -1,4 +1,4 @@
-var url = 'https://staging.skinfo.se/';
+var url = 'https://api.skinfo.se/';
 url = 'https://localhost:5001/'
 var selectCounter = -1;
 $(document).ready(function () {
@@ -30,38 +30,6 @@ $(document).ready(function () {
         $('#searchbox').val(id);
     }
 
-    function getCookieData() {
-        $.ajax({
-            type: 'GET',
-            url: 'https://api.skinfo.se/' + 'cookie/get?language=' + getLanguage(),
-            xhrFields: {
-                withCredentials: true
-            },
-            complete: function (result) {
-                if (result.responseText) {
-                    var json = JSON.parse(result.responseText);
-                }
-            }
-        });
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onload = function () {
-            if (xhttp.status == 200) {
-                if (xhttp.responseText) {
-                    var json = JSON.parse(xhttp.responseText);
-                }
-            } else {
-                console.log(xhttp.responseText);
-            }
-        }
-
-
-        xhttp.open('GET', 'https://api.skinfo.se/cookie/get?language=' + getLanguage(), true);
-        xhttp.withCredentials = true;
-        xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-        xhttp.send();
-    }
-
     $('form input').keydown(function (e) {
         if (e.keyCode == 13) {
             e.preventDefault();
@@ -82,8 +50,6 @@ $(document).ready(function () {
                 if (json.widget) {
                     $('#widget').html(json.widget);
                 } else {
-
-
                     var ingredients = json.single.ingredients;
                     for (i = 0; i < ingredients.length; i++) {
                         var child = document.createElement('h1');
@@ -93,14 +59,12 @@ $(document).ready(function () {
                             child.innerHTML = synonymsHeader;
                             mainDiv.appendChild(child);
                         }
-
                         for (j = 0; j < ingredients[i].synonyms.length; j++) {
                             child = document.createElement('div');
                             child.classList.add('seo-fact-synonyms');
                             child.innerText = ingredients[i].synonyms[j];
                             mainDiv.appendChild(child);
                         }
-
                         if (ingredients[i].functions.length > 0) {
                             child = document.createElement('h1');
                             child.classList.add('seo-fact-header');
@@ -109,34 +73,38 @@ $(document).ready(function () {
                         }
                         for (j = 0; j < ingredients[i].functions.length; j++) {
                             child = document.createElement('div');
-                            child.classList.add('seo-fact-functions');
+                            child.classList.add('seo-fact-functions-short');
                             child.innerText = ingredients[i].functions[j].short;
                             child.dataset.id = 'f-' + ingredients[i].functions[j].id;
                             mainDiv.appendChild(child);
                             child = document.createElement('div');
-                            child.classList.add('seo-fact-functions');
+                            child.classList.add('seo-fact-functions-long');
                             child.innerText = ingredients[i].functions[j].long;
                             mainDiv.appendChild(child);
                         }
-
                         if (ingredients[i].concerns.length > 0) {
                             child = document.createElement('h1');
                             child.classList.add('seo-fact-header');
                             child.innerHTML = concernsHeader;
+                            var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            svgChild.classList.add('seo-svg-origin');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#exclamationmark');
+                            svgChild.appendChild(use);
+                            child.appendChild(svgChild);
                             mainDiv.appendChild(child);
                         }
                         for (j = 0; j < ingredients[i].concerns.length; j++) {
                             child = document.createElement('div');
-                            child.classList.add('seo-fact-concerns');
+                            child.classList.add('seo-fact-concerns-short');
                             child.innerText = ingredients[i].concerns[j].short;
                             child.dataset.id = 'c-' + ingredients[i].concerns[j].id;
                             mainDiv.appendChild(child);
                             child = document.createElement('div');
-                            child.classList.add('seo-fact-concerns');
+                            child.classList.add('seo-fact-concerns-long');
                             child.innerText = ingredients[i].concerns[j].long;
                             mainDiv.appendChild(child);
                         }
-
                         if (ingredients[i].origins.length > 0) {
                             child = document.createElement('h1');
                             child.classList.add('seo-fact-header');
@@ -144,66 +112,89 @@ $(document).ready(function () {
                             mainDiv.appendChild(child);
                         }
                         for (j = 0; j < ingredients[i].origins.length; j++) {
-                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                            child.classList.add('seo-svg-origin');
+                            child = document.createElement('div');
+                            child.classList.add('seo-svg-origin-text');
+                            child.innerText = ingredients[i].origins[j].value;
+                            var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            svgChild.classList.add('seo-svg-origin');
                             var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
                             use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#' + ingredients[i].origins[j].key);
-                            child.appendChild(use);
+                            svgChild.appendChild(use);
+                            child.appendChild(svgChild);
                             mainDiv.appendChild(child);
                         }
-
                         child = document.createElement('h1');
                         child.classList.add('seo-settings');
                         child.innerText = settingsHeader;
                         mainDiv.appendChild(child);
-
-                        for (j = 0; j < ingredients[i].functions.length; j++) {
-
-                            var mainChild = document.createElement('div');
-                            mainChild.classList.add('seo-choice');
-
+                        var mainChild = document.createElement('div');
+                        if (globalIngredients.includes(ingredients[i].displayName)) {
                             child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                             child.classList.add('seo-svg-settings');
                             var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
                             use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
                             child.appendChild(use);
                             mainChild.appendChild(child);
-
-                            child = document.createElement('div');
-                            child.innerText = ingredients[i].functions[j].short;
-                            child.dataset.id = 'f-' + ingredients[i].functions[j].id;
-                            mainChild.appendChild(child);
-
+                        } else {
                             child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                             child.classList.add('seo-svg-settings');
                             var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
                             use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
                             child.appendChild(use);
+                            mainChild.appendChild(child);
+                        }
+                        mainChild.classList.add('seo-choice');
+                        mainChild.dataset.id = ingredients[i].displayName;
+                        child = document.createElement('div');
+                        child.innerText = ingredients[i].displayName;
+                        mainChild.appendChild(child);
+                        mainDiv.appendChild(mainChild);
+                        for (j = 0; j < ingredients[i].functions.length; j++) {
+                            var mainChild = document.createElement('div');
+                            mainChild.classList.add('seo-choice');
+                            if (globalFunctions.includes('f-' + ingredients[i].functions[j].id)) {
+                                child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                                child.classList.add('seo-svg-settings');
+                                var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                                use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
+                                child.appendChild(use);
+                                mainChild.appendChild(child);
+                            } else {
+                                child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                                child.classList.add('seo-svg-settings');
+                                var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                                use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
+                                child.appendChild(use);
+                                mainChild.appendChild(child);
+                            }
+                            child = document.createElement('div');
+                            child.innerText = ingredients[i].functions[j].short;
+                            mainChild.dataset.id = 'f-' + ingredients[i].functions[j].id;
                             mainChild.appendChild(child);
                             mainDiv.appendChild(mainChild);
                         }
                         for (j = 0; j < ingredients[i].concerns.length; j++) {
-
                             var mainChild = document.createElement('div');
                             mainChild.classList.add('seo-choice');
 
-                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                            child.classList.add('seo-svg-settings');
-                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
-                            child.appendChild(use);
-                            mainChild.appendChild(child);
-
+                            if (globalConcerns.includes('c-' + ingredients[i].concerns[j].id)) {
+                                child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                                child.classList.add('seo-svg-settings');
+                                var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                                use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
+                                child.appendChild(use);
+                                mainChild.appendChild(child);
+                            } else {
+                                child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                                child.classList.add('seo-svg-settings');
+                                var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                                use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
+                                child.appendChild(use);
+                                mainChild.appendChild(child);
+                            }
                             child = document.createElement('div');
                             child.innerText = ingredients[i].concerns[j].short;
-                            child.dataset.id = 'c-' + ingredients[i].concerns[j].id;
-                            mainChild.appendChild(child);
-
-                            child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                            child.classList.add('seo-svg-settings');
-                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
-                            child.appendChild(use);
+                            mainChild.dataset.id = 'c-' + ingredients[i].concerns[j].id;
                             mainChild.appendChild(child);
                             mainDiv.appendChild(mainChild);
                         }
@@ -441,7 +432,6 @@ $(document).ready(function () {
             }
 
             else {
-
                 var parent = document.getElementById('searchbar-suggestions');
                 var result = parent.querySelector(".search-selected");
                 if (result == null) {
@@ -630,60 +620,4 @@ $(document).ready(function () {
         document.cookie = '_skinfo-language' + "=" + lang + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
         return lang;
     }
-
-    getCookieData();
-
-    // function setLanguage(value) {
-    //     document.cookie = '_skinfo-language' + "=" + value + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
-    // }
-
-    // function loadSettings() {
-    //     var language = getLanguage();
-    //     switch (language) {
-    //         case 'en-US':
-    //             loadEng(document.getElementById('eng'));
-    //             break;
-    //         case 'sv-SE':
-    //             loadSwe(document.getElementById('swe'));
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
-    // function loadSwe(caller) {
-    //     document.getElementById('searchbox').placeholder = 'Sök efter ingredienser..';
-    //     document.getElementById('eng').style.webkitFilter = 'grayscale(1)';
-    //     document.getElementById('eng').style.filter = 'grayscale(1)';
-    //     document.getElementById('eng').style.opacity = 0.5;
-    //     caller.style.webkitFilter = '';
-    //     caller.style.filter = '';
-    //     caller.style.opacity = 1;
-    //     setLanguage('sv-SE');
-    // }
-
-    // function loadEng(caller) {
-    //     document.getElementById('searchbox').placeholder = 'Search any ingredients..';
-    //     document.getElementById('swe').style.webkitFilter = 'grayscale(1)';
-    //     document.getElementById('swe').style.filter = 'grayscale(1)';
-    //     document.getElementById('swe').style.opacity = 0.5;
-    //     caller.style.webkitFilter = '';
-    //     caller.style.filter = '';
-    //     caller.style.opacity = 1;
-    //     setLanguage('en-US');
-    // }
-
-    // document.getElementById('swe').onclick = function () {
-    //     loadSwe(this);
-    //     if (location.pathname.includes('search'))
-    //         location.reload();
-    // }
-
-    // document.getElementById('eng').onclick = function () {
-    //     loadEng(this);
-    //     if (location.pathname.includes('search'))
-    //         location.reload();
-    // }
-
-    // loadSettings();
 })
