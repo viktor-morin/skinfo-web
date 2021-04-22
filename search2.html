@@ -202,8 +202,8 @@
             </div>
             <div style="display: flex;">
                 <div style="margin: auto; margin-top: 20px;">
-                    <div id="search-main-div"></div>
-                    <div id="widget"></div>
+                    <div style="padding: 20px;" id="search-main-div"></div>
+                    <div style="padding: 20px;" id="widget"></div>
                 </div>
             </div>
             <div id="data" style="margin-top: 20px;"></div>
@@ -323,63 +323,79 @@
 
 <style>
     .seo-question {
-        color: red;
+        color: black;
+        font-size: 1.2rem;
+        margin-bottom: 3px;
     }
 
     .seo-answer {
-        color: green;
+        color: #8F8F8F;
     }
 
     .seo-fact-header {
-        color: blue;
+        color: black;
+        font-size: 1.2rem;
+        margin-bottom: 3px;
     }
 
     .seo-fact-synonyms {
-        color: orange;
+        color: #545454;
     }
 
     .seo-fact-functions-short {
-        color: olivedrab;
+        color: #545454;
         font-weight: bold;
     }
 
     .seo-fact-functions-long {
-        color: olivedrab;
+        color: #8F8F8F;
     }
 
     .seo-fact-concerns-short {
-        color: hotpink;
+        color: #545454;
         font-weight: bold;
-        ;
     }
 
     .seo-fact-concerns-long {
-        color: hotpink;
+        color: #8F8F8F;
     }
 
     .seo-settings {
-        color: purple;
+        color: black;
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+        ;
     }
 
     .seo-choice {
-        color: brown;
+        color: rgb(0, 0, 0, 0.8);
         cursor: pointer;
         display: flex;
         width: fit-content;
     }
 
     .seo-svg-origin-text {
-        color: coral;
+        color: #545454;
     }
 
     .seo-svg-origin {
         width: 20px;
         height: 20px;
+        position: relative;
+        left: 3px;
+        top: 3px;
+    }
+
+    .seo-svg-concern {
+        width: 15px;
+        height: 15px;
+        margin-left: 3px;
     }
 
     .seo-svg-settings {
         width: 20px;
         height: 20px;
+        margin-right: 5px;
     }
 </style>
 <script>

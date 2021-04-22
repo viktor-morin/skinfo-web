@@ -69,6 +69,7 @@ $(document).ready(function () {
                         }
                         if (ingredients[i].functions.length > 0) {
                             child = document.createElement('h1');
+                            child.style.marginTop = '20px';
                             child.classList.add('seo-fact-header');
                             child.innerHTML = functionsHeader;
                             mainDiv.appendChild(child);
@@ -86,14 +87,9 @@ $(document).ready(function () {
                         }
                         if (ingredients[i].concerns.length > 0) {
                             child = document.createElement('h1');
+                            child.style.marginTop = '20px';
                             child.classList.add('seo-fact-header');
                             child.innerHTML = concernsHeader;
-                            var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                            svgChild.classList.add('seo-svg-origin');
-                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#exclamationmark');
-                            svgChild.appendChild(use);
-                            child.appendChild(svgChild);
                             mainDiv.appendChild(child);
                         }
                         for (j = 0; j < ingredients[i].concerns.length; j++) {
@@ -101,6 +97,15 @@ $(document).ready(function () {
                             child.classList.add('seo-fact-concerns-short');
                             child.innerText = ingredients[i].concerns[j].short;
                             child.dataset.id = 'c-' + ingredients[i].concerns[j].id;
+
+
+                            var svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            svgChild.classList.add('seo-svg-concern');
+                            var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+                            use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#exclamationmark');
+                            svgChild.appendChild(use);
+                            child.appendChild(svgChild);
+
                             mainDiv.appendChild(child);
                             child = document.createElement('div');
                             child.classList.add('seo-fact-concerns-long');
@@ -109,6 +114,7 @@ $(document).ready(function () {
                         }
                         if (ingredients[i].origins.length > 0) {
                             child = document.createElement('h1');
+                            child.style.marginTop = '20px';
                             child.classList.add('seo-fact-header');
                             child.innerHTML = originsHeader;
                             mainDiv.appendChild(child);
@@ -127,6 +133,7 @@ $(document).ready(function () {
                         }
                         child = document.createElement('h1');
                         child.classList.add('seo-settings');
+                        child.style.marginTop = '20px';
                         child.innerText = settingsHeader;
                         mainDiv.appendChild(child);
                         var mainChild = document.createElement('div');
@@ -200,6 +207,11 @@ $(document).ready(function () {
                             mainChild.appendChild(child);
                             mainDiv.appendChild(mainChild);
                         }
+
+                        child = document.createElement('div');
+                        child.style.marginTop = '20px';
+                        mainDiv.appendChild(child);
+
                         //1
                         child = document.createElement('h1');
                         child.classList.add('seo-question');
