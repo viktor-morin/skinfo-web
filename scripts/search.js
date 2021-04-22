@@ -1,5 +1,7 @@
 var url = 'https://api.skinfo.se/';
+
 url = 'https://localhost:5001/'
+url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 $(document).ready(function () {
     function getParameterByName(name, url = window.location.href) {
