@@ -51,6 +51,11 @@ button:hover {
     opacity: 0.5;
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
 textarea {
     resize: none;
 }

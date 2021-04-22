@@ -955,21 +955,13 @@
 
     var mockupButtons = document.getElementsByClassName('test-widget-button');
     for (i = 0; i < mockupButtons.length; i++) {
-        mockupButtons[i].onclick = function () {
+        mockupButtons[i].onclick = function (e) {
+            e.target.disabled = true;
             document.getElementById('scollmeintoview').scrollIntoView(true);
-            var data = {
-                'name': 'PRODUCT NAME',
-                'brand': 'BRAND',
-                'language': 'en-US',
-                'ingredients': getIngredientsList(document.getElementById('ingredients-textarea').innerText)
-            };
-
             $.ajax({
                 url: 'https://api.skinfo.se/website/testwidget/',
                 type: 'POST',
-                data: JSON.stringify(data),
                 headers: { 'apikey': '6h[-yENBfB' },
-                contentType: 'application/json',
                 success: function (data) {
                     $('#ingredients-textarea').html(data.html);
                 },
