@@ -49,6 +49,7 @@ $(document).ready(function () {
             url: url + 'website/ingredient?ingredients=' + searchValue + '&language=' + getLanguage(),
             dataType: 'html',
             complete: function (result) {
+                document.getElementById('widget').innerHTML = '';
                 var mainDiv = document.getElementById('search-main-div');
                 mainDiv.innerHTML = '';
                 var json = JSON.parse(result.responseText);
