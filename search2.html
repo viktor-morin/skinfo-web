@@ -76,7 +76,7 @@
                     <span class="menu-button actionbutton" data-url="howitworks">How it works</span>
                     <span class="menu-button actionbutton" data-url="price">Price</span>
                     <span class="menu-button actionbutton one-edge-shadow" data-url="search">Ingredient search</span>
-      
+
                 </div>
             </div>
             <!-- svg symbols start-->
@@ -431,12 +431,12 @@
         var sibiling = currentElement.nextSibling;
         while (sibiling.nodeName == '#text')
             sibiling = sibiling.nextSibling;
-        while (parseInt(sibiling.dataset.lvl) >= parseInt(currentElement.dataset.lvl)){
+        while (parseInt(sibiling.dataset.lvl) >= parseInt(currentElement.dataset.lvl)) {
             sibiling.style.display = 'none';
             sibiling.classList.remove('seo-menu-expand');
             currentElement = sibiling;
 
-            sibiling = currentElement.nextSibling;
+            sibiling = sibiling.nextSibling;
             while (sibiling.nodeName == '#text')
                 sibiling = sibiling.nextSibling;
         }
@@ -444,7 +444,7 @@
 
     var browseMenuButtons = document.getElementsByClassName('menu-browse-button');
     for (i = 0; i < browseMenuButtons.length; i++) {
-        browseMenuButtons[i].onclick = function(e) {
+        browseMenuButtons[i].onclick = function (e) {
             e.stopPropagation();
             if (e.target.classList.contains('seo-menu-expand')) {
                 e.target.classList.remove('seo-menu-expand');
@@ -456,11 +456,9 @@
                 while (sibiling.nodeName == '#text')
                     sibiling = sibiling.nextSibling;
 
-                while (parseInt(sibiling.dataset.lvl) == parseInt(currentElement.dataset.lvl + 1)){
+                while (parseInt(sibiling.dataset.lvl) == (parseInt(currentElement.dataset.lvl) + 1)) {
                     sibiling.style.display = 'initial';
-                    sibiling.classList.add('seo-menu-expand');
-
-                    sibiling = currentElement.nextSibling;
+                    sibiling = sibiling.nextSibling;
                     while (sibiling.nodeName == '#text')
                         sibiling = sibiling.nextSibling;
                 }
