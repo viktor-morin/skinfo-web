@@ -51,7 +51,7 @@
                         <span class="menu-button actionbutton" data-url="search">Ingredient search</span>
                         <span class="menu-button actionbutton blackbackgroundcolor"
                             style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white; border-radius: 0.5rem; text-align: center;"
-                            data-url="price">Start free trial</span>
+                            data-url="price">Browse</span>
                     </div>
                 </div>
                 <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
@@ -64,9 +64,19 @@
                     </div>
                 </div>
                 <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%;">
+                    <span class="menu-button menu-browse-button" data-lvl="0">Vitamins</span>
+                    <span class="menu-button menu-browse-button" data-lvl="1" style="display: none;">Vitamin A</span>
+                    <span class="menu-button menu-browse-button" data-lvl="1" style="display: none;">Vitamin B</span>
+                    <span class="menu-button menu-browse-button" data-lvl="1" style="display: none;">Vitamin C</span>
+                    <span class="menu-button menu-browse-button" data-lvl="2" style="display: none;">Exempel 1</span>
+                    <span class="menu-button menu-browse-button" data-lvl="2" style="display: none;">Exempel 2</span>
+                    <span class="menu-button menu-browse-button" data-lvl="0">Allergen</span>
+                    <span class="menu-button menu-browse-button" data-lvl="1" style="display: none;">Linalool</span>
+                    <span class="menu-button menu-break"></span>
                     <span class="menu-button actionbutton" data-url="howitworks">How it works</span>
                     <span class="menu-button actionbutton" data-url="price">Price</span>
                     <span class="menu-button actionbutton one-edge-shadow" data-url="search">Ingredient search</span>
+      
                 </div>
             </div>
             <!-- svg symbols start-->
@@ -322,6 +332,12 @@
 </html>
 
 <style>
+    .seo-menu-expand {
+        display: flex !important;
+        flex-direction: column;
+        background-image: none !important;
+    }
+
     .seo-displayname {
         color: black;
         font-size: 1.5rem;
@@ -410,6 +426,47 @@
     var globalIngredients = [];
     var globalFunctions = [];
     var globalConcerns = [];
+
+    function closeChildElements(currentElement) {
+        var sibiling = currentElement.nextSibling;
+        while (sibiling.nodeName == '#text')
+            sibiling = sibiling.nextSibling;
+        while (parseInt(sibiling.dataset.lvl) >= parseInt(currentElement.dataset.lvl)){
+            sibiling.style.display = 'none';
+            sibiling.classList.remove('seo-menu-expand');
+            currentElement = sibiling;
+
+            sibiling = currentElement.nextSibling;
+            while (sibiling.nodeName == '#text')
+                sibiling = sibiling.nextSibling;
+        }
+    }
+
+    var browseMenuButtons = document.getElementsByClassName('menu-browse-button');
+    for (i = 0; i < browseMenuButtons.length; i++) {
+        browseMenuButtons[i].onclick = function(e) {
+            e.stopPropagation();
+            if (e.target.classList.contains('seo-menu-expand')) {
+                e.target.classList.remove('seo-menu-expand');
+                closeChildElements(e.target);
+            } else {
+                var currentElement = e.target;
+                currentElement.classList.add('seo-menu-expand');
+                var sibiling = currentElement.nextSibling;
+                while (sibiling.nodeName == '#text')
+                    sibiling = sibiling.nextSibling;
+
+                while (parseInt(sibiling.dataset.lvl) == parseInt(currentElement.dataset.lvl + 1)){
+                    sibiling.style.display = 'initial';
+                    sibiling.classList.add('seo-menu-expand');
+
+                    sibiling = currentElement.nextSibling;
+                    while (sibiling.nodeName == '#text')
+                        sibiling = sibiling.nextSibling;
+                }
+            }
+        }
+    }
 
     function updateSettings(id, add) {
         var data = {

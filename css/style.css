@@ -157,6 +157,17 @@ textarea {
     opacity: 0.5;
 }
 
+.menu-browse-button-not-used {
+    background: url(../svg/arrow-left.svg) no-repeat;   
+    background-position: center left;
+    background-size: 20px;
+}
+
+.menu-break {
+    border-top: 1px solid gray;
+    padding: 0px;
+}
+
 .change .bar1 {
     width: 25px;
     -webkit-transform: rotate(-45deg) translate(-7px, 6px);
