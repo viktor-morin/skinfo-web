@@ -722,6 +722,7 @@
             if (e.target.classList.contains('seo-ingredient')) {
                 document.getElementById('skinfo-menu-mobile').click();
                 getIngredientData(e.target.innerText);
+                $('#searchbox').val(e.target.innerText);
                 return;
             }
 
