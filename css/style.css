@@ -818,6 +818,7 @@ textarea {
     margin-top: -8px;
     left: 0;
     right: 0;
+    z-index: 1;
     text-align: left;
     background-color: white;
     padding: 5px 4px 0 16px;
