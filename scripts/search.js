@@ -551,12 +551,12 @@ $(document).ready(function () {
             document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
-        else if (text.includes(',')) {
-            parent.innerHTML = '';
-            document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';;
-            document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
-            parent.style.display = 'none';
-        }
+        // else if (text.includes(',')) {
+        //     parent.innerHTML = '';
+        //     document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';;
+        //     document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
+        //     parent.style.display = 'none';
+        // }
         else {
             $.ajax({
                 type: 'GET',
