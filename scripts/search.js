@@ -570,7 +570,7 @@ $(document).ready(function () {
                         document.getElementById('searchbar').style.borderBottomRightRadius = '0px';
                         parent.innerHTML = '';
                         var text = $('#searchbox').val().trimStart();
-                        if (text.length == 0 || text.includes(',')) {
+                        if (text.length == 0) {
                             parent.innerHTML = '';
                             document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
                             document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
