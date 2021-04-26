@@ -1,4 +1,5 @@
 var url = 'https://api.skinfo.se/';
+url = "https://staging.skinfo.se/";
 var selectCounter = -1;
 
 function getIngredientData(searchValue) {
