@@ -49,9 +49,8 @@
                         <span class="menu-button actionbutton" data-url="howitworks">How it works</span>
                         <span class="menu-button actionbutton" data-url="price">Price</span>
                         <span class="menu-button actionbutton" data-url="search">Ingredient search</span>
-                        <span class="menu-button actionbutton blackbackgroundcolor"
-                            style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white; border-radius: 0.5rem; text-align: center;"
-                            data-url="price">Browse</span>
+                        <span class="menu-button blackbackgroundcolor" id="browse-fullscreen-button"
+                            style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white; border-radius: 0.5rem; text-align: center;">Browse</span>
                     </div>
                 </div>
                 <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
@@ -438,7 +437,7 @@
             </div>
             <div id="data" style="margin-top: 20px;"></div>
             <div class="one-block-fullwidth graybackgroundcolor footer-main" style="margin-bottom: 0;">
-                <div class="graybackgroundcolor" style="margin-top:20px; display: flex;">
+                <div class="graybackgroundcolor" style="display: flex;">
                     <div class="footer">
                         <div class="footer-item" style="display: flex;">
                             <div style="display: flex;">
@@ -652,13 +651,17 @@
         margin-right: 5px;
     }
 
-    .main-menu {
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
-
     .main-menu-change {
         height: 100vh;
+    }
+
+    .browse-fullscreen-menu {
+        display: grid !important;
+        width: 80vh !important;
+        float: right !important;
+        margin-top: 20px !important;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 </style>
 <script>
@@ -770,6 +773,16 @@
             correctElement.firstChild.firstChild.setAttribute('xlink:href', '#add');
         }
     }
+
+    document.getElementById('browse-fullscreen-button').onclick = function () {
+        var menu = document.getElementById('skinfo-menu-mobile-expanded');
+        if (menu.classList.contains('browse-fullscreen-menu')) {
+            menu.classList.remove('browse-fullscreen-menu');
+        }
+        else
+            menu.classList.add('browse-fullscreen-menu');
+    }
+
 
     window.onmessage = function (e) {
         if (e.data.value) {
