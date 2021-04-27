@@ -63,6 +63,7 @@
                     </div>
                 </div>
                 <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%;">
+                    <span class="menu-title">Browse by Ingredients</span>
                     <span class="menu-button menu-browse-button" data-lvl="0">Acids</span>
 
                     <span class="menu-button menu-browse-button" data-lvl="1" style="display: none;">AHA</span>
@@ -292,6 +293,7 @@
                         style="display: none;">Methylmethionine</span>
 
                     <span class="menu-button menu-break"></span>
+                    <span class="menu-title">For Business</span>
                     <span class="menu-button actionbutton" data-url="howitworks">How it works</span>
                     <span class="menu-button actionbutton" data-url="price">Price</span>
                     <span class="menu-button actionbutton one-edge-shadow" data-url="search">Ingredient search</span>
@@ -651,8 +653,8 @@
         margin-right: 5px;
     }
 
-    .main-menu-change {
-        height: 100vh;
+    .seo-ingredient {
+        font-style: italic;
     }
 
     .browse-fullscreen-menu {
@@ -662,6 +664,9 @@
         margin-top: 20px !important;
         overflow-y: scroll;
         overflow-x: hidden;
+        overflow-y: auto !important;
+        overflow-x: unset !important;
+        max-height: calc(100vh - 62px) !important;
     }
 </style>
 <script>
@@ -688,7 +693,13 @@
         browseMenuButtons[i].onclick = function (e) {
             e.stopPropagation();
             if (e.target.classList.contains('seo-ingredient')) {
-                document.getElementById('skinfo-menu-mobile').click();
+
+                var computerMenu = document.getElementById('skinfo-menu-mobile-expanded');
+                if (computerMenu.classList.contains('browse-fullscreen-menu'))
+                    document.getElementById('browse-fullscreen-button').click();
+                else
+                    document.getElementById('skinfo-menu-mobile').click();
+
                 getIngredientData(e.target.innerText);
                 $('#searchbox').val(e.target.innerText);
                 return;

@@ -157,6 +157,17 @@ textarea {
     color: rgb(0,0,0, 0.5);
 }
 
+.menu-title {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: white;
+    color: rgba(0,0,0,0.5);
+    padding: 15px 15px 10px 15px;
+    box-sizing: unset;
+    -webkit-box-sizing: unset;
+    text-align: right;
+}
+
 .menu-browse-button-not-used {
     background: url(../svg/arrow-left.svg) no-repeat;   
     background-position: center left;
