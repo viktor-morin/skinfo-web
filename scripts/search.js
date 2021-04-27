@@ -121,6 +121,7 @@ function getIngredientData(searchValue) {
                     }
                     mainChild.classList.add('seo-choice');
                     mainChild.dataset.id = ingredients[i].displayName;
+                    mainChild.addEventListener('click', updateSettingsBind, false);
                     child = document.createElement('div');
                     child.innerText = ingredients[i].displayName;
                     mainChild.appendChild(child);
@@ -128,6 +129,7 @@ function getIngredientData(searchValue) {
                     for (j = 0; j < ingredients[i].functions.length; j++) {
                         var mainChild = document.createElement('div');
                         mainChild.classList.add('seo-choice');
+                        mainChild.addEventListener('click', updateSettingsBind, false);
                         if (globalFunctions.includes('f-' + ingredients[i].functions[j].id)) {
                             child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                             child.classList.add('seo-svg-settings');
@@ -152,7 +154,7 @@ function getIngredientData(searchValue) {
                     for (j = 0; j < ingredients[i].concerns.length; j++) {
                         var mainChild = document.createElement('div');
                         mainChild.classList.add('seo-choice');
-
+                        mainChild.addEventListener('click', updateSettingsBind, false);
                         if (globalConcerns.includes('c-' + ingredients[i].concerns[j].id)) {
                             child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                             child.classList.add('seo-svg-settings');
@@ -551,12 +553,6 @@ $(document).ready(function () {
             document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
-        // else if (text.includes(',')) {
-        //     parent.innerHTML = '';
-        //     document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';;
-        //     document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
-        //     parent.style.display = 'none';
-        // }
         else {
             $.ajax({
                 type: 'GET',
