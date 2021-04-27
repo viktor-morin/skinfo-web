@@ -771,34 +771,6 @@
         }
     }
 
-
-    // document.addEventListener('click', function (e) {
-    //     if (e.target && e.target.classList.contains('seo-choice')) {
-    //         var id = e.target.dataset.id;
-    //         var action = e.target.firstChild.firstChild.getAttribute('xlink:href');
-    //         if (action.includes('add')) {
-    //             updateSettings(id, true);
-    //             e.target.firstChild.firstChild.setAttribute('xlink:href', '#remove');
-    //         }
-    //         else {
-    //             updateSettings(id, false);
-    //             e.target.firstChild.firstChild.setAttribute('xlink:href', '#add');
-    //         }
-
-    //     } else if (e.target.parentNode && e.target.parentNode.classList.contains('seo-choice')) {
-    //         var id = e.target.parentNode.dataset.id;
-    //         var action = e.target.parentNode.firstChild.firstChild.getAttribute('xlink:href');
-    //         if (action.includes('add')) {
-    //             updateSettings(id, true);
-    //             e.target.parentNode.firstChild.firstChild.setAttribute('xlink:href', '#remove');
-    //         }
-    //         else {
-    //             updateSettings(id, false);
-    //             e.target.parentNode.firstChild.firstChild.setAttribute('xlink:href', '#add');
-    //         }
-    //     }
-    // });
-
     window.onmessage = function (e) {
         if (e.data.value) {
             var json = JSON.parse(e.data.value);
