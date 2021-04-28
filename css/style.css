@@ -1047,6 +1047,10 @@ input:-webkit-autofill:active  {
     opacity: 0.5;
 }
 
+.footer-links {
+    display: grid;
+}
+
 @media only screen and (max-width: 1200px) {
     .source {
         margin: auto;
