@@ -1040,6 +1040,7 @@ input:-webkit-autofill:active  {
 .footer-link {
     cursor: pointer;
     line-height: 1.75;
+    color:black !important;
 }
 
 .footer-link:hover {

@@ -45,19 +45,6 @@ $(document).ready(function () {
         }
     }
 
-    var footerItems = document.getElementsByClassName('footer-link');
-    for (i = 0; i < footerItems.length; i++) {
-        footerItems[i].onclick = function () {
-            if (this.dataset.url.startsWith('https'))
-                window.open(
-                    this.dataset.url,
-                    '_blank'
-                );
-            else
-                window.location.href = this.dataset.url;
-        }
-    }
-
     var oldSize = document.body.clientWidth;
     if (document.getElementById('instafeed')) {
         window.onresize = function () {
