@@ -13,10 +13,14 @@ function getIngredientData(searchValue) {
             mainDiv.innerHTML = '';
             var json = JSON.parse(result.responseText);
             if (json.widget) {
+                document.title = documentTitleWidget;
+                document.querySelector('meta[name="description"]').setAttribute("content", documentDescriptionWidget);
                 $('#widget').html(json.widget);
             } else {
                 var ingredients = json.single.ingredients;
                 for (i = 0; i < ingredients.length; i++) {
+                    document.title = documentTitle.replace('X', ingredients[i].displayName);
+                    document.querySelector('meta[name="description"]').setAttribute("content", documentDescription.replace('X', ingredients[i].displayName));
                     var child = document.createElement('h1');
                     child.classList.add('seo-displayname');
                     child.innerHTML = ingredients[i].displayName;

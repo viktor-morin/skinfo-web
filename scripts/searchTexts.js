@@ -55,3 +55,8 @@ var functionsHeader = 'Functions';
 var concernsHeader = 'Concerns';
 var originsHeader = 'Origins';
 var settingsHeader = 'Settings';
+
+var documentTitle = 'change X to ingredient - document-title';
+var documentTitleWidget = 'document-Title-Widget';
+var documentDescription = 'change X to ingredient - document-description';
+var documentDescriptionWidget = 'document-Description-Widget';
