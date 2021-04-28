@@ -1,4 +1,5 @@
 var url = 'https://api.skinfo.se/';
+var url = 'https://localhost:5001/';
 var selectCounter = -1;
 
 function getIngredientData(searchValue) {
@@ -11,11 +12,41 @@ function getIngredientData(searchValue) {
             document.getElementById('widget').innerHTML = '';
             var mainDiv = document.getElementById('search-main-div');
             mainDiv.innerHTML = '';
+            var errorDiv = document.getElementById('search-error-div');
+            errorDiv.style.display = 'none';
+            errorDiv.innerHTML = '';
             var json = JSON.parse(result.responseText);
             if (json.widget) {
                 document.title = documentTitleWidget;
                 document.querySelector('meta[name="description"]').setAttribute("content", documentDescriptionWidget);
                 $('#widget').html(json.widget);
+                if (json.single.errorsDuplicates.length > 0) {
+                    var child = document.createElement('div');
+                    child.classList.add('seo-error-header');
+                    child.innerHTML = errorsDuplicatesTitle;
+                    errorDiv.appendChild(child);
+                }
+                for (i = 0; i < json.single.errorsDuplicates.length; i++) {
+                    var child = document.createElement('div');
+                    child.classList.add('seo-error-ingredient');
+                    child.innerHTML = json.single.errorsDuplicates[i];
+                    errorDiv.appendChild(child);
+                }
+                if (json.single.errorsMissmatch.length > 0) {
+                    var child = document.createElement('div');
+                    child.classList.add('seo-error-header');
+                    child.innerHTML = errorsMissmatchTitle;
+                    errorDiv.appendChild(child);
+                }
+                for (i = 0; i < json.single.errorsMissmatch.length; i++) {
+                    var child = document.createElement('div');
+                    child.classList.add('seo-error-ingredient');
+                    child.innerHTML = json.single.errorsMissmatch[i];
+                    errorDiv.appendChild(child);
+                }
+                if (json.single.errorsMissmatch.length > 0 || json.single.errorsDuplicates.length > 0) {
+                    errorDiv.style.display = 'grid';
+                }
             } else {
                 var ingredients = json.single.ingredients;
                 for (i = 0; i < ingredients.length; i++) {

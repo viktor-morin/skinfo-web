@@ -435,7 +435,8 @@
             <div style="display: flex;">
                 <div style="margin: auto; margin-top: 20px;">
                     <div style="padding: 20px;" id="search-main-div"></div>
-                    <div style="padding: 20px;" id="widget"></div>
+                    <div class="search-error-div" id="search-error-div"></div>
+                    <div id="widget"></div>
                 </div>
             </div>
             <div id="data" style="margin-top: 20px;"></div>
@@ -591,6 +592,27 @@
 
     .seo-answer {
         color: #8F8F8F;
+    }
+
+    .search-error-div {
+        padding: 20px;
+        background-color: gainsboro;
+        border-radius: 0.75rem;
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: none;
+    }
+
+    .seo-error-header {
+        color: #8F8F8F;
+        font-size: 1.0rem;
+        margin-bottom: 3px;
+        text-align: left !important;
+    }
+
+    .seo-error-ingredient {
+        color: black;
     }
 
     .seo-fact-header {

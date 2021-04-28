@@ -45,6 +45,8 @@ var originsHeader = 'Origins';
 var settingsHeader = 'Add preferences?';
 var settingsUnderHeader = 'Your settings will be remembered in online-shops where Skinfo is integrated';
 var questionsHeader = 'Frequently asked questions about: X'
+var errorsDuplicatesTitle = 'Ingredients which occurs more than once:';
+var errorsMissmatchTitle = 'Ingredients which are misspelled:'
 
 var documentTitle = 'What Is X? Facts, Side Effects, Origin And More';
 var documentTitleWidget = 'Ingredient List (Explained) - Skinfo';
