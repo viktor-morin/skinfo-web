@@ -203,7 +203,7 @@ function getIngredientData(searchValue) {
                     } else {
                         child = document.createElement('div');
                         child.classList.add('seo-answer');
-                        child.innerText = isSafeToUseNo;
+                        child.innerHTML = isSafeToUseNo.replace('Y', convert(ingredients[i].concerns.length)) + concernsLink;
                         mainDiv.appendChild(child);
                     }
                     //2
