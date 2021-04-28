@@ -146,7 +146,7 @@ textarea {
     cursor: pointer;
     font-size: 14px;
     background-color: white;
-    color: black;
+    color: black !important;
     padding: 15px 15px 10px 15px;
     box-sizing: unset;
     -webkit-box-sizing: unset;
