@@ -1,5 +1,4 @@
 var url = 'https://api.skinfo.se/';
-var url = 'https://localhost:5001/';
 var selectCounter = -1;
 
 function getIngredientData(searchValue) {
@@ -19,7 +18,8 @@ function getIngredientData(searchValue) {
             if (json.widget) {
                 document.title = documentTitleWidget;
                 document.querySelector('meta[name="description"]').setAttribute("content", documentDescriptionWidget);
-                $('#widget').html(json.widget);
+                if (json.single.errorsDuplicates.length == 0)
+                    $('#widget').html(json.widget);
                 if (json.single.errorsDuplicates.length > 0) {
                     var child = document.createElement('div');
                     child.classList.add('seo-error-header');

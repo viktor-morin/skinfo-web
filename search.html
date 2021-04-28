@@ -424,7 +424,7 @@
                             </div>
                             <form id="searchform" autocomplete="off" action="/search?id=">
                                 <input id="searchbox" autocomplete="off" autofocus type="search" name="id"
-                                    class="searchbox">
+                                    placeholder="search ingredients" class="searchbox">
                                 </input>
                             </form>
                         </div>
@@ -432,12 +432,12 @@
                     <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
                 </div>
             </div>
-            <div style="display: flex;">
-                <div style="margin: auto; margin-top: 20px;">
-                    <div style="padding: 20px;" id="search-main-div"></div>
+            <div style="display: flex; flex-direction: column;">
+                <div class="main-style-class">
+                    <div class="search-main-div" id="search-main-div"></div>
                     <div class="search-error-div" id="search-error-div"></div>
-                    <div id="widget"></div>
                 </div>
+                <div class="search-widget" id="widget"></div>
             </div>
             <div id="data" style="margin-top: 20px;"></div>
             <div class="one-block-fullwidth graybackgroundcolor footer-main" style="margin-bottom: 0;">
@@ -563,6 +563,19 @@
         margin-right: 20px;
     }
 
+    .main-style-class {
+        margin-top: 20px;
+        margin: auto;
+        width: 80%;
+        max-width: 690px;
+    }
+
+    .search-widget {
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
     .seo-menu-expand {
         display: flex !important;
         flex-direction: column;
@@ -577,6 +590,7 @@
         margin-top: 20px;
         font-weight: bold;
         margin-bottom: -10px;
+        text-align: left !important;
     }
 
     .seo-question {
@@ -599,8 +613,7 @@
         background-color: gainsboro;
         border-radius: 0.75rem;
         margin: auto;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-top: 20px;
         display: none;
     }
 
@@ -715,6 +728,12 @@
         overflow-y: auto !important;
         overflow-x: unset !important;
         max-height: calc(100vh - 62px) !important;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .search-widget {
+            width: 100%;
+        }
     }
 </style>
 <script>
