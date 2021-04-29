@@ -704,25 +704,11 @@ $(document).ready(function () {
     });
 
     function logData(query) {
-        var dict = new Object();
-        dict['eventType'] = 'search';
-        dict['url'] = window.location.href;
-
-        dict['platform'] = navigator.platform;
-        dict['osName'] = navigator.userAgent;
-        dict['osVersion'] = navigator.appVersion;
-        dict['widgetVersion'] = 'Web';
-
-        var eventProperties = new Object();
-        eventProperties['query'] = query;
-        eventProperties['language'] = getLanguage();
-
-        dict['eventProperties'] = eventProperties;
-
-        var json = JSON.stringify(dict);
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", url + "website/log", true);
-        xhttp.setRequestHeader('apikey', '6h[-yENBfB');
-        xhttp.send(json);
+        var data = {
+            search: true,
+            query: query,
+            language: getLanguage()
+        };
+        document.getElementById('skinfo-settings-iframe').contentWindow.postMessage(data, '*');
     }
 })
