@@ -225,7 +225,7 @@ function getIngredientData(searchValue) {
                     child.style.borderTop = '1px solid black';
                     mainDiv.appendChild(child);
                     child = document.createElement('div');
-                    child.innerText = questionsHeader.replace('X', ingredients[i].displayName);
+                    child.innerHTML = questionsHeader.replace('X', ingredients[i].displayName);
                     child.classList.add('seo-fact-header');
                     child.classList.add('seo-fact-header-freq-question');
                     mainDiv.appendChild(child);
