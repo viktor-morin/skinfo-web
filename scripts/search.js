@@ -585,7 +585,7 @@ $(document).ready(function () {
             dataType: 'html',
             complete: function (result) {
                 drawIngredientInfo(result);
-                var json = JSON.parse(result);
+                var json = JSON.parse(result.responseText);
                 $('#searchbox').val(json.query);
             }
         });
