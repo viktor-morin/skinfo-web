@@ -587,6 +587,7 @@ $(document).ready(function () {
                 drawIngredientInfo(result);
                 var json = JSON.parse(result.responseText);
                 $('#searchbox').val(json.query);
+                oldestSearchValue = json.query;
             }
         });
     }
