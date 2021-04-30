@@ -524,6 +524,13 @@ function createLink() {
 
             var x = document.getElementById("snackbar");
             x.className = "show";
+            x.innerText = 'Url copied!'
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        },
+        error: function () {
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            x.innerText = 'Something went wrong!'
             setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
         }
     });
