@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.skinfo.se/sitemap.txt
+Sitemap: https://www.skinfo.se/sitemap.txt
