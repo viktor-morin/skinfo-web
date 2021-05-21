@@ -657,11 +657,15 @@
             headers: { 'apikey': '6h[-yENBfB' },
             dataType: 'json',
             success: function (data) {
-                $("#1").html(data.created);
+                // $("#1").html(data.created);
                 $("#2").html(Math.round(data.numberOfUsersHelped / 1000) + "k");
-                $("#3").html(Math.round(data.numberOfWidgetsShown / (1000 * 1000)).toFixed(1) + "M");
-                $("#4").html(Math.round(data.uniqueProducts / 100) / 10 + "k");
-                $("#5").html(Math.round(data.numberOfSearchs / 100) / 10 + "k");
+                var roundedValue = Math.round(data.numberOfWidgetsShown / 100000).toString();
+                var firstPart = roundedValue.substring(0, roundedValue.length - 1);
+                var secondpart = roundedValue.substring(roundedValue.length - 1, roundedValue.length);
+                var completeValue = firstPart + '.' + secondpart;
+                $("#3").html(completeValue + "M");
+                // $("#4").html(Math.round(data.uniqueProducts / 100) / 10 + "k");
+                // $("#5").html(Math.round(data.numberOfSearchs / 100) / 10 + "k");
             }
         });
 
