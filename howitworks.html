@@ -477,29 +477,34 @@
                     <div style="margin:auto">
                         <div class="customer-reference-div">
                             <div class="customer-reference">
-                                <img class="customer-reference-img"
-                                    data-url="https://mossnoor.se/produkt/after-workout-hand-mousse-3-pack"
-                                    src="reference_imgs/moss.jpeg">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://mossnoor.se/produkt/after-workout-hand-mousse-3-pack">
+                                    <img class="customer-reference-img" src="reference_imgs/moss.jpeg">
+                                </a>
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
                             </div>
                             <div class="customer-reference">
-                                <img class="customer-reference-img"
-                                    data-url="https://om-se.com/products/face-cleansing-oil-100ml"
-                                    src="reference_imgs/omse.jpeg">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://om-se.com/products/face-cleansing-oil-100ml">
+                                    <img class="customer-reference-img" src="reference_imgs/omse.jpeg">
+                                </a>
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
                             </div>
                             <div class="customer-reference">
-                                <img class="customer-reference-img" data-url="https://itsitchy.com/creams/psoriasis"
-                                    src="reference_imgs/itchy.jpeg">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://itsitchy.com/creams/psoriasis">
+                                    <img class="customer-reference-img" src="reference_imgs/itchy.jpeg">
+                                </a>
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
                             </div>
                             <div class="customer-reference">
-                                <img class="customer-reference-img"
-                                    data-url="https://www.lloydsapotek.se/ansikte/ansiktsolja-%26-serum-/lumene-valo-nordic-c-berry-cocktail-oil/p/779775"
-                                    src="reference_imgs/lloyds.jpeg">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://www.lloydsapotek.se/ansikte/ansiktsolja-%26-serum-/lumene-valo-nordic-c-berry-cocktail-oil/p/779775">
+                                    <img class="customer-reference-img" src="reference_imgs/lloyds.jpeg">
+                                </a>
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
                             </div>
@@ -924,12 +929,12 @@
     // var month = months[now.getMonth()];
     // document.getElementById('seconddatedelivery').innerText = day.substring(0, 3) + '. ' + month.substring(0, 3) + '. ' + now.getDate();
 
-    var customerExamples = document.getElementsByClassName('customer-reference-img');
-    for (i = 0; i < customerExamples.length; i++) {
-        customerExamples[i].onclick = function () {
-            window.open(this.dataset.url, '_blank').focus();
-        }
-    }
+    // var customerExamples = document.getElementsByClassName('customer-reference-img');
+    // for (i = 0; i < customerExamples.length; i++) {
+    //     customerExamples[i].onclick = function () {
+    //         window.open(this.dataset.url, '_blank').focus();
+    //     }
+    // }
 
     function getSeperator(str) {
         var maxCount = 0;
