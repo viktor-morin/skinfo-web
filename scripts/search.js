@@ -500,6 +500,15 @@ function drawIngredientInfo(result) {
     }
 }
 
+function isOS() {
+    let chromeAgent = navigator.userAgent.indexOf("Chrome") > -1;
+    let safariAgent = navigator.userAgent.indexOf("Safari") > -1;
+    if (safariAgent && !chromeAgent)
+        return true;
+
+    return false;
+}
+
 function createLink() {
     $.ajax({
         type: 'POST',
@@ -514,9 +523,21 @@ function createLink() {
             var mainDiv = document.getElementById('copyText');
             mainDiv.style.display = 'initial';
             mainDiv.appendChild(textArea);
-            range.selectNode(textArea);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
+            
+            if (isOS()) {
+                range = document.createRange();
+                range.selectNodeContents(textArea);
+                selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                textArea.setSelectionRange(0, 999999);
+            } else {
+
+                range.selectNode(textArea);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+            }
+
             document.execCommand("copy");
             window.getSelection().removeAllRanges();
             mainDiv.removeChild(textArea);
