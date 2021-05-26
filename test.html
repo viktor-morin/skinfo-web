@@ -42,10 +42,8 @@
             textarea.value = string;
 
             document.body.appendChild(textarea);
-
-            $input.val(result);
             if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-                var el = $input.get(0);
+                var el = $textarea.get(0);
                 var editable = el.contentEditable;
                 var readOnly = el.readOnly;
                 el.contentEditable = 'true';
@@ -59,10 +57,10 @@
                 el.contentEditable = editable;
                 el.readOnly = readOnly;
             } else {
-                $input.select();
+                $textarea.select();
             }
             result = document.execCommand('copy');
-            $input.blur();
+            $textarea.blur();
         } catch (err) {
             console.error(err);
             result = null;
