@@ -518,54 +518,37 @@ function createLink() {
         async : false,
         complete: function (result) {
             var json = JSON.parse(result.responseText);
-            var range = document.createRange();
             var textArea = document.createElement("textarea");
             textArea.value = json.url;
             var mainDiv = document.getElementById('copyText');
             mainDiv.style.display = 'initial';
             mainDiv.appendChild(textArea);
-            
-            // if (isOS()) {
-            //     range = document.createRange();
-            //     range.selectNodeContents(textArea);
-            //     selection = window.getSelection();
-            //     selection.removeAllRanges();
-            //     selection.addRange(range);
-            //     textArea.setSelectionRange(0, 999999);
-            //     navigator.clipboard.writeText(json.url).then(function() {
-            //         window.getSelection().removeAllRanges();
-            //         mainDiv.removeChild(textArea);
-            //         mainDiv.style.display = 'none';
-            //         var x = document.getElementById("snackbar");
-            //         x.className = "show";
-            //         x.innerText = 'Url copied!'
-            //         setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-            //     }).catch(function(error) {
-            //         window.getSelection().removeAllRanges();
-            //         mainDiv.removeChild(textArea);
-            //         mainDiv.style.display = 'none';
-            //         var x = document.getElementById("snackbar");
-            //         x.className = "show";
-            //         x.innerText = 'Something went wrong!'
-            //         x.innerText = error;
-            //         setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-            //     });
-            // } else {
 
+            if (isOS()) {
+                var range = document.createRange();
+                range.selectNodeContents(textArea);
+                selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                textArea.setSelectionRange(0, 999999);
+            } else {
+                var range = document.createRange();
+                var mainDiv = document.getElementById('copyText');
+                mainDiv.style.display = 'initial';
                 range.selectNode(textArea);
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(range);
-                document.execCommand("copy");
+            }
 
-                window.getSelection().removeAllRanges();
-                mainDiv.removeChild(textArea);
-                mainDiv.style.display = 'none';
-    
-                var x = document.getElementById("snackbar");
-                x.className = "show";
-                x.innerText = 'Url copied!'
-                setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-            // }
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            mainDiv.removeChild(textArea);
+            mainDiv.style.display = 'none';
+
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            x.innerText = 'Url copied!'
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);          
         },
         error: function () {
             var x = document.getElementById("snackbar");
