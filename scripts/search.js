@@ -531,14 +531,14 @@ function createLink() {
                 selection.removeAllRanges();
                 selection.addRange(range);
                 textArea.setSelectionRange(0, 999999);
+                copy(getSelection().toString());
             } else {
 
                 range.selectNode(textArea);
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(range);
+                document.execCommand("copy");
             }
-
-            document.execCommand("copy");
             window.getSelection().removeAllRanges();
             mainDiv.removeChild(textArea);
             mainDiv.style.display = 'none';
