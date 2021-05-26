@@ -10,7 +10,7 @@
 
 <body>
     <div>
-        <div id="copytext"></div>
+        <div id="copyText"></div>
         <button id="test" style="color:white; background-color: blue;">Test</button>
     </div>
 </body>
@@ -39,7 +39,7 @@
             async: false,
             complete: function (result) {
                 var json = JSON.parse(result.responseText);
-                var textArea = document.createElement("textarea");
+                var textArea = document.createElement('textarea');
                 textArea.value = json.url;
                 var mainDiv = document.getElementById('copyText');
                 mainDiv.style.display = 'initial';
