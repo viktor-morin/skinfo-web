@@ -41,6 +41,7 @@
                 var json = JSON.parse(result.responseText);
                 var textArea = document.createElement('textarea');
                 textArea.value = json.url;
+
                 var mainDiv = document.getElementById('copyText');
                 mainDiv.style.display = 'initial';
                 mainDiv.appendChild(textArea);
@@ -54,8 +55,6 @@
                     textArea.setSelectionRange(0, 999999);
                 } else {
                     var range = document.createRange();
-                    var mainDiv = document.getElementById('copyText');
-                    mainDiv.style.display = 'initial';
                     range.selectNode(textArea);
                     window.getSelection().removeAllRanges();
                     window.getSelection().addRange(range);
