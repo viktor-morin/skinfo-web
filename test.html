@@ -57,10 +57,10 @@
                 el.contentEditable = editable;
                 el.readOnly = readOnly;
             } else {
-                $textarea.select();
+                textarea.select();
             }
             result = document.execCommand('copy');
-            $textarea.blur();
+            textarea.blur();
         } catch (err) {
             console.error(err);
             result = null;
