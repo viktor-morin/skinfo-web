@@ -531,22 +531,39 @@ function createLink() {
                 selection.removeAllRanges();
                 selection.addRange(range);
                 textArea.setSelectionRange(0, 999999);
-                copy(getSelection().toString());
+                navigator.clipboard.writeText(json.url).then(function() {
+                    window.getSelection().removeAllRanges();
+                    mainDiv.removeChild(textArea);
+                    mainDiv.style.display = 'none';
+                    var x = document.getElementById("snackbar");
+                    x.className = "show";
+                    x.innerText = 'Url copied!'
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                }).catch(function() {
+                    window.getSelection().removeAllRanges();
+                    mainDiv.removeChild(textArea);
+                    mainDiv.style.display = 'none';
+                    var x = document.getElementById("snackbar");
+                    x.className = "show";
+                    x.innerText = 'Something went wrong!'
+                    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                });
             } else {
 
                 range.selectNode(textArea);
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(range);
                 document.execCommand("copy");
-            }
-            window.getSelection().removeAllRanges();
-            mainDiv.removeChild(textArea);
-            mainDiv.style.display = 'none';
 
-            var x = document.getElementById("snackbar");
-            x.className = "show";
-            x.innerText = 'Url copied!'
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+                window.getSelection().removeAllRanges();
+                mainDiv.removeChild(textArea);
+                mainDiv.style.display = 'none';
+    
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                x.innerText = 'Url copied!'
+                setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+            }
         },
         error: function () {
             var x = document.getElementById("snackbar");
