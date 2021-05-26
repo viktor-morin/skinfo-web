@@ -43,18 +43,26 @@
 
             document.body.appendChild(textarea);
 
-            textarea.focus();
-            textarea.select();
-
-            const range = document.createRange();
-            range.selectNodeContents(textarea);
-
-            const sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(range);
-
-            textarea.setSelectionRange(0, textarea.value.length);
+            $input.val(result);
+            if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+                var el = $input.get(0);
+                var editable = el.contentEditable;
+                var readOnly = el.readOnly;
+                el.contentEditable = 'true';
+                el.readOnly = 'false';
+                var range = document.createRange();
+                range.selectNodeContents(el);
+                var sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(range);
+                el.setSelectionRange(0, 999999);
+                el.contentEditable = editable;
+                el.readOnly = readOnly;
+            } else {
+                $input.select();
+            }
             result = document.execCommand('copy');
+            $input.blur();
         } catch (err) {
             console.error(err);
             result = null;
