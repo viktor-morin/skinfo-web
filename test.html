@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="copytext"></div>
+        <button id="test"></button>
+    </div>
+</body>
+
+<script>
+    function createLink() {
+    $.ajax({
+        type: 'POST',
+        headers: { 'apikey': '6h[-yENBfB' },
+        url: url + 'website/createsharedlink?ingredients=' + oldestSearchValue + '&language=' + getLanguage(),
+        dataType: 'html',
+        async : false,
+        complete: function (result) {
+            var json = JSON.parse(result.responseText);
+            var textArea = document.createElement("textarea");
+            textArea.value = json.url;
+            var mainDiv = document.getElementById('copyText');
+            mainDiv.style.display = 'initial';
+            mainDiv.appendChild(textArea);
+
+            if (isOS()) {
+                var range = document.createRange();
+                range.selectNodeContents(textArea);
+                selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                textArea.setSelectionRange(0, 999999);
+            } else {
+                var range = document.createRange();
+                var mainDiv = document.getElementById('copyText');
+                mainDiv.style.display = 'initial';
+                range.selectNode(textArea);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+            }
+
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            mainDiv.removeChild(textArea);
+            mainDiv.style.display = 'none';
+            
+            console.log('ok');
+        },
+        error: function () {
+            console.log('error');
+        }
+    });
+
+    document.getElementById('test').onclick = function() {
+        createLink();
+    }
+}
+</script>
