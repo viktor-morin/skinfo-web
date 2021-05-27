@@ -609,7 +609,17 @@ $(document).ready(function () {
 
     function createInnerElementForSuggestion(query, element) {
         query = query.toLowerCase();
-        return query + '<b>' + element.replace(query, '') + '</b>';
+        if (element.startsWith(query))
+            return query + '<b>' + element.replace(query, '') + '</b>';
+
+        var words = query.split(' ');
+        element = '<b>' + element + '</b>';
+        words.forEach(word => {
+            if (element.includes(word) && word != '')
+                element = element.replace(word, '</b>' + word + '<b>');
+        });
+
+        return element;
     }
 
     var id = getParameterByName('id');
