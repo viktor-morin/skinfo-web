@@ -509,46 +509,75 @@ function isOS() {
     return false;
 }
 
+function copyToClipboard(string) {
+    let textarea;
+    let result;
+
+    try {
+        textarea = document.createElement('textarea');
+        textarea.setAttribute('readonly', true);
+        textarea.setAttribute('contenteditable', true);
+        textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.
+        textarea.value = string;
+
+        document.body.appendChild(textarea);
+        if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+            var el = $textarea.get(0);
+            var editable = el.contentEditable;
+            var readOnly = el.readOnly;
+            el.contentEditable = 'true';
+            el.readOnly = 'false';
+            var range = document.createRange();
+            range.selectNodeContents(el);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            el.setSelectionRange(0, 999999);
+            el.contentEditable = editable;
+            el.readOnly = readOnly;
+        } else {
+            textarea.select();
+        }
+        result = document.execCommand('copy');
+        textarea.blur();
+    } catch (err) {
+        console.error(err);
+        result = null;
+    } finally {
+        document.body.removeChild(textarea);
+    }
+
+    // manual copy fallback using prompt
+    if (!result) {
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const copyHotkey = isMac ? '⌘C' : 'CTRL+C';
+        result = prompt(`Press ${copyHotkey}`, string); // eslint-disable-line no-alert
+        if (!result) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function uuidv4() {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+}
+
+
 function createLink() {
+    var guid = uuidv4();
     $.ajax({
         type: 'POST',
         headers: { 'apikey': '6h[-yENBfB' },
-        url: url + 'website/createsharedlink?ingredients=' + oldestSearchValue + '&language=' + getLanguage(),
+        url: url + 'website/createsharedlink?ingredients=' + oldestSearchValue + '&language=' + getLanguage() + '&guid=' + guid,
         dataType: 'html',
-        async : false,
         complete: function (result) {
-            var json = JSON.parse(result.responseText);
-            var textArea = document.createElement("textarea");
-            textArea.value = json.url;
-            var mainDiv = document.getElementById('copyText');
-            mainDiv.style.display = 'initial';
-            mainDiv.appendChild(textArea);
-
-            if (isOS()) {
-                var range = document.createRange();
-                range.selectNodeContents(textArea);
-                selection = window.getSelection();
-                selection.removeAllRanges();
-                selection.addRange(range);
-                textArea.setSelectionRange(0, 999999);
-            } else {
-                var range = document.createRange();
-                var mainDiv = document.getElementById('copyText');
-                mainDiv.style.display = 'initial';
-                range.selectNode(textArea);
-                window.getSelection().removeAllRanges();
-                window.getSelection().addRange(range);
-            }
-
-            document.execCommand("copy");
-            window.getSelection().removeAllRanges();
-            mainDiv.removeChild(textArea);
-            mainDiv.style.display = 'none';
-
             var x = document.getElementById("snackbar");
             x.className = "show";
             x.innerText = 'Url copied!'
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);          
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
         },
         error: function () {
             var x = document.getElementById("snackbar");
@@ -557,6 +586,8 @@ function createLink() {
             setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
         }
     });
+
+    copyToClipboard('https://www.skinfo.se/search?id=' + guid);
 }
 
 function getIngredientData(searchValue) {
