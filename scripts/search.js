@@ -500,15 +500,6 @@ function drawIngredientInfo(result) {
     }
 }
 
-function isOS() {
-    let chromeAgent = navigator.userAgent.indexOf("Chrome") > -1;
-    let safariAgent = navigator.userAgent.indexOf("Safari") > -1;
-    if (safariAgent && !chromeAgent)
-        return true;
-
-    return false;
-}
-
 function copyToClipboard(string) {
     let textarea;
     let result;
@@ -517,27 +508,11 @@ function copyToClipboard(string) {
         textarea = document.createElement('textarea');
         textarea.setAttribute('readonly', true);
         textarea.setAttribute('contenteditable', true);
-        textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.
+        textarea.style.position = 'fixed';
         textarea.value = string;
 
         document.body.appendChild(textarea);
-        // if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-        //     var el = $textarea.get(0);
-        //     var editable = el.contentEditable;
-        //     var readOnly = el.readOnly;
-        //     el.contentEditable = 'true';
-        //     el.readOnly = 'false';
-        //     var range = document.createRange();
-        //     range.selectNodeContents(el);
-        //     var sel = window.getSelection();
-        //     sel.removeAllRanges();
-        //     sel.addRange(range);
-        //     el.setSelectionRange(0, 999999);
-        //     el.contentEditable = editable;
-        //     el.readOnly = readOnly;
-        // } else {
         textarea.select();
-        // }
         result = document.execCommand('copy');
         textarea.blur();
     } catch (err) {
