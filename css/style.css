@@ -1036,6 +1036,49 @@ input:-webkit-autofill:active  {
     -webkit-transition: opacity 0.5s;
 }
 
+.cs-div {
+    margin: auto;
+    max-width: 800px;
+}
+
+.cs-title {
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.cs-img {
+    margin: auto;
+    width: 400px;
+    display: flex;
+    border-radius: 0.5rem;
+    margin-bottom: 25px;
+}
+
+.cs-company-info {
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.cs-pdf {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.cs-pdf-link {
+    color: black !important;
+    font-size: 12px !important;
+    display: flex;
+    text-align: center;
+    width: max-content;
+    margin: auto;
+}
+
 .footer-link {
     cursor: pointer;
     line-height: 1.75;
