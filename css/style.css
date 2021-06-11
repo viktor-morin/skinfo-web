@@ -1051,7 +1051,7 @@ input:-webkit-autofill:active  {
 
 .cs-img {
     margin: auto;
-    width: 400px;
+    width: 800px;
     display: flex;
     border-radius: 0.5rem;
     margin-bottom: 25px;
@@ -1106,20 +1106,22 @@ input:-webkit-autofill:active  {
     text-align: center;
 }
 
-.cs-pdf {
+.cs-reference-img {
     margin: auto;
     display: flex;
-    flex-direction: column;
-    margin-top: 50px;
+    cursor: pointer;
+    height: 20vh;
+    width: 30vh;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 0.5rem;
 }
 
-.cs-pdf-link {
-    color: black !important;
-    font-size: 12px !important;
-    display: flex;
+.cs-reference-text {
+    width: 30vh;
+    font-weight: bold;
+    margin-top: 10px;
     text-align: center;
-    width: max-content;
-    margin: auto;
 }
 
 .footer-link {
