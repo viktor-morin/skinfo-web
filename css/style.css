@@ -1060,14 +1060,57 @@ input:-webkit-autofill:active  {
 .cs-company-info {
     margin: auto;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 25px;
+}
+
+.cs-citat {
+    font-style: italic;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.cs-figure {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.cs-header{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.cs-text {
+    font-size: 1.0rem;
+    margin-top: 20px;
+}
+
+.cs-author-title {
+    text-align: center;
+    color:black;
+    opacity: 0.75;
+}
+
+.cs-author {
+    color:black;
+    opacity: 0.75;
+    font-size: 40px;
+    margin-top: -5px;
+    font-family: "Creattion";
+    text-align: center;
 }
 
 .cs-pdf {
     margin: auto;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
 }
 
 .cs-pdf-link {
