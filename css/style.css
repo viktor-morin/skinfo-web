@@ -1124,6 +1124,17 @@ input:-webkit-autofill:active  {
     text-align: center;
 }
 
+.cs-logo {
+    height: 200px;
+    margin: auto;
+}
+
+.cs-readmore {
+    cursor: pointer;
+    margin: auto; 
+    font-weight: bold;
+}
+
 .footer-link {
     cursor: pointer;
     line-height: 1.75;
