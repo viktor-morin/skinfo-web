@@ -1,5 +1,7 @@
 # Group 1
 User-agent: *
 Allow: /
+Disallow: /debug
+Disallow: /debug/*
 
 Sitemap: https://www.skinfo.se/sitemap.xml
