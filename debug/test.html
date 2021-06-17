@@ -83,7 +83,11 @@
         }
 
         oldInnerHtml = element.innerHTML;
-        element.innerHTML = '<div id="exampleWidget" class=\"skinfo-widget\">\n    <img class=\"noselect\" src=\"skinfo_logo.svg\">\n<\/div>\n';
+
+        let newElement = document.createElement('div');
+        newElement.innerHTML = '<div id="exampleWidget" class=\"skinfo-widget\">\n    <img class=\"noselect\" src=\"skinfo_logo.svg\">\n<\/div>\n';
+        element.appendChild(newElement)
+        //element.innerHTML = '<div id="exampleWidget" class=\"skinfo-widget\">\n    <img class=\"noselect\" src=\"skinfo_logo.svg\">\n<\/div>\n';
     }
 
 </script>
