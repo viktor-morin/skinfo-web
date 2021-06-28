@@ -1,0 +1,928 @@
+<!DOCTYPE HTML>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<html>
+<div class="margin-top"></div>
+<div class="main-div">
+    <!-- <div class="left-side">
+        <img class="img1 img2"
+            src="https://cdn.shopify.com/s/files/1/0567/4627/9120/products/glenn-claire-DuNXXPScbJM-unsplash_540x.jpg?v=1620375499">
+    </div> -->
+    <div class="left-side">
+        <iframe id="iframe-v" style="width: 100%; height: 100%; min-height: 1000px;"
+            src="https://localhost:5001/shopify/product-preview?shop=skinfo-demo.myshopify.com&productHandle=product-1"
+            sandbox=""></iframe>
+    </div>
+    <!-- <div class="right-side">
+        <div class="title">Product #1</div>
+        <div class="vendor">Skinfo-Vendor</div>
+        <div class="tax">Tax included.</div>
+        <div>
+            <button class="add-to-cart-button">Add to cart</button>
+            <button class="buy-button">Buy it now</button>
+        </div>
+        <div class="description">Description</div>
+        <div class="description-text">Product Sample #1</div>
+        <div class="ingredients">Ingredients</div>
+        <div class="ingredients-text">Aqua, Palmitoyl Tripeptide-5, Galactoarabinan, Xanthan Gum, Glycerin, Aloe
+            Barbadensis Leaf Juice, Sodium
+            Benzoate, Potassium Sorbate</div>
+    </div> -->
+</div>
+<div class="margin-top"></div>
+<div id="test" draggable="true" class="skinfo-widget">
+    <img class="noselect" src="skinfo_logo.svg">
+</div>
+
+<div id="1"></div>
+<div id="2"></div>
+
+</html>
+
+<script>
+    var dbIndex = -1;
+    var dbCssSelector = '';
+    var oldInnerHtml = '';
+    var test = document.getElementById('test');
+
+    test.addEventListener("dragstart", event => {
+        // display the overlay. Using JQ but can be done with web apis.
+        //$(".iframe-cover").css({ 'display': 'block' })
+        // other logic for this event
+    });
+
+    test.addEventListener("dragend", event => {
+        // remove the overlay after drag ends.
+        //$(".iframe-cover").css({ 'display': 'none' })
+        // other logic for this event
+    });
+
+
+
+    // iframeWanted.allowDrop = (e) => {
+    //     e.preventDefault();
+    // }
+
+    // iframeWanted.ondragover = (e) => {
+    //     e.dataTransfer.setData("text", e.target.id);
+    //     e.preventDefault();
+    // };
+
+    // iframeWanted.ondrop = (e) => {
+    //     var targetClassName = e.toElement.className;
+    //     if (targetClassName == '') {
+    //         return;
+    //     }
+
+    //     dbCssSelector = targetClassName;
+    //     var possibleNodes = document.getElementsByClassName(targetClassName);
+    //     for (i = 0; i < possibleNodes.length; i++) {
+    //         if (possibleNodes[i].isSameNode(e.toElement)) {
+    //             dbIndex = i;
+    //             break;
+    //         }
+    //     }
+
+    //     if (dbIndex == -1) {
+    //         console.log('error');
+    //         return;
+    //     }
+
+    //     console.log(dbIndex);
+    //     console.log(dbCssSelector);
+
+    //     addWidget(document.getElementsByClassName(dbCssSelector)[dbIndex]);
+    // }
+
+    function addWidget(element) {
+        var oldExample = document.getElementById('exampleWidget');
+        if (oldExample) {
+            oldExample = oldInnerHtml;
+            //oldExample.remove();
+        }
+
+        oldInnerHtml = element.cloneNode(true);
+        element.innerHTML = '<div id="exampleWidget" class=\"skinfo-widget\">\n    <img class=\"noselect\" src=\"skinfo_logo.svg\">\n<\/div>\n';
+    }
+
+    var iframeCover = document.getElementById('iframe-v').contentWindow;
+    iframeCover.allowDrop = (e) => {
+        e.preventDefault();
+    }
+
+    iframeCover.addEventListener("ondrop", event => {
+        // grab whatever you need from the event dataTransfer
+        // send it to the iframe via postMessage similar to above (but parent -> child)
+        alert('yo');
+    });
+
+
+    iframeCover.addEventListener("drop", event => {
+        // grab whatever you need from the event dataTransfer
+        // send it to the iframe via postMessage similar to above (but parent -> child)
+        alert('yo');
+    });
+
+</script>
+
+<style>
+    /* iframe {
+        pointer-events: none;
+    } */
+
+    .iframe-cover {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        z-index: 3;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.01);
+    }
+
+    .noselect {
+        -webkit-user-select: none;
+        /* Safari */
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        user-select: none;
+        /* Non-prefixed version*/
+    }
+
+    .skinfo-widget {
+        background-color: #b3b3b3;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 50px;
+        padding-right: 50px;
+        border-radius: 0.5rem;
+        max-width: 300px;
+        text-align: center;
+        cursor: grabbing;
+        margin: auto;
+    }
+
+    .margin-top {
+        margin-top: 50px;
+    }
+
+    .main-div {
+        max-width: 1366px;
+        text-align: center;
+        display: flex;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .left-side {
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .right-side {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .title {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        color: var(--color-text);
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        box-sizing: border-box;
+        margin: 0 0 17.5px;
+        font-family: var(--font-stack-header);
+        font-style: var(--font-style-header);
+        font-weight: var(--font-weight-header);
+        line-height: 1.2;
+        word-wrap: break-word;
+        font-size: calc(((var(--font-h1-desktop))/ (var(--font-size-base))) * 1em);
+        text-transform: none;
+        letter-spacing: 0;
+        margin-bottom: .5rem;
+    }
+
+    .vendor {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        font-family: var(--font-stack-body);
+        font-style: var(--font-style-body);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        color: var(--color-body-text);
+        font-size: .9em;
+        font-weight: var(--font-weight-body);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        margin: 0 .5em 0 0;
+    }
+
+    .tax {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        font-family: var(--font-stack-body);
+        font-style: var(--font-style-body);
+        font-weight: var(--font-weight-body);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        box-sizing: border-box;
+        color: var(--color-body-text);
+        margin: .4rem 0 1rem 0;
+        font-size: calc(((var(--font-size-base) - 1) / (var(--font-size-base))) * 1em);
+    }
+
+    .description {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        font-size: calc(var(--font-size-base) * 1px);
+        font-family: var(--font-stack-body);
+        font-style: var(--font-style-body);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        color: var(--color-body-text);
+        box-sizing: border-box;
+        font-weight: var(--font-weight-body--bolder);
+    }
+
+    .description-text {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        font-size: calc(var(--font-size-base) * 1px);
+        font-family: var(--font-stack-body);
+        font-style: var(--font-style-body);
+        font-weight: var(--font-weight-body);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        color: var(--color-body-text);
+        box-sizing: border-box;
+    }
+
+    .ingredients {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        font-size: calc(var(--font-size-base) * 1px);
+        font-family: var(--font-stack-body);
+        font-style: var(--font-style-body);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        color: var(--color-body-text);
+        box-sizing: border-box;
+        font-weight: var(--font-weight-body--bolder);
+    }
+
+    .ingredients-text {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        font-size: calc(var(--font-size-base) * 1px);
+        font-family: var(--font-stack-body);
+        font-style: var(--font-style-body);
+        font-weight: var(--font-weight-body);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        list-style: none;
+        color: var(--color-body-text);
+        box-sizing: border-box;
+    }
+
+    .buy-button {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        list-style: none;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        font: inherit;
+        margin: 0;
+        touch-action: manipulation;
+        box-shadow: 0 0 0 0 transparent;
+        transition: background 0.2s ease-in-out;
+        animation: _1UiPBn7_kvwWk2eMbG90wa 300ms cubic-bezier(0.1, 0.79, 1, 1);
+        user-select: none;
+        appearance: none;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        background-color: var(--color-btn-primary);
+        color: var(--color-btn-primary-text);
+        font-family: var(--font-stack-header);
+        font-style: var(--font-style-header);
+        font-weight: var(--font-weight-header);
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-size: calc(((var(--font-size-base) - 2) / (var(--font-size-base))) * 1em);
+        padding: 10px 18px;
+        display: block;
+        width: 100%;
+        line-height: 1.4;
+        padding-left: 5px;
+        padding-right: 5px;
+        white-space: normal;
+        margin-top: 0;
+        margin-bottom: 10px;
+        min-height: 44px;
+    }
+
+    .add-to-cart-button {
+        --color-text: #3a3a3a;
+        --color-text-rgb: 58, 58, 58;
+        --color-body-text: #333232;
+        --color-sale-text: #EA0606;
+        --color-small-button-text-border: #3a3a3a;
+        --color-text-field: #ffffff;
+        --color-text-field-text: #000000;
+        --color-text-field-text-rgb: 0, 0, 0;
+        --color-btn-primary: #3a3a3a;
+        --color-btn-primary-darker: #212121;
+        --color-btn-primary-text: #ffffff;
+        --color-blankstate: rgba(51, 50, 50, 0.35);
+        --color-blankstate-border: rgba(51, 50, 50, 0.2);
+        --color-blankstate-background: rgba(51, 50, 50, 0.1);
+        --color-text-focus: #606060;
+        --color-overlay-text-focus: #e6e6e6;
+        --color-btn-primary-focus: #606060;
+        --color-btn-social-focus: #d2d2d2;
+        --color-small-button-text-border-focus: #606060;
+        --predictive-search-focus: #f2f2f2;
+        --color-body: #ffffff;
+        --color-bg: #ffffff;
+        --color-bg-rgb: 255, 255, 255;
+        --color-bg-alt: rgba(51, 50, 50, 0.05);
+        --color-bg-currency-selector: rgba(51, 50, 50, 0.2);
+        --color-overlay-title-text: #ffffff;
+        --color-image-overlay: #7c7c7c;
+        --color-image-overlay-rgb: 124, 124, 124;
+        --opacity-image-overlay: 0.24;
+        --hover-overlay-opacity: 0.64;
+        --color-border: #ebebeb;
+        --color-border-form: #cccccc;
+        --color-border-form-darker: #b3b3b3;
+        --svg-select-icon: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ico-select.svg?v=2900367270910467858);
+        --slick-img-url: url(//cdn.shopify.com/s/files/1/0567/4627/9120/t/1/assets/ajax-loader.gif?v=4135686330247201572);
+        --font-weight-body--bold: 700;
+        --font-weight-body--bolder: 700;
+        --font-stack-header: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-header: normal;
+        --font-weight-header: 700;
+        --font-stack-body: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+        --font-style-body: normal;
+        --font-weight-body: 400;
+        --font-size-header: 25;
+        --font-size-base: 15;
+        --font-h1-desktop: 33;
+        --font-h1-mobile: 31;
+        --font-h2-desktop: 19;
+        --font-h2-mobile: 17;
+        --font-h3-mobile: 19;
+        --font-h4-desktop: 17;
+        --font-h4-mobile: 15;
+        --font-h5-desktop: 14;
+        --font-h5-mobile: 13;
+        --font-h6-desktop: 13;
+        --font-h6-mobile: 12;
+        --font-mega-title-large-desktop: 62;
+        --font-rich-text-large: 17;
+        --font-rich-text-small: 13;
+        --color-video-bg: #f2f2f2;
+        --global-color-image-loader-primary: rgba(58, 58, 58, 0.06);
+        --global-color-image-loader-secondary: rgba(58, 58, 58, 0.12);
+        list-style: none;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        font: inherit;
+        margin: 0;
+        touch-action: manipulation;
+        user-select: none;
+        appearance: none;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        font-family: var(--font-stack-header);
+        font-style: var(--font-style-header);
+        font-weight: var(--font-weight-header);
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-size: calc(((var(--font-size-base) - 2) / (var(--font-size-base))) * 1em);
+        padding: 10px 18px;
+        background-color: var(--color-body);
+        color: var(--color-btn-primary);
+        border-color: var(--color-btn-primary);
+        display: block;
+        width: 100%;
+        line-height: 1.4;
+        padding-left: 5px;
+        padding-right: 5px;
+        white-space: normal;
+        margin-top: 0;
+        margin-bottom: 10px;
+        min-height: 44px;
+    }
+</style>
