@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<html>
+<div>
+    <div class="product-card">
+        <div class="left">
+            <img style="width: 200px;"
+                src="https://www.skincity.com/globalassets/images/product-images/dr-ceuracle/vegan_kombucha_tea_essence.jpg?ref=55E72F7671&format=jpg">
+        </div>
+        <div style="display: flex; flex-direction: column;">
+            <div class="brand border-top">DR.CEURACLE</div>
+            <div class="name border-top">VEGAN KOMBUCHA TEA ESSENCE</div>
+            <div class="info-text border-top like">Produktbeskrning till varje produkt som skapas av de "key"
+                ingredienser
+                som finns i
+                produkten</div>
+            <div class="inci border-top" id="widget">Aqua, Triethylhexanoin, Hydrogenated Poly(C6-14 Olefin),
+                Methylpropanediol,
+                Butylene Glycol, Glycerin, Trilaureth-4 Phosphate, Camellia Sinensis Leaf Extract,
+                Saccharomyces Ferment Filtrate, Camellia Sinensis Leaf Water,
+                Helianthus Annuus Seed Oil Unsaponifiables, Polyquaternium-51,
+                Sodium Hyaluronate, Ethylhexylglycerin, Hydrogenated Lecithin, Dextrin, Theobroma Cacao Seed Extract,
+                Centella Asiatica Extract, Ficus Carica Fruit Extract, Schisandra Chinensis Fruit Extract,
+                Amaranthus Caudatus Seed Extract, Ulmus Davidiana Root Extract, Ceramide NP, Tocopherol</div>
+            <div class="price border-top">499kr</div>
+
+            <a class="buy-button" target="_blank" rel="noopener noreferrer"
+                href="https://www.skincity.com/sv/dr-ceuracle/vegan-kombucha-tea-essence-150-ml">Köp hos
+                Skincity</a>
+
+            <div class="border-top" style="margin-top: 20px; font-size: 30px;">Reviews</div>
+            <div style="display: flex; margin: auto; margin-top: 20px;">
+                <div style="margin:auto; display:flex; justify-content: center;">
+                    <div class="like" style="max-width: 40%; ">
+                        <span>Personer med din hudtyp eller val så som gravid</span>
+                        <img style="max-width: 100%;" src="review.png">
+                    </div>
+                    <div class="like" style="max-width: 40%;">
+                        <span>Geneomsnittligt svar</span>
+                        <img style="max-width: 100%;" src="review.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
+
+<script>
+    var data = {
+        'name': document.getElementsByClassName('name')[0].innerHTML,
+        'brand': document.getElementsByClassName('brand')[0].innerHTML,
+        'language': 'en-US',
+        'ingredients': document.getElementsByClassName('inci')[0].innerHTML.split(',')
+    };
+
+    $.ajax({
+        url: 'https://api.skinfo.se/v3/widget/',
+        type: 'POST',
+        data: JSON.stringify(data),
+        headers: { 'apikey': '2891ea2bac0c41b28cd1ab1d531990bc_180cb9677e5f4e23b6d3124b64d0c090' },
+        contentType: 'application/json',
+        success: function (data) {
+            $('#widget').html(data.html);
+        },
+    });
+</script>
+
+<style>
+    .product-card {
+        max-width: 80vh;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+        margin: auto;
+        text-align: center;
+        padding: 50px;
+        display: flex;
+    }
+
+    /* .like:hover {
+        position: relative;
+    }
+
+    .like:hover:after {
+        content: url(like_dislike_buttons.jpg);
+        transform: scale(.5);
+        display: block;
+        opacity: 0.5;
+        position: relative;
+    } */
+
+    .left {
+        max-width: 50%;
+        float: left;
+    }
+
+    .border-top {
+        border-top: 1px solid gray;
+        padding: 20px;
+    }
+
+    .price {
+        font-size: 50px;
+    }
+
+    .buy-button {
+        background-color: red;
+        padding: 20px;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        max-width: 200px;
+        margin: auto;
+    }
+
+    .right {
+        max-width: 50%;
+        float: right;
+    }
+
+    .brand {
+        font-weight: bold;
+    }
+
+    .name {
+        font-size: 25px;
+    }
+</style>
