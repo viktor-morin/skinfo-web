@@ -1,126 +1,185 @@
 <!DOCTYPE HTML>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <html>
 <div class="margin-top"></div>
 <div class="main-div">
-    <div class="template" style="background-color: wheat;"></div>
-    <div class="template" style="background-color: yellow;"></div>
-    <div class="template" style="background-color: goldenrod;"></div>
-    <div class="template" style="background-color: darkgray;"></div>
-    <div class="template" style="background-color: skyblue;"></div>
-    <div class="template" style="background-color: sandybrown;"></div>
-    <div class="template" style="background-color: hotpink;"></div>
+    <div class="template asd" style="background-color: wheat;"></div>
+    <div class="template asd" style="background-color: yellow;"></div>
+    <div class="template asd" style="background-color: goldenrod;"></div>
+    <div class="template asd" style="background-color: darkgray;"></div>
+    <div class="template asd" style="background-color: skyblue;"></div>
+    <div class="template asd product-form" style="background-color: orange;"></div>
+    <div class="template asd" style="background-color: red;"></div>
+    <div class="template asd" style="background-color: hotpink;"></div>
 </div>
 <div class="margin-top"></div>
-<div class="margin-top"></div>
-<div style="display: block;">
-    <div>
-        <input class="div-align" id="left-radio" type="radio" name="align" value="Left" checked>
-        <label for="left-radio">Left Align</label>
-        <input class="div-align" id="middle-radio" type="radio" name="align" value="Middle">
-        <label for="middle-radio">Middle Align</label>
-        <input class="div-align" id="right-radio" type="radio" name="align" value="Right">
-        <label for="right-radio">Right Align</label>
-    </div>
-    <div class="margin-top"></div>
-    <div>
-        <input class="div-padding" id="top-checkbox" type="checkbox" name="padding" value="Top">
-        <label for="top-checkbox">Top</label>
-        <input class="div-padding" id="bottom-checkbox" type="checkbox" name="padding" value="Bottom">
-        <label for="bottom-checkbox">Bottom</label>
-        <input class="div-padding" id="left-checkbox" type="checkbox" name="padding" value="Left">
-        <label for="left-checkbox">Left</label>
-        <input class="div-padding" id="right-checkbox" type="checkbox" name="padding" value="Right">
-        <label for="right-checkbox">Right</label>
-    </div>
-</div>
-
-<div draggable="true" id="widget-position-div"
-    style="float:left; cursor:move; width: fit-content; margin: auto; float: left; border-radius: 0.5rem; border: 1px solid lightgray;">
-    <div id="widget-position-inside-div"
-        style="padding: 40px; border-radius: 0.5rem; font-family:'HelveticaNeue'; font-weight: bold; color:white; background-image: linear-gradient(to bottom right, rgb(60,0,200), rgb(175,80,255));">
-        <div>Drag to place Widget</div>
-    </div>
-</div>
 
 </html>
 
 <script>
-    document.ondragover = function (e) {
+    (function () {
+        var preferedSelector = [".product-form__payment-container", ".product-form", ".product__form", ".product-price", ".product__price", ".product-add-to-cart", ".product-single__add-to-cart", ".btn--shopify-payment-btn", ".shopify-payment-button", ".product-action-flex", ".add-to-cart", "#product-add-to-cart", ".shopify-product-form", ".product-single__form", ".current_price", ".product-details__form", ".product-detail", "form.price", "[data-shopify]", ".product-single__description", ".product-title", ".product-description", ".product-single__desc", ".product-main__information", ".product-variants", ".main-price", '[data-action="add-to-cart"]', ".ProductMeta__Description", ".ProductMeta__TaxNotice", '[itemprop="offers"]']
+        var backupSelector = ["h1", "h2", "h3", "h4", "h5", ".h1", ".h2", ".h3", ".h4", ".h5", "body"];
+        var selector = [].concat(preferedSelector, backupSelector);
+
+        var succesfull = false;
+        for (i = 0; i < selector.length; i++) {
+            var placement = document.querySelector(selector[i]);
+            if (placement) {
+                var placer = document.createElement('div');
+                placer.innerHTML = '<div draggable="true" class="skinfo-InstallWidget" id="skinfo-InstallWidget" style="height: 60px !important; width: 200px !important;"><div class="skinfo-InstallWidget__Backdrop"><div class="skinfo-InstallWidget__Overlay" style=""><div class="skinfo-InstallWidget__Content"><div class="skinfo-InstallWidget__Message"><strong>Drag to place Ad</strong></div></div></div></div></div>';
+
+                placer.addEventListener('dragstart', skinfoDragStart);
+                placer.addEventListener('dragend', skinfoOnDrop)
+
+                placer.remove();
+                placement.parentNode.insertBefore(placer, placement);
+                succesfull = true;
+                break;
+            }
+        }
+
+        if (!succesfull)
+            console.log('No element found to attach placement widget to');
+        else
+            console.log('Attached element succesfull');
+    })();
+
+    var activeElementId = 0;
+
+    function skinfoDragEnter(e) {
+        var preview = document.createElement('div');
+        preview.style.pointerEvents = 'none';
+        activeElementId = activeElementId + 1;
+        preview.innerHTML = '<div class="skinfo-InstallWidget__Hr"><div></div></div>';
+        preview.firstChild.id = activeElementId;
+        e.target.parentNode.insertBefore(preview, e.target);
         e.preventDefault();
-    };
-
-    document.ondragstart = function (e) {
-        e.dataTransfer.setData('id', e.target.id);
+        console.log('enter');
     }
 
-    document.body.ondrop = function (e) {
-        try {
-            var id = e.dataTransfer.getData('id');
-            e.target.appendChild(document.getElementById(id));
-        } catch { }
-    }
-
-    var buttons = document.getElementsByTagName('button');
-    for (i = 0; i < buttons.length; i++) {
-        if (buttons[i].name != 'add')
-            continue;
-
-        buttons[i].appendChild(document.getElementById('widget-position-div'));
-    }
-
-    var radios = document.getElementsByClassName('div-align');
-    for (i = 0; i < radios.length; i++) {
-        radios[i].onclick = function () {
-            var div = document.getElementById('widget-position-div');
-            if (this.value == 'Right')
-                div.style.float = 'right';
-            else if (this.value == 'Left')
-                div.style.float = 'left';
-            else
-                div.style.float = 'unset';
+    function skinfoDragLeave(e) {
+        var oldElements = document.getElementsByClassName('skinfo-InstallWidget__Hr');
+        for (i = 0; i < oldElements.length; i++) {
+            if (activeElementId != oldElements[i].id)
+                oldElements[i].remove();
         }
+
+        e.preventDefault();
+        console.log('leave');
     }
 
-    var radios = document.getElementsByClassName('div-padding');
-    for (i = 0; i < radios.length; i++) {
-        radios[i].onclick = function () {
-            var div = document.getElementById('widget-position-div');
-            if (this.value == 'Right') {
-                if (this.checked)
-                    div.style.paddingRight = '20px';
-                else
-                    div.style.paddingRight = 'unset';
-            }
-            else if (this.value == 'Left') {
-                if (this.checked)
-                    div.style.paddingLeft = '20px';
-                else
-                    div.style.paddingLeft = 'unset';
-            }
-            else if (this.value == 'Top') {
-                if (this.checked)
-                    div.style.paddingTop = '20px';
-                else
-                    div.style.paddingTop = 'unset';
-            }
-            else if (this.value == 'Bottom') {
-                if (this.checked)
-                    div.style.paddingBottom = '20px';
-                else
-                    div.style.paddingBottom = 'unset';
-            }
-        }
+    function skinfoDragOver(e) {
+        e.preventDefault();
     }
 
-    var white = document.getElementsByClassName('template');
-    for (i = 0; i < white.length; i++) {
-        white[i].style.backgroundColor = 'black';
+    function skinfoOnDrop(e) {
+        var placementWidget = document.getElementById('skinfo-InstallWidget');
+        placementWidget.classList.remove('moving');
+    }
+
+    function skinfoDragStart(e) {
+        e.srcElement.classList.add("moving");
+        document.addEventListener('dragenter', skinfoDragEnter);
+        document.addEventListener('dragleave', skinfoDragLeave);
+        document.addEventListener('dragover', skinfoDragOver);
+        document.addEventListener('drop', skinfoDocumentDrop);
+    }
+
+    function skinfoDocumentDrop(e) {
+        document.removeEventListener('dragenter', skinfoDragEnter);
+        document.removeEventListener('dragleave', skinfoDragLeave);
+        document.removeEventListener('dragover', skinfoDragOver);
+        document.removeEventListener('drop', skinfoDocumentDrop);
     }
 </script>
+<style>
+    @font-face {
+        font-family: HelveticaNeue;
+        font-weight: bold;
+        src: url(https://skinfo.se/fonts/HelveticaNeueLTPro-Bd.otf)
+    }
+
+    @keyframes skinfo_flash_border {
+        0% {
+            border-color: lightgray
+        }
+
+        50% {
+            border-color: black
+        }
+
+        100% {
+            border-color: lightgray
+        }
+    }
+
+    .moving {
+        opacity: 0.5;
+    }
+
+    .skinfo-InstallWidget__Hr div {
+        border: 3px solid rgb(60, 0, 200);
+        pointer-events: none;
+    }
+
+    .skinfo-InstallWidget {
+        background: linear-gradient(to bottom right, rgb(60, 0, 200), rgb(175, 80, 255));
+        border: 2px solid lightgray;
+        margin: 20px 0;
+        animation-name: skinfo_flash_border;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        position: relative;
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+        cursor: move;
+    }
+
+    .skinfo-InstallWidget__Backdrop {
+        background-size: contain;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .skinfo-InstallWidget__Overlay {
+        pointer-events: none;
+        flex-grow: 1;
+        z-index: 2;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .skinfo-InstallWidget__Content {
+        font-family: HelveticaNeue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .skinfo-InstallWidget__Message {
+        color: white;
+        text-align: center;
+    }
+</style>
 
 <style>
     .margin-top {
@@ -131,11 +190,5 @@
         min-height: 100px;
         min-width: 100px;
         display: flow-root;
-    }
-
-    @font-face {
-        font-family: HelveticaNeue;
-        font-weight: bold;
-        src: url(https://skinfo.se/fonts/HelveticaNeueLTPro-Bd.otf)
     }
 </style>
