@@ -32,7 +32,6 @@
                 placer.innerHTML = '<div draggable="true" class="skinfo-InstallWidget" id="skinfo-InstallWidget" style="height: 60px !important; width: 200px !important;"><div class="skinfo-InstallWidget__Backdrop"><div class="skinfo-InstallWidget__Overlay" style=""><div class="skinfo-InstallWidget__Content"><div class="skinfo-InstallWidget__Message"><strong>Drag to place Ad</strong></div></div></div></div></div>';
 
                 placer.addEventListener('dragstart', skinfoDragStart);
-                placer.addEventListener('dragend', skinfoOnDrop)
 
                 placer.remove();
                 placement.parentNode.insertBefore(placer, placement);
@@ -75,11 +74,6 @@
         e.preventDefault();
     }
 
-    function skinfoOnDrop(e) {
-        var placementWidget = document.getElementById('skinfo-InstallWidget');
-        placementWidget.classList.remove('moving');
-    }
-
     function skinfoDragStart(e) {
         e.srcElement.classList.add("moving");
         document.addEventListener('dragenter', skinfoDragEnter);
@@ -89,6 +83,16 @@
     }
 
     function skinfoDocumentDrop(e) {
+        var placementWidget = document.getElementById('skinfo-InstallWidget');
+        placementWidget.classList.remove('moving');
+        e.target.parentNode.insertBefore(placementWidget, e.target);
+
+        var oldElements = document.getElementsByClassName('skinfo-InstallWidget__Hr');
+        for (i = 0; i < oldElements.length; i++) {
+            oldElements[i].remove();
+        }
+
+        console.log('drop');
         document.removeEventListener('dragenter', skinfoDragEnter);
         document.removeEventListener('dragleave', skinfoDragLeave);
         document.removeEventListener('dragover', skinfoDragOver);
