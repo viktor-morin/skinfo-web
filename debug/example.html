@@ -88,11 +88,10 @@
         e.target.parentNode.insertBefore(placementWidget, e.target);
 
         var oldElements = document.getElementsByClassName('skinfo-InstallWidget__Hr');
-        for (i = 0; i < oldElements.length; i++) {
+        for (i = 0; i < oldElements.length; i++); {
             oldElements[i].remove();
         }
 
-        console.log('drop');
         document.removeEventListener('dragenter', skinfoDragEnter);
         document.removeEventListener('dragleave', skinfoDragLeave);
         document.removeEventListener('dragover', skinfoDragOver);
