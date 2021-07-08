@@ -96,6 +96,8 @@
         document.removeEventListener('dragleave', skinfoDragLeave);
         document.removeEventListener('dragover', skinfoDragOver);
         document.removeEventListener('drop', skinfoDocumentDrop);
+
+        placementWidget.addEventListener('dragstart', skinfoDragStart);
     }
 </script>
 <style>
