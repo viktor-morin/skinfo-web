@@ -1340,6 +1340,7 @@ input:-webkit-autofill:active  {
 
     .email-input {
         width: auto; 
+        min-width: 200px;
     }
 
     .customer-reference-img {
