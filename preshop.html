@@ -50,7 +50,7 @@
                                 Vi vet vad ingrediensera betyder för din hud. <br>
                                 Snart vet ni också det.
                             </h1>
-                            <div class="main-promo-text absolute" style="margin-top: 250px; max-width: 50vh;">
+                            <div class="main-promo-text absolute" style="margin-top: 25px; max-width: 50vh;">
 
                                 Ni har använt oss 2 miljoner gånger för att förstå innehållet i produkter. Här kan du
                                 snart
@@ -58,7 +58,7 @@
                                 innehållet
                                 baserat på Skinfo's vetenskapliga information om ingredienserna, helt gratis.
                             </div>
-                            <div style="margin-top: 500px;">
+                            <div style="margin-top: 100px;">
                                 <span>Skriv in din mail för att veta när sidan är live</span>
                                 <div id="send-email"
                                     style="display: flex; margin: auto; justify-content: center; margin-top: 10px;">
@@ -73,7 +73,7 @@
                                     Tack, vi hör av oss på
                                 </div>
                             </div>
-                            <div style="display: flex; margin: auto; margin-top: 50px;">
+                            <div style="display: flex; margin: auto; margin-top: 25px;">
                                 <a style="font-size: 20px; text-align: center; margin: auto; display: flex;"
                                     href="index.html">Take
                                     me
@@ -115,7 +115,7 @@
     }
 
     .absolute {
-        position: absolute;
+        /* position: absolute; */
         margin-left: auto;
         margin-right: auto;
         left: 0;
@@ -133,6 +133,11 @@
     }
 </style>
 <script>
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
     function requestDemo() {
         var email = document.getElementById('send-email-input').value;
         if (validateEmail(email)) {
@@ -147,7 +152,7 @@
             }, 10);
             $.ajax({
                 type: 'POST',
-                url: 'https://api.skinfo.se/information/email?email=' + email,
+                url: 'https://api.skinfo.se/information/newsletter?email=' + email,
                 contentType: "application/json; charset=utf-8",
                 headers: { 'apikey': '6h[-yENBfB' },
                 error: function () {
