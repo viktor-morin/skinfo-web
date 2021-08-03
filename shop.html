@@ -274,11 +274,17 @@
         display: flex;
         flex-direction: column;
         margin: auto;
+        cursor: pointer;
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        padding: 5px;
+        border-radius: 5px;
     }
 
-    /* .product-card:hover {
-        zoom: 110%;
-    } */
+    .product-card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
 
     .product-img-div {
         max-width: 140px;
@@ -296,11 +302,16 @@
 
     .product-brand {
         font-weight: bold;
+        color: black;
     }
 
-    .product-name {}
+    .product-name {
+        color: black;
+    }
 
-    .product-price {}
+    .product-price {
+        color: black;
+    }
 
     @media only screen and (max-width: 500px) {
         .products-container {
@@ -320,7 +331,8 @@
         // widgetViewModel: null
 
 
-        var card = document.createElement('div');
+        var card = document.createElement('a');
+        card.href = 'https://skinfo.se/product/id?=' + product.id;
         card.classList.add('product-card');
 
         var productImg = document.createElement('div');
@@ -353,6 +365,8 @@
 
         if (product.highlights.length > 0)
             highlights.style.color = 'green';
+        else
+            highlights.style.color = 'black';
 
         card.appendChild(highlights);
 
@@ -360,6 +374,8 @@
         concerns.innerHTML = 'NOK';
         if (product.concerns.length > 0)
             concerns.style.color = 'red';
+        else
+            concerns.style.color = 'black';
 
         card.appendChild(concerns);
         document.getElementById('allproducts').appendChild(card);
