@@ -309,7 +309,7 @@
     }
 </style>
 <script>
-    function createProductCardElement(product) {
+    function createProductPage(product) {
         //         affiliateLink: {shop: "APOTEA", url: "https://www.apotea.se//nivea-daily-essentials-cleansing-milk-normal-200-ml", price: 49}
         // brand: "NIVEA"
         // concerns: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
@@ -365,11 +365,17 @@
         document.getElementById('allproducts').appendChild(card);
     }
 
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
     $.ajax({
         url: 'https://localhost:5001/shopproduct/getall/',
         type: 'GET',
         headers: { 'apikey': 'EChu_A6S2vd' },
         success: function (data) {
+
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const params = Object.fromEntries(urlSearchParams.entries());
             data.forEach(product => createProductCardElement(product));
         },
         error: function (data) {
