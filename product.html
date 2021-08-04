@@ -199,6 +199,49 @@
         min-height: 20vh;
     }
 
+    .arrow {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        width: 8px;
+    }
+
+    .up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+    }
+
+    .down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .collapsible {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+        background-color: #ccc;
+    }
+
+    .sources-content {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
     .product-container {
         display: grid;
     }
@@ -257,6 +300,14 @@
         margin-top: 25px;
         margin-bottom: 10px;
         border-bottom: 1px solid lightgray;
+    }
+
+    .product-sources {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        background-color: lightgray;
+        display: flex;
+        justify-content: space-between;
     }
 
     .product-name {}
@@ -368,7 +419,6 @@
         shops.innerText = 'Butiker';
         card.appendChild(shops);
 
-
         for (i = 0; i < product.affiliatelinks.length; i++) {
             var shop = product.affiliatelinks[i].shop;
             var price = product.affiliatelinks[i].price;
@@ -398,6 +448,61 @@
 
             card.appendChild(shopDiv);
         }
+
+        var sources = document.createElement('div');
+        sources.classList.add('product-sources');
+        sources.classList.add('collapsible');
+        sources.innerText = 'Källor';
+        sources.onclick = function (e) {
+            var content = document.getElementById('sources-content');
+            var contentArrow = document.getElementById('sources-arrow');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+            if (contentArrow.classList.contains('down')) {
+                contentArrow.classList.remove('down');
+                contentArrow.classList.add('up');
+            } else {
+                contentArrow.classList.add('down');
+                contentArrow.classList.remove('up');
+            }
+        }
+
+        var arrow = document.createElement('i');
+        arrow.id = 'sources-arrow';
+        arrow.classList.add('arrow');
+        arrow.classList.add('down');
+        sources.appendChild(arrow);
+
+        var sourcesData = document.createElement('div');
+        sourcesData.id = 'sources-content';
+        sourcesData.classList.add('sources-content');
+
+        var skinfoinfo = document.createElement('div');
+        skinfoinfo.innerText = 'Skinfo baserar all data från högt respekterade källor från forskning och myndigheter'
+        skinfoinfo.style.marginBottom = '10px';
+        var echa = document.createElement('div');
+        echa.innerText = 'European Chemicals Agency'
+        var chemsec = document.createElement('div');
+        chemsec.innerText = 'The International Chemical Secretariat'
+        var europeanCommision = document.createElement('div');
+        europeanCommision.innerText = 'European Commission';
+        var pcpc = document.createElement('div');
+        pcpc.innerText = 'Personal Care Products Council'
+        var oecd = document.createElement('div');
+        oecd.innerText = 'The Organisation for Economic Co-operation and Development';
+
+        sourcesData.appendChild(skinfoinfo);
+        sourcesData.appendChild(echa);
+        sourcesData.appendChild(chemsec);
+        sourcesData.appendChild(europeanCommision);
+        sourcesData.appendChild(pcpc);
+        sourcesData.appendChild(oecd);
+
+        card.appendChild(sources);
+        card.appendChild(sourcesData);
 
         document.getElementById('product').appendChild(card);
         $('#inci').html(product.widget);
