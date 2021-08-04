@@ -8,6 +8,7 @@
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <script src="scripts/skinfo.js"></script>
     <script src="scripts/instafeed.min.js"></script>
+    <script src="scripts/amplitude.js"></script>
     <title>Skinfo</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
@@ -70,7 +71,7 @@
             <div style="margin-top:50px;"></div>
 
             <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
-                <div id="allproducts" class="products-container">
+                <div id="product" class="product-container">
                 </div>
             </div>
             <div class="one-block-fullwidth graybackgroundcolor footer-main" style="margin-bottom: 0;">
@@ -198,17 +199,15 @@
         min-height: 20vh;
     }
 
-    .products-container {
+    .product-container {
         display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        padding: 20px;
     }
 
     .product-card {
         display: flex;
         flex-direction: column;
         margin: auto;
+        width: 80%;
     }
 
     /* .product-card:hover {
@@ -216,15 +215,13 @@
     } */
 
     .product-img-div {
-        max-width: 140px;
-        max-height: 140px;
+        max-height: 300px;
         display: flex;
         margin: auto;
     }
 
     .product-img {
         height: auto;
-        line-height: 140px;
         vertical-align: middle;
         max-height: inherit;
     }
@@ -233,14 +230,41 @@
         font-weight: bold;
     }
 
+    .product-buy {
+        background-color: black;
+        color: white;
+        border-radius: unset;
+    }
+
+    .product-sciene-info {
+        display: flex;
+        margin-top: 25px;
+    }
+
+    .product-summary {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .product-inci {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .product-shops {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid lightgray;
+    }
+
     .product-name {}
 
     .product-price {}
 
     @media only screen and (max-width: 500px) {
-        .products-container {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+        .product-container {}
     }
 </style>
 <script>
@@ -282,22 +306,101 @@
         price.innerText = product.price;
         price.classList.add('product-price');
         card.appendChild(price);
+        var buyButton = document.createElement('button');
+        buyButton.innerText = 'Köp';
+        buyButton.classList.add('product-buy');
+        card.appendChild(buyButton);
 
-        var highlights = document.createElement('div');
-        highlights.innerHTML = 'OK';
+        var scieneInfo = document.createElement('div');
+        scieneInfo.classList.add('product-sciene-info');
+        var scieneText = document.createElement('div');
+        scieneText.innerText = 'Baserad på vetenskaplig underlag';
+        var scieneLogo = document.createElement('img');
+        scieneLogo.src = 'svg/skinfo-logo-color-black.svg';
+        scieneLogo.style.width = '150px';
+        var scieneCheck = document.createElement('img');
+        scieneCheck.src = 'svg/check.svg';
+        scieneCheck.style.width = '25px';
 
+        scieneInfo.appendChild(scieneText);
+        scieneInfo.appendChild(scieneLogo);
+        scieneInfo.appendChild(scieneCheck);
+        card.appendChild(scieneInfo);
+
+        var summary = document.createElement('div');
+        summary.classList.add('product-summary');
+        summary.innerText = 'Summering';
+        card.appendChild(summary);
+
+        var highlights = document.createElement('img');
+        highlights.src = 'svg/check.svg';
+        highlights.style.width = '25px';
         if (product.highlights.length > 0)
-            highlights.style.color = 'green';
+            highlights.style.fill = 'green';
+
+        var concerns = document.createElement('img');
+        concerns.src = 'svg/concern.svg';
+        concerns.style.width = '25px';
+        if (product.concerns.length > 0)
+            concerns.style.fill = 'red';
+
+        var skinfunctions = document.createElement('img');
+        skinfunctions.src = 'svg/skin.svg';
+        skinfunctions.style.width = '25px';
+        if (product.skinfunctions.length > 0)
+            skinfunctions.style.fill = 'red';
 
         card.appendChild(highlights);
-
-        var concerns = document.createElement('div');
-        concerns.innerHTML = 'NOK';
-        if (product.concerns.length > 0)
-            concerns.style.color = 'red';
-
         card.appendChild(concerns);
-        document.getElementById('allproducts').appendChild(card);
+        card.appendChild(skinfunctions);
+
+        var ingredientlist = document.createElement('div');
+        ingredientlist.classList.add('product-inci');
+        ingredientlist.innerText = 'Ingredienslista';
+        card.appendChild(ingredientlist);
+
+        var inci = document.createElement('div');
+        inci.id = 'inci';
+        card.appendChild(inci);
+
+        var shops = document.createElement('div');
+        shops.classList.add('product-shops');
+        shops.innerText = 'Butiker';
+        card.appendChild(shops);
+
+
+        for (i = 0; i < product.affiliatelinks.length; i++) {
+            var shop = product.affiliatelinks[i].shop;
+            var price = product.affiliatelinks[i].price;
+            var productUrl = product.affiliatelinks[i].url;
+
+            var shopDiv = document.createElement('div');
+            var shopImg = document.createElement('img');
+            switch (shop) {
+                case 'APOTEA':
+                    shopImg.src = 'shop/apotea-logo.webp';
+                    break;
+                case 'SKINCITY':
+                    shopImg.src = 'shop/skincity.svg';
+                    break;
+            }
+
+            var shopPrice = document.createElement('div');
+            shopPrice.innerText = price + 'kr';
+
+            var shopButton = document.createElement('a');
+            shopButton.innerText = 'Till Butik';
+            shopButton.href = productUrl;
+
+            shopDiv.appendChild(shopImg);
+            shopDiv.appendChild(shopPrice);
+            shopDiv.appendChild(shopButton);
+
+            card.appendChild(shopDiv);
+        }
+
+        document.getElementById('product').appendChild(card);
+        $('#inci').html(product.widget);
     }
 
 
