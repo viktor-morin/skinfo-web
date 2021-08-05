@@ -26,9 +26,10 @@ $(document).ready(function () {
                     expaned.style.display = 'none';
                 }
             }
-
-            if (expaned.classList.contains('browse-fullscreen-menu'))
-                expaned.classList.remove('browse-fullscreen-menu');
+            if (expanded) {
+                if (expaned.classList.contains('browse-fullscreen-menu'))
+                    expaned.classList.remove('browse-fullscreen-menu');
+            }
         }
     });
 
