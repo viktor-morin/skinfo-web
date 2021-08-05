@@ -397,6 +397,7 @@
     $.ajax({
         url: 'https://api.skinfo.se/cookie/accept/',
         type: 'GET',
+        crossDomain: true,
         xhrFields: {
             withCredentials: true
         },
