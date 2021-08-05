@@ -418,7 +418,7 @@
         },
         success: function () {
             var userId = getCookie('_skinfo-shop-id');
-            amplitude.getInstance().init("API_KEY", userId);
+            amplitude.getInstance().setUserId(userId);
         },
         error: function () {
         }
