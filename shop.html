@@ -393,4 +393,15 @@
             errorFunction();
         }
     });
+
+    $.ajax({
+        url: 'https://api.skinfo.se/cookie/accept/',
+        type: 'GET',
+        success: function (data) {
+            console.log('got cookie-id');
+        },
+        error: function (data) {
+            console.log('error with cookie-id');
+        }
+    });
 </script>
