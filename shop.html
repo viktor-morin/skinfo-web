@@ -394,17 +394,18 @@
         }
     });
 
-    $.ajax({
-        url: 'https://staging.skinfo.se/cookie/accept/',
-        type: 'GET',
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (data) {
-            console.log('got cookie-id');
-        },
-        error: function (data) {
-            console.log('error with cookie-id');
-        }
-    });
+    try {
+        $.ajax({
+            url: 'https://api.skinfo.se/cookie/accept/',
+            type: 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+            },
+            error: function (data) {
+            }
+        });
+    }
+    catch { }
 </script>
