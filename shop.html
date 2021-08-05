@@ -397,6 +397,9 @@
     $.ajax({
         url: 'https://api.skinfo.se/cookie/accept/',
         type: 'GET',
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (data) {
             console.log('got cookie-id');
         },
