@@ -423,4 +423,12 @@
         error: function () {
         }
     });
+
+    document.getElementById('allproducts').onclick = function () {
+        var event = 'Button Clicked';
+        var eventProperties = {
+            "hover time": "100ms"
+        };
+        amplitude.getInstance().logEvent(event, eventProperties);
+    }
 </script>
