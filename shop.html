@@ -382,6 +382,22 @@
         document.getElementById('allproducts').appendChild(card);
     }
 
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
     $.ajax({
         url: 'https://localhost:5001/shopproduct/getall/',
         type: 'GET',
@@ -400,11 +416,11 @@
         xhrFields: {
             withCredentials: true
         },
-        success: function (data) {
-            console.log('works');
+        success: function () {
+            var userId = getCookie('_skinfo-shop-id');
+            amplitude.getInstance().init("API_KEY", userId);
         },
-        error: function (data) {
-            console.log('not works');
+        error: function () {
         }
     });
 </script>
