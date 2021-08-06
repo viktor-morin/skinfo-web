@@ -15,20 +15,20 @@ $(document).ready(function () {
     $(window).resize(function () {
         if ($(window).width() >= 830) {
             var menu = document.getElementById('skinfo-menu-mobile');
-            var expaned = document.getElementById('skinfo-menu-mobile-expanded');
-            if (menu && expaned) {
+            var expanded = document.getElementById('skinfo-menu-mobile-expanded');
+            if (menu && expanded) {
                 if (menu.classList.contains('change')) {
                     menu.classList.toggle('change');
                     var main = document.getElementById('main-menu');
                     main.classList.toggle('main-menu-change');
                 }
-                if (expaned.style.display == 'grid') {
-                    expaned.style.display = 'none';
+                if (expanded.style.display == 'grid') {
+                    expanded.style.display = 'none';
                 }
             }
             if (expanded) {
-                if (expaned.classList.contains('browse-fullscreen-menu'))
-                    expaned.classList.remove('browse-fullscreen-menu');
+                if (expanded.classList.contains('browse-fullscreen-menu'))
+                    expanded.classList.remove('browse-fullscreen-menu');
             }
         }
     });
