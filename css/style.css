@@ -1118,6 +1118,10 @@ input:-webkit-autofill:active  {
     border-radius: 0.5rem;
 }
 
+.cs-reference-img:hover {
+    opacity: 0.5;
+}
+
 .cs-reference-text {
     width: 30vh;
     font-weight: bold;
