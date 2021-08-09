@@ -92,8 +92,8 @@
                     </div>
                     <div style="margin-top: 50px; margin-bottom: 10px;">
                         <div id="searchbar" class="searchbar"
-                            style="width: 90% !important; border-radius: unset !important; margin: auto !important;">
-                            <div style="display: flex;">
+                            style="width: 90% !important; border-radius: unset !important; margin: auto !important; height: auto;">
+                            <div id="searchinput">
                                 <div id="searchicon" style="width: 20px; height: 20px; float: left; margin-top: 4px;">
                                     <svg focusable="false" xmlns="http://www.w3.org/2000/svg" fill="#9aa0a6"
                                         viewBox="0 0 20 20" style="width: 20px!important;
@@ -103,23 +103,10 @@
                                         </path>
                                     </svg>
                                 </div>
-
-                                <!-- <span class="search-tag">
-                                    <span style="display: flex;">waterline<span class="search-tag-delete"
-                                            title="Remove tag"><svg class="svg-icon iconClearSm pe-none" width="14"
-                                                height="14" viewBox="0 0 14 14">
-                                                <path
-                                                    d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z">
-                                                </path>
-                                            </svg>
-                                        </span>
-                                    </span>
-                                </span> -->
-
                                 <form id="searchform" style="width: 100%;" autocomplete="off" action="/search?id=">
-                                    <input id="searchbox" autocomplete="off" autofocus type="search" name="id"
-                                        placeholder="Sök varumärke, produkt eller ingrediens" class="searchbox"
-                                        style="text-transform: none !important; width: 100% !important;">
+                                    <input type="text" id="searchbox" autocomplete="off" autofocus type="search"
+                                        name="id" placeholder="Sök varumärke, produkt eller ingrediens"
+                                        class="searchbox">
                                     </input>
                                 </form>
                             </div>
@@ -138,7 +125,16 @@
                     </a>
                 </div>
             </div>
+            <button id="test1" style="background-color: black;">Add tags</button>
             <button id="test" style="background-color: black;">Test</button>
+            <div>
+                <input type="checkbox" id="no-concerns" name="no-concerns">
+                <label for="no-concerns">Inga anmärkingar</label>
+            </div>
+            <div>
+                <input type="checkbox" id="vegan" name="vegan">
+                <label for="vegan">Vegan</label>
+            </div>
             <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
                 <div>
                     Alla produkter
@@ -336,6 +332,8 @@
         padding: 5px;
         border-radius: 0.25rem;
         margin-left: 5px;
+        float: left;
+        margin-bottom: 5px;
     }
 
     .search-tag-delete {
@@ -352,45 +350,73 @@
         border-radius: 0.25rem;
     }
 
+    .searchbox {
+        text-transform: lowercase !important;
+        min-width: 285px;
+    }
+
     @media only screen and (max-width: 500px) {
         .products-container {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
+
+    /* temp */
+    input[type="checkbox"] {
+        -webkit-appearance: auto !important;
+    }
 </style>
 <script>
 
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight) + "px";
+    }
+
+    function removeTag(e) {
+        e.parentElement.parentElement.remove();
+    }
+
+    function getAllTags() {
+        var tagElements = document.getElementsByClassName('search-tags');
+        var tags = [];
+        for (i = 0; i < tagElements.length; i++)
+            tags.push(tagElements[i].innerText);
+
+        return tags;
+    }
+
+
+    var testNbr = 1;
+
+    document.getElementById('test1').onclick = function () {
+        updateTags(testNbr);
+        testNbr++;
+    }
+
     document.getElementById('test').onclick = function () {
-        var tagElement = document.createElement('span');
-        tagElement.classList.add('search-tag');
-        tagElement.innerHTML = '<span style="display: flex;">' + 'NAME' + '<span class="search-tag-delete" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
-
-        var inputfield = document.getElementById('searchicon');
-        var children = inputfield.children;
-        for (i = 0; i < children.length; i++) {
-            if (!children[i].classList.contains('search-tag')) {
-                if (i == 0) {
-                    inputfield.insertAdjacentElement('afterend', tagElement);
-                } else {
-
-                }
+        var tags = getAllTags();
+        var sortOrder = 'a-z';
+        var pageNumber = 1;
+        var browseModel = {
+            browseTags: getAllTags(),
+            sortOrder: sortOrder,
+            pageNumber: pageNumber
+        };
+        $.ajax({
+            url: 'https://localhost:5001/shopproduct/browse',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(browseModel),
+            headers: { 'apikey': 'EChu_A6S2vd' },
+            success: function (data) {
+                console.log('done');
+            },
+            error: function (data) {
+                //errorFunction();
             }
-        }
-
-
-
-        // <span class="search-tag">
-        //     <span style="display: flex;">waterline<span class="search-tag-delete"
-        //         title="Remove tag"><svg class="svg-icon iconClearSm pe-none" width="14"
-        //             height="14" viewBox="0 0 14 14">
-        //             <path
-        //                 d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z">
-        //             </path>
-        //         </svg>
-        //     </span>
-        //     </span>
-        // </span>
-
+        });
     }
 
     function createProductCardElement(product) {
