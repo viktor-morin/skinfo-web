@@ -2,10 +2,51 @@ var url = 'https://localhost:5001/';
 var selectCounter = -1;
 var oldestSearchValue = '';
 
-function updateTags(value) {
+function getSortOrder() {
+    return document.getElementById('sort').value;
+}
+
+function browse() {
+    var pageNumber = -1;
+    var browseModel = {
+        browseTags: getAllTagsAsBrowseTags(),
+        sortOrder: getSortOrder(),
+        pageNumber: pageNumber,
+        noConcerns: document.getElementById('no-concerns').checked
+    };
+
+    $.ajax({
+        url: 'https://localhost:5001/shopproduct/browse',
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(browseModel),
+        headers: { 'apikey': 'EChu_A6S2vd' },
+        success: function (data) {
+            document.getElementById('allproducts').innerHTML = '';
+            var products = data.searchResult;
+            products.forEach(product => createProductCardElement(product));
+        },
+        error: function (data) {
+            //errorFunction();
+        }
+    });
+}
+
+function updateTags(value, tagType) {
     var tagElement = document.createElement('span');
     tagElement.classList.add('search-tag');
-    tagElement.innerHTML = '<span class="search-tags" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+    switch (tagType) {
+        case "searchbar-brand":
+            tagElement.innerHTML = '<span class="search-tags search-tags-brand" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+            break;
+        case "searchbar-product":
+            tagElement.innerHTML = '<span class="search-tags search-tags-name" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+            break;
+        case "searchbar-ingredient":
+            tagElement.innerHTML = '<span class="search-tags search-tags-ingredient" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+            break;
+    }
 
     var inputfield = document.getElementById('searchinput');
     var children = inputfield.children;
@@ -33,23 +74,12 @@ function updateGUI(result) {
 }
 
 function updateResult(result) {
-    //updateTags(result);
     updateGUI(result);
 }
 
-function getShopData(searchValue) {
-    updateTags(searchValue);
-
-    $.ajax({
-        type: 'GET',
-        headers: { 'apikey': '6h[-yENBfB' },
-        url: url + 'website/ingredient?ingredients=' + searchValue + '&language=' + getLanguage(),
-        dataType: 'html',
-        complete: function (result) {
-            // oldestSearchValue = searchValue;
-            // updateResult(result);
-        }
-    });
+function getShopData(searchValue, tagType) {
+    updateTags(searchValue, tagType);
+    browse();
 }
 
 function getLanguage() {
@@ -144,12 +174,6 @@ $(document).ready(function () {
         // });
     }
 
-    var ingredient = getParameterByName('ingredient');
-    if (ingredient) {
-        getShopData(ingredient);
-        $('#searchbox').val('');
-    }
-
     $('form input').keydown(function (e) {
         if (e.keyCode == 13) {
             e.preventDefault();
@@ -166,11 +190,6 @@ $(document).ready(function () {
                 return;
             }
 
-            if (text.includes(',')) {
-                logData(text);
-                getShopData(text);
-            }
-
             if (document.getElementById('searchbar-suggestions').style.display == 'none') {
                 return;
             }
@@ -184,12 +203,12 @@ $(document).ready(function () {
                         childCounter++;
                     }
                     logData(parent.children[childCounter].innerText);
-                    getShopData(parent.children[childCounter].innerText);
+                    getShopData(parent.children[childCounter].innerText, parent.children[childCounter].classList[parent.children[childCounter].classList.length - 1]);
                     $('#searchbox').val('');
                     //$('#searchbox').val(parent.children[childCounter].innerText);
                 } else {
                     logData(result.innerText);
-                    getShopData(result.innerText);
+                    getShopData(result.innerText, result.classList[result.classList.length - 1]);
                     $('#searchbox').val('');
                     //$('#searchbox').val(result.innerText);
                 }
@@ -301,13 +320,14 @@ $(document).ready(function () {
                             var child = document.createElement('div');
                             child.innerHTML = createInnerBrandsElementForSuggestion(text, element);
                             child.classList.add('searchbar-item');
+                            child.classList.add('searchbar-brand');
                             child.onclick = function () {
                                 parent.innerHTML = '';
                                 // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
                                 // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
-                                getShopData(element);
+                                getShopData(element, 'searchbar-brand');
                                 document.getElementById('searchbox').value = element;
                             }
                             child.addEventListener("mouseover", function (e) {
@@ -340,13 +360,14 @@ $(document).ready(function () {
                             var child = document.createElement('div');
                             child.innerHTML = createInnerProductElementForSuggestion(text, element);
                             child.classList.add('searchbar-item');
+                            child.classList.add('searchbar-product')
                             child.onclick = function () {
                                 parent.innerHTML = '';
                                 // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
                                 // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
-                                getShopData(element);
+                                getShopData(element, 'searchbar-product');
                                 document.getElementById('searchbox').value = element;
                             }
                             child.addEventListener("mouseover", function (e) {
@@ -380,13 +401,14 @@ $(document).ready(function () {
                             var child = document.createElement('div');
                             child.innerHTML = createInnerIngredientElementForSuggestion(text, element);
                             child.classList.add('searchbar-item');
+                            child.classList.add('searchbar-ingredient');
                             child.onclick = function () {
                                 parent.innerHTML = '';
                                 // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
                                 // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
-                                getShopData(element);
+                                getShopData(element, 'searchbar-ingredient');
                                 document.getElementById('searchbox').value = element;
                             }
                             child.addEventListener("mouseover", function (e) {

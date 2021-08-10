@@ -125,15 +125,26 @@
                     </a>
                 </div>
             </div>
-            <button id="test1" style="background-color: black;">Add tags</button>
-            <button id="test" style="background-color: black;">Test</button>
             <div>
-                <input type="checkbox" id="no-concerns" name="no-concerns">
-                <label for="no-concerns">Inga anmärkingar</label>
-            </div>
-            <div>
-                <input type="checkbox" id="vegan" name="vegan">
-                <label for="vegan">Vegan</label>
+                <div>
+                    <input type="checkbox" id="no-concerns" name="no-concerns">
+                    <label for="no-concerns">Inga anmärkingar</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vegan" name="vegan">
+                    <label for="vegan">Vegan</label>
+                </div>
+                <label for="sort">Sort Order</label>
+                <select name="sort" id="sort">
+                    <option value="a-z">Produktnamn (A-Z)</option>
+                    <option value="z-a">Produktnamn (Z-A)</option>
+                    <option value="a-brand">Varumärke (A-Z)</option>
+                    <option value="z-brand">Varumärke (Z-A)</option>
+                    <option value="low-price">Lägsta Pris</option>
+                    <option value="high-price">Högsta Pris</option>
+                    <option value="low-concerns">Anmärkningar (få)</option>
+                    <option value="high-concerns">Anmärkningar (många)</option>
+                </select>
             </div>
             <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
                 <div>
@@ -377,59 +388,24 @@
         e.parentElement.parentElement.remove();
     }
 
-    function getAllTags() {
-        var tagElements = document.getElementsByClassName('search-tags');
-        var tags = [];
-        for (i = 0; i < tagElements.length; i++)
-            tags.push(tagElements[i].innerText);
+    // function getAllTags() {
+    //     var tagElements = document.getElementsByClassName('search-tags');
+    //     var tags = [];
+    //     for (i = 0; i < tagElements.length; i++)
+    //         tags.push(tagElements[i].innerText);
 
-        return tags;
-    }
+    //     return tags;
+    // }
 
-
-    var testNbr = 1;
-
-    document.getElementById('test1').onclick = function () {
-        updateTags(testNbr);
-        testNbr++;
-    }
-
-    document.getElementById('test').onclick = function () {
-        var tags = getAllTags();
-        var sortOrder = 'a-z';
-        var pageNumber = 1;
-        var browseModel = {
-            browseTags: getAllTags(),
-            sortOrder: sortOrder,
-            pageNumber: pageNumber
+    function getAllTagsAsBrowseTags() {
+        return {
+            brands: Array.from(document.getElementsByClassName('search-tags-brand')).map(m => m.innerText),
+            ingredients: Array.from(document.getElementsByClassName('search-tags-ingredient')).map(m => m.innerText),
+            productNames: Array.from(document.getElementsByClassName('search-tags-name')).map(m => m.innerText),
         };
-        $.ajax({
-            url: 'https://localhost:5001/shopproduct/browse',
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify(browseModel),
-            headers: { 'apikey': 'EChu_A6S2vd' },
-            success: function (data) {
-                console.log('done');
-            },
-            error: function (data) {
-                //errorFunction();
-            }
-        });
     }
 
     function createProductCardElement(product) {
-        //         affiliateLink: {shop: "APOTEA", url: "https://www.apotea.se//nivea-daily-essentials-cleansing-milk-normal-200-ml", price: 49}
-        // brand: "NIVEA"
-        // concerns: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
-        // highlights: []
-        // id: "caf56e0d-a978-4f83-a4fd-587fbf147205"
-        // name: "Nivea Refreshing Cleansing Milk 200 Ml"
-        // pictureUrl: "https://skinfo.azureedge.net/shopproductimages/caf56e0d-a978-4f83-a4fd-587fbf147205.jpg"
-        // widgetViewModel: null
-
-
         var card = document.createElement('a');
         card.href = 'https://skinfo.se/product/id?=' + product.id;
         card.classList.add('product-card');
@@ -528,5 +504,17 @@
             "hover time": "100ms"
         };
         amplitude.getInstance().logEvent(event, eventProperties);
+    }
+
+    document.getElementById('sort').onchange = function (e) {
+        browse();
+    }
+
+    document.getElementById('no-concerns').onchange = function (e) {
+        browse();
+    }
+
+    document.getElementById('vegan').onchange = function (e) {
+        browse();
     }
 </script>
