@@ -289,7 +289,6 @@
 
     .products-container {
         display: grid;
-        gap: 1rem;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         padding: 20px;
     }
@@ -299,11 +298,17 @@
         flex-direction: column;
         margin: auto;
         cursor: pointer;
-
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
-        padding: 5px;
-        border-radius: 5px;
+        padding: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        min-height: 325px;
+        /* min-width: 165px; */
+        width: 100%;
+        width: -moz-available;
+        /* WebKit-based browsers will ignore this. */
+        width: -webkit-fill-available;
+        /* Mozilla-based browsers will ignore this. */
+        width: fill-available;
     }
 
     .product-card:hover {
@@ -322,6 +327,7 @@
         line-height: 140px;
         vertical-align: middle;
         max-height: inherit;
+        max-width: inherit;
     }
 
     .product-brand {
@@ -366,6 +372,15 @@
         min-width: 285px;
     }
 
+    .skinfoDataElement {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skinfoDataNumber {
+        color: black;
+    }
+
     @media only screen and (max-width: 500px) {
         .products-container {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -405,6 +420,8 @@
         };
     }
 
+    var testNbr = 1;
+
     function createProductCardElement(product) {
         var card = document.createElement('a');
         card.href = 'https://skinfo.se/product/id?=' + product.id;
@@ -435,24 +452,73 @@
         price.classList.add('product-price');
         card.appendChild(price);
 
+        var skinfoData = document.createElement('div');
+        skinfoData.style.display = 'flex';
+        skinfoData.style.justifyContent = 'space-evenly';
+        var skinfoLogo = document.createElement('img');
+        skinfoLogo.src = 'svg/skinfo-logo-color-black.svg';
+        skinfoLogo.style.width = '50px';
+
+        var skinfunctionsDiv = document.createElement('div');
+        skinfunctionsDiv.classList.add('skinfoDataElement');
+        var skinfunctions = document.createElement('div');
+        skinfunctions.innerHTML = '<?xml version="1.0" encoding="utf-8"?><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.881 122.88" enable-background="new 0 0 122.881 122.88" xml:space="preserve"><g><path d="M61.44,0c16.966,0,32.326,6.877,43.445,17.995s17.996,26.479,17.996,43.444c0,16.967-6.877,32.327-17.996,43.445 S78.406,122.88,61.44,122.88c-16.966,0-32.326-6.877-43.444-17.995S0,78.406,0,61.439c0-16.965,6.877-32.326,17.996-43.444 S44.474,0,61.44,0L61.44,0z M34.556,67.179c-1.313-1.188-1.415-3.216-0.226-4.529c1.188-1.313,3.216-1.415,4.529-0.227L52.3,74.611 l31.543-33.036c1.223-1.286,3.258-1.336,4.543-0.114c1.285,1.223,1.336,3.257,0.113,4.542L54.793,81.305l-0.004-0.004 c-1.195,1.257-3.182,1.338-4.475,0.168L34.556,67.179L34.556,67.179z M100.33,22.55C90.377,12.598,76.627,6.441,61.44,6.441 c-15.188,0-28.938,6.156-38.89,16.108c-9.953,9.953-16.108,23.702-16.108,38.89c0,15.188,6.156,28.938,16.108,38.891 c9.952,9.952,23.702,16.108,38.89,16.108c15.187,0,28.937-6.156,38.89-16.108c9.953-9.953,16.107-23.702,16.107-38.891 C116.438,46.252,110.283,32.502,100.33,22.55L100.33,22.55z" /></g></svg>';
+        skinfunctions.style.width = '20px';
+
+        testNbr++;
+        if (product.skinfunctions.length > 0 || testNbr == 3)
+            skinfunctions.style.fill = 'green';
+        else
+            skinfunctions.style.fill = 'lightgray';
+
+        skinfunctionsDiv.appendChild(skinfunctions);
+        var skinfunctionsNumber = document.createElement('div');
+        skinfunctionsNumber.innerText = product.skinfunctions.length + 'st';
+        skinfunctionsNumber.classList.add('skinfoDataNumber');
+        skinfunctionsDiv.appendChild(skinfunctionsNumber);
+
+        var highlightsDiv = document.createElement('div');
+        highlightsDiv.classList.add('skinfoDataElement');
         var highlights = document.createElement('div');
-        highlights.innerHTML = 'OK';
+        //highlights.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 23 23"><g><g><circle cx="12" cy="12" r="11"></circle><path style="fill:#FFFFFF" d="M17.06,11H13V6.94a1,1,0,1,0-2,0V11H6.93a1,1,0,0,0,0,2H11v4.06a1,1,0,0,0,2,0V13h4.06a1,1,0,0,0,0-2Z"></path><rect style="fill:none" height="24" width="24"></rect></g></g></svg>';
+        highlights.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
+        highlights.style.width = '20px';
 
         if (product.highlights.length > 0)
-            highlights.style.color = 'green';
+            highlights.style.fill = 'black';
         else
-            highlights.style.color = 'black';
+            highlights.style.fill = 'lightgray';
 
-        card.appendChild(highlights);
+        highlightsDiv.appendChild(highlights);
+        var highlightsNumber = document.createElement('div');
+        highlightsNumber.innerText = product.highlights.length + 'st';
+        highlightsNumber.classList.add('skinfoDataNumber');
+        highlightsDiv.appendChild(highlightsNumber);
 
+        var concernsDiv = document.createElement('div');
+        concernsDiv.classList.add('skinfoDataElement');
+        concernsDiv.style.display = 'flex';
         var concerns = document.createElement('div');
-        concerns.innerHTML = 'NOK';
-        if (product.concerns.length > 0)
-            concerns.style.color = 'red';
-        else
-            concerns.style.color = 'black';
+        concerns.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
+        concerns.style.width = '20px';
 
-        card.appendChild(concerns);
+        if (product.concerns.length > 0)
+            concerns.style.fill = '#FFA100';
+        if (product.concerns.length == 0)
+            concerns.style.fill = 'lightgray';
+
+        concernsDiv.appendChild(concerns);
+        var concernsNumber = document.createElement('div');
+        concernsNumber.innerText = product.concerns.length + 'st';
+        concernsNumber.classList.add('skinfoDataNumber');
+        concernsDiv.appendChild(concernsNumber);
+
+        skinfoData.appendChild(skinfoLogo);
+        skinfoData.appendChild(skinfunctionsDiv);
+        skinfoData.appendChild(highlightsDiv);
+        skinfoData.appendChild(concernsDiv);
+        card.appendChild(skinfoData);
+
         document.getElementById('allproducts').appendChild(card);
     }
 
