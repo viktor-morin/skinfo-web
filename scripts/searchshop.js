@@ -1,4 +1,5 @@
 var url = 'https://localhost:5001/';
+url = 'https://staging.skinfo.se';
 var selectCounter = -1;
 var oldestSearchValue = '';
 
