@@ -26,6 +26,7 @@ function browse() {
         success: function (data) {
             document.getElementById('allproducts').innerHTML = '';
             var products = data.searchResult;
+            saveSessionStorage(products);
             products.forEach(product => createProductCardElement(product));
         },
         error: function (data) {

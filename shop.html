@@ -595,7 +595,6 @@
         type: 'GET',
         headers: { 'apikey': 'EChu_A6S2vd' },
         success: function (data) {
-            saveSessionStorage(data);
             data.forEach(product => createProductCardElement(product));
         },
         error: function (data) {
