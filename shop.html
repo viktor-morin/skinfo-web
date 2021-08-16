@@ -402,25 +402,29 @@
         var productJSON = sessionStorage.getItem('products');
 
         var tags = JSON.parse(tagsJSON);
-        for (i = 0; i < tags.length; i++) {
-            var tagElement = document.createElement('span');
-            tagElement.classList.add('search-tag');
-            tagElement.innerHTML = tags[i];
+        if (tags) {
+            for (i = 0; i < tags.length; i++) {
+                var tagElement = document.createElement('span');
+                tagElement.classList.add('search-tag');
+                tagElement.innerHTML = tags[i];
 
-            var inputfield = document.getElementById('searchinput');
-            var children = inputfield.children;
-            for (i = 0; i < children.length; i++) {
-                if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
-                    continue;
-                else {
-                    children[i].insertAdjacentElement('beforebegin', tagElement);
-                    return;
+                var inputfield = document.getElementById('searchinput');
+                var children = inputfield.children;
+                for (i = 0; i < children.length; i++) {
+                    if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
+                        continue;
+                    else {
+                        children[i].insertAdjacentElement('beforebegin', tagElement);
+                        return;
+                    }
                 }
             }
         }
 
         var products = JSON.parse(productJSON);
-        products.forEach(product => createProductCardElement(product));
+        if (products) {
+            products.forEach(product => createProductCardElement(product));
+        }
     }
 
     function saveSessionStorage(data) {
