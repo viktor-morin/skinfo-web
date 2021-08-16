@@ -573,7 +573,7 @@
     var productJSON = sessionStorage.getItem('products');
     if (productJSON == null || productJSON.length == 0) {
         $.ajax({
-            url: url + '/shopproduct/getall/',
+            url: url + 'shopproduct/getall/',
             type: 'GET',
             headers: { 'apikey': 'EChu_A6S2vd' },
             success: function (data) {
