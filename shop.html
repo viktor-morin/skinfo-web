@@ -620,13 +620,14 @@
 
     loadSessionStorage();
 
-    var sidebar = document.querySelector(".sidebar");
-    var oldScrollValue = localStorage.getItem("sidebar-scroll");
+    var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
     if (oldScrollValue !== null) {
-        sidebar.scrollTop = parseInt(top, 10);
+        var value = parseInt(oldScrollValue, 10);
+        value = (value * -1) + 50;
+        window.scrollTo(0, value);
     }
 
     window.addEventListener("beforeunload", () => {
-        localStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+        window.sessionStorage.setItem('skinfo-scroll', document.body.getBoundingClientRect().top.toString());
     });
 </script>
