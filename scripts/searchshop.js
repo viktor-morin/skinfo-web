@@ -207,17 +207,13 @@ $(document).ready(function () {
                     logData(parent.children[childCounter].innerText);
                     getShopData(parent.children[childCounter].innerText, parent.children[childCounter].classList[parent.children[childCounter].classList.length - 1]);
                     $('#searchbox').val('');
-                    //$('#searchbox').val(parent.children[childCounter].innerText);
                 } else {
                     logData(result.innerText);
                     getShopData(result.innerText, result.classList[result.classList.length - 1]);
                     $('#searchbox').val('');
-                    //$('#searchbox').val(result.innerText);
                 }
             }
             parent.innerHTML = '';
-            // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-            // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
         else if (key == 'ArrowDown') {
@@ -273,8 +269,6 @@ $(document).ready(function () {
 
         if (text.length == 0) {
             parent.innerHTML = '';
-            // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-            // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
             parent.style.display = 'none';
         }
         else {
@@ -289,14 +283,10 @@ $(document).ready(function () {
                         (result.responseJSON.brands.length > 0 || result.responseJSON.ingredients.length > 0 ||
                             result.responseJSON.products.length > 0)) {
                         parent.style.display = 'inherit';
-                        // document.getElementById('searchbar').style.borderBottomLeftRadius = '0px';
-                        // document.getElementById('searchbar').style.borderBottomRightRadius = '0px';
                         parent.innerHTML = '';
                         var text = $('#searchbox').val().trimStart();
                         if (text.length == 0) {
                             parent.innerHTML = '';
-                            // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-                            // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                             parent.style.display = 'none';
                             return;
                         }
@@ -325,8 +315,6 @@ $(document).ready(function () {
                             child.classList.add('searchbar-brand');
                             child.onclick = function () {
                                 parent.innerHTML = '';
-                                // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-                                // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
                                 getShopData(element, 'searchbar-brand');
@@ -365,8 +353,6 @@ $(document).ready(function () {
                             child.classList.add('searchbar-product')
                             child.onclick = function () {
                                 parent.innerHTML = '';
-                                // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-                                // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
                                 getShopData(element, 'searchbar-product');
@@ -406,8 +392,6 @@ $(document).ready(function () {
                             child.classList.add('searchbar-ingredient');
                             child.onclick = function () {
                                 parent.innerHTML = '';
-                                // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-                                // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                                 parent.style.display = 'none';
                                 logData(element);
                                 getShopData(element, 'searchbar-ingredient');
@@ -431,8 +415,6 @@ $(document).ready(function () {
                             parent.appendChild(child);
                         });
                     } else {
-                        // document.getElementById('searchbar').style.borderBottomLeftRadius = '0.75rem';
-                        // document.getElementById('searchbar').style.borderBottomRightRadius = '0.75rem';
                         parent.style.display = 'none';
                     }
                 }

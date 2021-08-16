@@ -385,16 +385,6 @@
     url = 'https://staging.skinfo.se/';
 
     function createProductPage(product) {
-        //         affiliateLink: {shop: "APOTEA", url: "https://www.apotea.se//nivea-daily-essentials-cleansing-milk-normal-200-ml", price: 49}
-        // brand: "NIVEA"
-        // concerns: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
-        // highlights: []
-        // id: "caf56e0d-a978-4f83-a4fd-587fbf147205"
-        // name: "Nivea Refreshing Cleansing Milk 200 Ml"
-        // pictureUrl: "https://skinfo.azureedge.net/shopproductimages/caf56e0d-a978-4f83-a4fd-587fbf147205.jpg"
-        // widgetViewModel: null
-
-
         var card = document.createElement('div');
         card.classList.add('product-card');
 
@@ -417,15 +407,6 @@
         name.innerText = product.name;
         name.classList.add('product-name');
         card.appendChild(name);
-
-        // var price = document.createElement('div');
-        // price.innerText = product.price;
-        // price.classList.add('product-price');
-        // card.appendChild(price);
-        // var buyButton = document.createElement('button');
-        // buyButton.innerText = 'Köp';
-        // buyButton.classList.add('product-buy');
-        // card.appendChild(buyButton);
 
         var summary = document.createElement('div');
         summary.classList.add('summarydiv');
