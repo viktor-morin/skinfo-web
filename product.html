@@ -241,10 +241,8 @@
 
     .collapsible {
         background-color: #eee;
-        color: #444;
         cursor: pointer;
         padding: 18px;
-        width: 100%;
         border: none;
         text-align: left;
         outline: none;
@@ -362,6 +360,17 @@
         min-width: 285px;
     }
 
+    .synonym-tag {
+        background-color: #D4D3D3;
+        border-radius: 10px;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
     .summarydiv {
         background-color: rgb(248, 248, 248);
         display: flex;
@@ -382,7 +391,7 @@
 </style>
 <script>
     var url = 'https://localhost:5001/';
-    url = 'https://staging.skinfo.se/';
+    //url = 'https://staging.skinfo.se/';
 
     function createProductPage(product) {
         var card = document.createElement('div');
@@ -460,10 +469,16 @@
         skinfunctions.appendChild(skinfunctionText);
 
         var highlights = document.createElement('div');
+
+        //temp
+        highlights.style.marginTop = '20px';
+        highlights.style.marginBottom = '20px';
+        //temp
+
         highlights.style.display = 'flex';
         var highlightsText = document.createElement('div');
         var highlightsLogo = document.createElement('div');
-        highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
+        // highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
         highlightsLogo.style.width = '25px';
         highlightsLogo.style.marginRight = '10px';
 
@@ -476,13 +491,17 @@
 
         var highlightsTitle = document.createElement('div');
         highlightsTitle.style.fontWeight = 'bold';
-        highlightsTitle.innerText = 'Innehåll med annan benämning (' + product.highlights.length + ' st)';
-
-        var highlightsUnderText = document.createElement('div');
-        highlightsUnderText.innerHTML = product.highlights.join('<br>');
-
+        //highlightsTitle.innerText = 'Innehåll med annan benämning (' + product.highlights.length + ' st)';
         highlightsText.appendChild(highlightsTitle);
-        highlightsText.appendChild(highlightsUnderText);
+        highlightsText.style.display = 'flex';
+
+        for (i = 0; i < product.highlights.length; i++) {
+            var highlightsUnderText = document.createElement('div');
+            highlightsUnderText.innerHTML = product.highlights[i];
+            highlightsUnderText.classList.add('synonym-tag');
+            highlightsText.appendChild(highlightsUnderText);
+        }
+
         highlights.appendChild(highlightsLogo);
         highlights.appendChild(highlightsText);
 
@@ -636,7 +655,7 @@
 
 
     function getParameterByName(name, url = window.location.href) {
-        if (url.includes('localhost'))
+        if (url.includes('C:'))
             return '46f40dec-27f3-4919-899a-fcedf85edb34';
         name = name.replace(/[\[\]]/g, '\\$&');
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -654,7 +673,6 @@
             createProductPage(product);
         },
         error: function (data) {
-            errorFunction();
         }
     });
 </script>

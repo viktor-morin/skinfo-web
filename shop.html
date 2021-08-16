@@ -397,7 +397,6 @@
     url = 'https://staging.skinfo.se/';
 
     function loadSessionStorage() {
-
         var tagsJSON = sessionStorage.getItem('tags');
         var productJSON = sessionStorage.getItem('products');
 
@@ -436,7 +435,7 @@
 
         window.sessionStorage.setItem('tags', JSON.stringify(innerTags));
         window.sessionStorage.setItem('products', JSON.stringify(data));
-    };
+    }
 
     function auto_grow(element) {
         element.style.height = "5px";
@@ -584,6 +583,7 @@
             }
         });
     }
+
     $.ajax({
         url: 'https://staging.skinfo.se/cookie/shop/',
         type: 'GET',
@@ -620,10 +620,9 @@
 
     loadSessionStorage();
 
-    let sidebar = document.querySelector(".sidebar");
-
-    let top = localStorage.getItem("sidebar-scroll");
-    if (top !== null) {
+    var sidebar = document.querySelector(".sidebar");
+    var oldScrollValue = localStorage.getItem("sidebar-scroll");
+    if (oldScrollValue !== null) {
         sidebar.scrollTop = parseInt(top, 10);
     }
 
