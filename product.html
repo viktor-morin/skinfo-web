@@ -381,6 +381,9 @@
     }
 </style>
 <script>
+    var url = 'https://localhost:5001/';
+    url = 'https://staging.skinfo.se/';
+
     function createProductPage(product) {
         //         affiliateLink: {shop: "APOTEA", url: "https://www.apotea.se//nivea-daily-essentials-cleansing-milk-normal-200-ml", price: 49}
         // brand: "NIVEA"
@@ -662,7 +665,7 @@
     }
 
     $.ajax({
-        url: 'https://localhost:5001/shopproduct/?id=' + getParameterByName('id'),
+        url: url + 'shopproduct/?id=' + getParameterByName('id'),
         type: 'GET',
         headers: { 'apikey': 'EChu_A6S2vd' },
         success: function (product) {
