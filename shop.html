@@ -393,9 +393,58 @@
     }
 </style>
 <script>
-
     var url = 'https://localhost:5001/';
     url = 'https://staging.skinfo.se/';
+
+    function loadSessionStorage() {
+
+        var tagsJSON = sessionStorage.getItem('tags');
+        var productJSON = sessionStorage.getItem('products');
+
+        var tags = JSON.parse(tagsJSON);
+        for (i = 0; i < tags.length; i++) {
+            var tagElement = document.createElement('span');
+            tagElement.classList.add('search-tag');
+            tagElement.innerHTML = tags[i];
+
+            var inputfield = document.getElementById('searchinput');
+            var children = inputfield.children;
+            for (i = 0; i < children.length; i++) {
+                if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
+                    continue;
+                else {
+                    children[i].insertAdjacentElement('beforebegin', tagElement);
+                    return;
+                }
+            }
+        }
+
+        var products = JSON.parse(productJSON);
+        products.forEach(product => createProductCardElement(product));
+    }
+
+    function saveSessionStorage(data) {
+        var tags = document.getElementsByClassName('search-tag');
+        var innerTags = [];
+        for (i = 0; i < tags.length; i++) {
+            innerTags.push(tags[i].innerHTML);
+        }
+
+        window.sessionStorage.setItem('tags', JSON.stringify(innerTags));
+        window.sessionStorage.setItem('products', JSON.stringify(data));
+    };
+
+    //     // Save data to sessionStorage
+    // sessionStorage.setItem('key', 'value');
+
+    // // Get saved data from sessionStorage
+    // let data = sessionStorage.getItem('key');
+
+    // // Remove saved data from sessionStorage
+    // sessionStorage.removeItem('key');
+
+    // // Remove all saved data from sessionStorage
+    // sessionStorage.clear();
 
     function auto_grow(element) {
         element.style.height = "5px";
@@ -542,6 +591,7 @@
         type: 'GET',
         headers: { 'apikey': 'EChu_A6S2vd' },
         success: function (data) {
+            saveSessionStorage(data);
             data.forEach(product => createProductCardElement(product));
         },
         error: function (data) {
@@ -582,4 +632,6 @@
     document.getElementById('vegan').onchange = function (e) {
         browse();
     }
+
+    loadSessionStorage();
 </script>
