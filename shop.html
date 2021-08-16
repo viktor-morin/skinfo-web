@@ -590,18 +590,20 @@
         return "";
     }
 
-    $.ajax({
-        url: url + '/shopproduct/getall/',
-        type: 'GET',
-        headers: { 'apikey': 'EChu_A6S2vd' },
-        success: function (data) {
-            data.forEach(product => createProductCardElement(product));
-        },
-        error: function (data) {
-            //errorFunction();
-        }
-    });
-
+    var productJSON = sessionStorage.getItem('products');
+    if (productJSON == null || productJSON.length == 0) {
+        $.ajax({
+            url: url + '/shopproduct/getall/',
+            type: 'GET',
+            headers: { 'apikey': 'EChu_A6S2vd' },
+            success: function (data) {
+                data.forEach(product => createProductCardElement(product));
+            },
+            error: function (data) {
+                //errorFunction();
+            }
+        });
+    }
     $.ajax({
         url: 'https://staging.skinfo.se/cookie/shop/',
         type: 'GET',
