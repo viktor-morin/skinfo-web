@@ -1,5 +1,5 @@
 var url = 'https://localhost:5001/';
-url = 'https://staging.skinfo.se';
+url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
 
@@ -17,7 +17,7 @@ function browse() {
     };
 
     $.ajax({
-        url: 'https://localhost:5001/shopproduct/browse',
+        url: url + 'shopproduct/browse',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
