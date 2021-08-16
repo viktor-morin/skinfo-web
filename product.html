@@ -655,7 +655,8 @@
 
 
     function getParameterByName(name, url = window.location.href) {
-        return '46f40dec-27f3-4919-899a-fcedf85edb34';
+        if (url.contains('localhost'))
+            return '46f40dec-27f3-4919-899a-fcedf85edb34';
         name = name.replace(/[\[\]]/g, '\\$&');
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
             results = regex.exec(url);
