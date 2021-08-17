@@ -4,11 +4,13 @@
 <head>
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shop.css">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <script src="scripts/skinfo.js"></script>
     <script src="scripts/instafeed.min.js"></script>
     <script src="scripts/amplitude.js"></script>
+    <script src="scripts/shop.js"></script>
     <title>Skinfo</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
@@ -69,7 +71,6 @@
                 </div> -->
             </div>
             <div style="margin-top:100px;"></div>
-
             <div style="margin-top: 50px; margin-bottom: 10px;">
                 <div id="searchbar" class="searchbar"
                     style="width: 90% !important; border-radius: unset !important; margin: auto !important; height: auto;">
@@ -92,8 +93,31 @@
                 </div>
                 <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
             </div>
+            <div>
+                <div>
+                    <input type="checkbox" id="no-concerns" name="no-concerns">
+                    <label for="no-concerns">Inga anmärkingar</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vegan" name="vegan">
+                    <label for="vegan">Vegan</label>
+                </div>
+                <label for="sort">Sort Order</label>
+                <select name="sort" id="sort">
+                    <option value="a-z">Produktnamn (A-Z)</option>
+                    <option value="z-a">Produktnamn (Z-A)</option>
+                    <option value="a-brand">Varumärke (A-Z)</option>
+                    <option value="z-brand">Varumärke (Z-A)</option>
+                    <option value="low-price">Lägsta Pris</option>
+                    <option value="high-price">Högsta Pris</option>
+                    <option value="low-concerns">Anmärkningar (få)</option>
+                    <option value="high-concerns">Anmärkningar (många)</option>
+                </select>
+            </div>
             <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
                 <div id="product" class="product-container">
+                </div>
+                <div id="allproducts" class="products-container">
                 </div>
             </div>
             <div class="one-block-fullwidth graybackgroundcolor footer-main" style="margin-bottom: 0;">
@@ -214,460 +238,3 @@
 </body>
 
 </html>
-<style>
-    .skinfobackground {
-        background-image: url(shop/background.png);
-        background-size: cover;
-        min-height: 20vh;
-    }
-
-    .arrow {
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        width: 8px;
-    }
-
-    .up {
-        transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
-    }
-
-    .down {
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-    }
-
-    .collapsible {
-        background-color: #eee;
-        cursor: pointer;
-        padding: 18px;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-    }
-
-    .active,
-    .collapsible:hover {
-        background-color: #ccc;
-    }
-
-    .sources-content {
-        padding: 0 18px;
-        background-color: white;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-    }
-
-    .product-container {
-        display: grid;
-    }
-
-    .product-card {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        padding: 10px;
-    }
-
-    /* .product-card:hover {
-        zoom: 110%;
-    } */
-
-    .product-img-div {
-        max-height: 300px;
-        display: flex;
-        margin: auto;
-    }
-
-    .product-img {
-        height: auto;
-        vertical-align: middle;
-        max-height: inherit;
-    }
-
-    .product-brand {
-        font-weight: bold;
-    }
-
-    .product-buy {
-        background-color: black;
-        color: white;
-        border-radius: unset;
-    }
-
-    .product-sciene-info {
-        display: flex;
-        margin-top: 25px;
-    }
-
-    .product-summary {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid lightgray;
-    }
-
-    .product-inci {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid lightgray;
-    }
-
-    .gray-title {
-        margin-top: 25px;
-        margin-bottom: 10px;
-        background-color: rgb(248, 248, 248);
-        display: flex;
-        padding: 18px;
-        justify-content: space-between;
-    }
-
-    .shop-button {
-        background-color: black;
-        color: white !important;
-        padding: 20px;
-    }
-
-    .search-tag {
-        background-color: rgba(0, 0, 0, 0.1);
-        height: fit-content;
-        padding: 5px;
-        border-radius: 0.25rem;
-        margin-left: 5px;
-        float: left;
-        margin-bottom: 5px;
-    }
-
-    .search-tag-delete {
-        padding-top: 2px;
-        margin-left: 3px;
-        padding-left: 1px;
-        padding-right: 1px;
-        cursor: pointer;
-    }
-
-    .search-tag-delete:hover {
-        background-color: black;
-        fill: white;
-        border-radius: 0.25rem;
-    }
-
-    .searchbox {
-        text-transform: lowercase !important;
-        min-width: 285px;
-    }
-
-    .synonym-tag {
-        background-color: #D4D3D3;
-        border-radius: 10px;
-        padding-top: 4px !important;
-        padding-bottom: 4px !important;
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        margin-left: 2px;
-        margin-right: 2px;
-    }
-
-    .summarydiv {
-        background-color: rgb(248, 248, 248);
-        display: flex;
-        justify-content: space-evenly;
-        padding: 20px;
-        font-size: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .product-name {}
-
-    .product-price {}
-
-    @media only screen and (max-width: 500px) {
-        .product-container {}
-    }
-</style>
-<script>
-    var url = 'https://localhost:5001/';
-    //url = 'https://staging.skinfo.se/';
-
-    function createProductPage(product) {
-        var card = document.createElement('div');
-        card.classList.add('product-card');
-
-        var productImg = document.createElement('div');
-        productImg.classList.add('product-img-div');
-
-        var img = document.createElement('img');
-        img.src = product.pictureUrl;
-        img.classList.add('product-img');
-        productImg.appendChild(img);
-
-        card.appendChild(productImg);
-
-        var brand = document.createElement('brand');
-        brand.innerText = product.brand;
-        brand.classList.add('product-brand');
-        card.appendChild(brand);
-
-        var name = document.createElement('div');
-        name.innerText = product.name;
-        name.classList.add('product-name');
-        card.appendChild(name);
-
-        var summary = document.createElement('div');
-        summary.classList.add('summarydiv');
-        var summaryText = document.createElement('div');
-        summaryText.innerText = 'Summering';
-        summaryText.style.fontWeight = 'bold';
-        var summarySciene = document.createElement('a');
-        summarySciene.innerText = 'Baserat på vetenskaplig underlag';
-        summarySciene.style.color = 'black';
-        summarySciene.style.textDecoration = 'underline';
-        var summaryLogoDiv = document.createElement('div');
-        var summaryLogo = document.createElement('img');
-        summaryLogo.src = 'svg/skinfo-logo-color-black.svg';
-        summaryLogo.width = '50';
-        var summaryIcon = document.createElement('img');
-        summaryIcon.src = 'svg/check-filled.svg';
-        summaryIcon.width = '10';
-        summaryIcon.style.paddingLeft = '5px';
-        summaryIcon.style.paddingBottom = '3px';
-        summaryLogoDiv.appendChild(summaryLogo);
-        summaryLogoDiv.appendChild(summaryIcon);
-        summary.appendChild(summaryText);
-        summary.appendChild(summarySciene);
-        summary.appendChild(summaryLogoDiv);
-        card.appendChild(summary);
-
-        var skinfunctions = document.createElement('div');
-        skinfunctions.style.display = 'flex';
-        var skinfunctionText = document.createElement('div');
-        var skinfunctionsLogo = document.createElement('div');
-        skinfunctionsLogo.innerHTML = '<?xml version="1.0" encoding="utf-8"?><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.881 122.88" enable-background="new 0 0 122.881 122.88" xml:space="preserve"><g><path d="M61.44,0c16.966,0,32.326,6.877,43.445,17.995s17.996,26.479,17.996,43.444c0,16.967-6.877,32.327-17.996,43.445 S78.406,122.88,61.44,122.88c-16.966,0-32.326-6.877-43.444-17.995S0,78.406,0,61.439c0-16.965,6.877-32.326,17.996-43.444 S44.474,0,61.44,0L61.44,0z M34.556,67.179c-1.313-1.188-1.415-3.216-0.226-4.529c1.188-1.313,3.216-1.415,4.529-0.227L52.3,74.611 l31.543-33.036c1.223-1.286,3.258-1.336,4.543-0.114c1.285,1.223,1.336,3.257,0.113,4.542L54.793,81.305l-0.004-0.004 c-1.195,1.257-3.182,1.338-4.475,0.168L34.556,67.179L34.556,67.179z M100.33,22.55C90.377,12.598,76.627,6.441,61.44,6.441 c-15.188,0-28.938,6.156-38.89,16.108c-9.953,9.953-16.108,23.702-16.108,38.89c0,15.188,6.156,28.938,16.108,38.891 c9.952,9.952,23.702,16.108,38.89,16.108c15.187,0,28.937-6.156,38.89-16.108c9.953-9.953,16.107-23.702,16.107-38.891 C116.438,46.252,110.283,32.502,100.33,22.55L100.33,22.55z" /></g></svg>';
-        skinfunctionsLogo.style.width = '25px';
-        skinfunctionsLogo.style.marginRight = '10px';
-
-        if (product.skinfunctions.length > 0)
-            skinfunctionsLogo.style.fill = 'green';
-        else
-            skinfunctionsLogo.style.fill = 'lightgray';
-
-        skinfunctions.appendChild(skinfunctionsLogo);
-        var skinfunctionTitle = document.createElement('div');
-        skinfunctionTitle.style.fontWeight = 'bold';
-        skinfunctionTitle.innerText = 'Kan hjälpa med (' + product.skinfunctions.length + ' st)';
-
-        var skinfunctionUnderText = document.createElement('div');
-        skinfunctionUnderText.innerHTML = product.skinfunctions.join('<br>');
-
-        skinfunctionText.appendChild(skinfunctionTitle);
-        skinfunctionText.appendChild(skinfunctionUnderText);
-        skinfunctions.appendChild(skinfunctionsLogo);
-        skinfunctions.appendChild(skinfunctionText);
-
-        var highlights = document.createElement('div');
-        highlights.style.display = 'flex';
-        var highlightsText = document.createElement('div');
-        var highlightsLogo = document.createElement('div');
-        // highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
-        highlightsLogo.style.minWidth = '25px';
-        highlightsLogo.style.marginRight = '10px';
-
-        if (product.highlights.length > 0)
-            highlightsLogo.style.fill = 'black';
-        else
-            highlightsLogo.style.fill = 'lightgray';
-
-        highlights.appendChild(highlightsLogo);
-
-        var highlightsTitle = document.createElement('div');
-        highlightsTitle.style.fontWeight = 'bold';
-        //highlightsTitle.innerText = 'Innehåll med annan benämning (' + product.highlights.length + ' st)';
-        highlightsText.appendChild(highlightsTitle);
-        highlightsText.style.display = 'flex';
-        highlightsText.style.margin = 'auto';
-
-        for (i = 0; i < product.highlights.length; i++) {
-            var highlightsUnderText = document.createElement('div');
-            highlightsUnderText.innerHTML = product.highlights[i];
-            highlightsUnderText.classList.add('synonym-tag');
-            highlightsText.appendChild(highlightsUnderText);
-        }
-
-        highlights.appendChild(highlightsLogo);
-        highlights.appendChild(highlightsText);
-
-        var concerns = document.createElement('div');
-        concerns.style.display = 'flex';
-        var concernsLogo = document.createElement('div');
-        var concernsText = document.createElement('div');
-        concernsLogo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
-        concernsLogo.style.minWidth = '25px';
-        concernsLogo.style.marginRight = '10px';
-
-        if (product.concerns.length > 0)
-            concernsLogo.style.fill = 'rgb(255, 161, 0)';
-        else
-            concernsLogo.style.fill = 'lightgray';
-
-        concerns.appendChild(concernsLogo);
-
-        var concernsTitle = document.createElement('div');
-        concernsTitle.style.fontWeight = 'bold';
-        concernsTitle.innerText = 'Bra att veta (' + product.concerns.length + ' st)';
-
-        var concersUnderText = document.createElement('div');
-        concersUnderText.innerHTML = product.concerns.join('<br>');
-
-        concernsText.appendChild(concernsTitle);
-        concernsText.appendChild(concersUnderText);
-        concerns.appendChild(concernsLogo);
-        concerns.appendChild(concernsText);
-
-        card.appendChild(highlights);
-        card.appendChild(skinfunctions);
-        card.appendChild(concerns);
-
-        var buysection = document.createElement('div');
-        buysection.style.display = 'flex';
-        buysectionPrice = document.createElement('div');
-        buysectionPrice.price;
-
-        var ingredientlist = document.createElement('div');
-        ingredientlist.classList.add('product-inci');
-        ingredientlist.innerText = 'Ingredienslista';
-        card.appendChild(ingredientlist);
-
-        var inci = document.createElement('div');
-        inci.id = 'inci';
-        card.appendChild(inci);
-
-        var shops = document.createElement('div');
-        shops.classList.add('gray-title');
-        shops.innerText = 'Butiker';
-        card.appendChild(shops);
-
-        for (i = 0; i < product.affiliatelinks.length; i++) {
-            var shop = product.affiliatelinks[i].shop;
-            var price = product.affiliatelinks[i].price;
-            var productUrl = product.affiliatelinks[i].url;
-
-            var shopDiv = document.createElement('div');
-            shopDiv.style.display = 'flex';
-            shopDiv.style.justifyContent = 'space-around';
-            var shopImg = document.createElement('img');
-            shopImg.style.width = '100px';
-            shopImg.style.height = 'fit-content';
-            shopImg.style.margin = 'auto';
-
-            switch (shop) {
-                case 'APOTEA':
-                    shopImg.src = 'shop/apotea-logo.webp';
-                    break;
-                case 'SKINCITY':
-                    shopImg.src = 'shop/skincity.svg';
-                    break;
-            }
-
-            var shopPrice = document.createElement('div');
-            shopPrice.innerText = price + 'kr';
-            shopPrice.style.margin = 'auto';
-
-            var shopButton = document.createElement('a');
-            shopButton.innerText = 'Till Butik';
-            shopButton.href = productUrl;
-            shopButton.classList.add('shop-button');
-            shopButton.style.margin = 'auto';
-
-            shopDiv.appendChild(shopImg);
-            shopDiv.appendChild(shopPrice);
-            shopDiv.appendChild(shopButton);
-
-            card.appendChild(shopDiv);
-        }
-
-        var sources = document.createElement('div');
-        sources.classList.add('gray-title');
-        sources.classList.add('collapsible');
-        sources.innerText = 'Källor';
-        sources.onclick = function (e) {
-            var content = document.getElementById('sources-content');
-            var contentArrow = document.getElementById('sources-arrow');
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-            if (contentArrow.classList.contains('down')) {
-                contentArrow.classList.remove('down');
-                contentArrow.classList.add('up');
-            } else {
-                contentArrow.classList.add('down');
-                contentArrow.classList.remove('up');
-            }
-        }
-
-        var arrow = document.createElement('i');
-        arrow.id = 'sources-arrow';
-        arrow.classList.add('arrow');
-        arrow.classList.add('down');
-        sources.appendChild(arrow);
-
-        var sourcesData = document.createElement('div');
-        sourcesData.id = 'sources-content';
-        sourcesData.classList.add('sources-content');
-
-        var skinfoinfo = document.createElement('div');
-        skinfoinfo.innerText = 'Skinfo baserar all data från högt respekterade källor från forskning och myndigheter'
-        skinfoinfo.style.marginBottom = '10px';
-        var echa = document.createElement('div');
-        echa.innerText = 'European Chemicals Agency'
-        var chemsec = document.createElement('div');
-        chemsec.innerText = 'The International Chemical Secretariat'
-        var europeanCommision = document.createElement('div');
-        europeanCommision.innerText = 'European Commission';
-        var pcpc = document.createElement('div');
-        pcpc.innerText = 'Personal Care Products Council'
-        var oecd = document.createElement('div');
-        oecd.innerText = 'The Organisation for Economic Co-operation and Development';
-
-        sourcesData.appendChild(skinfoinfo);
-        sourcesData.appendChild(echa);
-        sourcesData.appendChild(chemsec);
-        sourcesData.appendChild(europeanCommision);
-        sourcesData.appendChild(pcpc);
-        sourcesData.appendChild(oecd);
-
-        card.appendChild(sources);
-        card.appendChild(sourcesData);
-
-        document.getElementById('product').appendChild(card);
-        $('#inci').html(product.widget);
-    }
-
-
-    function getParameterByName(name, url = window.location.href) {
-        if (url.includes('C:'))
-            return '46f40dec-27f3-4919-899a-fcedf85edb34';
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    $.ajax({
-        url: url + 'shopproduct/?id=' + getParameterByName('id'),
-        type: 'GET',
-        headers: { 'apikey': 'EChu_A6S2vd' },
-        success: function (product) {
-            createProductPage(product);
-        },
-        error: function (data) {
-        }
-    });
-</script>

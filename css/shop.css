@@ -1,0 +1,335 @@
+.skinfobackground {
+    background-image: url(shop/background.png);
+    background-size: cover;
+    min-height: 20vh;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 20px;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    width: 8px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.collapsible {
+    background-color: #eee;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #ccc;
+}
+
+.sources-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.product-container {
+    display: grid;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    min-height: 375px;
+    /* min-width: 165px; */
+    width: 100%;
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.product-img-div {
+    max-width: 140px;
+    max-height: 140px;
+    display: flex;
+    margin: auto;
+}
+
+.product-img {
+    height: auto;
+    line-height: 140px;
+    vertical-align: middle;
+    max-height: inherit;
+    max-width: inherit;
+}
+
+.product-brand {
+    font-weight: bold;
+    color: black;
+}
+
+.product-name {
+    color: black;
+}
+
+.product-price {
+    color: black;
+}
+
+.product-img-div-single {
+    max-height: 300px;
+    display: flex;
+    margin: auto;
+}
+
+.product-img {
+    height: auto;
+    vertical-align: middle;
+    max-height: inherit;
+}
+
+.product-brand {
+    font-weight: bold;
+}
+
+.product-buy {
+    background-color: black;
+    color: white;
+    border-radius: unset;
+}
+
+.product-sciene-info {
+    display: flex;
+    margin-top: 25px;
+}
+
+.product-summary {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.product-inci {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.gray-title {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    padding: 18px;
+    justify-content: space-between;
+}
+
+.shop-button {
+    background-color: black;
+    color: white !important;
+    padding: 20px;
+}
+
+.search-tag {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    padding: 5px;
+    border-radius: 0.25rem;
+    margin-left: 5px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.search-tag-delete {
+    padding-top: 2px;
+    margin-left: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
+    cursor: pointer;
+}
+
+.search-tag-delete:hover {
+    background-color: black;
+    fill: white;
+    border-radius: 0.25rem;
+}
+
+.searchbox {
+    text-transform: lowercase !important;
+    min-width: 285px;
+}
+
+.synonym-tag {
+    background-color: #D4D3D3;
+    border-radius: 10px;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.summarydiv {
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product-name {}
+
+.product-price {}
+
+@media only screen and (max-width: 500px) {
+    .product-container {}
+}
+
+.skinfobackground {
+    background-image: url(shop/background.png);
+    background-size: cover;
+    min-height: 20vh;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 20px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    min-height: 375px;
+    /* min-width: 165px; */
+    width: 100%;
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.product-img-div {
+    max-width: 140px;
+    max-height: 140px;
+    display: flex;
+    margin: auto;
+}
+
+.product-img {
+    height: auto;
+    line-height: 140px;
+    vertical-align: middle;
+    max-height: inherit;
+    max-width: inherit;
+}
+
+.product-brand {
+    font-weight: bold;
+    color: black;
+}
+
+.product-name {
+    color: black;
+}
+
+.product-price {
+    color: black;
+}
+
+.search-tag {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    padding: 5px;
+    border-radius: 0.25rem;
+    margin-left: 5px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.search-tag-delete {
+    padding-top: 2px;
+    margin-left: 3px;
+    padding-left: 1px;
+    padding-right: 1px;
+    cursor: pointer;
+}
+
+.search-tag-delete:hover {
+    background-color: black;
+    fill: white;
+    border-radius: 0.25rem;
+}
+
+.searchbox {
+    text-transform: lowercase !important;
+    min-width: 285px;
+}
+
+.skinfoDataElement {
+    display: flex;
+    flex-direction: column;
+}
+
+.skinfoDataNumber {
+    color: black;
+}
+
+@media only screen and (max-width: 850px) {
+    .products-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .products-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* temp */
+input[type="checkbox"] {
+    -webkit-appearance: auto !important;
+}
