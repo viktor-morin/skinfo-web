@@ -116,7 +116,7 @@ function createProductPage(product) {
     skinfunctionsLogo.style.marginRight = '10px';
 
     if (product.skinfunctions.length > 0)
-        skinfunctionsLogo.style.fill = 'green';
+        skinfunctionsLogo.style.fill = '#31cf8d';
     else
         skinfunctionsLogo.style.fill = 'lightgray';
 
@@ -367,7 +367,7 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 var productId = getParameterByName('id');
-if (productId) {
+if (productId && window.location.href.includes('product')) {
     $.ajax({
         url: url + 'shopproduct/?id=' + productId,
         type: 'GET',
@@ -472,20 +472,18 @@ function createProductCardElement(product) {
     skinfunctions.style.margin = 'auto';
 
     if (product.skinfunctions.length > 0)
-        skinfunctions.style.fill = 'green';
+        skinfunctions.style.fill = '#31cf8d';
     else
         skinfunctions.style.fill = 'lightgray';
 
     skinfunctionsDiv.appendChild(skinfunctions);
     var skinfunctionsNumber = document.createElement('div');
-    skinfunctionsNumber.innerText = product.skinfunctions.length;
+    skinfunctionsNumber.innerText = product.skinfunctions.length + 'st';
     skinfunctionsNumber.classList.add('skinfoDataNumber');
     skinfunctionsDiv.appendChild(skinfunctionsNumber);
 
     var concernsDiv = document.createElement('div');
     concernsDiv.classList.add('skinfoDataElement');
-    concernsDiv.style.display = 'flex';
-    concernsDiv.style.flexDirection = 'row';
     var concerns = document.createElement('div');
     concerns.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
     concerns.style.width = '20px';
@@ -496,17 +494,12 @@ function createProductCardElement(product) {
     if (product.concerns.length == 0)
         concerns.style.fill = 'lightgray';
 
-    concernsDiv.appendChild(concerns);
-
-    var concernsStats = document.createElement('div');
-    concernsStats.appendChild(concerns);
-
     var concernsNumber = document.createElement('div');
-    concernsNumber.innerText = product.concerns.length;
+    concernsNumber.innerText = product.concerns.length + 'st';
     concernsNumber.classList.add('skinfoDataNumber');
-    concernsStats.appendChild(concernsNumber);
 
-    concernsDiv.appendChild(concernsStats);
+    concernsDiv.appendChild(concerns);
+    concernsDiv.appendChild(concernsNumber);
     skinfoData.appendChild(skinfoLogo);
     skinfoData.appendChild(skinfunctionsDiv);
     skinfoData.appendChild(concernsDiv);
@@ -548,7 +541,7 @@ function browse() {
         browseTags: getAllTagsAsBrowseTags(),
         sortOrder: getSortOrder(),
         pageNumber: pageNumber,
-        noConcerns: document.getElementById('no-concerns').checked
+        noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
     };
 
     $.ajax({
@@ -657,12 +650,22 @@ $(document).ready(function () {
         browse();
     }
 
-    document.getElementById('no-concerns').onchange = function (e) {
-        browse();
-    }
-
-    document.getElementById('vegan').onchange = function (e) {
-        browse();
+    var sliders = document.getElementsByClassName('si-slider');
+    for (i = 0; i < sliders.length; i++) {
+        sliders[i].onclick = function (e) {
+            if (this.classList.contains('si-slider-checked')) {
+                this.classList.remove('si-slider-checked');
+                this.parentElement.parentElement.style.backgroundColor = null;
+                this.parentElement.parentElement.nextElementSibling.innerText = 'Av';
+                browse();
+            }
+            else {
+                this.classList.add('si-slider-checked');
+                this.parentElement.parentElement.style.backgroundColor = 'white';
+                this.parentElement.parentElement.nextElementSibling.innerText = 'På';
+                browse();
+            }
+        }
     }
 
     function getParameterByName(name, url = window.location.href) {
