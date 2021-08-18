@@ -389,19 +389,29 @@ function createProductCardElement(product) {
 
     card.appendChild(productImg);
 
+    var productTextDiv = document.createElement('div');
+    productTextDiv.classList.add('product-text');
+
     var brand = document.createElement('brand');
     brand.innerText = product.brand;
     brand.classList.add('product-brand');
-    card.appendChild(brand);
+    //card.appendChild(brand);
+    productTextDiv.appendChild(brand);
 
     var name = document.createElement('div');
     name.innerText = product.name;
     name.classList.add('product-name');
-    card.appendChild(name);
+    //card.appendChild(name);
+    productTextDiv.appendChild(name);
 
     var price = document.createElement('div');
     price.innerText = product.price;
     price.classList.add('product-price');
+    //card.appendChild(price);
+
+
+    card.appendChild(productTextDiv);
+
     card.appendChild(price);
 
     var skinfoData = document.createElement('div');
@@ -427,7 +437,7 @@ function createProductCardElement(product) {
 
     skinfunctionsDiv.appendChild(skinfunctions);
     var skinfunctionsNumber = document.createElement('div');
-    skinfunctionsNumber.innerText = product.skinfunctions.length + 'st';
+    skinfunctionsNumber.innerText = product.skinfunctions.length;
     skinfunctionsNumber.classList.add('skinfoDataNumber');
     skinfunctionsDiv.appendChild(skinfunctionsNumber);
 
@@ -451,7 +461,7 @@ function createProductCardElement(product) {
     concernsStats.appendChild(concerns);
 
     var concernsNumber = document.createElement('div');
-    concernsNumber.innerText = product.concerns.length + 'st';
+    concernsNumber.innerText = product.concerns.length;
     concernsNumber.classList.add('skinfoDataNumber');
     concernsStats.appendChild(concernsNumber);
 

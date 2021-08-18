@@ -1,13 +1,7 @@
 .skinfobackground {
-    background-image: url(shop/background.png);
+    background-image: url(../shop/background.png);
     background-size: cover;
     min-height: 20vh;
-}
-
-.products-container {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding: 20px;
 }
 
 .arrow {
@@ -63,7 +57,7 @@
     transition: 0.3s;
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 375px;
+    min-height: 370px;
     /* min-width: 165px; */
     width: 100%;
     width: -moz-available;
@@ -87,33 +81,22 @@
     color: black;
 }
 
-.product-name {
-    color: black;
-
-    display: -webkit-box;
-
-    line-clamp: 2;
-    -moz-line-clamp : 2;
-    -webkit-line-clamp : 2;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    box-orient: vertical;
-    -moz-box-orient: vertical;
-    -webkit-box-orient: vertical;
-
-    min-height: 38px;
-}
-
 .product-price {
     color: black;
+    font-weight: bold;
 }
 
 .product-img-div-single {
     max-height: 300px;
     display: flex;
     margin: auto;
+}
+
+.product-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 80px;
 }
 
 .product-buy {
@@ -213,7 +196,7 @@
 }
 
 .skinfobackground {
-    background-image: url(shop/background.png);
+    background-image: url(../shop/background.png);
     background-size: cover;
     min-height: 20vh;
 }
@@ -224,48 +207,38 @@
     padding: 20px;
 }
 
-.product-card {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    cursor: pointer;
-    transition: 0.3s;
-    padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 375px;
-    /* min-width: 165px; */
-    width: 100%;
-    width: -moz-available;
-    /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;
-    /* Mozilla-based browsers will ignore this. */
-    width: fill-available;
-}
-
-.product-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
 .product-img-div {
     max-width: 140px;
     max-height: 140px;
     display: flex;
     margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 .product-brand {
     font-weight: bold;
     color: black;
     font-size: 14px;
-    min-height: 34px;
 }
 
 .product-name {
     color: black;
-}
 
-.product-price {
-    color: black;
+    display: -webkit-box;
+
+    line-clamp: 2;
+    -moz-line-clamp : 2;
+    -webkit-line-clamp : 2;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+
+    min-height: 38px;
 }
 
 .search-tag {
@@ -305,6 +278,8 @@
 .skinfoDataNumber {
     color: black;
     font-size: 14px;
+    margin: auto;
+    text-align: center;
 }
 
 @media only screen and (max-width: 850px) {
