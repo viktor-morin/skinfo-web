@@ -1,10 +1,7 @@
 var url = 'https://localhost:5001/';
-url = 'https://staging.skinfo.se/';
+//url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
-
-var url = 'https://localhost:5001/';
-url = 'https://staging.skinfo.se/';
 
 function loadSessionStorage() {
     var tagsJSON = sessionStorage.getItem('tags');
@@ -58,9 +55,6 @@ function getCookie(cname) {
     }
     return "";
 }
-
-var url = 'https://localhost:5001/';
-//url = 'https://staging.skinfo.se/';
 
 function createProductPage(product) {
     var card = document.createElement('div');
@@ -411,9 +405,10 @@ function createProductCardElement(product) {
     card.appendChild(price);
 
     var skinfoData = document.createElement('div');
+    skinfoData.style.marginTop = '10px';
     skinfoData.style.display = 'flex';
     skinfoData.style.justifyContent = 'space-evenly';
-    skinfoData.style.backgroundColor = 'rgb(248, 248, 248)';
+    //skinfoData.style.backgroundColor = 'rgb(248, 248, 248)';
     var skinfoLogo = document.createElement('img');
     skinfoLogo.src = 'svg/skinfo-logo-color-black.svg';
     skinfoLogo.style.width = '50px';
@@ -423,6 +418,7 @@ function createProductCardElement(product) {
     var skinfunctions = document.createElement('div');
     skinfunctions.innerHTML = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-5 -5 360 360" xml:space="preserve"><g style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform="translate(-1.9444444444444287 -1.9444444444444287) scale(3.89 3.89)" ><path d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 68.371 32.98 l -26.521 30 c -0.854 0.967 -2.083 1.52 -3.372 1.52 c -0.01 0 -0.02 0 -0.029 0 c -1.3 -0.009 -2.533 -0.579 -3.381 -1.563 L 21.59 47.284 c -1.622 -1.883 -1.41 -4.725 0.474 -6.347 c 1.884 -1.621 4.725 -1.409 6.347 0.474 l 10.112 11.744 L 61.629 27.02 c 1.645 -1.862 4.489 -2.037 6.352 -0.391 C 69.843 28.275 70.018 31.119 68.371 32.98 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>';
     skinfunctions.style.width = '20px';
+    skinfunctions.style.margin = 'auto';
 
     if (product.skinfunctions.length > 0)
         skinfunctions.style.fill = 'green';
@@ -442,6 +438,7 @@ function createProductCardElement(product) {
     var concerns = document.createElement('div');
     concerns.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
     concerns.style.width = '20px';
+    concerns.style.margin = 'auto';
 
     if (product.concerns.length > 0)
         concerns.style.fill = '#FFA100';
