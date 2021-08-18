@@ -73,7 +73,7 @@
             <div style="margin-top:50px;"></div>
             <div class="one-block-fullwidth graybackgroundcolor skinfobackground"
                 style="display: flex; padding-top: 6rem; padding-bottom: 6rem; margin-top: 0px;">
-                <div style="margin:auto; width: 89%;">
+                <div style="margin:auto; width: 90%; max-width: 670px;">
                     <h1 style="text-align: left; font-size: 1.7em; margin-bottom: 10px;">Sök och förstå alla
                         ingredienser i produkter</h1>
                     <div style="display: flex; max-width: 100%; min-width: 100%;">
@@ -91,10 +91,10 @@
                             </svg>
                         </span>
                     </div>
-                    <div style="margin-top: 50px; margin-bottom: 10px;">
+                    <div style="margin-top: 30px; margin-bottom: 10px;">
                         <div id="searchbar" class="searchbar"
-                            style="width: 90% !important; border-radius: unset !important; margin: auto !important; height: auto;">
-                            <div id="searchinput">
+                            style="width: 100% !important; border-radius: unset !important; margin: auto !important; height: auto;">
+                            <div id="searchinput" style="display: flex;">
                                 <div id="searchicon" style="width: 20px; height: 20px; float: left; margin-top: 4px;">
                                     <svg focusable="false" xmlns="http://www.w3.org/2000/svg" fill="#9aa0a6"
                                         viewBox="0 0 20 20" style="width: 20px!important;
@@ -104,6 +104,7 @@
                                         </path>
                                     </svg>
                                 </div>
+                                <div class="search-tags-maindiv"></div>
                                 <form id="searchform" style="width: 100%;" autocomplete="off" action="/search?id=">
                                     <input type="text" id="searchbox" autocomplete="off" autofocus type="search"
                                         name="id" placeholder="Sök varumärke, produkt eller ingrediens"
@@ -112,9 +113,11 @@
                                 </form>
                             </div>
                         </div>
-                        <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
+                        <div id="searchbar-suggestions" class="searchbar-suggestions"
+                            style="width: 90% !important;display: none; left:20px">
+                        </div>
                     </div>
-                    <a style="display: flex; max-width: 100%; min-width: 100%;">
+                    <a style="display: flex; max-width: 100%; min-width: 100%; margin-top: 30px;">
                         <span style="font-size: 14px;">Detta är en beta-version. Ge oss feedback</span>
                         <span
                             style="height: 25px; width: 25px; display: flex; float: right; vertical-align: top; margin-left: 10px; margin-top: -4px;">

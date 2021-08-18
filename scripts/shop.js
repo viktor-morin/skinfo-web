@@ -1,7 +1,15 @@
 var url = 'https://localhost:5001/';
-//url = 'https://staging.skinfo.se/';
+url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
+
+function ifTagsHidePlaceholder() {
+    var tags = document.getElementsByClassName('search-tag');
+    if (tags.length > 0)
+        document.getElementById('searchbox').placeholder = '';
+    else
+        document.getElementById('searchbox').placeholder = 'Sök varumärke, produkt eller ingrediens';
+}
 
 function loadSessionStorage() {
     var tagsJSON = sessionStorage.getItem('tags');
@@ -14,18 +22,21 @@ function loadSessionStorage() {
             tagElement.classList.add('search-tag');
             tagElement.innerHTML = tags[i];
 
-            var inputfield = document.getElementById('searchinput');
-            var children = inputfield.children;
-            for (i = 0; i < children.length; i++) {
-                if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
-                    continue;
-                else {
-                    children[i].insertAdjacentElement('beforebegin', tagElement);
-                    break;
-                }
-            }
+            document.getElementsByClassName('search-tags-maindiv')[0].appendChild(tagElement);
+            // var inputfield = document.getElementById('searchinput');
+            // var children = inputfield.children;
+            // for (i = 0; i < children.length; i++) {
+            //     if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
+            //         continue;
+            //     else {
+            //         children[i].insertAdjacentElement('beforebegin', tagElement);
+            //         break;
+            //     }
+            // }
         }
     }
+
+    ifTagsHidePlaceholder();
 
     var products = JSON.parse(productJSON);
     if (products) {
@@ -84,7 +95,6 @@ function createProductPage(product) {
     summary.classList.add('summarydiv');
     var summaryText = document.createElement('div');
     summaryText.innerText = 'Summering';
-    summaryText.style.fontWeight = 'bold';
     var summarySciene = document.createElement('a');
     summarySciene.innerText = 'Baserat på vetenskaplig underlag';
     summarySciene.style.color = 'black';
@@ -524,6 +534,7 @@ function saveSessionStorage(data) {
 
 function removeTag(e) {
     e.parentElement.parentElement.remove();
+    ifTagsHidePlaceholder();
     browse();
 }
 
@@ -574,26 +585,29 @@ function updateTags(value, tagType) {
     tagElement.classList.add('search-tag');
     switch (tagType) {
         case "searchbar-brand":
-            tagElement.innerHTML = '<span class="search-tags search-tags-brand" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+            tagElement.innerHTML = '<span class="search-tags search-tags-brand" style="display: flex; width:max-content; min-width: max-content">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
             break;
         case "searchbar-product":
-            tagElement.innerHTML = '<span class="search-tags search-tags-name" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+            tagElement.innerHTML = '<span class="search-tags search-tags-name" style="display: flex; width:max-content; min-width: max-content">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
             break;
         case "searchbar-ingredient":
-            tagElement.innerHTML = '<span class="search-tags search-tags-ingredient" style="display: flex; width:max-content;">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+            tagElement.innerHTML = '<span class="search-tags search-tags-ingredient" style="display: flex; width:max-content; min-width: max-content">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
             break;
     }
 
-    var inputfield = document.getElementById('searchinput');
-    var children = inputfield.children;
-    for (i = 0; i < children.length; i++) {
-        if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
-            continue;
-        else {
-            children[i].insertAdjacentElement('beforebegin', tagElement);
-            return;
-        }
-    }
+    // var inputfield = document.getElementById('searchinput');
+    // var children = inputfield.children;
+    // for (i = 0; i < children.length; i++) {
+    //     if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
+    //         continue;
+    //     else {
+    //         children[i].insertAdjacentElement('beforebegin', tagElement);
+    //         return;
+    //     }
+    // }
+
+    document.getElementsByClassName('search-tags-maindiv')[0].appendChild(tagElement);
+    ifTagsHidePlaceholder();
 }
 
 function convertLatestTagToText() {
@@ -603,6 +617,8 @@ function convertLatestTagToText() {
 
     $('#searchbox').val(tags[tags.length - 1].innerText);
     tags[tags.length - 1].remove();
+
+    ifTagsHidePlaceholder();
 }
 
 function updateGUI(result) {
@@ -771,20 +787,25 @@ $(document).ready(function () {
                     logData(parent.children[childCounter].innerText);
                     getShopData(parent.children[childCounter].innerText, parent.children[childCounter].classList[parent.children[childCounter].classList.length - 1]);
                     $('#searchbox').val('');
+                    $('#searchbox').focus();
                 } else {
                     logData(result.innerText);
                     getShopData(result.innerText, result.classList[result.classList.length - 2]);
                     $('#searchbox').val('');
+                    $('#searchbox').focus();
                 }
             }
             parent.innerHTML = '';
             parent.style.display = 'none';
+            ifTagsHidePlaceholder();
         }
         else if (key == 'ArrowDown') {
             var parent = document.getElementById('searchbar-suggestions');
             if (selectCounter < parent.childNodes.length - 1) {
                 selectCounter++;
                 if (selectCounter == 0)
+                    selectCounter++;
+                if (parent.childNodes[selectCounter].classList.contains('searchbar-title'))
                     selectCounter++;
             }
             parent.childNodes.forEach(child => {
@@ -804,6 +825,8 @@ $(document).ready(function () {
             if (selectCounter > -1) {
                 selectCounter--;
                 if (selectCounter == 0)
+                    selectCounter--;
+                if (parent.childNodes[selectCounter].classList.contains('searchbar-title'))
                     selectCounter--;
             }
             parent.childNodes.forEach(child => {
