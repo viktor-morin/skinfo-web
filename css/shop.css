@@ -33,9 +33,9 @@
 }
 
 .active,
-.collapsible:hover {
+/* .collapsible:hover {
     background-color: #ccc;
-}
+} */
 
 .sources-content {
     padding: 0 18px;
@@ -47,6 +47,22 @@
 
 .product-container {
     display: grid;
+}
+
+.product-card-single {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    transition: 0.3s;
+    padding: 20px;
+    min-height: 370px;
+    /* min-width: 165px; */
+    width: 100%;
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
 }
 
 .product-card {

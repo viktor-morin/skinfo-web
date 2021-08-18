@@ -58,7 +58,7 @@ function getCookie(cname) {
 
 function createProductPage(product) {
     var card = document.createElement('div');
-    card.classList.add('product-card');
+    card.classList.add('product-card-single');
 
     var productImg = document.createElement('div');
     productImg.classList.add('product-img-div-single');
@@ -126,7 +126,13 @@ function createProductPage(product) {
     skinfunctionTitle.innerText = 'Kan hjälpa med (' + product.skinfunctions.length + ' st)';
 
     var skinfunctionUnderText = document.createElement('div');
-    skinfunctionUnderText.innerHTML = product.skinfunctions.join('<br>');
+
+    for (i = 0; i < product.skinfunctions.length; i++) {
+        var fullText = product.skinfunctions[i].split(':');
+        skinfunctionUnderText.innerHTML = skinfunctionUnderText.innerHTML + fullText[0] + '<i style="color:rgba(0,0,0,0.6)"> - ' + fullText[1].trim() + '</i><br>';
+    }
+
+    //skinfunctionUnderText.innerHTML = product.skinfunctions.join('<br>');
 
     skinfunctionText.appendChild(skinfunctionTitle);
     skinfunctionText.appendChild(skinfunctionUnderText);
@@ -135,6 +141,8 @@ function createProductPage(product) {
 
     var highlights = document.createElement('div');
     highlights.style.display = 'flex';
+    highlights.style.marginTop = '5px';
+    highlights.style.marginBottom = '5px';
     var highlightsText = document.createElement('div');
     var highlightsLogo = document.createElement('div');
     // highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
@@ -150,10 +158,10 @@ function createProductPage(product) {
 
     var highlightsTitle = document.createElement('div');
     highlightsTitle.style.fontWeight = 'bold';
-    //highlightsTitle.innerText = 'Innehåll med annan benämning (' + product.highlights.length + ' st)';
     highlightsText.appendChild(highlightsTitle);
     highlightsText.style.display = 'flex';
-    highlightsText.style.margin = 'auto';
+    highlightsText.style.marginTop = '5px';
+    //highlightsText.style.margin = 'auto';
 
     for (i = 0; i < product.highlights.length; i++) {
         var highlightsUnderText = document.createElement('div');
@@ -162,11 +170,13 @@ function createProductPage(product) {
         highlightsText.appendChild(highlightsUnderText);
     }
 
-    highlights.appendChild(highlightsLogo);
-    highlights.appendChild(highlightsText);
+    //highlights.appendChild(highlightsLogo);
+    //highlights.appendChild(highlightsText);
 
     var concerns = document.createElement('div');
     concerns.style.display = 'flex';
+    concerns.style.marginTop = '5px';
+    concerns.style.marginBottom = '5px';
     var concernsLogo = document.createElement('div');
     var concernsText = document.createElement('div');
     concernsLogo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
@@ -185,25 +195,52 @@ function createProductPage(product) {
     concernsTitle.innerText = 'Bra att veta (' + product.concerns.length + ' st)';
 
     var concersUnderText = document.createElement('div');
-    concersUnderText.innerHTML = product.concerns.join('<br>');
+    for (i = 0; i < product.concerns.length; i++) {
+        var fullText = product.concerns[i].split(':');
+        concersUnderText.innerHTML = concersUnderText.innerHTML + fullText[0] + '<br><i style="color: rgba(0,0,0,0.6);">' + fullText[1] + '</i><br>';
+    }
+    //concersUnderText.innerHTML = product.concerns.join('<br>');
 
     concernsText.appendChild(concernsTitle);
     concernsText.appendChild(concersUnderText);
     concerns.appendChild(concernsLogo);
     concerns.appendChild(concernsText);
 
-    card.appendChild(highlights);
+    //card.appendChild(highlights);
     card.appendChild(skinfunctions);
     card.appendChild(concerns);
 
-    var buysection = document.createElement('div');
-    buysection.style.display = 'flex';
-    buysectionPrice = document.createElement('div');
-    buysectionPrice.price;
+    var highlights = document.createElement('div');
+    highlights.style.display = 'flex';
+    var highlightsTitle = document.createElement('div');
+    highlightsTitle.style.fontWeight = 'bold';
+    highlightsTitle.innerText = 'Övrigt';
+
+    highlights.style.display = 'flex';
+    highlights.style.marginTop = '5px';
+    highlights.style.marginBottom = '5px';
+    var highlightsLogo = document.createElement('div');
+    highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
+    highlightsLogo.style.minWidth = '25px';
+    highlightsLogo.style.marginRight = '10px';
+
+    if (product.highlights.length > 0)
+        highlightsLogo.style.fill = 'black';
+    else
+        highlightsLogo.style.fill = 'lightgray';
+
+
+    var hightlightsdiv = document.createElement('div');
+
+    highlights.appendChild(highlightsLogo);
+    hightlightsdiv.appendChild(highlightsTitle);
+    hightlightsdiv.appendChild(highlightsText);
+    highlights.appendChild(hightlightsdiv);
+    card.appendChild(highlights);
 
     var ingredientlist = document.createElement('div');
-    ingredientlist.classList.add('product-inci');
     ingredientlist.innerText = 'Ingredienslista';
+    ingredientlist.classList.add('gray-title');
     card.appendChild(ingredientlist);
 
     var inci = document.createElement('div');
@@ -311,12 +348,16 @@ function createProductPage(product) {
 
     document.getElementById('product').appendChild(card);
     $('#inci').html(product.widget);
+
+    document.getElementsByClassName('si-main-in-div')[0].remove();
+    document.getElementById('si-ingredients-menu').parentNode.children[0].remove();
+    document.getElementById('si-personal-section').remove();
 }
 
 
 function getParameterByName(name, url = window.location.href) {
     if (url.includes('C:'))
-        return '46f40dec-27f3-4919-899a-fcedf85edb34';
+        return 'a379667c-41f4-4629-8f20-40c60c6e6242';
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
@@ -341,18 +382,18 @@ if (productId) {
 
 
 var productJSON = sessionStorage.getItem('products');
-if (productJSON == null || productJSON.length == 0) {
+if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
     $.ajax({
         url: url + 'shopproduct/getall/',
         type: 'GET',
         headers: { 'apikey': 'EChu_A6S2vd' },
-        success: function (data) {
+        success: function (products) {
             var productPage = document.getElementById('product');
             if (productPage && products.length == 0)
                 productPage.style.display = 'grid';
             else if (productPage)
                 productPage.style.display = 'none';
-            data.forEach(product => createProductCardElement(product));
+            products.forEach(product => createProductCardElement(product));
         },
         error: function (data) {
             //errorFunction();
