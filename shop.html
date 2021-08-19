@@ -72,14 +72,19 @@
             </div>
             <div style="margin-top:50px;"></div>
             <div class="one-block-fullwidth graybackgroundcolor skinfobackground"
-                style="display: flex; padding-top: 6rem; padding-bottom: 6rem; margin-top: 0px;">
+                style="display: flex; padding-top: 6rem; padding-bottom: 6rem; margin-top: 0px; margin-bottom: 2rem;">
                 <div style="margin:auto; width: 90%; max-width: 670px;">
                     <h1 style="text-align: left; font-size: 1.7em; margin-bottom: 10px;">Sök och förstå alla
                         ingredienser i produkter</h1>
                     <div style="display: flex; max-width: 100%; min-width: 100%;">
                         <span style="font-size: 14px;">Alltid baserad på vetenskaplig information</span>
-                        <span
-                            style="height: 25px; width: 25px; display: flex; float: right; vertical-align: top; margin-left: 10px; margin-top: -4px;">
+                        <span style="height: 15px;
+                            width: 15px;
+                            display: flex;
+                            float: right;
+                            margin: auto;
+                            vertical-align: top;
+                            margin-left: 5px;">
                             <?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                                 y="0px" viewBox="0 0 122.881 122.88" enable-background="new 0 0 122.881 122.88"
@@ -117,36 +122,56 @@
                             style="width: 90% !important;display: none; left:20px">
                         </div>
                     </div>
-                    <a style="display: flex; max-width: 100%; min-width: 100%; margin-top: 30px;">
-                        <span style="font-size: 14px;">Detta är en beta-version. Ge oss feedback</span>
-                        <span
-                            style="height: 25px; width: 25px; display: flex; float: right; vertical-align: top; margin-left: 10px; margin-top: -4px;">
-                            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                                <path
-                                    d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 3 3 0 0 0 22 14 A 3 3 0 0 0 25 17 A 3 3 0 0 0 28 14 A 3 3 0 0 0 25 11 z M 21 21 L 21 23 L 22 23 L 23 23 L 23 36 L 22 36 L 21 36 L 21 38 L 22 38 L 23 38 L 27 38 L 28 38 L 29 38 L 29 36 L 28 36 L 27 36 L 27 21 L 26 21 L 22 21 L 21 21 z" />
-                            </svg>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div style="display: flex; justify-content: space-around;">
-                <div style="display: flex;">
-                    <div class="si-slider-main">
-                        <span style="margin-left: 2px; margin-bottom: -2px;">
-                            <svg class="si-slider si-slider-notchecked" xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054"
-                                style="width: 20px; height: 20px; border-radius: 1rem; background-color: white; z-index: 90;"
-                                xml:space="preserve">
-                                <g>
+                    <div style="display: flex;">
+                        <div class="si-slider-main">
+                            <span style="margin-left: 36px; margin-bottom: -3px;">
+                                <svg class="si-slider si-slider-checked" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 286.054 286.054"
+                                    style="width: 20px; height: 20px; border-radius: 1rem; background-color: white; z-index: 90;"
+                                    xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <span id='concern-onoff' style="display: flex; margin: auto; margin-left: 5px;">På</span>
+                    </div>
+                    <div
+                        style="color:black ;cursor: pointer; flex-direction: column; display: flex; max-width: 100%; min-width: 100%; margin-top: 30px;">
+                        <span style="font-size: 14px;">Detta är en betaversion med begränsat antal produkter men vi
+                            jobbar på att bli störst i Sverige med vetenskaplig information om
+                            produktingredienser.</span>
+                        <div id="feedback"
+                            style="font-size: 14px; margin-top: 10px; display: flex; text-decoration: underline;">
+                            Ge
+                            oss feedback
+                            <span style="height: 15px;
+                                width: 15px;
+                                margin-left: 5px;">
+                                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                                     <path
-                                        d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z">
-                                    </path>
-                                </g>
-                            </svg>
+                                        d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 3 3 0 0 0 22 14 A 3 3 0 0 0 25 17 A 3 3 0 0 0 28 14 A 3 3 0 0 0 25 11 z M 21 21 L 21 23 L 22 23 L 23 23 L 23 36 L 22 36 L 21 36 L 21 38 L 22 38 L 23 38 L 27 38 L 28 38 L 29 38 L 29 36 L 28 36 L 27 36 L 27 21 L 26 21 L 22 21 L 21 21 z" />
+                                </svg>
+                        </div>
+
                         </span>
                     </div>
-                    <span id='concern-onoff' style="display: flex; margin: auto; margin-left: 5px;">Av</span>
+                    <div>
+                        Här hittar du information om ingredienser i produkter till vår hud så att du enkelt kan förstå
+                        vad alla ämnen betyder och gör. All vår information om över 30,000 ämnen är baserad på
+                        vetenskaplig fakta från lagstiftning, myndigheter och publicerad forskning för att sprida
+                        transparens och kunskap och hjälpa dig att ta kloka beslut. Skinfo är gratis att använda
+                        dessutom.
+                    </div>
                 </div>
+            </div>
+            <div
+                style="display: flex; max-width: 1260px; margin: auto; justify-content: space-between; padding-left: 20px; padding-right: 20px;">
+                <div id="numberOfProducts" style="font-size: 14px;"></div>
                 <select name="sort" id="sort">
                     <option value="a-z">Produktnamn (A-Z)</option>
                     <option value="z-a">Produktnamn (Z-A)</option>
@@ -158,20 +183,8 @@
                     <option value="high-concerns">Anmärkningar (många)</option>
                 </select>
             </div>
-            <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
-                <div>
-                    Alla produkter
-                </div>
+            <div class="one-block" style="margin-top: 0px; padding-bottom: 3rem;">
                 <div id="allproducts" class="products-container">
-
-                </div>
-            </div>
-            <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
-                <div>
-                    Produkter utan anmärkning
-                </div>
-                <div id="none">
-
                 </div>
             </div>
             <div class="one-block-fullwidth graybackgroundcolor footer-main" style="margin-bottom: 0;">
@@ -289,6 +302,70 @@
             </div>
         </div>
     </div>
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p style="width: 80%;">
+                Vi bygger och förbättrar tjänsten medan vi tar reda på vad du och likasinnade uppskattar så att Skinfo
+                kan bli bättre.
+                Något särskilt du uppskattar/önskar förbättring på?
+            </p>
+            <div>
+                <textarea rows="10" style="width: 99%;"></textarea>
+            </div>
+            <button style="background-color: black; margin-top: 20px;">Skicka</button>
+        </div>
+    </div>
 </body>
 
 </html>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

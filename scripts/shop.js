@@ -1,5 +1,6 @@
 var url = 'https://localhost:5001/';
-url = 'https://staging.skinfo.se/';
+//url = 'https://staging.skinfo.se/';
+url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
 
@@ -39,9 +40,15 @@ function loadSessionStorage() {
     ifTagsHidePlaceholder();
 
     var products = JSON.parse(productJSON);
+
+    if (document.getElementById('numberOfProducts'))
+        document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
+
     if (products) {
         products.forEach(product => createProductCardElement(product));
     }
+
+
 }
 
 function auto_grow(element) {
@@ -84,22 +91,33 @@ function createProductPage(product) {
     var brand = document.createElement('brand');
     brand.innerText = product.brand;
     brand.classList.add('product-brand');
+    brand.style.paddingLeft = '20px';
     card.appendChild(brand);
 
     var name = document.createElement('div');
     name.innerText = product.name;
     name.classList.add('product-name');
+    name.style.minHeight = '0px';
+    name.style.paddingLeft = '20px';
     card.appendChild(name);
+    var price = document.createElement('div');
+    price.innerText = product.price;
+    price.style.paddingLeft = '20px';
+    card.appendChild(price);
 
     var summary = document.createElement('div');
     summary.classList.add('summarydiv');
     var summaryText = document.createElement('div');
     summaryText.innerText = 'Summering';
-    var summarySciene = document.createElement('a');
+    var summarySciene = document.createElement('div');
+
     summarySciene.innerText = 'Baserat på vetenskaplig underlag';
     summarySciene.style.color = 'black';
-    summarySciene.style.textDecoration = 'underline';
+    summarySciene.style.fontSize = '14px';
     var summaryLogoDiv = document.createElement('div');
+    summaryLogoDiv.style.display = 'flex';
+    summaryLogoDiv.style.flexDirection = 'row';
+    summaryLogoDiv.appendChild(summarySciene);
     var summaryLogo = document.createElement('img');
     summaryLogo.src = 'svg/skinfo-logo-color-black.svg';
     summaryLogo.width = '50';
@@ -107,22 +125,23 @@ function createProductPage(product) {
     summaryIcon.src = 'svg/check-filled.svg';
     summaryIcon.width = '10';
     summaryIcon.style.paddingLeft = '5px';
+    summaryIcon.style.paddingRight = '5px';
     summaryIcon.style.paddingBottom = '3px';
-    summaryLogoDiv.appendChild(summaryLogo);
     summaryLogoDiv.appendChild(summaryIcon);
+    summaryLogoDiv.appendChild(summaryLogo);
+
     summary.appendChild(summaryText);
-    summary.appendChild(summarySciene);
     summary.appendChild(summaryLogoDiv);
     card.appendChild(summary);
 
     var skinfunctions = document.createElement('div');
     skinfunctions.style.display = 'flex';
+    skinfunctions.style.fontSize = '14px';
     var skinfunctionText = document.createElement('div');
     var skinfunctionsLogo = document.createElement('div');
-    //skinfunctionsLogo.innerHTML = '<?xml version="1.0" encoding="utf-8"?><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.881 122.88" enable-background="new 0 0 122.881 122.88" xml:space="preserve"><g><path d="M61.44,0c16.966,0,32.326,6.877,43.445,17.995s17.996,26.479,17.996,43.444c0,16.967-6.877,32.327-17.996,43.445 S78.406,122.88,61.44,122.88c-16.966,0-32.326-6.877-43.444-17.995S0,78.406,0,61.439c0-16.965,6.877-32.326,17.996-43.444 S44.474,0,61.44,0L61.44,0z M34.556,67.179c-1.313-1.188-1.415-3.216-0.226-4.529c1.188-1.313,3.216-1.415,4.529-0.227L52.3,74.611 l31.543-33.036c1.223-1.286,3.258-1.336,4.543-0.114c1.285,1.223,1.336,3.257,0.113,4.542L54.793,81.305l-0.004-0.004 c-1.195,1.257-3.182,1.338-4.475,0.168L34.556,67.179L34.556,67.179z M100.33,22.55C90.377,12.598,76.627,6.441,61.44,6.441 c-15.188,0-28.938,6.156-38.89,16.108c-9.953,9.953-16.108,23.702-16.108,38.89c0,15.188,6.156,28.938,16.108,38.891 c9.952,9.952,23.702,16.108,38.89,16.108c15.187,0,28.937-6.156,38.89-16.108c9.953-9.953,16.107-23.702,16.107-38.891 C116.438,46.252,110.283,32.502,100.33,22.55L100.33,22.55z" /></g></svg>';
     skinfunctionsLogo.innerHTML = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-5 -5 360 360" xml:space="preserve"><g style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform="translate(-1.9444444444444287 -1.9444444444444287) scale(3.89 3.89)" ><path d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 68.371 32.98 l -26.521 30 c -0.854 0.967 -2.083 1.52 -3.372 1.52 c -0.01 0 -0.02 0 -0.029 0 c -1.3 -0.009 -2.533 -0.579 -3.381 -1.563 L 21.59 47.284 c -1.622 -1.883 -1.41 -4.725 0.474 -6.347 c 1.884 -1.621 4.725 -1.409 6.347 0.474 l 10.112 11.744 L 61.629 27.02 c 1.645 -1.862 4.489 -2.037 6.352 -0.391 C 69.843 28.275 70.018 31.119 68.371 32.98 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>';
 
-    skinfunctionsLogo.style.width = '25px';
+    skinfunctionsLogo.style.width = '20px';
     skinfunctionsLogo.style.marginRight = '10px';
 
     if (product.skinfunctions.length > 0)
@@ -133,16 +152,18 @@ function createProductPage(product) {
     skinfunctions.appendChild(skinfunctionsLogo);
     var skinfunctionTitle = document.createElement('div');
     skinfunctionTitle.style.fontWeight = 'bold';
+    skinfunctionTitle.style.color = "#545454";
     skinfunctionTitle.innerText = 'Kan hjälpa med (' + product.skinfunctions.length + ' st)';
 
     var skinfunctionUnderText = document.createElement('div');
 
     for (i = 0; i < product.skinfunctions.length; i++) {
-        var fullText = product.skinfunctions[i].split(':');
-        skinfunctionUnderText.innerHTML = skinfunctionUnderText.innerHTML + fullText[0] + '<i style="color:rgba(0,0,0,0.6)"> - ' + fullText[1].trim() + '</i><br>';
+        var fullText = product.skinfunctions[i].split('|');
+        skinfunctionUnderText.innerHTML = skinfunctionUnderText.innerHTML + fullText[0] + ':<i style="color:rgba(0,0,0,0.6)"> ' + fullText[1].trim() + '</i><br>';
     }
 
-    //skinfunctionUnderText.innerHTML = product.skinfunctions.join('<br>');
+    if (product.skinfunctions.length == 0)
+        skinfunctionUnderText.innerHTML = skinfunctionUnderText.innerHTML + '<i style="color:rgba(0,0,0,0.6)"> Skinfo samlar in vetenskaplig information om ingredinsers effekt löpande.</i><br>';
 
     skinfunctionText.appendChild(skinfunctionTitle);
     skinfunctionText.appendChild(skinfunctionUnderText);
@@ -155,8 +176,7 @@ function createProductPage(product) {
     highlights.style.marginBottom = '5px';
     var highlightsText = document.createElement('div');
     var highlightsLogo = document.createElement('div');
-    // highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
-    highlightsLogo.style.minWidth = '25px';
+    highlightsLogo.style.minWidth = '20px';
     highlightsLogo.style.marginRight = '10px';
 
     if (product.highlights.length > 0)
@@ -171,7 +191,6 @@ function createProductPage(product) {
     highlightsText.appendChild(highlightsTitle);
     highlightsText.style.display = 'flex';
     highlightsText.style.marginTop = '5px';
-    //highlightsText.style.margin = 'auto';
 
     for (i = 0; i < product.highlights.length; i++) {
         var highlightsUnderText = document.createElement('div');
@@ -180,17 +199,15 @@ function createProductPage(product) {
         highlightsText.appendChild(highlightsUnderText);
     }
 
-    //highlights.appendChild(highlightsLogo);
-    //highlights.appendChild(highlightsText);
-
     var concerns = document.createElement('div');
     concerns.style.display = 'flex';
+    concerns.style.fontSize = '14px';
     concerns.style.marginTop = '5px';
     concerns.style.marginBottom = '5px';
     var concernsLogo = document.createElement('div');
     var concernsText = document.createElement('div');
     concernsLogo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
-    concernsLogo.style.minWidth = '25px';
+    concernsLogo.style.minWidth = '20px';
     concernsLogo.style.marginRight = '10px';
 
     if (product.concerns.length > 0)
@@ -202,28 +219,29 @@ function createProductPage(product) {
 
     var concernsTitle = document.createElement('div');
     concernsTitle.style.fontWeight = 'bold';
+    concernsTitle.style.color = "#545454";
     concernsTitle.innerText = 'Bra att veta (' + product.concerns.length + ' st)';
 
     var concersUnderText = document.createElement('div');
     for (i = 0; i < product.concerns.length; i++) {
-        var fullText = product.concerns[i].split(':');
-        concersUnderText.innerHTML = concersUnderText.innerHTML + fullText[0] + '<br><i style="color: rgba(0,0,0,0.6);">' + fullText[1] + '</i><br>';
+        var fullText = product.concerns[i].split('|');
+        concersUnderText.innerHTML = concersUnderText.innerHTML + fullText[0] + ': <i style="color: rgba(0,0,0,0.6);">' + fullText[2] + '<i>' + '<br><i style="color: rgba(0,0,0,0.6);">' + fullText[1] + '</i><br>';
     }
-    //concersUnderText.innerHTML = product.concerns.join('<br>');
 
     concernsText.appendChild(concernsTitle);
     concernsText.appendChild(concersUnderText);
     concerns.appendChild(concernsLogo);
     concerns.appendChild(concernsText);
 
-    //card.appendChild(highlights);
     card.appendChild(skinfunctions);
     card.appendChild(concerns);
 
     var highlights = document.createElement('div');
     highlights.style.display = 'flex';
+    highlights.style.fontSize = '14px';
     var highlightsTitle = document.createElement('div');
     highlightsTitle.style.fontWeight = 'bold';
+    highlightsTitle.style.color = "#545454";
     highlightsTitle.innerText = 'Övrigt';
 
     highlights.style.display = 'flex';
@@ -231,7 +249,7 @@ function createProductPage(product) {
     highlights.style.marginBottom = '5px';
     var highlightsLogo = document.createElement('div');
     highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
-    highlightsLogo.style.minWidth = '25px';
+    highlightsLogo.style.minWidth = '20px';
     highlightsLogo.style.marginRight = '10px';
 
     if (product.highlights.length > 0)
@@ -249,8 +267,23 @@ function createProductPage(product) {
     card.appendChild(highlights);
 
     var ingredientlist = document.createElement('div');
-    ingredientlist.innerText = 'Ingredienslista';
     ingredientlist.classList.add('gray-title');
+
+    var ingrediensText = document.createElement('div');
+    ingrediensText.innerText = 'Ingredienslista';
+    var ingrediensCombine = document.createElement('div');
+    ingrediensCombine.style.display = 'flex';
+    var ingrediensOrigin = document.createElement('div');
+    ingrediensOrigin.innerText = 'Från';
+    ingrediensOrigin.style.marginRight = '40px';
+    var ingrediensConcentration = document.createElement('div');
+    ingrediensConcentration.innerText = 'Halt';
+
+    ingredientlist.appendChild(ingrediensText);
+    ingrediensCombine.appendChild(ingrediensOrigin);
+    ingrediensCombine.appendChild(ingrediensConcentration);
+    ingredientlist.appendChild(ingrediensCombine);
+
     card.appendChild(ingredientlist);
 
     var inci = document.createElement('div');
@@ -259,7 +292,16 @@ function createProductPage(product) {
 
     var shops = document.createElement('div');
     shops.classList.add('gray-title');
-    shops.innerText = 'Butiker';
+
+    var shops1 = document.createElement('div');
+    shops1.innerText = 'Butiker';
+    var shops2 = document.createElement('div');
+    shops2.innerText = 'Pris';
+    var shops3 = document.createElement('div');
+
+    shops.appendChild(shops1);
+    shops.appendChild(shops2);
+    shops.appendChild(shops3);
     card.appendChild(shops);
 
     for (i = 0; i < product.affiliatelinks.length; i++) {
@@ -291,6 +333,7 @@ function createProductPage(product) {
         var shopButton = document.createElement('a');
         shopButton.innerText = 'Till Butik';
         shopButton.href = productUrl;
+        shopButton.target = '_blank';
         shopButton.classList.add('shop-button');
         shopButton.style.margin = 'auto';
 
@@ -358,16 +401,12 @@ function createProductPage(product) {
 
     document.getElementById('product').appendChild(card);
     $('#inci').html(product.widget);
-
-    document.getElementsByClassName('si-main-in-div')[0].remove();
-    document.getElementById('si-ingredients-menu').parentNode.children[0].remove();
-    document.getElementById('si-personal-section').remove();
 }
 
 
 function getParameterByName(name, url = window.location.href) {
     if (url.includes('C:'))
-        return 'a379667c-41f4-4629-8f20-40c60c6e6242';
+        return '138c90b9-d410-4c07-873a-f047b161aa92'; // 'a379667c-41f4-4629-8f20-40c60c6e6242';
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
@@ -404,6 +443,9 @@ if (!window.location.href.includes('product') && (productJSON == null || product
             else if (productPage)
                 productPage.style.display = 'none';
             products.forEach(product => createProductCardElement(product));
+
+            if (document.getElementById('numberOfProducts'))
+                document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
         },
         error: function (data) {
             //errorFunction();
@@ -468,8 +510,9 @@ function createProductCardElement(product) {
     var skinfoData = document.createElement('div');
     skinfoData.style.marginTop = '10px';
     skinfoData.style.display = 'flex';
-    skinfoData.style.justifyContent = 'space-evenly';
-    //skinfoData.style.backgroundColor = 'rgb(248, 248, 248)';
+    skinfoData.style.justifyContent = 'space-between';
+    skinfoData.style.backgroundColor = 'rgb(248, 248, 248)';
+    skinfoData.style.padding = '5px 10px';
     var skinfoLogo = document.createElement('img');
     skinfoLogo.src = 'svg/skinfo-logo-color-black.svg';
     skinfoLogo.style.width = '50px';
@@ -478,7 +521,10 @@ function createProductCardElement(product) {
     skinfunctionsDiv.classList.add('skinfoDataElement');
     var skinfunctions = document.createElement('div');
     skinfunctions.innerHTML = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-5 -5 360 360" xml:space="preserve"><g style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform="translate(-1.9444444444444287 -1.9444444444444287) scale(3.89 3.89)" ><path d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 68.371 32.98 l -26.521 30 c -0.854 0.967 -2.083 1.52 -3.372 1.52 c -0.01 0 -0.02 0 -0.029 0 c -1.3 -0.009 -2.533 -0.579 -3.381 -1.563 L 21.59 47.284 c -1.622 -1.883 -1.41 -4.725 0.474 -6.347 c 1.884 -1.621 4.725 -1.409 6.347 0.474 l 10.112 11.744 L 61.629 27.02 c 1.645 -1.862 4.489 -2.037 6.352 -0.391 C 69.843 28.275 70.018 31.119 68.371 32.98 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>';
-    skinfunctions.style.width = '20px';
+    skinfunctions.style.width = '18px';
+    skinfunctions.style.height = '18px';
+    skinfunctions.style.backgroundColor = 'white';
+    skinfunctions.style.borderRadius = '1rem';
     skinfunctions.style.margin = 'auto';
 
     if (product.skinfunctions.length > 0)
@@ -488,7 +534,7 @@ function createProductCardElement(product) {
 
     skinfunctionsDiv.appendChild(skinfunctions);
     var skinfunctionsNumber = document.createElement('div');
-    skinfunctionsNumber.innerText = product.skinfunctions.length + 'st';
+    skinfunctionsNumber.innerText = product.skinfunctions.length + ' st';
     skinfunctionsNumber.classList.add('skinfoDataNumber');
     skinfunctionsDiv.appendChild(skinfunctionsNumber);
 
@@ -496,7 +542,10 @@ function createProductCardElement(product) {
     concernsDiv.classList.add('skinfoDataElement');
     var concerns = document.createElement('div');
     concerns.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
-    concerns.style.width = '20px';
+    concerns.style.width = '18px';
+    concerns.style.height = '18px';
+    concerns.style.backgroundColor = 'white';
+    concerns.style.borderRadius = '1rem';
     concerns.style.margin = 'auto';
 
     if (product.concerns.length > 0)
@@ -505,7 +554,7 @@ function createProductCardElement(product) {
         concerns.style.fill = 'lightgray';
 
     var concernsNumber = document.createElement('div');
-    concernsNumber.innerText = product.concerns.length + 'st';
+    concernsNumber.innerText = product.concerns.length + ' st';
     concernsNumber.classList.add('skinfoDataNumber');
 
     concernsDiv.appendChild(concerns);
@@ -571,6 +620,9 @@ function browse() {
                 productPage.style.display = 'grid';
             else if (productPage)
                 productPage.style.display = 'none';
+
+            if (document.getElementById('numberOfProducts'))
+                document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
 
             products.forEach(product => createProductCardElement(product));
         },
@@ -654,6 +706,25 @@ function getLanguage() {
 }
 
 $(document).ready(function () {
+    var modal = document.getElementById('feedbackModal');
+    if (document.getElementById('feedback')) {
+        document.getElementById('feedback').onclick = function () {
+            modal.style.display = 'block';
+        }
+    }
+
+    if (document.getElementsByClassName("close")[0]) {
+        document.getElementsByClassName("close")[0].onclick = function () {
+            modal.style.display = "none";
+        }
+    }
+
+    window.onclick = function (event) {
+        if (modal && event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
     document.getElementById('allproducts').onclick = function () {
         var event = 'Button Clicked';
         var eventProperties = {
@@ -666,19 +737,19 @@ $(document).ready(function () {
         browse();
     }
 
-    var sliders = document.getElementsByClassName('si-slider');
+    var sliders = document.getElementsByClassName('si-slider-main');
     for (i = 0; i < sliders.length; i++) {
         sliders[i].onclick = function (e) {
-            if (this.classList.contains('si-slider-checked')) {
-                this.classList.remove('si-slider-checked');
-                this.parentElement.parentElement.style.backgroundColor = null;
-                this.parentElement.parentElement.nextElementSibling.innerText = 'Av';
+            if (this.firstElementChild.firstElementChild.classList.contains('si-slider-notchecked')) {
+                this.firstElementChild.firstElementChild.classList.remove('si-slider-notchecked');
+                this.style.backgroundColor = null;
+                this.nextElementSibling.innerText = 'På';
                 browse();
             }
             else {
-                this.classList.add('si-slider-checked');
-                this.parentElement.parentElement.style.backgroundColor = 'white';
-                this.parentElement.parentElement.nextElementSibling.innerText = 'På';
+                this.firstElementChild.firstElementChild.classList.add('si-slider-notchecked');
+                this.style.backgroundColor = 'transparent';
+                this.nextElementSibling.innerText = 'Av';
                 browse();
             }
         }
