@@ -328,6 +328,10 @@ function createProductPage(product) {
         shopPrice.style.textAlign = 'center';
         shopButton.style.width = '33%';
 
+        shopImg.style.width = '150px';
+        shopPrice.style.maxWidth = '150px';
+        shopButton.style.width = '150px';
+
         shopDiv.appendChild(shopImg);
         shopDiv.appendChild(shopPrice);
         shopDiv.appendChild(shopButton);
