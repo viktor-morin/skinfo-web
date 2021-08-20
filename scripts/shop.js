@@ -24,31 +24,17 @@ function loadSessionStorage() {
             tagElement.innerHTML = tags[i];
 
             document.getElementsByClassName('search-tags-maindiv')[0].appendChild(tagElement);
-            // var inputfield = document.getElementById('searchinput');
-            // var children = inputfield.children;
-            // for (i = 0; i < children.length; i++) {
-            //     if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
-            //         continue;
-            //     else {
-            //         children[i].insertAdjacentElement('beforebegin', tagElement);
-            //         break;
-            //     }
-            // }
         }
     }
 
     ifTagsHidePlaceholder();
 
     var products = JSON.parse(productJSON);
-
-    if (document.getElementById('numberOfProducts'))
-        document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
-
     if (products) {
+        if (document.getElementById('numberOfProducts'))
+            document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
         products.forEach(product => createProductCardElement(product));
     }
-
-
 }
 
 function auto_grow(element) {
@@ -710,6 +696,23 @@ $(document).ready(function () {
     if (document.getElementById('feedback')) {
         document.getElementById('feedback').onclick = function () {
             modal.style.display = 'block';
+        }
+    }
+
+    var clicks = document.getElementsByClassName('skinfo-info-click');
+    for (i = 0; i < clicks.length; i++) {
+        clicks[i].onclick = function () {
+            var content = document.getElementById('skinfo-info');
+            if (content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+
+            if (this.style.transform == 'rotate(180deg)')
+                document.getElementsByClassName('skinfo-info-click')[1].style.display = 'block';
+            else
+                this.style.display = 'none';
         }
     }
 
