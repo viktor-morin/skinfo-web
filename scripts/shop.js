@@ -714,6 +714,27 @@ $(document).ready(function () {
         }
     }
 
+
+    if (document.getElementById('feedbackSend')) {
+        document.getElementById('feedbackSend').onclick = function () {
+            var value = document.getElementById('feedbackValue').value;
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://api.skinfo.se/information/feedback?feedback=' + value,
+                contentType: "application/json; charset=utf-8",
+                headers: { 'apikey': '6h[-yENBfB' },
+                error: function () {
+                },
+                success: function () {
+                }
+            });
+
+            document.getElementById('feedbackValue').value = '';
+            modal.style.display = "none";
+        }
+    }
+
     var clicks = document.getElementsByClassName('skinfo-info-click');
     for (i = 0; i < clicks.length; i++) {
         clicks[i].onclick = function () {
