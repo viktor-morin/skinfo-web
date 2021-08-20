@@ -286,7 +286,7 @@ function createProductPage(product) {
     var shops3 = document.createElement('div');
 
     shops.appendChild(shops1);
-    shops.appendChild(shops2);
+    //shops.appendChild(shops2);
     shops.appendChild(shops3);
     card.appendChild(shops);
 
@@ -299,8 +299,7 @@ function createProductPage(product) {
         shopDiv.style.display = 'flex';
         shopDiv.style.justifyContent = 'space-around';
         var shopImg = document.createElement('img');
-        shopImg.style.width = '100px';
-        shopImg.style.height = 'fit-content';
+        shopImg.style.height = '50px';
         shopImg.style.margin = 'auto';
 
         switch (shop) {
@@ -322,6 +321,12 @@ function createProductPage(product) {
         shopButton.target = '_blank';
         shopButton.classList.add('shop-button');
         shopButton.style.margin = 'auto';
+        shopButton.style.marginRight = '10px';
+
+        shopImg.style.width = '33%';
+        shopPrice.style.width = '33%';
+        shopPrice.style.textAlign = 'center';
+        shopButton.style.width = '33%';
 
         shopDiv.appendChild(shopImg);
         shopDiv.appendChild(shopPrice);
@@ -337,10 +342,10 @@ function createProductPage(product) {
     sources.onclick = function (e) {
         var content = document.getElementById('sources-content');
         var contentArrow = document.getElementById('sources-arrow');
-        if (content.style.maxHeight) {
+        if (content.style.maxHeight == 'fit-content') {
             content.style.maxHeight = null;
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.maxHeight = 'fit-content';
         }
         if (contentArrow.classList.contains('down')) {
             contentArrow.classList.remove('down');
@@ -362,8 +367,9 @@ function createProductPage(product) {
     sourcesData.classList.add('sources-content');
 
     var skinfoinfo = document.createElement('div');
-    skinfoinfo.innerText = 'Skinfo baserar all data från högt respekterade källor från forskning och myndigheter'
+    skinfoinfo.innerHTML = 'Information om enskilda ingredienser är baserad på en eller flera utav nedanstående källor: <br> <br> European Commission database for information on cosmetic substances and ingredients - Cosing <br> Scientific Committee on Consumer Safety - SCCS <br> European Chemicals Agency - ECHA <br> National Center for Biotechnology Information - NCBI <br> Personal Care Products Council - PCPC  <br> Organisation for Economic Co-operation and Development - OECD <br>'
     skinfoinfo.style.marginBottom = '10px';
+    skinfoinfo.style.fontSize = '14px';
     var echa = document.createElement('div');
     echa.innerText = 'European Chemicals Agency'
     var chemsec = document.createElement('div');
@@ -375,12 +381,17 @@ function createProductPage(product) {
     var oecd = document.createElement('div');
     oecd.innerText = 'The Organisation for Economic Co-operation and Development';
 
+
+    var skinfosourcelogos = document.createElement('div');
+    skinfosourcelogos.innerHTML = '<div><div class="source-div"><img class="source" src="infos_logo/1200px-ECHA_Logo.svg.png"><img class="source" src="infos_logo/Chemsec.png"><img class="source" src="infos_logo/European_Commission.png"><img class="source" src="infos_logo/oecd.png"><img class="source" src="infos_logo/ncbi.png"><img class="source" src="infos_logo/PersonalCareProductsCouncilLogo.png"></div></div>';
+
     sourcesData.appendChild(skinfoinfo);
-    sourcesData.appendChild(echa);
-    sourcesData.appendChild(chemsec);
-    sourcesData.appendChild(europeanCommision);
-    sourcesData.appendChild(pcpc);
-    sourcesData.appendChild(oecd);
+    sourcesData.appendChild(skinfosourcelogos);
+    // sourcesData.appendChild(echa);
+    // sourcesData.appendChild(chemsec);
+    // sourcesData.appendChild(europeanCommision);
+    // sourcesData.appendChild(pcpc);
+    // sourcesData.appendChild(oecd);
 
     card.appendChild(sources);
     card.appendChild(sourcesData);

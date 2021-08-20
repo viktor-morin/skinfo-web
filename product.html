@@ -74,7 +74,7 @@
                 </div>
                 <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
             </div>
-            <div style="display: flex; justify-content: space-around;">
+            <div style="display: flex; justify-content: space-around; display: none;">
                 <div style="display: flex;">
                     <div class="si-slider-main">
                         <span style="margin-left: 2px; margin-bottom: -2px;">
@@ -103,13 +103,7 @@
                     <option value="high-concerns">Anmärkningar (många)</option>
                 </select>
             </div>
-            <div>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="skinfo-slider round"></span>
-                </label>
-            </div>
-            <div class="one-block" style="padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="one-block" style="padding-top: 3rem; margin-bottom: 0;">
                 <div id="product" class="product-container">
                 </div>
                 <div id="allproducts" class="products-container">
@@ -233,3 +227,15 @@
 </body>
 
 </html>
+
+<style>
+    .source {
+        max-height: 20px;
+    }
+
+    .source-div {
+        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(3, 2fr)
+    }
+</style>
