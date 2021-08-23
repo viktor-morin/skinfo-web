@@ -127,7 +127,7 @@ function createProductPage(product) {
     var skinfunctionsLogo = document.createElement('div');
     skinfunctionsLogo.innerHTML = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-5 -5 360 360" xml:space="preserve"><g style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform="translate(-1.9444444444444287 -1.9444444444444287) scale(3.89 3.89)" ><path d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 68.371 32.98 l -26.521 30 c -0.854 0.967 -2.083 1.52 -3.372 1.52 c -0.01 0 -0.02 0 -0.029 0 c -1.3 -0.009 -2.533 -0.579 -3.381 -1.563 L 21.59 47.284 c -1.622 -1.883 -1.41 -4.725 0.474 -6.347 c 1.884 -1.621 4.725 -1.409 6.347 0.474 l 10.112 11.744 L 61.629 27.02 c 1.645 -1.862 4.489 -2.037 6.352 -0.391 C 69.843 28.275 70.018 31.119 68.371 32.98 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>';
 
-    skinfunctionsLogo.style.width = '20px';
+    skinfunctionsLogo.style.minWidth = '18px';
     skinfunctionsLogo.style.marginRight = '10px';
 
     if (product.skinfunctions.length > 0)
@@ -139,13 +139,14 @@ function createProductPage(product) {
     var skinfunctionTitle = document.createElement('div');
     skinfunctionTitle.style.fontWeight = 'bold';
     skinfunctionTitle.style.color = "#545454";
+    skinfunctionTitle.style.marginBottom = "3px";
     skinfunctionTitle.innerText = 'Kan hjälpa med (' + product.skinfunctions.length + ' st)';
 
     var skinfunctionUnderText = document.createElement('div');
 
     for (i = 0; i < product.skinfunctions.length; i++) {
         var fullText = product.skinfunctions[i].split('|');
-        skinfunctionUnderText.innerHTML = skinfunctionUnderText.innerHTML + fullText[0] + ':<i style="color:rgba(0,0,0,0.6)"> ' + fullText[1].trim() + '</i><br>';
+        skinfunctionUnderText.innerHTML = skinfunctionUnderText.innerHTML + fullText[0] + ':<i style="font-weight:bold; color: #545454;"> ' + fullText[1].trim() + '</i><br>';
     }
 
     if (product.skinfunctions.length == 0)
@@ -162,7 +163,7 @@ function createProductPage(product) {
     highlights.style.marginBottom = '5px';
     var highlightsText = document.createElement('div');
     var highlightsLogo = document.createElement('div');
-    highlightsLogo.style.minWidth = '20px';
+    highlightsLogo.style.minWidth = '18px';
     highlightsLogo.style.marginRight = '10px';
 
     if (product.highlights.length > 0)
@@ -176,6 +177,7 @@ function createProductPage(product) {
     highlightsTitle.style.fontWeight = 'bold';
     highlightsText.appendChild(highlightsTitle);
     highlightsText.style.display = 'flex';
+    highlightsText.style.flexWrap = 'wrap';
     highlightsText.style.marginTop = '5px';
 
     for (i = 0; i < product.highlights.length; i++) {
@@ -193,7 +195,7 @@ function createProductPage(product) {
     var concernsLogo = document.createElement('div');
     var concernsText = document.createElement('div');
     concernsLogo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 286.054 286.054" style="enable-background:new 0 0 286 286;" xml:space="preserve"><g><path d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z"></path></g></svg>';
-    concernsLogo.style.minWidth = '20px';
+    concernsLogo.style.minWidth = '18px';
     concernsLogo.style.marginRight = '10px';
 
     if (product.concerns.length > 0)
@@ -206,12 +208,13 @@ function createProductPage(product) {
     var concernsTitle = document.createElement('div');
     concernsTitle.style.fontWeight = 'bold';
     concernsTitle.style.color = "#545454";
+    concernsTitle.style.marginBottom = '3px';
     concernsTitle.innerText = 'Bra att veta (' + product.concerns.length + ' st)';
 
     var concersUnderText = document.createElement('div');
     for (i = 0; i < product.concerns.length; i++) {
         var fullText = product.concerns[i].split('|');
-        concersUnderText.innerHTML = concersUnderText.innerHTML + fullText[0] + ': <i style="color: rgba(0,0,0,0.6);">' + fullText[2] + '<i>' + '<br><i style="color: rgba(0,0,0,0.6);">' + fullText[1] + '</i><br>';
+        concersUnderText.innerHTML = concersUnderText.innerHTML + fullText[0] + ': <i style="font-weight:bold; color: #545454;">' + fullText[2] + '<i>' + '<br><i style="font-weight: normal;color: rgba(0,0,0,0.6);">' + fullText[1] + '</i><br>';
     }
 
     concernsText.appendChild(concernsTitle);
@@ -228,6 +231,7 @@ function createProductPage(product) {
     var highlightsTitle = document.createElement('div');
     highlightsTitle.style.fontWeight = 'bold';
     highlightsTitle.style.color = "#545454";
+    highlightsTitle.style.marginBottom = '3px';
     highlightsTitle.innerText = 'Övrigt';
 
     highlights.style.display = 'flex';
@@ -235,7 +239,7 @@ function createProductPage(product) {
     highlights.style.marginBottom = '5px';
     var highlightsLogo = document.createElement('div');
     highlightsLogo.innerHTML = '<?xml version="1.0" ?><svg style="enable-background:new 0 0 32 32;" version="1.1" viewBox="7.5 7.5 48 48" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css"></style><g><g transform="translate(28.000000, 278.000000)"><path d="M4-222.1c-13.2,0-23.9-10.7-23.9-23.9c0-13.2,10.7-23.9,23.9-23.9s23.9,10.7,23.9,23.9 C27.9-232.8,17.2-222.1,4-222.1L4-222.1z M4-267.3c-11.7,0-21.3,9.6-21.3,21.3s9.6,21.3,21.3,21.3s21.3-9.6,21.3-21.3 S15.7-267.3,4-267.3L4-267.3z"/><polygon points="-8.7,-247.4 16.7,-247.4 16.7,-244.6 -8.7,-244.6"/><polygon points="2.6,-258.7 5.4,-258.7 5.4,-233.3 2.6,-233.3"/></g></g></svg>';
-    highlightsLogo.style.minWidth = '20px';
+    highlightsLogo.style.minWidth = '18px';
     highlightsLogo.style.marginRight = '10px';
 
     if (product.highlights.length > 0)
@@ -300,6 +304,7 @@ function createProductPage(product) {
         var shopImg = document.createElement('img');
         shopImg.style.height = '50px';
         shopImg.style.margin = 'auto';
+        shopImg.style.marginLeft = 'inherit';
 
         switch (shop) {
             case 'APOTEA':
@@ -319,8 +324,6 @@ function createProductPage(product) {
         shopButton.href = productUrl;
         shopButton.target = '_blank';
         shopButton.classList.add('shop-button');
-        shopButton.style.margin = 'auto';
-        shopButton.style.marginRight = '10px';
 
         shopImg.style.width = '33%';
         shopPrice.style.width = '33%';
@@ -400,7 +403,7 @@ function createProductPage(product) {
 
 function getParameterByName(name, url = window.location.href) {
     if (url.includes('C:'))
-        return '138c90b9-d410-4c07-873a-f047b161aa92';
+        return '7b38f4a6-508d-45d3-9548-33002b12ccbd';
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);

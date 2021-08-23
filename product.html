@@ -93,10 +93,10 @@
                 </div>
             </div>
             <div style="margin-top:100px;"></div>
-            <div style="margin-top: 50px; margin-bottom: 10px;">
+            <div style="margin-top: 30px; margin-bottom: 10px;  margin-left: 5%; margin-right: 5%;">
                 <div id="searchbar" class="searchbar"
-                    style="width: 90% !important; border-radius: unset !important; margin: auto !important; height: auto;">
-                    <div id="searchinput">
+                    style="width: unset !important; border-radius: unset !important; margin: auto !important; height: auto;">
+                    <div id="searchinput" style="display: flex;">
                         <div id="searchicon" style="width: 20px; height: 20px; float: left; margin-top: 4px;">
                             <svg focusable="false" xmlns="http://www.w3.org/2000/svg" fill="#9aa0a6" viewBox="0 0 20 20"
                                 style="width: 20px!important;
@@ -106,6 +106,7 @@
                                 </path>
                             </svg>
                         </div>
+                        <div class="search-tags-maindiv"></div>
                         <form id="searchform" style="width: 100%;" autocomplete="off" action="/search?id=">
                             <input type="text" id="searchbox" autocomplete="off" autofocus type="search" name="id"
                                 placeholder="Sök varumärke, produkt eller ingrediens" class="searchbox">
@@ -113,7 +114,9 @@
                         </form>
                     </div>
                 </div>
-                <div id="searchbar-suggestions" class="searchbar-suggestions" style="display: none;"></div>
+                <div id="searchbar-suggestions" class="searchbar-suggestions"
+                    style="width: unset !important; max-width: 650px; display: none;">
+                </div>
             </div>
             <div style="display: flex; justify-content: space-around; display: none;">
                 <div style="display: flex;">
@@ -275,8 +278,8 @@
     }
 
     .source-div {
+        display: flex;
         justify-content: space-between;
-        display: grid;
-        grid-template-columns: repeat(3, 2fr)
+        flex-wrap: wrap;
     }
 </style>
