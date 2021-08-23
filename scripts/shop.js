@@ -98,8 +98,7 @@ function createProductPage(product) {
     var summarySciene = document.createElement('div');
 
     summarySciene.innerText = 'Baserat på vetenskaplig underlag';
-    summarySciene.style.color = 'black';
-    summarySciene.style.fontSize = '14px';
+    summarySciene.classList.add('summarySciene');
     var summaryLogoDiv = document.createElement('div');
     summaryLogoDiv.style.display = 'flex';
     summaryLogoDiv.style.flexDirection = 'row';
