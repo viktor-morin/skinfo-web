@@ -496,15 +496,13 @@ function createProductCardElement(product) {
     card.appendChild(price);
 
     var skinfoData = document.createElement('div');
-    skinfoData.style.marginTop = '10px';
-    skinfoData.style.display = 'flex';
-    skinfoData.style.justifyContent = 'space-between';
-    skinfoData.style.backgroundColor = 'rgb(248, 248, 248)';
-    skinfoData.style.padding = '5px 10px';
+    skinfoData.classList.add('skinfodata');
     var skinfoLogo = document.createElement('img');
     skinfoLogo.src = 'svg/skinfo-logo-color-black.svg';
-    skinfoLogo.style.width = '50px';
+    skinfoLogo.classList.add('skinfodata-logo');
 
+    var skinfunctionsMainDiv = document.createElement('div');
+    skinfunctionsMainDiv.classList.add('skinfunctions-main-div');
     var skinfunctionsDiv = document.createElement('div');
     skinfunctionsDiv.classList.add('skinfoDataElement');
     var skinfunctions = document.createElement('div');
@@ -548,8 +546,9 @@ function createProductCardElement(product) {
     concernsDiv.appendChild(concerns);
     concernsDiv.appendChild(concernsNumber);
     skinfoData.appendChild(skinfoLogo);
-    skinfoData.appendChild(skinfunctionsDiv);
-    skinfoData.appendChild(concernsDiv);
+    skinfunctionsMainDiv.appendChild(skinfunctionsDiv);
+    skinfunctionsMainDiv.appendChild(concernsDiv);
+    skinfoData.appendChild(skinfunctionsMainDiv);
     card.appendChild(skinfoData);
     document.getElementById('allproducts').appendChild(card);
 }
