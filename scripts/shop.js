@@ -286,7 +286,6 @@ function createProductPage(product) {
     var shops3 = document.createElement('div');
 
     shops.appendChild(shops1);
-    //shops.appendChild(shops2);
     shops.appendChild(shops3);
     card.appendChild(shops);
 
@@ -391,12 +390,6 @@ function createProductPage(product) {
 
     sourcesData.appendChild(skinfoinfo);
     sourcesData.appendChild(skinfosourcelogos);
-    // sourcesData.appendChild(echa);
-    // sourcesData.appendChild(chemsec);
-    // sourcesData.appendChild(europeanCommision);
-    // sourcesData.appendChild(pcpc);
-    // sourcesData.appendChild(oecd);
-
     card.appendChild(sources);
     card.appendChild(sourcesData);
 
@@ -407,7 +400,7 @@ function createProductPage(product) {
 
 function getParameterByName(name, url = window.location.href) {
     if (url.includes('C:'))
-        return '138c90b9-d410-4c07-873a-f047b161aa92'; // 'a379667c-41f4-4629-8f20-40c60c6e6242';
+        return '138c90b9-d410-4c07-873a-f047b161aa92';
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
@@ -449,13 +442,12 @@ if (!window.location.href.includes('product') && (productJSON == null || product
                 document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
         },
         error: function (data) {
-            //errorFunction();
         }
     });
 }
 
 $.ajax({
-    url: 'https://staging.skinfo.se/cookie/shop/',
+    url: url + 'cookie/shop/',
     type: 'GET',
     xhrFields: {
         withCredentials: true
@@ -489,23 +481,18 @@ function createProductCardElement(product) {
     var brand = document.createElement('brand');
     brand.innerText = product.brand;
     brand.classList.add('product-brand');
-    //card.appendChild(brand);
     productTextDiv.appendChild(brand);
 
     var name = document.createElement('div');
     name.innerText = product.name;
     name.classList.add('product-name');
-    //card.appendChild(name);
     productTextDiv.appendChild(name);
 
     var price = document.createElement('div');
     price.innerText = product.price;
     price.classList.add('product-price');
-    //card.appendChild(price);
-
 
     card.appendChild(productTextDiv);
-
     card.appendChild(price);
 
     var skinfoData = document.createElement('div');
@@ -628,7 +615,6 @@ function browse() {
             products.forEach(product => createProductCardElement(product));
         },
         error: function (data) {
-            //errorFunction();
         }
     });
 }
@@ -648,17 +634,6 @@ function updateTags(value, tagType) {
             break;
     }
 
-    // var inputfield = document.getElementById('searchinput');
-    // var children = inputfield.children;
-    // for (i = 0; i < children.length; i++) {
-    //     if (children[i].id == 'searchicon' || children[i].classList.contains('search-tag'))
-    //         continue;
-    //     else {
-    //         children[i].insertAdjacentElement('beforebegin', tagElement);
-    //         return;
-    //     }
-    // }
-
     document.getElementsByClassName('search-tags-maindiv')[0].appendChild(tagElement);
     ifTagsHidePlaceholder();
 }
@@ -672,14 +647,6 @@ function convertLatestTagToText() {
     tags[tags.length - 1].remove();
 
     ifTagsHidePlaceholder();
-}
-
-function updateGUI(result) {
-
-}
-
-function updateResult(result) {
-    updateGUI(result);
 }
 
 function getShopData(searchValue, tagType) {
@@ -713,7 +680,6 @@ $(document).ready(function () {
             modal.style.display = 'block';
         }
     }
-
 
     if (document.getElementById('feedbackSend')) {
         document.getElementById('feedbackSend').onclick = function () {

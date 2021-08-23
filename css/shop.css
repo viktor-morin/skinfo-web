@@ -274,14 +274,6 @@
     margin-bottom: 10px;
 }
 
-.product-name {}
-
-.product-price {}
-
-@media only screen and (max-width: 500px) {
-    .product-container {}
-}
-
 .products-container {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -305,20 +297,15 @@
 
 .product-name {
     color: black;
-
     display: -webkit-box;
-
     line-clamp: 2;
     -moz-line-clamp : 2;
     -webkit-line-clamp : 2;
-
     overflow: hidden;
     text-overflow: ellipsis;
-
     box-orient: vertical;
     -moz-box-orient: vertical;
     -webkit-box-orient: vertical;
-
     min-height: 38px;
 }
 
@@ -406,9 +393,4 @@
     .products-container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-}
-
-/* temp */
-input[type="checkbox"] {
-    -webkit-appearance: auto !important;
 }
