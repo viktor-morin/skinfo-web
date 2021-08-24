@@ -106,10 +106,6 @@
     transition: max-height 0.2s ease-out;
 }
 
-.product-container {
-    /* display: grid; */
-}
-
 .product-card-single {
     display: flex;
     flex-direction: column;
