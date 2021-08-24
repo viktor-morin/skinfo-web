@@ -78,6 +78,7 @@ function createProductPage(product) {
     brand.innerText = product.brand;
     brand.classList.add('product-brand');
     brand.style.paddingLeft = '20px';
+    brand.style.marginTop = '10px';
     card.appendChild(brand);
 
     var name = document.createElement('div');
@@ -89,7 +90,18 @@ function createProductPage(product) {
     var price = document.createElement('div');
     price.innerText = product.price;
     price.style.paddingLeft = '20px';
+    price.style.marginBottom = '10px';
     card.appendChild(price);
+
+    var shopButton = document.createElement('a');
+    shopButton.innerText = 'Till Butik';
+    shopButton.href = productUrl;
+    shopButton.target = '_blank';
+    shopButton.classList.add('shop-button');
+    shopButton.style.width = '33%';
+    shopButton.style.width = '150px';
+    shopButton.style.marginBottom = '10px';
+    card.appendChild(shopButton);
 
     var summary = document.createElement('div');
     summary.classList.add('summarydiv');
