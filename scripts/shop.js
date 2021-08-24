@@ -7,6 +7,41 @@ var pageNumber = 1;
 var maxPageNumber = -1;
 var getNewPage = false;
 
+function browse(pageNumber) {
+    var browseModel = {
+        browseTags: getAllTagsAsBrowseTags(),
+        sortOrder: getSortOrder(),
+        pageNumber: pageNumber,
+        noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
+    };
+    $.ajax({
+        url: url + 'shopproduct/browse/',
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(browseModel),
+        headers: { 'apikey': 'EChu_A6S2vd' },
+        success: function (products) {
+            var productPage = document.getElementById('product');
+            maxPageNumber = products.maxPageNumber;
+            if (productPage && products.searchResult.length == 0)
+                productPage.style.display = 'grid';
+            else if (productPage)
+                productPage.style.display = 'none';
+
+            if (document.getElementById('numberOfProducts'))
+                document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
+
+            products.searchResult.forEach(product => createProductCardElement(product));
+            getNewPage = false;
+        },
+        error: function (data) {
+        }
+    });
+
+    logAmplitude('search');
+}
+
 function logAmplitude(event) {
     switch (event) {
         case 'search':
@@ -593,43 +628,6 @@ function getAllTagsAsBrowseTags() {
     };
 }
 
-function browse() {
-    var browseModel = {
-        browseTags: getAllTagsAsBrowseTags(),
-        sortOrder: getSortOrder(),
-        pageNumber: pageNumber,
-        noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
-    };
-
-    logAmplitude('search');
-
-    $.ajax({
-        url: url + 'shopproduct/browse',
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(browseModel),
-        headers: { 'apikey': 'EChu_A6S2vd' },
-        success: function (data) {
-            document.getElementById('allproducts').innerHTML = '';
-            var products = data.searchResult;
-            saveSessionStorage(products);
-            var productPage = document.getElementById('product');
-            if (productPage && products.searchResult.length == 0)
-                productPage.style.display = 'grid';
-            else if (productPage)
-                productPage.style.display = 'none';
-
-            if (document.getElementById('numberOfProducts'))
-                document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
-
-            products.searchResult.forEach(product => createProductCardElement(product));
-        },
-        error: function (data) {
-        }
-    });
-}
-
 function updateTags(value, tagType) {
     var tagElement = document.createElement('span');
     tagElement.classList.add('search-tag');
@@ -654,7 +652,7 @@ function convertLatestTagToText() {
     if (tags.length == 0)
         return;
 
-    $('#searchbox').val(tags[tags.length - 1].innerText);
+    //$('#searchbox').val(tags[tags.length - 1].innerText);
     tags[tags.length - 1].remove();
 
     ifTagsHidePlaceholder();
@@ -685,45 +683,9 @@ function getLanguage() {
 }
 
 $(document).ready(function () {
-    function getAll(pageNumber) {
-        var browseModel = {
-            browseTags: getAllTagsAsBrowseTags(),
-            sortOrder: getSortOrder(),
-            pageNumber: pageNumber,
-            noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
-        };
-        $.ajax({
-            url: url + 'shopproduct/browse/',
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify(browseModel),
-            headers: { 'apikey': 'EChu_A6S2vd' },
-            success: function (products) {
-                var productPage = document.getElementById('product');
-                maxPageNumber = products.maxPageNumber;
-                if (productPage && products.searchResult.length == 0)
-                    productPage.style.display = 'grid';
-                else if (productPage)
-                    productPage.style.display = 'none';
-
-                if (document.getElementById('numberOfProducts'))
-                    document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
-
-                products.searchResult.forEach(product => createProductCardElement(product));
-
-                getNewPage = false;
-            },
-            error: function (data) {
-            }
-        });
-
-        logAmplitude('search');
-    }
-
     var productJSON = sessionStorage.getItem('products');
     if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
-        getAll(1);
+        browse(1);
     }
 
     var modal = document.getElementById('feedbackModal');
@@ -962,6 +924,7 @@ $(document).ready(function () {
         }
         else if (key == 'Backspace' && document.getElementById('searchbox').value == '') {
             convertLatestTagToText();
+            browse(1);
             return false;
         }
     });
@@ -1022,7 +985,7 @@ $(document).ready(function () {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
                                 getShopData(element, 'searchbar-brand');
-                                document.getElementById('searchbox').value = element;
+                                document.getElementById('searchbox').value = '';
                             }
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');
@@ -1059,7 +1022,7 @@ $(document).ready(function () {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
                                 getShopData(element, 'searchbar-product');
-                                document.getElementById('searchbox').value = element;
+                                document.getElementById('searchbox').value = '';
                             }
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');
@@ -1097,7 +1060,7 @@ $(document).ready(function () {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
                                 getShopData(element, 'searchbar-ingredient');
-                                document.getElementById('searchbox').value = element;
+                                document.getElementById('searchbox').value = '';
                             }
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');

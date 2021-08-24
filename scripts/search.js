@@ -782,7 +782,7 @@ $(document).ready(function () {
                                 parent.style.display = 'none';
                                 logData(element);
                                 getIngredientData(element);
-                                document.getElementById('searchbox').value = element;
+                                document.getElementById('searchbox').value = '';
                             }
                             child.addEventListener("mouseover", function (e) {
                                 var parent = document.getElementById('searchbar-suggestions');
