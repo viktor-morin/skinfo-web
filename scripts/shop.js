@@ -42,6 +42,11 @@ function browse(pageNumber) {
     logAmplitude('search');
 }
 
+
+function isHidden(el) {
+    return (el.offsetParent === null)
+}
+
 function logAmplitude(event) {
     switch (event) {
         case 'search':
@@ -53,6 +58,10 @@ function logAmplitude(event) {
                 'pageNumber': pageNumber,
                 'noConcerns': document.getElementById('concern-onoff').innerText === 'Av'
             };
+        case 'buy_click':
+            var eventProperties = {
+                whichButton: isHidden(document.getElementsByClassName('shop-button')[0]) ? 2 : 1
+            }
             break;
     }
 
@@ -683,6 +692,12 @@ function getLanguage() {
 }
 
 $(document).ready(function () {
+    document.addEventListener("click", function (e) {
+        if (e.target.href) {
+            logAmplitude('buy_click')
+        }
+    });
+
     var productJSON = sessionStorage.getItem('products');
     if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
         browse(1);
@@ -1106,7 +1121,7 @@ $(document).ready(function () {
 
             getNewPage = true;
             pageNumber++;
-            getAll(pageNumber);
+            browse(pageNumber);
         }
     });
 })
