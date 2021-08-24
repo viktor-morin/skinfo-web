@@ -4,6 +4,8 @@ url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
 var pageNumber = 1;
+var maxPageNumber = -1;
+var getNewPage = false;
 
 function logAmplitude(event) {
     switch (event) {
@@ -683,8 +685,7 @@ function getLanguage() {
 }
 
 $(document).ready(function () {
-    var productJSON = sessionStorage.getItem('products');
-    if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
+    function getAll(pageNumber) {
         var browseModel = {
             browseTags: getAllTagsAsBrowseTags(),
             sortOrder: getSortOrder(),
@@ -692,7 +693,7 @@ $(document).ready(function () {
             noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
         };
         $.ajax({
-            url: url + 'shopproduct/getall/',
+            url: url + 'shopproduct/browse/',
             type: 'POST',
             dataType: 'json',
             contentType: 'application/json',
@@ -700,6 +701,7 @@ $(document).ready(function () {
             headers: { 'apikey': 'EChu_A6S2vd' },
             success: function (products) {
                 var productPage = document.getElementById('product');
+                maxPageNumber = products.maxPageNumber;
                 if (productPage && products.searchResult.length == 0)
                     productPage.style.display = 'grid';
                 else if (productPage)
@@ -709,12 +711,19 @@ $(document).ready(function () {
                     document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
 
                 products.searchResult.forEach(product => createProductCardElement(product));
+
+                getNewPage = false;
             },
             error: function (data) {
             }
         });
 
         logAmplitude('search');
+    }
+
+    var productJSON = sessionStorage.getItem('products');
+    if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
+        getAll(1);
     }
 
     var modal = document.getElementById('feedbackModal');
@@ -1125,5 +1134,16 @@ $(document).ready(function () {
 
     window.addEventListener("beforeunload", () => {
         window.sessionStorage.setItem('skinfo-scroll', document.body.getBoundingClientRect().top.toString());
+    });
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - $(window).height()) {
+            if (getNewPage || (maxPageNumber !== -1 && maxPageNumber < pageNumber))
+                return;
+
+            getNewPage = true;
+            pageNumber++;
+            getAll(pageNumber);
+        }
     });
 })
