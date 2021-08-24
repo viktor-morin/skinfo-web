@@ -401,7 +401,7 @@ function createProductPage(product) {
 
 
 function getParameterByName(name, url = window.location.href) {
-    if (url.includes('C:'))
+    if (url.includes('C:') || url.includes('file'))
         return '7b38f4a6-508d-45d3-9548-33002b12ccbd';
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
