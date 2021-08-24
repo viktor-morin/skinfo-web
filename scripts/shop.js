@@ -597,7 +597,7 @@ function getAllTagsAsBrowseTags() {
 }
 
 function browse() {
-    var pageNumber = -1;
+    var pageNumber = 1;
     var browseModel = {
         browseTags: getAllTagsAsBrowseTags(),
         sortOrder: getSortOrder(),
@@ -741,14 +741,6 @@ $(document).ready(function () {
         if (modal && event.target == modal) {
             modal.style.display = 'none';
         }
-    }
-
-    document.getElementById('allproducts').onclick = function () {
-        var event = 'Button Clicked';
-        var eventProperties = {
-            "hover time": "100ms"
-        };
-        amplitude.getInstance().logEvent(event, eventProperties);
     }
 
     document.getElementById('sort').onchange = function (e) {
@@ -1098,6 +1090,8 @@ $(document).ready(function () {
         }
     });
 
+
+
     function logData(query) {
         var data = {
             search: true,
@@ -1106,6 +1100,23 @@ $(document).ready(function () {
         };
 
         //amplitude directyly
+    }
+
+    function logAmpltiude(event) {
+        switch (event) {
+            case 'search':
+                var eventProperties = {
+                    'brands': Array.from(document.getElementsByClassName('search-tags-brand')).map(m => m.innerText),
+                    'ingredients': Array.from(document.getElementsByClassName('search-tags-ingredient')).map(m => m.innerText),
+                    'productNames': Array.from(document.getElementsByClassName('search-tags-name')).map(m => m.innerText),
+                    'sortOrder': getSortOrder(),
+                    'pageNumber': pageNumber,
+                    'noConcerns': document.getElementById('concern-onoff').innerText === 'Av'
+                };
+                break;
+        }
+
+        amplitude.getInstance().logEvent(event, eventProperties);
     }
 
     loadSessionStorage();

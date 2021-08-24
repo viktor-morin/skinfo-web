@@ -983,6 +983,11 @@ input:-webkit-autofill:active  {
     margin-bottom: 10px;
 }
 
+.social-media-div {
+    display: flex; 
+    margin: auto;
+}
+
 .social-media-icon {
     width: 50px;
     display: block;
@@ -990,6 +995,20 @@ input:-webkit-autofill:active  {
 
 .social-media-icon:hover {
     opacity: 0.5;
+}
+
+.horizondiv {
+    display: flex;
+    margin-top: 10px;
+}
+
+.horizonflag {
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.horizontext {
+    font-size: 14px; margin-left: 5px;
 }
 
 .instafeed {
@@ -1173,6 +1192,12 @@ input:-webkit-autofill:active  {
     }
 }
 
+@media only screen and (max-width: 1070px) {
+    .horizontext {
+        font-size: 12px;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .price-plan-main {
         grid-template-columns: repeat(2,1fr)
@@ -1215,7 +1240,7 @@ input:-webkit-autofill:active  {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 820px) {
     .footer {
         flex-direction: column;
     }
@@ -1229,6 +1254,23 @@ input:-webkit-autofill:active  {
 
     .skinfo-logo-foooter {
         order:4;
+        margin-top: 20px;
+    }
+
+    .social-media-div {
+        justify-content: center;
+    }
+
+    .horizontext {
+        font-size: 14px;
+    }
+
+    .horizonflag {
+        margin: auto;
+    }
+    
+    .horizondiv {
+        flex-direction: column;
     }
 }
 
