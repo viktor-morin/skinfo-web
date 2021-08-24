@@ -4,6 +4,23 @@ url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
 
+function logAmplitude(event) {
+    switch (event) {
+        case 'search':
+            var eventProperties = {
+                'brands': Array.from(document.getElementsByClassName('search-tags-brand')).map(m => m.innerText),
+                'ingredients': Array.from(document.getElementsByClassName('search-tags-ingredient')).map(m => m.innerText),
+                'productNames': Array.from(document.getElementsByClassName('search-tags-name')).map(m => m.innerText),
+                'sortOrder': getSortOrder(),
+                'pageNumber': pageNumber,
+                'noConcerns': document.getElementById('concern-onoff').innerText === 'Av'
+            };
+            break;
+    }
+
+    amplitude.getInstance().logEvent(event, eventProperties);
+}
+
 function ifTagsHidePlaceholder() {
     var tags = document.getElementsByClassName('search-tag');
     if (tags.length > 0)
@@ -437,29 +454,6 @@ if (productId && window.location.href.includes('product')) {
     });
 }
 
-
-var productJSON = sessionStorage.getItem('products');
-if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
-    $.ajax({
-        url: url + 'shopproduct/getall/',
-        type: 'GET',
-        headers: { 'apikey': 'EChu_A6S2vd' },
-        success: function (products) {
-            var productPage = document.getElementById('product');
-            if (productPage && products.length == 0)
-                productPage.style.display = 'grid';
-            else if (productPage)
-                productPage.style.display = 'none';
-            products.forEach(product => createProductCardElement(product));
-
-            if (document.getElementById('numberOfProducts'))
-                document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
-        },
-        error: function (data) {
-        }
-    });
-}
-
 $.ajax({
     url: url + 'cookie/shop/',
     type: 'GET',
@@ -599,11 +593,14 @@ function getAllTagsAsBrowseTags() {
 function browse() {
     var pageNumber = 1;
     var browseModel = {
+        active: true,
         browseTags: getAllTagsAsBrowseTags(),
         sortOrder: getSortOrder(),
         pageNumber: pageNumber,
         noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
     };
+
+    logAmplitude('search');
 
     $.ajax({
         url: url + 'shopproduct/browse',
@@ -687,6 +684,35 @@ function getLanguage() {
 }
 
 $(document).ready(function () {
+    var productJSON = sessionStorage.getItem('products');
+    if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
+        $.ajax({
+            url: url + 'shopproduct/getall/',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                active: false
+            }),
+            headers: { 'apikey': 'EChu_A6S2vd' },
+            success: function (products) {
+                var productPage = document.getElementById('product');
+                if (productPage && products.length == 0)
+                    productPage.style.display = 'grid';
+                else if (productPage)
+                    productPage.style.display = 'none';
+                products.forEach(product => createProductCardElement(product));
+
+                if (document.getElementById('numberOfProducts'))
+                    document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
+            },
+            error: function (data) {
+            }
+        });
+
+        logAmplitude('search');
+    }
+
     var modal = document.getElementById('feedbackModal');
     if (document.getElementById('feedback')) {
         document.getElementById('feedback').onclick = function () {
@@ -865,12 +891,10 @@ $(document).ready(function () {
                     while (parent.children[childCounter].classList.contains('searchbar-title')) {
                         childCounter++;
                     }
-                    logData(parent.children[childCounter].innerText);
                     getShopData(parent.children[childCounter].innerText, parent.children[childCounter].classList[parent.children[childCounter].classList.length - 1]);
                     $('#searchbox').val('');
                     $('#searchbox').focus();
                 } else {
-                    logData(result.innerText);
                     getShopData(result.innerText, result.classList[result.classList.length - 2]);
                     $('#searchbox').val('');
                     $('#searchbox').focus();
@@ -984,7 +1008,6 @@ $(document).ready(function () {
                             child.onclick = function () {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
-                                logData(element);
                                 getShopData(element, 'searchbar-brand');
                                 document.getElementById('searchbox').value = element;
                             }
@@ -1022,7 +1045,6 @@ $(document).ready(function () {
                             child.onclick = function () {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
-                                logData(element);
                                 getShopData(element, 'searchbar-product');
                                 document.getElementById('searchbox').value = element;
                             }
@@ -1061,7 +1083,6 @@ $(document).ready(function () {
                             child.onclick = function () {
                                 parent.innerHTML = '';
                                 parent.style.display = 'none';
-                                logData(element);
                                 getShopData(element, 'searchbar-ingredient');
                                 document.getElementById('searchbox').value = element;
                             }
@@ -1089,35 +1110,6 @@ $(document).ready(function () {
             });
         }
     });
-
-
-
-    function logData(query) {
-        var data = {
-            search: true,
-            query: query,
-            language: getLanguage()
-        };
-
-        //amplitude directyly
-    }
-
-    function logAmpltiude(event) {
-        switch (event) {
-            case 'search':
-                var eventProperties = {
-                    'brands': Array.from(document.getElementsByClassName('search-tags-brand')).map(m => m.innerText),
-                    'ingredients': Array.from(document.getElementsByClassName('search-tags-ingredient')).map(m => m.innerText),
-                    'productNames': Array.from(document.getElementsByClassName('search-tags-name')).map(m => m.innerText),
-                    'sortOrder': getSortOrder(),
-                    'pageNumber': pageNumber,
-                    'noConcerns': document.getElementById('concern-onoff').innerText === 'Av'
-                };
-                break;
-        }
-
-        amplitude.getInstance().logEvent(event, eventProperties);
-    }
 
     loadSessionStorage();
     var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
