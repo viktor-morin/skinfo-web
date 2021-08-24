@@ -95,7 +95,7 @@ function createProductPage(product) {
 
     var shopButton = document.createElement('a');
     shopButton.innerText = 'Till Butik';
-    shopButton.href = productUrl;
+    shopButton.href = product.affiliatelinks[0].url;
     shopButton.target = '_blank';
     shopButton.classList.add('shop-button');
     shopButton.style.width = '33%';
