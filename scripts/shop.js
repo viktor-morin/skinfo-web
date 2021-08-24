@@ -3,6 +3,7 @@ var url = 'https://localhost:5001/';
 url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
+var pageNumber = 1;
 
 function logAmplitude(event) {
     switch (event) {
@@ -49,7 +50,7 @@ function loadSessionStorage() {
     var products = JSON.parse(productJSON);
     if (products) {
         if (document.getElementById('numberOfProducts'))
-            document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
+            document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
         products.forEach(product => createProductCardElement(product));
     }
 }
@@ -591,9 +592,7 @@ function getAllTagsAsBrowseTags() {
 }
 
 function browse() {
-    var pageNumber = 1;
     var browseModel = {
-        active: true,
         browseTags: getAllTagsAsBrowseTags(),
         sortOrder: getSortOrder(),
         pageNumber: pageNumber,
@@ -614,15 +613,15 @@ function browse() {
             var products = data.searchResult;
             saveSessionStorage(products);
             var productPage = document.getElementById('product');
-            if (productPage && products.length == 0)
+            if (productPage && products.searchResult.length == 0)
                 productPage.style.display = 'grid';
             else if (productPage)
                 productPage.style.display = 'none';
 
             if (document.getElementById('numberOfProducts'))
-                document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
+                document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
 
-            products.forEach(product => createProductCardElement(product));
+            products.searchResult.forEach(product => createProductCardElement(product));
         },
         error: function (data) {
         }
@@ -686,25 +685,30 @@ function getLanguage() {
 $(document).ready(function () {
     var productJSON = sessionStorage.getItem('products');
     if (!window.location.href.includes('product') && (productJSON == null || productJSON.length == 0)) {
+        var browseModel = {
+            browseTags: getAllTagsAsBrowseTags(),
+            sortOrder: getSortOrder(),
+            pageNumber: pageNumber,
+            noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
+        };
         $.ajax({
             url: url + 'shopproduct/getall/',
             type: 'POST',
             dataType: 'json',
             contentType: 'application/json',
-            data: JSON.stringify({
-                active: false
-            }),
+            data: JSON.stringify(browseModel),
             headers: { 'apikey': 'EChu_A6S2vd' },
             success: function (products) {
                 var productPage = document.getElementById('product');
-                if (productPage && products.length == 0)
+                if (productPage && products.searchResult.length == 0)
                     productPage.style.display = 'grid';
                 else if (productPage)
                     productPage.style.display = 'none';
-                products.forEach(product => createProductCardElement(product));
 
                 if (document.getElementById('numberOfProducts'))
-                    document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
+                    document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
+
+                products.searchResult.forEach(product => createProductCardElement(product));
             },
             error: function (data) {
             }
