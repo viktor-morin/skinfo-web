@@ -141,7 +141,9 @@ function loadSessionStorage() {
             document.getElementById('numberOfProducts').innerText = count + ' PRODUKTER';
         }
 
-        products.forEach(product => createProductCardElement(product));
+        for (i = 0; i < products.length; i++) {
+            createProductCardElement(product[i]);
+        }
     }
 
     sessionStorage.removeItem('tags');
@@ -912,17 +914,15 @@ $(document).ready(function () {
                         childCounter++;
                     }
                     getShopData(parent.children[childCounter].innerText, parent.children[childCounter].classList[parent.children[childCounter].classList.length - 1]);
-                    $('#searchbox').val('');
-                    $('#searchbox').focus();
                 } else {
                     getShopData(result.innerText, result.classList[result.classList.length - 2]);
-                    $('#searchbox').val('');
-                    $('#searchbox').focus();
                 }
             }
             parent.innerHTML = '';
             parent.style.display = 'none';
             ifTagsHidePlaceholder();
+            $('#searchbox').val('');
+            $('#searchbox').focus();
         }
         else if (key == 'ArrowDown') {
             var parent = document.getElementById('searchbar-suggestions');
