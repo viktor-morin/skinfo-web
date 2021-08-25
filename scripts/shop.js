@@ -34,9 +34,9 @@ function browse(pageNumber) {
 
             products.searchResult.forEach(product => createProductCardElement(product));
 
-            if (productPage.pageNumber == 1)
+            if (products.pageNumber == 1)
                 saveSessionStorage(products.searchResult);
-            else if (productPage.pageNumber > 1)
+            else if (products.pageNumber > 1)
                 appendSessionStorage(products.searchResult);
 
             getNewPage = false;
