@@ -540,7 +540,7 @@ function createProductPage(product) {
     document.getElementById('product').appendChild(card);
     $('#inci').html(product.widget);
 
-    document.getElementById('si-ingredient-expand').onclick = function (e) {
+    document.getElementById('si-expand-ingrediens').onclick = function (e) {
         logAmplitude('expand_inci', product);
     }
 }
