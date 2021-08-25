@@ -1141,10 +1141,13 @@ $(document).ready(function () {
         loadSessionStorage();
         var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
         if (oldScrollValue !== null) {
-            var value = parseInt(oldScrollValue, 10);
-            value = (value * -1) + 50;
-            window.scrollTo(0, value);
-            sessionStorage.removeItem('skinfo-scroll');
+            setTimeout(function () {
+                var value = parseInt(oldScrollValue, 10);
+                value = (value * -1) + 50;
+                window.scrollTo(0, value);
+                sessionStorage.removeItem('skinfo-scroll');
+            }, 1000);
+
         }
         sessionStorage.removeItem('product_clicked');
     }
