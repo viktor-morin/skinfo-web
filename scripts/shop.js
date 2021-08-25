@@ -113,7 +113,9 @@ function loadSessionStorage() {
 
     ifTagsHidePlaceholder();
 
-    if (products) {
+    if (products.length > 0) {
+        document.getElementById('product').innerHTML = '';
+        history.replaceState(null, 'Skinfo', 'https://skinfo.se/shop');
         if (document.getElementById('numberOfProducts')) {
             var countJSON = window.sessionStorage.getItem('product-count');
             var count = JSON.parse(countJSON);
