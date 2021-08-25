@@ -141,6 +141,10 @@ function getCookie(cname) {
     return "";
 }
 
+function productClicked() {
+    window.sessionStorage.setItem('product_clicked', JSON.stringify(1));
+}
+
 function createProductPage(product) {
     var card = document.createElement('div');
     card.classList.add('product-card-single');
@@ -536,6 +540,7 @@ function createProductCardElement(product) {
     var card = document.createElement('a');
     card.href = 'https://skinfo.se/product?id=' + product.id;
     card.classList.add('product-card');
+    card.onclick = productClicked;
 
     var productImg = document.createElement('div');
     productImg.classList.add('product-img-div');
@@ -1104,9 +1109,13 @@ $(document).ready(function () {
         }
     });
 
-    loadSessionStorage();
 
-    if (!document.getElementById('product')) {
+    var productClickedJSON = sessionStorage.getItem('product_clicked');
+    var productClicked = JSON.parse(productClickedJSON);
+    if (productClicked == 1) {
+        sessionStorage.removeItem('product_clicked');
+    } else {
+        loadSessionStorage();
         var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
         if (oldScrollValue !== null) {
             var value = parseInt(oldScrollValue, 10);
@@ -1114,6 +1123,7 @@ $(document).ready(function () {
             window.scrollTo(0, value);
             sessionStorage.removeItem('skinfo-scroll');
         }
+        sessionStorage.removeItem('product_clicked');
     }
 
     window.addEventListener("beforeunload", () => {
