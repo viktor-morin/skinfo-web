@@ -118,12 +118,16 @@ function loadSessionStorage() {
             document.getElementById('product').innerHTML = '';
         history.replaceState(null, 'Skinfo', 'https://skinfo.se/shop');
         if (document.getElementById('numberOfProducts')) {
-            var countJSON = window.sessionStorage.getItem('product-count');
+            var countJSON = sessionStorage.getItem('product-count');
             var count = JSON.parse(countJSON);
             document.getElementById('numberOfProducts').innerText = count + ' PRODUKTER';
         }
 
         products.forEach(product => createProductCardElement(product));
+
+        sessionStorage.removeItem('tags');
+        sessionStorage.removeItem('products');
+        sessionStorage.removeItem('product-count');
     }
 }
 
