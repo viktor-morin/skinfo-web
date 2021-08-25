@@ -52,6 +52,12 @@ function browse(pageNumber) {
     logAmplitude('search');
 }
 
+function stripHtml(html) {
+    let tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+}
+
 
 function isHidden(el) {
     if (el)
@@ -692,7 +698,7 @@ function updateTags(value, tagType) {
             break;
         case "searchbar-product":
             if (value.productName)
-                tagElement.innerHTML = '<span class="search-tags search-tags-name" style="display: flex; width:max-content; min-width: max-content">' + value.productName + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
+                tagElement.innerHTML = '<span class="search-tags search-tags-name" style="display: flex; width:max-content; min-width: max-content">' + stripHtml(value.productName) + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
             else
                 tagElement.innerHTML = '<span class="search-tags search-tags-name" style="display: flex; width:max-content; min-width: max-content">' + value + '<span class="search-tag-delete" onclick="removeTag(this)" title="Remove tag"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"></path></svg></span></span>';
             break;
