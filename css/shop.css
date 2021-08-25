@@ -343,6 +343,7 @@
 
 .searchbox {
     text-transform: lowercase !important;
+    font-size: 14px;
 }
 
 .skinfodata {
