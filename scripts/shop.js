@@ -1162,7 +1162,7 @@ $(document).ready(function () {
         }
     });
 
-    if (document.getElementById('allprodcuts')) {
+    if (document.getElementById('allproducts')) {
         if (document.getElementById('product'))
             return;
 
