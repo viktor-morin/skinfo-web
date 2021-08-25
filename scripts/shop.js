@@ -142,7 +142,7 @@ function loadSessionStorage() {
         }
 
         for (i = 0; i < products.length; i++) {
-            createProductCardElement(product[i]);
+            createProductCardElement(products[i]);
         }
     }
 
