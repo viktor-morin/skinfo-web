@@ -310,7 +310,14 @@
 
 .search-tags-maindiv {
     display: flex;
+    /* overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; */
 }
+
+/* .search-tags-maindiv::-webkit-scrollbar {
+    display: none;
+} */
 
 .search-tag {
     background-color: rgba(0, 0, 0, 0.1);
