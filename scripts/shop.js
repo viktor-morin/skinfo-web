@@ -97,8 +97,12 @@ function loadSessionStorage() {
     var tagsJSON = sessionStorage.getItem('tags');
     var productJSON = sessionStorage.getItem('products');
     var products = JSON.parse(productJSON);
-    if (!products)
+    if (!products) {
+        sessionStorage.removeItem('tags');
+        sessionStorage.removeItem('products');
+        sessionStorage.removeItem('product-count');
         return;
+    }
 
     var tags = JSON.parse(tagsJSON);
     if (tags) {
@@ -124,11 +128,11 @@ function loadSessionStorage() {
         }
 
         products.forEach(product => createProductCardElement(product));
-
-        sessionStorage.removeItem('tags');
-        sessionStorage.removeItem('products');
-        sessionStorage.removeItem('product-count');
     }
+
+    sessionStorage.removeItem('tags');
+    sessionStorage.removeItem('products');
+    sessionStorage.removeItem('product-count');
 }
 
 function auto_grow(element) {
