@@ -1181,4 +1181,6 @@ $(document).ready(function () {
         console.log('back-pressed');
         console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
     });
+
+    window.onpopstate = () => setTimeout(alert("Pop"), 0);
 })
