@@ -118,7 +118,11 @@ function loadSessionStorage() {
     if (products.length > 0) {
         if (document.getElementById('product'))
             document.getElementById('product').innerHTML = '';
-        history.replaceState(null, 'Skinfo', 'https://skinfo.se/shop');
+        try {
+            history.replaceState(null, 'Skinfo', 'https://skinfo.se/shop');
+        } catch {
+
+        }
         if (document.getElementById('numberOfProducts')) {
             var countJSON = sessionStorage.getItem('product-count');
             var count = JSON.parse(countJSON);
