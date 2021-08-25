@@ -645,7 +645,7 @@ function appendSessionStorage(data) {
     for (i = 0; i < data.length; i++)
         products.push(data[i]);
 
-    window.sessionStorage.setItem('products', JSON.stringify(data));
+    window.sessionStorage.setItem('products', JSON.stringify(products));
 }
 
 function removeTag(e) {
