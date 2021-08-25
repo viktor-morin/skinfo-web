@@ -63,6 +63,8 @@ function isHidden(el) {
 }
 
 function logAmplitude(event) {
+    var pageNumberJSON = sessionStorage.getItem('pageNumber');
+    var pageNumber = JSON.parse(pageNumberJSON);
     switch (event) {
         case 'search':
             var eventProperties = {
@@ -1158,7 +1160,8 @@ $(document).ready(function () {
         if (document.getElementById('product') && document.getElementById('product').innerHTML !== '')
             return;
 
-        var pageNumber = sessionStorage.getItem('pageNumber');
+        var pageNumberJSON = sessionStorage.getItem('pageNumber');
+        var pageNumber = JSON.parse(pageNumberJSON)
         if (pageNumber == null)
             pageNumber = 1;
 
