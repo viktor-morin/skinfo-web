@@ -1,4 +1,4 @@
-var url = 'https://api.skinfo.se/';
+var url = 'https://staging.skinfo.se/';
 var selectCounter = -1;
 var maxPageNumber = -1;
 var getNewPage = false;
@@ -540,9 +540,9 @@ function createProductPage(product) {
     document.getElementById('product').appendChild(card);
     $('#inci').html(product.widget);
 
-    document.getElementById('si-expand-ingrediens').onclick = function (e) {
+    document.getElementById('si-expand-ingrediens').addEventListener("click", function () {
         logAmplitude('expand_inci', product);
-    }
+    });
 }
 
 
