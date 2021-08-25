@@ -742,7 +742,7 @@ function getShopData(searchValue, tagType) {
 $(document).ready(function () {
     document.addEventListener("click", function (e) {
         if (e.target.href) {
-            if (e.target.classList.includes('buy-upper'))
+            if (e.target.classList.contains('buy-upper'))
                 logAmplitude('buy_click', 'first');
             else
                 logAmplitude('buy_button', 'second');
