@@ -33,6 +33,12 @@ function browse(pageNumber) {
                 document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
 
             products.searchResult.forEach(product => createProductCardElement(product));
+
+            if (productPage.pageNumber == 1)
+                saveSessionStorage(products.searchResult);
+            else if (productPage.pageNumber > 1)
+                appendSessionStorage(products.searchResult);
+
             getNewPage = false;
         },
         error: function (data) {
@@ -621,6 +627,24 @@ function saveSessionStorage(data) {
     }
 
     window.sessionStorage.setItem('tags', JSON.stringify(innerTags));
+    window.sessionStorage.setItem('products', JSON.stringify(data));
+}
+
+function appendSessionStorage(data) {
+    var tags = document.getElementsByClassName('search-tag');
+    var innerTags = [];
+    for (i = 0; i < tags.length; i++) {
+        innerTags.push(tags[i].innerHTML);
+    }
+
+    window.sessionStorage.setItem('tags', JSON.stringify(innerTags));
+
+    var productJSON = sessionStorage.getItem('products');
+    var products = JSON.parse(productJSON);
+
+    for (i = 0; i < data.length; i++)
+        products.push(data[i]);
+
     window.sessionStorage.setItem('products', JSON.stringify(data));
 }
 
