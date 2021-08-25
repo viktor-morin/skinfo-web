@@ -1161,4 +1161,13 @@ $(document).ready(function () {
             browse(pageNumber);
         }
     });
+
+    if (document.getElementById('allprodcuts')) {
+        if (document.getElementById('product'))
+            return;
+
+        if (document.getElementById('allproducts').innerHTML !== '') {
+            browse(1);
+        }
+    }
 })
