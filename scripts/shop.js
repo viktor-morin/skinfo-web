@@ -30,7 +30,7 @@ function browse(pageNumber) {
                 productPage.style.display = 'none';
 
             if (document.getElementById('numberOfProducts'))
-                document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
+                document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
 
             products.searchResult.forEach(product => createProductCardElement(product));
 
