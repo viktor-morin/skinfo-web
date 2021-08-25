@@ -1121,6 +1121,7 @@ $(document).ready(function () {
             var value = parseInt(oldScrollValue, 10);
             value = (value * -1) + 50;
             window.scrollTo(0, value);
+            sessionStorage.removeItem('skinfo-scroll');
         }
     }
 
