@@ -1,6 +1,4 @@
-var url = 'https://localhost:5001/';
-//url = 'https://staging.skinfo.se/';
-url = 'https://api.skinfo.se/';
+var url = 'https://api.skinfo.se/';
 var selectCounter = -1;
 var oldestSearchValue = '';
 var pageNumber = 1;
@@ -92,6 +90,9 @@ function ifTagsHidePlaceholder() {
 function loadSessionStorage() {
     var tagsJSON = sessionStorage.getItem('tags');
     var productJSON = sessionStorage.getItem('products');
+    var products = JSON.parse(productJSON);
+    if (!products)
+        return;
 
     var tags = JSON.parse(tagsJSON);
     if (tags) {
@@ -106,7 +107,6 @@ function loadSessionStorage() {
 
     ifTagsHidePlaceholder();
 
-    var products = JSON.parse(productJSON);
     if (products) {
         if (document.getElementById('numberOfProducts')) {
             var countJSON = window.sessionStorage.getItem('product-count');
@@ -702,7 +702,6 @@ function convertLatestTagToText() {
     if (tags.length == 0)
         return;
 
-    //$('#searchbox').val(tags[tags.length - 1].innerText);
     tags[tags.length - 1].remove();
 
     ifTagsHidePlaceholder();
@@ -713,24 +712,6 @@ function getShopData(searchValue, tagType) {
     browse(1);
 }
 
-function getLanguage() {
-    return 'sv-SE';
-
-    if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf('_skinfo-language=');
-        if (c_start != -1) {
-            c_start = c_start + '_skinfo-language'.length + 1;
-            c_end = document.cookie.indexOf(';', c_start);
-            if (c_end == -1) {
-                c_end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-        }
-    }
-    var lang = 'en-US';
-    document.cookie = '_skinfo-language' + "=" + lang + '; SameSite=None; Domain=skinfo.se; Secure; Expires=Tue, 01 Jan 2031 00:00:01 UTC';
-    return lang;
-}
 
 $(document).ready(function () {
     document.addEventListener("click", function (e) {
@@ -876,24 +857,6 @@ $(document).ready(function () {
         });
 
         return element.productName;
-    }
-
-    var id = getParameterByName('id');
-    if (id) {
-        //change to product id
-
-        // $.ajax({
-        //     type: 'GET',
-        //     headers: { 'apikey': '6h[-yENBfB' },
-        //     url: url + 'website/link?id=' + id + '&language=' + getLanguage(),
-        //     dataType: 'html',
-        //     complete: function (result) {
-        //         updateResult(result);
-        //         var json = JSON.parse(result.responseText);
-        //         $('#searchbox').val(json.query);
-        //         oldestSearchValue = json.query;
-        //     }
-        // });
     }
 
     $('form input').keydown(function (e) {
@@ -1147,8 +1110,9 @@ $(document).ready(function () {
         }
     });
 
+    loadSessionStorage();
+
     if (!document.getElementById('product')) {
-        loadSessionStorage();
         var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
         if (oldScrollValue !== null) {
             var value = parseInt(oldScrollValue, 10);
@@ -1176,11 +1140,4 @@ $(document).ready(function () {
             browse(pageNumber);
         }
     });
-
-    window.addEventListener('popstate', (event) => {
-        console.log('back-pressed');
-        console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    });
-
-    window.onpopstate = () => setTimeout(alert("Pop"), 0);
 })
