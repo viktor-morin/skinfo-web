@@ -767,12 +767,14 @@ $(document).ready(function () {
     }
 
     document.getElementById('sort').onchange = function (e) {
+        document.getElementById('allproducts').innerHTML = '';
         browse(1);
     }
 
     var sliders = document.getElementsByClassName('si-slider-main');
     for (i = 0; i < sliders.length; i++) {
         sliders[i].onclick = function (e) {
+            document.getElementById('allproducts').innerHTML = '';
             if (this.firstElementChild.firstElementChild.classList.contains('si-slider-notchecked')) {
                 this.firstElementChild.firstElementChild.classList.remove('si-slider-notchecked');
                 this.style.backgroundColor = null;
