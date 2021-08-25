@@ -8,7 +8,7 @@ function browse(pageNumber) {
         browseTags: getAllTagsAsBrowseTags(),
         sortOrder: getSortOrder(),
         pageNumber: pageNumber,
-        noConcerns: document.getElementById('concern-onoff').innerText === 'Av'
+        concernsActive: document.getElementById('concern-onoff').innerText === 'På'
     };
     $.ajax({
         url: url + 'shopproduct/browse/',
