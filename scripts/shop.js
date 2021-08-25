@@ -1114,11 +1114,14 @@ $(document).ready(function () {
     });
 
     loadSessionStorage();
-    var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
-    if (oldScrollValue !== null) {
-        var value = parseInt(oldScrollValue, 10);
-        value = (value * -1) + 50;
-        window.scrollTo(0, value);
+
+    if (!document.getElementById('product')) {
+        var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
+        if (oldScrollValue !== null) {
+            var value = parseInt(oldScrollValue, 10);
+            value = (value * -1) + 50;
+            window.scrollTo(0, value);
+        }
     }
 
     window.addEventListener("beforeunload", () => {
