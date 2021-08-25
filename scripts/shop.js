@@ -75,10 +75,12 @@ function logAmplitude(event, data) {
                 'pageNumber': pageNumber,
                 'noConcerns': document.getElementById('concern-onoff').innerText === 'Av'
             };
+            break;
         case 'buy_click':
             var eventProperties = {
                 'whichButton': data
-            }
+            };
+            break;
         case 'show_product':
             var eventProperties = {
                 'name': data.name,
