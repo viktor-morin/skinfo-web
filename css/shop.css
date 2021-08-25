@@ -308,6 +308,10 @@
     min-height: 38px;
 }
 
+.search-tags {
+    align-items: center;
+}
+
 .search-tags-maindiv {
     display: flex;
     /* overflow-x: scroll;
