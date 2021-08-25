@@ -917,12 +917,12 @@ $(document).ready(function () {
                 } else {
                     getShopData(result.innerText, result.classList[result.classList.length - 2]);
                 }
+                document.getElementById('searchbox').value = '';
+                document.getElementById('searchbox').focus();
             }
             parent.innerHTML = '';
             parent.style.display = 'none';
             ifTagsHidePlaceholder();
-            $('#searchbox').val('');
-            $('#searchbox').focus();
         }
         else if (key == 'ArrowDown') {
             var parent = document.getElementById('searchbar-suggestions');
