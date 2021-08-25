@@ -118,6 +118,59 @@
                 <div id="searchbar-suggestions" class="searchbar-suggestions"
                     style="width: unset !important; max-width: 650px; display: none;">
                 </div>
+
+                <div id="skinfo-info"
+                    style="max-width: 1300px; max-height: 0; font-size: 14px; overflow: hidden; transition: 0.5s ease-out; margin-top: 20px;">
+
+                    <div style="display: flex; float: left; width: min-content;">
+                        <div class="si-slider-main">
+                            <span style="margin-left: 36px; margin-bottom: -3px;">
+                                <svg class="si-slider si-slider-checked" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 286.054 286.054"
+                                    style="width: 20px; height: 20px; border-radius: 1rem; background-color: white; z-index: 90;"
+                                    xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M143.027,0C64.04,0,0,64.04,0,143.027c0,78.996,64.04,143.027,143.027,143.027 c78.996,0,143.027-64.022,143.027-143.027C286.054,64.04,222.022,0,143.027,0z M143.027,259.236 c-64.183,0-116.209-52.026-116.209-116.209S78.844,26.818,143.027,26.818s116.209,52.026,116.209,116.209 S207.21,259.236,143.027,259.236z M143.036,62.726c-10.244,0-17.995,5.346-17.995,13.981v79.201c0,8.644,7.75,13.972,17.995,13.972 c9.994,0,17.995-5.551,17.995-13.972V76.707C161.03,68.277,153.03,62.726,143.036,62.726z M143.036,187.723 c-9.842,0-17.852,8.01-17.852,17.86c0,9.833,8.01,17.843,17.852,17.843s17.843-8.01,17.843-17.843 C160.878,195.732,152.878,187.723,143.036,187.723z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <span id='concern-onoff' style="display: flex; margin: auto; margin-left: 5px;">På</span>
+                    </div>
+
+                    <div
+                        style="width: min-content; float: right; display: flex; margin: auto; padding-left: 20px; padding-right: 20px;">
+                        <select name="sort" id="sort">
+                            <option value="a-z">Produktnamn (A-Z)</option>
+                            <option value="z-a">Produktnamn (Z-A)</option>
+                            <option value="a-brand">Varumärke (A-Z)</option>
+                            <option value="z-brand">Varumärke (Z-A)</option>
+                            <option value="low-price">Lägsta Pris</option>
+                            <option value="high-price">Högsta Pris</option>
+                            <option value="low-concerns">Anmärkningar (få)</option>
+                            <option value="high-concerns">Anmärkningar (många)</option>
+                        </select>
+                    </div>
+
+                    <div class="skinfo-info-click"
+                        style="transform: rotate(180deg); -webkit-transform: rotate(180deg); width: 20px; height: 20px; cursor: pointer; margin: auto; margin-top: 50px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 80 100" x="0px"
+                            y="0px">
+                            <path
+                                d="M71,26.36a6,6,0,0,1-1.58,4.05l-25,27.29a6,6,0,0,1-8.84,0l-25-27.29a6,6,0,1,1,8.84-8.11L40,44.76,60.58,22.3A6,6,0,0,1,71,26.36Z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="skinfo-info-click" style="width: 20px; height: 20px; cursor: pointer; margin: auto;">
+                    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 80 100" x="0px" y="0px">
+                        <path
+                            d="M71,26.36a6,6,0,0,1-1.58,4.05l-25,27.29a6,6,0,0,1-8.84,0l-25-27.29a6,6,0,1,1,8.84-8.11L40,44.76,60.58,22.3A6,6,0,0,1,71,26.36Z" />
+                    </svg>
+                </div>
+
             </div>
             <div style="display: flex; justify-content: space-around; display: none;">
                 <div style="display: flex;">
@@ -148,9 +201,10 @@
                     <option value="high-concerns">Anmärkningar (många)</option>
                 </select>
             </div>
-            <div class="one-block" style="padding-top: 3rem; margin-bottom: 0;">
+            <div class="one-block" style="margin-bottom: 0;">
                 <div id="product" class="product-container">
                 </div>
+                <div id="numberOfProducts" style="font-size: 14px; padding-left: 20px;"></div>
                 <div id="allproducts" class="products-container">
                 </div>
             </div>

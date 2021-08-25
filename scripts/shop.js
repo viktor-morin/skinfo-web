@@ -44,7 +44,8 @@ function browse(pageNumber) {
 
 
 function isHidden(el) {
-    return (el.offsetParent === null)
+    if (el)
+        return (el.offsetParent === null)
 }
 
 function logAmplitude(event) {
@@ -626,7 +627,13 @@ function saveSessionStorage(data) {
 function removeTag(e) {
     e.parentElement.parentElement.remove();
     ifTagsHidePlaceholder();
-    browse();
+    if (document.getElementById('product')) {
+        document.getElementById('product').style.display = 'block';
+        document.getElementById('numberOfProducts').innerHTML = '';
+        document.getElementById('allproducts').innerHTML = '';
+    }
+    else
+        browse(1);
 }
 
 function getAllTagsAsBrowseTags() {
@@ -669,7 +676,7 @@ function convertLatestTagToText() {
 
 function getShopData(searchValue, tagType) {
     updateTags(searchValue, tagType);
-    browse();
+    browse(1);
 }
 
 function getLanguage() {
@@ -760,7 +767,7 @@ $(document).ready(function () {
     }
 
     document.getElementById('sort').onchange = function (e) {
-        browse();
+        browse(1);
     }
 
     var sliders = document.getElementsByClassName('si-slider-main');
@@ -770,13 +777,13 @@ $(document).ready(function () {
                 this.firstElementChild.firstElementChild.classList.remove('si-slider-notchecked');
                 this.style.backgroundColor = null;
                 this.nextElementSibling.innerText = 'På';
-                browse();
+                browse(1);
             }
             else {
                 this.firstElementChild.firstElementChild.classList.add('si-slider-notchecked');
                 this.style.backgroundColor = 'transparent';
                 this.nextElementSibling.innerText = 'Av';
-                browse();
+                browse(1);
             }
         }
     }
@@ -939,7 +946,9 @@ $(document).ready(function () {
         }
         else if (key == 'Backspace' && document.getElementById('searchbox').value == '') {
             convertLatestTagToText();
-            browse(1);
+            if (!document.getElementById('product'))
+                browse(1);
+
             return false;
         }
     });
@@ -1115,6 +1124,9 @@ $(document).ready(function () {
     });
 
     $(window).scroll(function () {
+        if (getElementById('product').innerHTML !== '')
+            return;
+
         if ($(window).scrollTop() + $(window).height() > $(document).height() - $(window).height()) {
             if (getNewPage || (maxPageNumber !== -1 && maxPageNumber < pageNumber))
                 return;
