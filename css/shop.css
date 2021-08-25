@@ -112,7 +112,7 @@
     margin: auto;
     transition: 0.3s;
     padding: 20px;
-    min-height: 380px;
+    min-height: 370px;
     /* min-width: 165px; */
     width: 100%;
     width: -moz-available;
@@ -130,7 +130,7 @@
     transition: 0.3s;
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 370px;
+    min-height: 380px;
     /* min-width: 165px; */
     width: 100%;
     width: -moz-available;
