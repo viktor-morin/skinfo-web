@@ -517,20 +517,6 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-var productId = getParameterByName('id');
-if (productId && window.location.href.includes('product')) {
-    $.ajax({
-        url: url + 'shopproduct/?id=' + productId,
-        type: 'GET',
-        headers: { 'apikey': 'EChu_A6S2vd' },
-        success: function (product) {
-            createProductPage(product);
-        },
-        error: function (data) {
-        }
-    });
-}
-
 $.ajax({
     url: url + 'cookie/shop/',
     type: 'GET',
@@ -1133,6 +1119,19 @@ $(document).ready(function () {
             sessionStorage.removeItem('skinfo-scroll');
         }
         sessionStorage.removeItem('product_clicked');
+    }
+
+    if (productId && window.location.href.includes('product')) {
+        $.ajax({
+            url: url + 'shopproduct/?id=' + productId,
+            type: 'GET',
+            headers: { 'apikey': 'EChu_A6S2vd' },
+            success: function (product) {
+                createProductPage(product);
+            },
+            error: function (data) {
+            }
+        });
     }
 
     window.addEventListener("beforeunload", () => {
