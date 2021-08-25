@@ -40,7 +40,7 @@
         }; e.amplitude = n
 })(window, document);
 
-amplitude.getInstance().init("06c4e3be2b2dc7414271def58632ddca", null, { ip_address: false });
+amplitude.getInstance().init("95fdf491ca60fbdb0e55cd914ea741f2", null, { ip_address: false });
 
 //prod -> 6405d40517ec1624fbe477cb63e10986
 
