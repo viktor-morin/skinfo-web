@@ -87,8 +87,18 @@ function logAmplitude(event, data) {
                 'brand': data.brand,
                 'shop': data.affiliatelinks[0].shop,
                 'price': data.price,
-                'helpWith': data.skinfunctions.length,
-                'thinkAbout': data.concerns.length,
+                'skinfunctions': data.skinfunctions.length,
+                'concerns': data.concerns.length,
+                'other': data.highlights.length
+            };
+        case 'expand_inci':
+            var eventProperties = {
+                'name': data.name,
+                'brand': data.brand,
+                'shop': data.affiliatelinks[0].shop,
+                'price': data.price,
+                'skinfunctions': data.skinfunctions.length,
+                'concerns': data.concerns.length,
                 'other': data.highlights.length
             };
             break;
@@ -528,6 +538,10 @@ function createProductPage(product) {
 
     document.getElementById('product').appendChild(card);
     $('#inci').html(product.widget);
+
+    document.getElementById('si-ingredient-expand').onclick = function (e) {
+        logAmplitude('expand_inci', product);
+    }
 }
 
 

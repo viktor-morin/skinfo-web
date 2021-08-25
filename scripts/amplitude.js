@@ -20,7 +20,7 @@
         ; var a = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove"]
         ; for (var c = 0; c < a.length; c++) { s(o, a[c]) } n.Identify = o; var u = function () {
             this._q = []
-            ; return this
+                ; return this
         }
         ; var l = ["setProductId", "setQuantity", "setPrice", "setRevenueType", "setEventProperties"]
         ; for (var p = 0; p < l.length; p++) { s(u, l[p]) } n.Revenue = u
@@ -40,7 +40,8 @@
         }; e.amplitude = n
 })(window, document);
 
-amplitude.getInstance().init("06c4e3be2b2dc7414271def58632ddca");
+amplitude.getInstance().init("06c4e3be2b2dc7414271def58632ddca", null, { ip_address: false });
+
 //prod -> 6405d40517ec1624fbe477cb63e10986
 
 //doc -> https://developers.amplitude.com/docs/javascript
