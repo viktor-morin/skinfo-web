@@ -747,7 +747,7 @@ $(document).ready(function () {
             if (e.target.classList.contains('buy-upper'))
                 logAmplitude('buy_click', 'first');
             else
-                logAmplitude('buy_button', 'second');
+                logAmplitude('buy_click', 'second');
         }
     });
 
@@ -1143,13 +1143,10 @@ $(document).ready(function () {
         loadSessionStorage();
         var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
         if (oldScrollValue !== null) {
-            setTimeout(function () {
-                var value = parseInt(oldScrollValue, 10);
-                value = (value * -1) + 50;
-                window.scrollTo(0, value);
-                sessionStorage.removeItem('skinfo-scroll');
-            }, 1000);
-
+            var value = parseInt(oldScrollValue, 10);
+            value = (value * -1) + 50;
+            window.scrollTo(0, value);
+            sessionStorage.removeItem('skinfo-scroll');
         }
         sessionStorage.removeItem('product_clicked');
     }
