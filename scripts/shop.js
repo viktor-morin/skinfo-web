@@ -1120,12 +1120,12 @@ $(document).ready(function () {
     }
 
     window.addEventListener("beforeunload", () => {
-        if (!getElementById('product'))
+        if (!document.getElementById('product'))
             window.sessionStorage.setItem('skinfo-scroll', document.body.getBoundingClientRect().top.toString());
     });
 
     $(window).scroll(function () {
-        if (getElementById('product') && getElementById('product').innerHTML !== '')
+        if (document.getElementById('product') && document.getElementById('product').innerHTML !== '')
             return;
 
         if ($(window).scrollTop() + $(window).height() > $(document).height() - $(window).height()) {
