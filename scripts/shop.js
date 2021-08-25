@@ -62,7 +62,7 @@ function isHidden(el) {
         return (el.offsetParent === null)
 }
 
-function logAmplitude(event) {
+function logAmplitude(event, data) {
     var pageNumberJSON = sessionStorage.getItem('pageNumber');
     var pageNumber = JSON.parse(pageNumberJSON);
     switch (event) {
@@ -77,8 +77,18 @@ function logAmplitude(event) {
             };
         case 'buy_click':
             var eventProperties = {
-                whichButton: isHidden(document.getElementsByClassName('shop-button')[0]) ? 2 : 1
+                'whichButton': data
             }
+        case 'show_product':
+            var eventProperties = {
+                'name': data.name,
+                'brand': data.brand,
+                'shop': data.affiliatelinks[0].shop,
+                'price': data.price,
+                'helpWith': data.skinfunctions.length,
+                'thinkAbout': data.concerns.length,
+                'other': data.highlights.length
+            };
             break;
     }
 
@@ -204,6 +214,7 @@ function createProductPage(product) {
     shopButton.href = product.affiliatelinks[0].url;
     shopButton.target = '_blank';
     shopButton.classList.add('shop-button');
+    shopButton.classList.add('buy-upper');
     shopButton.style.width = '33%';
     shopButton.style.width = '150px';
     shopButton.style.marginBottom = '10px';
@@ -731,7 +742,10 @@ function getShopData(searchValue, tagType) {
 $(document).ready(function () {
     document.addEventListener("click", function (e) {
         if (e.target.href) {
-            logAmplitude('buy_click')
+            if (e.target.classList.includes('buy-upper'))
+                logAmplitude('buy_click', 'first');
+            else
+                logAmplitude('buy_button', 'second');
         }
     });
 
@@ -1145,8 +1159,9 @@ $(document).ready(function () {
             headers: { 'apikey': 'EChu_A6S2vd' },
             success: function (product) {
                 createProductPage(product);
+                logAmplitude('show_product', product);
             },
-            error: function (data) {
+            error: function () {
             }
         });
     }
