@@ -32,6 +32,9 @@ function browse(pageNumber) {
             if (document.getElementById('numberOfProducts'))
                 document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
 
+            if (products.pageNumber == 1)
+                document.getElementById('allproducts').innerHTML = '';
+
             products.searchResult.forEach(product => createProductCardElement(product));
 
             if (products.pageNumber == 1) {
@@ -1172,5 +1175,10 @@ $(document).ready(function () {
             pageNumber++;
             browse(pageNumber);
         }
+    });
+
+    window.addEventListener('popstate', (event) => {
+        console.log('back-pressed');
+        console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
     });
 })
