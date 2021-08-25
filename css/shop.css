@@ -357,8 +357,8 @@
 .skinfoDataElement {
     display: flex;
     flex-direction: row;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .skinfodata-logo {
@@ -443,6 +443,11 @@
 
     .skinfodata {
         flex-direction: column;
+    }
+
+    .skinfoDataElement {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
 
