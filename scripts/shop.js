@@ -1,7 +1,5 @@
 var url = 'https://api.skinfo.se/';
 var selectCounter = -1;
-var oldestSearchValue = '';
-var pageNumber = 1;
 var maxPageNumber = -1;
 var getNewPage = false;
 
@@ -42,7 +40,7 @@ function browse(pageNumber) {
             else if (products.pageNumber > 1) {
                 appendSessionStorage(products.searchResult);
             }
-
+            sessionStorage.setItem('pageNumber', JSON.stringify(products.pageNumber));
             getNewPage = false;
         },
         error: function (data) {
@@ -758,8 +756,12 @@ $(document).ready(function () {
                 }
             });
 
-            document.getElementById('feedbackValue').value = '';
-            modal.style.display = "none";
+            var modalContent = document.getElementsByClassName('modal-content')[0];
+            modalContent.style.textAlign = 'center';
+            modalContent.innerHTML = 'Tack!';
+            document.getElementById('feedback').style.display = 'none';
+            setTimeout(function () { modal.style.display = "none"; }, 1500);
+
         }
     }
 
@@ -1151,6 +1153,10 @@ $(document).ready(function () {
     $(window).scroll(function () {
         if (document.getElementById('product') && document.getElementById('product').innerHTML !== '')
             return;
+
+        var pageNumber = sessionStorage.getItem('pageNumber');
+        if (pageNumber == null)
+            pageNumber = 1;
 
         if ($(window).scrollTop() + $(window).height() > $(document).height() - $(window).height()) {
             if (getNewPage || (maxPageNumber !== -1 && maxPageNumber < pageNumber))
