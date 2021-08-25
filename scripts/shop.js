@@ -1121,6 +1121,7 @@ $(document).ready(function () {
         sessionStorage.removeItem('product_clicked');
     }
 
+    var productId = getParameterByName('id');
     if (productId && window.location.href.includes('product')) {
         $.ajax({
             url: url + 'shopproduct/?id=' + productId,
