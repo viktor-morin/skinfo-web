@@ -711,6 +711,8 @@ function removeTag(e) {
 }
 
 function getAllTagsAsBrowseTags() {
+var test = Array.from(document.getElementsByClassName('search-tags-brand')).map(m => m.innerText);
+
     return {
         brands: Array.from(document.getElementsByClassName('search-tags-brand')).map(m => m.innerText),
         ingredients: Array.from(document.getElementsByClassName('search-tags-ingredient')).map(m => m.innerText),
