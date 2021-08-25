@@ -156,8 +156,6 @@ function auto_grow(element) {
     element.style.height = (element.scrollHeight) + "px";
 }
 
-
-
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
