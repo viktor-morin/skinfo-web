@@ -91,6 +91,7 @@ function logAmplitude(event, data) {
                 'concerns': data.concerns.length,
                 'other': data.highlights.length
             };
+            break;
         case 'expand_inci':
             var eventProperties = {
                 'name': data.name,
