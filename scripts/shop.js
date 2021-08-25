@@ -103,7 +103,7 @@ function loadSessionStorage() {
     var products = JSON.parse(productJSON);
     if (products) {
         if (document.getElementById('numberOfProducts'))
-            document.getElementById('numberOfProducts').innerText = products.count + ' PRODUKTER';
+            document.getElementById('numberOfProducts').innerText = products.length + ' PRODUKTER';
         products.forEach(product => createProductCardElement(product));
     }
 }
@@ -1137,9 +1137,8 @@ $(document).ready(function () {
         }
     });
 
-    loadSessionStorage();
-
     if (!document.getElementById('product')) {
+        loadSessionStorage();
         var oldScrollValue = sessionStorage.getItem('skinfo-scroll');
         if (oldScrollValue !== null) {
             var value = parseInt(oldScrollValue, 10);
