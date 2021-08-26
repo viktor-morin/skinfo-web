@@ -40,7 +40,7 @@
         }; e.amplitude = n
 })(window, document);
 
-amplitude.getInstance().init("4a297780bf689645c526d8f417c41983", null, { trackingOptions: { ip_address: false } });
+amplitude.getInstance().init("6405d40517ec1624fbe477cb63e10986", null, { trackingOptions: { ip_address: false } });
 
 //prod -> 6405d40517ec1624fbe477cb63e10986
 
