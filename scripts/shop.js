@@ -144,7 +144,7 @@ function loadSessionStorage() {
         if (document.getElementById('product'))
             document.getElementById('product').innerHTML = '';
         try {
-            history.replaceState(null, 'Skinfo', 'https://skinfo.se/shop');
+            history.replaceState(null, 'Skinfo', 'https://skinfo.se');
         } catch {
 
         }
