@@ -395,6 +395,7 @@
     border-radius: 1rem;
     display: flex;
     background-color: white;
+    cursor: pointer;
 }
 
 .si-slider-notchecked {
