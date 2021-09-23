@@ -2,13 +2,13 @@ var isSafeToUse = 'Is X safe to use?';
 var isSafeToUseYes = 'There are currently no concerns for this ingredient.';
 var isSafeToUseNo = 'Read about the X concers listed';
 
-var isGoodForYourSkin = 'Is X good for you skin?';
+var isGoodForYourSkin = 'Is X good for your skin?';
 var isGoodForYourSkinYes = 'Yes, this ingredients is free from concerns.';
-var isGoodForYourSkinNo = 'Read about the X concers listed';
+var isGoodForYourSkinNo = 'Read about the X concerns listed';
 
 var isDangerous = 'Is X dangerous?';
 var isDangerousNo = 'There are currently no concerns for this ingredient.';
-var isDangerousYes = 'Read about the X concers listed';
+var isDangerousYes = 'Read about the X concerns listed';
 
 var isBadForYourSkin = 'Is X bad for your skin?';
 var isBadForYourSkinNo = 'There are currently no concerns for this ingredient.';
@@ -27,15 +27,15 @@ var isExfoliatingNo = 'No, it\'s not exfoliating.';
 var isExfoliatingYes = 'Yes, it\'s exfoliating.';
 
 var isVegan = 'Is X vegan?';
-var isVeganNo = 'No, the ingredient sometimes have origin from animals.';
-var isVeganYes = 'Yes, the ingredients comes from following origins: ';
+var isVeganNo = 'No, the ingredient sometimes be from animal origin.';
+var isVeganYes = 'Yes, the ingredient comes from the following origin: ';
 
 var isGoodForDrySkin = 'Is X good for dry skin?';
-var isGoodForDrySkinNo = 'No, the ingredient have no functions specific for dry skin.';
+var isGoodForDrySkinNo = 'No, the ingredient have no functions specifically for dry skin.';
 var isGoodForDrySkinYes = 'Yes, read about the X related functions listed';
 
 var isGoodForOilySkin = 'Is X good for oily skin?';
-var isGoodForOilySkinNo = 'No, the ingredient have no functions specific for oily skin.';
+var isGoodForOilySkinNo = 'No, the ingredient has no functions specifically for oily skin.';
 var isGoodForOilySkinYes = 'Yes, read about the X related functions listed';
 
 var synonymsHeader = 'Synonyms';
