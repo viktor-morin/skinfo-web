@@ -723,7 +723,7 @@ textarea {
     display: grid; 
     gap: 2rem;
     justify-content: space-between;
-    grid-template-columns: repeat(4,1fr)
+    grid-template-columns: repeat(2,1fr)
 }
 
 .price-plan {
@@ -1199,10 +1199,6 @@ input:-webkit-autofill:active  {
 }
 
 @media only screen and (max-width: 1000px) {
-    .price-plan-main {
-        grid-template-columns: repeat(2,1fr)
-    }
-
     .hide-1000 {
         display: none;
     }
