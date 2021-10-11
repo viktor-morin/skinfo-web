@@ -217,7 +217,7 @@ function createProductPage(product) {
     name.style.paddingLeft = '20px';
     card.appendChild(name);
     var price = document.createElement('div');
-    price.innerText = product.price;
+    price.innerText = 'ca ' + product.price;
     price.style.paddingLeft = '20px';
     price.style.marginBottom = '10px';
     card.appendChild(price);
@@ -457,7 +457,7 @@ function createProductPage(product) {
         }
 
         var shopPrice = document.createElement('div');
-        shopPrice.innerText = price + 'kr';
+        shopPrice.innerText = 'ca ' + price + ' kr';
         shopPrice.style.margin = 'auto';
 
         var shopButton = document.createElement('a');
@@ -601,7 +601,7 @@ function createProductCardElement(product) {
     productTextDiv.appendChild(name);
 
     var price = document.createElement('div');
-    price.innerText = product.price;
+    price.innerText = 'ca ' + product.price;
     price.classList.add('product-price');
 
     card.appendChild(productTextDiv);
