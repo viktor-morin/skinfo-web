@@ -757,6 +757,54 @@ function getShopData(searchValue, tagType) {
 
 
 $(document).ready(function () {
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function postNewsletter() {
+        var email = document.getElementById('send-email-input-newsletter').value;
+        if (validateEmail(email)) {
+            document.getElementById('send-email-newsletter').style.display = 'none';
+            document.getElementById('send-email-button-newsletter').disabled = false;
+            document.getElementById('send-email-succesful-newsletter').style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('send-email-succesful-newsletter').style.opacity = '1.0';
+                document.getElementById('send-email-succesful-newsletter').innerHTML = document.getElementById('send-email-succesful-newsletter').innerText + '<br>' + '<b>' + email + '</b>';
+            }, 10);
+            $.ajax({
+                type: 'POST',
+                url: 'https://api.skinfo.se/information/newsletter?email=' + email,
+                contentType: "application/json; charset=utf-8",
+                headers: { 'apikey': '6h[-yENBfB' },
+                error: function () {
+                },
+                success: function () {
+                }
+            });
+        }
+        else {
+            document.getElementById('send-email-newsletter').classList.add('shake-me');
+            setTimeout(function () {
+                document.getElementById('send-email-newsletter').classList.remove('shake-me');
+            }, 1000);
+            document.getElementById('send-email-input-newsletter').focus();
+        }
+    }
+
+    if (document.getElementById('send-email-newsletter')) {
+        document.getElementById('send-email-button-newsletter').onclick = function () {
+            postNewsletter();
+        }
+        document.getElementById('send-email-input-newsletter').addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                postNewsletter();
+            }
+        })
+    }
+
+
+
     document.addEventListener("click", function (e) {
         if (e.target.href) {
             if (e.target.classList.contains('buy-upper'))
