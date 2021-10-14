@@ -20,9 +20,7 @@ function browse(pageNumber) {
         success: function (products) {
             var productPage = document.getElementById('product');
             maxPageNumber = products.maxPageNumber;
-            if (productPage && products.searchResult.length == 0)
-                productPage.style.display = 'grid';
-            else if (productPage)
+            if (productPage)
                 productPage.style.display = 'none';
 
             if (document.getElementById('numberOfProducts'))
