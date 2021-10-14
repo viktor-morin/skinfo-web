@@ -706,8 +706,7 @@ function removeTag(e) {
         document.getElementById('numberOfProducts').innerHTML = '';
         document.getElementById('allproducts').innerHTML = '';
     }
-    else
-        browse(1);
+    browse(1);
 }
 
 function getAllTagsAsBrowseTags() {
