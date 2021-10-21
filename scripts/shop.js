@@ -1214,7 +1214,7 @@ $(document).ready(function () {
     var productId = getParameterByName('id');
     if (productId && window.location.href.includes('product')) {
         $.ajax({
-            url: url + 'shopproduct/?id=' + productId,
+            url: url + 'shopproduct/get?id=' + productId,
             type: 'GET',
             headers: { 'apikey': 'EChu_A6S2vd' },
             success: function (product) {
