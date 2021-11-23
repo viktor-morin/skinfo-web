@@ -20,21 +20,16 @@
     <meta property="og:site_name" content="Skinfo.se" />
     <meta property="og:url" content="https://www.skinfo.se/" />
     <meta charset="utf-8" />
-    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150835481-1"></script>
     <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-        ga('create', 'UA-150835481-1', {
-            cookieFlags: 'max-age=7200;secure;samesite=none'
-        });
-        ga('send', 'pageview');
+        gtag('config', 'UA-150835481-1');
     </script>
-    <!-- End Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 </head>
 
 <body>
@@ -44,7 +39,7 @@
                 <div class="skinfo-menu">
                     <span class="skinfo-title"><img src="svg/skinfo-logo-color-black.svg" height="20px"></span>
                     <div style="float: right; padding-right: 20px;">
-                        <a href="/index2" style="color:black; float: right; padding-right: 20px; display: flex;">
+                        <a href="/index" style="color:black; float: right; padding-right: 20px; display: flex;">
                             <div>Skinfo Offical page!</div>
                             <svg style="margin-left: 5px; margin-top: -3px; transform: rotate(180deg); shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd;" viewBox="0 0 6.82666 6.82666" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -61,7 +56,7 @@
                 </div>
                 <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
                     <span class="skinfo-title"><a><img src="svg/skinfo-logo-color-black.svg" height="20px" style="padding-top:10px"></a></span>
-                    <a href="/index2" style="color:black;float: right; padding-right: 20px; display: flex; margin-top: 10px;">
+                    <a href="/index" style="color:black;float: right; padding-right: 20px; display: flex; margin-top: 10px;">
                         <div style="font-size: 14px;">Skinfo Offical page!</div>
                         <svg style="margin-left: 5px; margin-top: -3px; transform: rotate(180deg); shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd;" viewBox="0 0 6.82666 6.82666" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
