@@ -75,6 +75,7 @@ textarea {
     cursor: pointer;
     background-color: black;
     padding: 5px;
+    border-radius: 0.25rem;
 }
 
 .askskinfo-link:hover {
