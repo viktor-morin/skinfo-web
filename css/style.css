@@ -60,6 +60,28 @@ textarea {
     resize: none;
 }
 
+.askskinfo {
+    background-image: url("https://skinfo.azureedge.net/shopimages/startpage.jpg");
+    background-size: cover;
+    min-height: 25vh;
+    display: flex;
+    justify-content: center;
+}
+
+.askskinfo-link {
+    margin: auto;
+    font-size: 2rem;
+    color:white !important;
+    cursor: pointer;
+    background-color: black;
+    padding: 5px;
+}
+
+.askskinfo-link:hover {
+    color:white !important;
+    text-decoration: underline;
+}
+
 .page-container {
     min-height: calc(100vh - 100px);
     position: relative;
@@ -1218,6 +1240,10 @@ input:-webkit-autofill:active  {
     .customer-reference-text { 
         font-size: 0.6rem;
     }
+
+    .askskinfo-link {
+        font-size: 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 830px) {
@@ -1315,6 +1341,12 @@ input:-webkit-autofill:active  {
 
     .moss-noor-text { 
         font-size: 1.4rem;
+    }
+
+    .askskinfo-link {
+        font-size: 1.2rem;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
