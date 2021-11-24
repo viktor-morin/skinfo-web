@@ -63,6 +63,7 @@ textarea {
 .askskinfo {
     background-image: url("https://skinfo.azureedge.net/shopimages/startpage.jpg");
     background-size: cover;
+    background-position: center;
     min-height: 25vh;
     display: flex;
     justify-content: center;
