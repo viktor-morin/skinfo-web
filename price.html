@@ -36,10 +36,12 @@
                 <div class="skinfo-menu">
                     <span class="skinfo-title"><a href="index"><img src="svg/skinfo-logo-color-RGB.svg" height="20px"></a></span>
                     <div style="float: right;">
+                        <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important">askskinfo.com</a>
+                        <span>|</span>
                         <a class="menu-button" href="howitworks">How it works</a>
                         <a class="menu-button" href="price">Price</a>
                         <a class="menu-button" href="search">Ingredient search</a>
-                        <a class="menu-button blackbackgroundcolor" style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white !important; border-radius: 0.5rem; text-align: center;" href="price">Start free trial</a>
+                        <a class="menu-button blackbackgroundcolor" style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white !important; border-radius: 0.5rem; text-align: center;" href="https://apps.shopify.com/skinfo" target="_blank">Start free trial</a>
                     </div>
                 </div>
                 <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
@@ -51,6 +53,7 @@
                     </div>
                 </div>
                 <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%;">
+                    <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important; border-bottom: 1px solid black;">askskinfo.com</a>
                     <a class="menu-button" href="howitworks">How it works</a>
                     <a class="menu-button" href="price">Price</a>
                     <a class="menu-button one-edge-shadow" href="search">Ingredient search</a>
@@ -101,7 +104,7 @@
                     <div class="price-plan">
                         <div class="price-plan-name">SHOPIFY</div>
                         <div style="display: flex; margin-top: 10px;">
-                            <div class="price-plan-price">$59</div>
+                            <div class="price-plan-price">$29</div>
                             <div class="price-plan-recurring">/month</div>
                         </div>
                         <div class="price-plan-description">Our shopify plan</div>
@@ -172,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            <div class="one-block padding">
+            <div class="one-block padding" style="margin-bottom: 3rem;">
                 <div style="display: flex;">
                     <div style="display: block;">
                         <div class="stats-text blacktextcolor" style="text-align: left; margin-left: 0px;">Get Skinfo
@@ -205,6 +208,39 @@
                                 <a target="_blank" rel="noopener noreferrer" class="blackcolor" href="https://api.skinfo.se/doc/">
                                     Developers API Reference
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breaker">
+                <div class="inside-breaker"></div>
+            </div>
+            <div class="one-block" style="margin-top: 3rem;">
+                <div style="display: flex; margin: 20px; margin-left: 0px;">
+                    <div>
+                        <h1>
+                            See examples
+                        </h1>
+                        <div>
+                            See our widget at some of our customers
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div style="margin:auto">
+                        <div class="customer-view-div">
+                            <div class="customer-view">
+                                <img class="customer-view-img" src="customer_views/customer_view1.jpeg">
+                            </div>
+                            <div class="customer-view">
+                                <img class="customer-view-img" src="customer_views/customer_view2.jpeg">
+                            </div>
+                            <div class="customer-view">
+                                <img class="customer-view-img" src="customer_views/customer_view3.jpeg">
+                            </div>
+                            <div class="customer-view">
+                                <img class="customer-view-img" src="customer_views/customer_view4.jpeg">
                             </div>
                         </div>
                     </div>
@@ -518,7 +554,13 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div id="imageModal" class="modal">
+            <div style="margin:auto">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -619,5 +661,58 @@
         }
     }
 
+    var iterator = document.getElementsByClassName('customer-view');
+    for (i = 0; i < iterator.length; i++) {
+        iterator[i].onclick = function () {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('img01');
+            modal.style.display = "flex";
+            modalImg.src = this.childNodes[1].src;
+        }
+    }
+
+    document.getElementsByClassName("close")[0].onclick = function () {
+        document.getElementById('imageModal').style.display = "none";
+    }
+
     updateCustomerFeedback();
 </script>
+
+<style>
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Black w/ opacity */
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 98%;
+    }
+
+    .close {
+        color: white;
+        font-size: 55px;
+        justify-content: right;
+        display: flex;
+        cursor: pointer;
+        float: right;
+        padding: 5px;
+    }
+</style>

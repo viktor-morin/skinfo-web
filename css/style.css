@@ -60,6 +60,19 @@ textarea {
     resize: none;
 }
 
+.breaker {
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 1300px;
+}
+
+.inside-breaker {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .askskinfo {
     background-image: url("https://skinfo.azureedge.net/shopimages/startpage.jpg");
     background-size: cover;
@@ -692,6 +705,27 @@ textarea {
     font-size: 0.8rem;
 }
 
+.customer-view-div {
+    display: grid;
+    grid-template-columns: repeat(2,1fr)
+}
+
+.customer-view {
+    cursor: pointer;
+    padding: 5px 5px 0px 5px;
+}
+
+.customer-view:hover {
+    opacity: 0.5;
+}
+
+.customer-view-img {
+    max-width: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 0.25rem;
+}
+
+
 .about-us-text {
     font-size: 1.0rem;
     margin-top: 20px;
@@ -1204,9 +1238,11 @@ input:-webkit-autofill:active  {
         margin-bottom: 20px;
     }
     
-}
+    
+    .customer-view-div {
+        grid-template-columns: repeat(1,1fr)
+    }
 
-@media only screen and (max-width: 1200px){
     .about-us-text {
         font-size: 1rem;
     }
@@ -1245,7 +1281,7 @@ input:-webkit-autofill:active  {
 
     .askskinfo-link {
         font-size: 1.5rem;
-    }
+    }    
 }
 
 @media only screen and (max-width: 830px) {
