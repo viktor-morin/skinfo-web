@@ -893,15 +893,16 @@
         }
     }
 
-    document.getElementById('browse-fullscreen-button').onclick = function () {
-        var menu = document.getElementById('skinfo-menu-mobile-expanded');
-        if (menu.classList.contains('browse-fullscreen-menu')) {
-            menu.classList.remove('browse-fullscreen-menu');
+    if (document.getElementById('browse-fullscreen-button')) {
+        document.getElementById('browse-fullscreen-button').onclick = function () {
+            var menu = document.getElementById('skinfo-menu-mobile-expanded');
+            if (menu.classList.contains('browse-fullscreen-menu')) {
+                menu.classList.remove('browse-fullscreen-menu');
+            }
+            else
+                menu.classList.add('browse-fullscreen-menu');
         }
-        else
-            menu.classList.add('browse-fullscreen-menu');
     }
-
 
     window.onmessage = function (e) {
         if (e.data.value) {
