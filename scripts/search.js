@@ -155,9 +155,6 @@ function drawIngredientInfo(result) {
                 mainDiv.appendChild(child);
             }
             mainDiv.appendChild(child);
-            child = document.createElement('h3');
-            child.classList.add('seo-settings-underheader');
-            child.innerText = settingsUnderHeader;
             mainDiv.appendChild(child);
             child = document.createElement('div');
             child.style.marginTop = '20px';
