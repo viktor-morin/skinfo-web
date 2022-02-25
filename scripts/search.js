@@ -737,6 +737,6 @@ $(document).ready(function () {
             query: query,
             language: getLanguage()
         };
-        document.getElementById('skinfo-settings-iframe').contentWindow.postMessage(data, '*');
+        console.log('log disabled');
     }
 })
