@@ -154,63 +154,15 @@ function drawIngredientInfo(result) {
                 child.innerText = ingredients[i].concerns[j].long;
                 mainDiv.appendChild(child);
             }
-            mainChild.classList.add('seo-choice');
-            mainChild.dataset.id = ingredients[i].displayName;
-            mainChild.addEventListener('click', updateSettingsBind, false);
-            child = document.createElement('div');
-            child.innerText = ingredients[i].displayName;
-            mainChild.appendChild(child);
-            mainDiv.appendChild(mainChild);
-            for (j = 0; j < ingredients[i].functions.length; j++) {
-                var mainChild = document.createElement('div');
-                mainChild.classList.add('seo-choice');
-                mainChild.addEventListener('click', updateSettingsBind, false);
-                if (globalFunctions.includes('f-' + ingredients[i].functions[j].id)) {
-                    child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                    child.classList.add('seo-svg-settings');
-                    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                    use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
-                    child.appendChild(use);
-                    mainChild.appendChild(child);
-                } else {
-                    child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                    child.classList.add('seo-svg-settings');
-                    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                    use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
-                    child.appendChild(use);
-                    mainChild.appendChild(child);
-                }
-                child = document.createElement('div');
-                child.innerText = ingredients[i].functions[j].short;
-                mainChild.dataset.id = 'f-' + ingredients[i].functions[j].id;
-                mainChild.appendChild(child);
-                mainDiv.appendChild(mainChild);
-            }
-            for (j = 0; j < ingredients[i].concerns.length; j++) {
-                var mainChild = document.createElement('div');
-                mainChild.classList.add('seo-choice');
-                mainChild.addEventListener('click', updateSettingsBind, false);
-                if (globalConcerns.includes('c-' + ingredients[i].concerns[j].id)) {
-                    child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                    child.classList.add('seo-svg-settings');
-                    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                    use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
-                    child.appendChild(use);
-                    mainChild.appendChild(child);
-                } else {
-                    child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                    child.classList.add('seo-svg-settings');
-                    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                    use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
-                    child.appendChild(use);
-                    mainChild.appendChild(child);
-                }
-                child = document.createElement('div');
-                child.innerText = ingredients[i].concerns[j].short;
-                mainChild.dataset.id = 'c-' + ingredients[i].concerns[j].id;
-                mainChild.appendChild(child);
-                mainDiv.appendChild(mainChild);
-            }
+            child = document.createElement('h2');
+            child.classList.add('seo-settings');
+            child.style.marginTop = '20px';
+            child.innerText = settingsHeader;
+            mainDiv.appendChild(child);
+            child = document.createElement('h3');
+            child.classList.add('seo-settings-underheader');
+            child.innerText = settingsUnderHeader;
+            mainDiv.appendChild(child);
             child = document.createElement('div');
             child.style.marginTop = '20px';
             mainDiv.appendChild(child);

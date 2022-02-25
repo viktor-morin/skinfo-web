@@ -42,8 +42,7 @@ var synonymsHeader = 'Synonyms';
 var functionsHeader = 'Functions';
 var concernsHeader = 'Concerns';
 var originsHeader = 'Origins';
-var settingsHeader = 'Add preferences?';
-var settingsUnderHeader = 'Your settings will be remembered in online-shops where Skinfo is integrated';
+
 var questionsHeader = 'Frequently asked questions about: <b>X</b>'
 var errorsDuplicatesTitle = 'Ingredients which occurs more than once:';
 var errorsMissmatchTitle = 'Ingredients which are misspelled:'
