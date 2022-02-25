@@ -154,31 +154,6 @@ function drawIngredientInfo(result) {
                 child.innerText = ingredients[i].concerns[j].long;
                 mainDiv.appendChild(child);
             }
-            child = document.createElement('h2');
-            child.classList.add('seo-settings');
-            child.style.marginTop = '20px';
-            child.innerText = settingsHeader;
-            mainDiv.appendChild(child);
-            child = document.createElement('h3');
-            child.classList.add('seo-settings-underheader');
-            child.innerText = settingsUnderHeader;
-            mainDiv.appendChild(child);
-            var mainChild = document.createElement('div');
-            if (globalIngredients.includes(ingredients[i].displayName)) {
-                child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                child.classList.add('seo-svg-settings');
-                var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#remove');
-                child.appendChild(use);
-                mainChild.appendChild(child);
-            } else {
-                child = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                child.classList.add('seo-svg-settings');
-                var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-                use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#add');
-                child.appendChild(use);
-                mainChild.appendChild(child);
-            }
             mainChild.classList.add('seo-choice');
             mainChild.dataset.id = ingredients[i].displayName;
             mainChild.addEventListener('click', updateSettingsBind, false);
