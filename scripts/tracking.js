@@ -41,7 +41,7 @@ function showCookieQuestion() {
 
 function checkCookieConcent() {
     var allowCookie = getCookie('cookie-consent');
-    if (allowCookie == true) {
+    if (allowCookie == 'true') {
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://www.googletagmanager.com/gtag/js?id=UA-150835481-1';
         document.head.appendChild(scriptElement);
