@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#skinfo-menu-mobile').click(function () {
+    $('#skinfo-menu-mobile-button').click(function () {
         var menu = document.getElementById('skinfo-menu-mobile');
         var expaned = document.getElementById('skinfo-menu-mobile-expanded');
         var main = document.getElementById('main-menu');
