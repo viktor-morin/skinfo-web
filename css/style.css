@@ -124,6 +124,7 @@ textarea {
     padding-right: 10px;
     padding-left: 20px;
     float: left;
+    z-index: 500;
 }
 
 .padding {
@@ -155,15 +156,8 @@ textarea {
 .skinfo-menu-mobile {
     display: none;
     cursor: pointer;
-    margin-top: 7px;
     width: 40%;
-}
-
-.skinfo-menu-mobile {
-    display: none;
-    cursor: pointer;
-    margin-top: 7px;
-    width: 40%;
+    padding-top: 7px;
 }
 
 .skinfo-menu-mobile-expanded {
@@ -1360,9 +1354,10 @@ input:-webkit-autofill:active {
 
 @media only screen and (max-width: 830px) {
     .skinfo-menu-mobile {
-        display: block;
+        display: inline-block;
         width: 100%;
         margin-right: 30px;
+        z-index: 500;
     }
 
     .skinfo-menu {
