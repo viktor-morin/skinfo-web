@@ -1,0 +1,1 @@
+<b>{0}</b> från varumärket <b>{1}</b> är en hudvårdsprodukt som innehåller <b>{2}</b> ingredienser med speciellt bra egenskaper för huden och <b>{3}</b> ingredienser med anmärkningsvärd information. <b>{0}</b> innehåller bland annat <b>{4}</b>. Just nu är produkten billigast hos <b>{5}</b> för <b>{6}</b> kr.

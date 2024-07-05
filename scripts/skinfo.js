@@ -1,14 +1,33 @@
 $(document).ready(function () {
-    $('#skinfo-menu-mobile').click(function () {
+    $('#skinfo-menu-mobile-button').click(function () {
         var menu = document.getElementById('skinfo-menu-mobile');
         var expaned = document.getElementById('skinfo-menu-mobile-expanded');
+        var gray = document.getElementById('skinfo-menu-mobile-expanded-gray');
         var main = document.getElementById('main-menu');
         menu.classList.toggle('change');
         main.classList.toggle('main-menu-change');
         if (menu.classList.contains('change')) {
             expaned.style.display = 'grid';
+            gray.style.display = 'block';
         } else {
             expaned.style.display = 'none';
+            gray.style.display = 'none';
+        }
+    });
+
+    $('#skinfo-menu-mobile-expanded-gray').click(function () {
+        var menu = document.getElementById('skinfo-menu-mobile');
+        var expaned = document.getElementById('skinfo-menu-mobile-expanded');
+        var gray = document.getElementById('skinfo-menu-mobile-expanded-gray');
+        var main = document.getElementById('main-menu');
+        menu.classList.toggle('change');
+        main.classList.toggle('main-menu-change');
+        if (menu.classList.contains('change')) {
+            expaned.style.display = 'grid';
+            gray.style.display = 'block';
+        } else {
+            expaned.style.display = 'none';
+            gray.style.display = 'none';
         }
     });
 
@@ -16,6 +35,7 @@ $(document).ready(function () {
         if ($(window).width() >= 830) {
             var menu = document.getElementById('skinfo-menu-mobile');
             var expanded = document.getElementById('skinfo-menu-mobile-expanded');
+            var gray = document.getElementById('skinfo-menu-mobile-expanded-gray');
             if (menu && expanded) {
                 if (menu.classList.contains('change')) {
                     menu.classList.toggle('change');
@@ -24,6 +44,7 @@ $(document).ready(function () {
                 }
                 if (expanded.style.display == 'grid') {
                     expanded.style.display = 'none';
+                    gray.style.display = 'none';
                 }
             }
             if (expanded) {

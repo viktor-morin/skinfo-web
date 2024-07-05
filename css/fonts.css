@@ -16,8 +16,12 @@
   src: url(../fonts/HelveticaNeueLTPro-It.otf)
 }
 
-
 @font-face {
   font-family: Creattion;
   src: url(../fonts/Creattion.otf)
+}
+
+@font-face {
+  font-family: ShatoshiSignature;
+  src: url(../fonts/ShatoshiSignature.otf)
 }

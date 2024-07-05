@@ -8,6 +8,7 @@
     <script src="scripts/jquery-3.4.1.min.js"></script>
     <script src="scripts/skinfo.js"></script>
     <script src="scripts/instafeed.min.js"></script>
+    <script src="scripts/tracking.js"></script>
     <title>Skinfo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,16 +18,6 @@
     <meta property="og:site_name" content="Skinfo.se" />
     <meta property="og:url" content="https://www.skinfo.se/" />
     <meta charset="utf-8" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150835481-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-150835481-1');
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
 </head>
 
 <body>
@@ -34,29 +25,38 @@
         <div class="content">
             <div id="main-menu" class="main-menu one-edge-shadow">
                 <div class="skinfo-menu">
-                    <span class="skinfo-title"><a href="index"><img src="svg/skinfo-logo-color-RGB.svg" height="20px"></a></span>
+                    <span class="skinfo-title"><img class="noselect" src="svg/skinfo-logo-color-RGB.svg" height="20px"></span>
                     <div style="float: right;">
-                        <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important">askskinfo.com</a>
-                        <span>|</span>
+                      <!--   <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important">askskinfo.com</a>
+                        <span>|</span> -->
                         <a class="menu-button" href="howitworks">How it works</a>
                         <a class="menu-button" href="price">Price</a>
                         <a class="menu-button" href="search">Ingredient search</a>
                         <a class="menu-button blackbackgroundcolor" style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white !important; border-radius: 0.5rem; text-align: center;" href="https://apps.shopify.com/skinfo" target="_blank">Start free trial</a>
                     </div>
                 </div>
-                <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
-                    <span class="skinfo-title"><a href="index"><img src="svg/skinfo-logo-color-RGB.svg" height="20px" style="padding-top:10px"></a></span>
-                    <div style="float: right; padding-right: 20px;">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
+                <div>
+                    <div id="skinfo-menu-mobile-expanded-gray" style="position:fixed;z-index:200;top:0; left:0; background-color: black; opacity:0.2; width:100vw;height:100vh; display: none;"></div>
+                    <div style="    display: inherit;
+                    z-index: 500;
+                    position: fixed;
+                    background-color: white;
+                    width: 100%;">
+                        <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
+                            <span class="skinfo-title"><img class="noselect" src="svg/skinfo-logo-color-RGB.svg" height="20px" style="padding-top:10px"></span>
+                            <div id="skinfo-menu-mobile-button" style="float: right; padding-right: 20px;">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                            </div>
+                        </div>
+                        <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%; z-index:300;position: fixed; left:0;background-color: white; width: 100vw;">
+                            <!-- <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important; border-bottom: 1px solid black;">askskinfo.com</a> -->
+                            <a class="menu-button" href="howitworks">How it works</a>
+                            <a class="menu-button" href="price">Price</a>
+                            <a class="menu-button one-edge-shadow" href="search">Ingredient search</a>
+                        </div>
                     </div>
-                </div>
-                <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%;">
-                    <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important; border-bottom: 1px solid black;">askskinfo.com</a>
-                    <a class="menu-button" href="howitworks">How it works</a>
-                    <a class="menu-button" href="price">Price</a>
-                    <a class="menu-button one-edge-shadow" href="search">Ingredient search</a>
                 </div>
             </div>
             <div style="margin-top:50px;"></div>
@@ -64,16 +64,16 @@
                 <div class="inside-block special-shrink" style="flex-direction: column;">
                     <div style="display: flex;">
                         <div style="margin: auto; display: flex; flex-direction: column;">
-                            <h1 class="interactive-test-text">Interactive test shop</h1>
+                            <h1 class="interactive-test-text">Click below to test!</h1>
                             <span class="interactive-test-text" style="margin-top: 10px; display: flex;">
-                                In this interactive test shop, you can experience and compare Skinfo with an
-                                ordinary
+                                In this clickable test store, you can see and compare Skinfo with a
+                                normal
                                 ingredient list. All features and scientific ingredient information from Skinfo is
                                 provided
                                 automatically in our one-click-setup.
                             </span>
                             <span class="interactive-test-text" style="margin-top: 20px; display: flex;">
-                                Click to see how this product could look with Skinfo.
+                                Click to see how this product looks with Skinfo.
                             </span>
                         </div>
                     </div>
@@ -349,12 +349,33 @@
                     <div style="margin:auto">
                         <div class="customer-reference-div">
                             <div class="customer-reference">
-                                <a target="_blank" rel="noopener noreferrer" href="https://mossnoor.se/produkt/after-workout-hand-mousse-3-pack">
-                                    <img class="customer-reference-img" src="reference_imgs/moss.jpeg">
+                                <a target="_blank" rel="noopener noreferrer" href="https://dozapotek.se/avene-cold-cream-concentrated-hand-cream-50-ml-768755.html">
+                                    <img class="customer-reference-img" src="reference_imgs/doz_apotek.png">
                                 </a>
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
                             </div>
+                            <div class="customer-reference">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.apohem.se/hudvard/solskydd/solskydd-for-kroppen/aco-kids-sun-stick-spf-50-solstick-barn-8-g">
+                                    <img class="customer-reference-img" src="reference_imgs/apohem.jpg">
+                                </a>
+                                <div class="customer-reference-text">Visit to see Skinfo
+                                </div>
+                            </div>
+                            <div class="customer-reference">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.apotea.se/aco-hand-cream-rich-75-ml">
+                                    <img class="customer-reference-img" src="reference_imgs/apotea.jpg">
+                                </a>
+                                <div class="customer-reference-text">Visit to see Skinfo
+                                </div>
+                            </div>
+                            <!-- <div class="customer-reference">
+                                <a target="_blank" rel="noopener noreferrer" href="https://sinfoniebotaniche.com/products/scrub-viso-esfoliante-meccanico">
+                                    <img class="customer-reference-img" src="reference_imgs/sinfoniebotaniche.jpeg">
+                                </a>
+                                <div class="customer-reference-text">Visit to see Skinfo
+                                </div>
+                            </div> -->
                             <div class="customer-reference">
                                 <a target="_blank" rel="noopener noreferrer" href="https://shop.dashl.se/collections/dashl/products/dashl-brow-fixer">
                                     <img class="customer-reference-img" src="reference_imgs/dashl.jpeg">
@@ -362,20 +383,13 @@
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
                             </div>
-                            <div class="customer-reference">
+                            <!-- <div class="customer-reference">
                                 <a target="_blank" rel="noopener noreferrer" href="https://itsitchy.com/creams/psoriasis">
                                     <img class="customer-reference-img" src="reference_imgs/itchy.jpeg">
                                 </a>
                                 <div class="customer-reference-text">Visit to see Skinfo
                                 </div>
-                            </div>
-                            <div class="customer-reference">
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.lloydsapotek.se/ansikte/ansiktsolja-%26-serum-/lumene-valo-nordic-c-berry-cocktail-oil/p/779775">
-                                    <img class="customer-reference-img" src="reference_imgs/lloyds.jpeg">
-                                </a>
-                                <div class="customer-reference-text">Visit to see Skinfo
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -867,27 +881,6 @@
 </style>
 
 <script>
-    // var now = new Date();
-    // now.setDate(now.getDate() + 1);
-    // var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    // var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    // var day = days[now.getDay()];
-    // var month = months[now.getMonth()];
-
-    // document.getElementById('firstdatedelivery').innerText = day.substring(0, 3) + '. ' + month.substring(0, 3) + '. ' + now.getDate();
-
-    // now.setDate(now.getDate() + 1);
-    // var day = days[now.getDay()];
-    // var month = months[now.getMonth()];
-    // document.getElementById('seconddatedelivery').innerText = day.substring(0, 3) + '. ' + month.substring(0, 3) + '. ' + now.getDate();
-
-    // var customerExamples = document.getElementsByClassName('customer-reference-img');
-    // for (i = 0; i < customerExamples.length; i++) {
-    //     customerExamples[i].onclick = function () {
-    //         window.open(this.dataset.url, '_blank').focus();
-    //     }
-    // }
-
     function getSeperator(str) {
         var maxCount = 0;
         var seperator = '';

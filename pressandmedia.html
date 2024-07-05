@@ -9,6 +9,7 @@
     <script src="scripts/skinfo.js"></script>
     <script src="scripts/search.js"></script>
     <script src="scripts/instafeed.min.js"></script>
+    <script src="scripts/tracking.js"></script>
     <title>Skinfo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -18,16 +19,6 @@
     <meta property="og:site_name" content="Skinfo.se" />
     <meta property="og:url" content="https://www.skinfo.se/" />
     <meta charset="utf-8" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150835481-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-150835481-1');
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
 </head>
 
 <body>
@@ -35,29 +26,38 @@
         <div class="content">
             <div id="main-menu" class="main-menu one-edge-shadow">
                 <div class="skinfo-menu">
-                    <span class="skinfo-title"><a href="index"><img src="svg/skinfo-logo-color-RGB.svg" height="20px"></a></span>
+                    <span class="skinfo-title"><img class="noselect" src="svg/skinfo-logo-color-RGB.svg" height="20px"></span>
                     <div style="float: right;">
-                        <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important">askskinfo.com</a>
-                        <span>|</span>
+                      <!--   <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important">askskinfo.com</a>
+                        <span>|</span> -->
                         <a class="menu-button" href="howitworks">How it works</a>
                         <a class="menu-button" href="price">Price</a>
                         <a class="menu-button" href="search">Ingredient search</a>
                         <a class="menu-button blackbackgroundcolor" style="padding-top:15px; padding-bottom: 13px; padding-left: 25px; padding-right: 25px; color:white !important; border-radius: 0.5rem; text-align: center;" href="https://apps.shopify.com/skinfo" target="_blank">Start free trial</a>
                     </div>
                 </div>
-                <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
-                    <span class="skinfo-title"><a href="index"><img src="svg/skinfo-logo-color-RGB.svg" height="20px" style="padding-top:10px"></a></span>
-                    <div style="float: right; padding-right: 20px;">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
+                <div>
+                    <div id="skinfo-menu-mobile-expanded-gray" style="position:fixed;z-index:200;top:0; left:0; background-color: black; opacity:0.2; width:100vw;height:100vh; display: none;"></div>
+                    <div style="    display: inherit;
+                    z-index: 500;
+                    position: fixed;
+                    background-color: white;
+                    width: 100%;">
+                        <div id="skinfo-menu-mobile" class="skinfo-menu-mobile">
+                            <span class="skinfo-title"><img class="noselect" src="svg/skinfo-logo-color-RGB.svg" height="20px" style="padding-top:10px"></span>
+                            <div id="skinfo-menu-mobile-button" style="float: right; padding-right: 20px;">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                            </div>
+                        </div>
+                        <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%; z-index:300;position: fixed; left:0;background-color: white; width: 100vw;">
+                            <!-- <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important; border-bottom: 1px solid black;">askskinfo.com</a> -->
+                            <a class="menu-button" href="howitworks">How it works</a>
+                            <a class="menu-button" href="price">Price</a>
+                            <a class="menu-button one-edge-shadow" href="search">Ingredient search</a>
+                        </div>
                     </div>
-                </div>
-                <div id="skinfo-menu-mobile-expanded" style="display: none; width: 100%;">
-                    <a class="menu-button" href="https://www.askskinfo.com" target="_blank" style="font-weight: bold !important; border-bottom: 1px solid black;">askskinfo.com</a>
-                    <a class="menu-button" href="howitworks">How it works</a>
-                    <a class="menu-button" href="price">Price</a>
-                    <a class="menu-button one-edge-shadow" href="search">Ingredient search</a>
                 </div>
             </div>
             <div style="margin-top:50px;"></div>
@@ -102,6 +102,55 @@
                 </div>
             </div>
             <div class="one-block news-main-div">
+                <div class="news-item" data-url="https://eustartup.news/exploring-e-commerce-elites-swedens-top-15-startups-revolutionizing-online-retail/">
+                    <img class="news-logo" src="publications_logo/EULogo-black.png" />
+                    <div class="news-date">2023-06-20</div>
+                    <div class="news-title">Exploring E-Commerce Elites: Sweden’s Top 15 Startups Revolutionizing Online Retail</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+                <div class="news-item" data-url="https://news.cision.com/se/apohem/r/apohem-starker-kundupplevelsen---blir-forsta-apotek-med-videoradgivning,c3683444">
+                    <img class="news-logo" src="publications_logo/apohem.png" />
+                    <div class="news-date">2022-12-13</div>
+                    <div class="news-title">Apohem stärker kundupplevelsen – blir första apotek med videorådgivning</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+                <div class="news-item" data-url="https://www.swedishtechnews.com/swedish-tech-startups-scaleups-founded-and-led-by-women/">
+                    <img class="news-logo" src="publications_logo/swedistechnews.png" />
+                    <div class="news-date">2022-10-09</div>
+                    <div class="news-title">150+ Swedish tech startups & scaleups founded and led by women</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+                <div class="news-item" data-url="https://skinfo.se/pdf/220706skinfo1.pdf">
+                    <img class="news-logo" src="publications_logo/logo-aftonbladet.svg" />
+                    <div class="news-date">2022-07-06</div>
+                    <div class="news-title">Hudvårdssajt kan spara dig hundralappar</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+                <div class="news-item" data-url="https://www.skonhetsredaktorerna.se/2022/07/skinfo-smart-databas-jamfor-innehall-i-produkter/">
+                    <img class="news-logo" src="publications_logo/logo-aftonbladet.svg" />
+                    <div class="news-date">2022-07-06</div>
+                    <div class="news-title">Skinfo – Smart databas jämför innehåll i produkter</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+
+                <div class="news-item" data-url="https://www.dagenshandel.se/article/view/845380/apotea_fortydligar_innehallsforteckningar_i_nytt_samarbete">
+                    <img class="news-logo" src="publications_logo/dagens_handel.png" />
+                    <div class="news-date">2022-04-13</div>
+                    <div class="news-title">Apotea förtydligar innehållsförteckningar i nytt samarbete</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+                <div class="news-item" data-url="https://www.cosmeticsdesign-europe.com/Article/2022/04/13/Digital-beauty-tool-Skinfo-aiming-to-simplify-ingredient-lists-online">
+                    <img class="news-logo" src="publications_logo/cosmetics_design_europe.png" />
+                    <div class="news-date">2022-04-13</div>
+                    <div class="news-title">Digital startup Skinfo wants to ‘make conscious choices easier’ in beauty</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
+                <div class="news-item" data-url="https://www.apotea.se/apotea-i-media#/news/apotea-introducerar-transparens-kring-produktinnehaall-med-skinfo-446008">
+                    <img class="news-logo" src="publications_logo/apotea.jpg" />
+                    <div class="news-date">2022-04-12</div>
+                    <div class="news-title">Apotea introducerar transparens kring produktinnehåll med Skinfo</div>
+                    <div class="news-readmore blacktextcolor">Read more</div>
+                </div>
                 <div class="news-item" data-url="https://www.femina.se/skonhet/ingredienser-i-hudvard/8137474">
                     <img class="news-logo" src="publications_logo/femina-logo.svg" />
                     <div class="news-date">2021-12-30</div>

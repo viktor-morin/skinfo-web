@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+    <script src="/scripts/jquery-3.4.1.min.js"></script>
+    <script src="/scripts/skinfo.js"></script>
+    <script src="/scripts/search.js"></script>
+    <script src="/scripts/instafeed.min.js"></script>
+    <script src="/scripts/tracking.js"></script>
+    <title>Skinfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Understand all ingredients in skincare & cosmetic products with Skinfo, based on scientific information. Product transparency for consumers and online stores." />
+    <meta name="keywords" content="information, ingredients, skincare, cosmetics, makeup, skincare app, skincare guide, health hazard, harmful, bad, carcinogenic, endocrine disruption, toxic, irritant, allergic, allergy, effects, health effects, organic, vegan, natural, synthetic, chemical, spf, sun protection factor,information,ingredienser,hudvård,kosmetika,smink,hudvårdsapp,kosmetik,hudvårdsguide,farliga,dåliga,skadliga,cancerframkallande,hormonstörande,giftiga,irriterande,allergiska,allergi,påverkan,hälsoeffekter,organiska,ekologiska,veganska,naturliga,syntetiska,kemiska,spf">
+    <meta property="og:site_name" content="Skinfo.se" />
+    <meta property="og:url" content="https://www.skinfo.se/" />
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="content" style="padding-bottom:0px">
+            <div class="one-block padding" style="margin-bottom: 0px; margin-top: 0px;">
+                <h1>Privacy Policy</h1>
+                <br>
+                <i>Updated March 2022</i>
+                <br>
+                <br>
+                Thank you for taking the time to read this. We appreciate that you trust us with your information and
+                intend to
+                maintain that trust. This starts with making sure you understand the information we collect, why we
+                collect it,
+                how it is used and your choices regarding your information. Data collected about/from you as a user is
+                explained
+                below.
+                <br>
+                <br>
+                How we collect data: The data that we process is primarily collected directly from you when you interact
+                with
+                Skinfos’s widget.
+                <br>
+                <br>
+                We may generate or collect information from your computer or device automatically as you use our
+                services —
+                like the country you are browsing from, or information about the device and browser you're using to
+                access
+                Skinfo.
+                <br>
+                <br>
+                <b>1. Skinfo Service's</b>
+                <br>
+                <br>
+                To be able to analyse, develop and improve our application, service, products and systems for both
+                customers and users.
+                <br>
+                <br>
+                <div style="display: flex;">
+                    <b style="text-align: center; margin: auto;">Skinfo doesn't collect any data that makes the data
+                        identifiable to you</b>
+                </div>
+                <br>
+                User-generated
+                data (e.g.,
+                click history, visitor history). We may collect technical information regarding devices used and its
+                settings
+                (such as language setting, time zone, operating system, screen resolution and platform). Information
+                about how you used the application, where and how long different pages were visited, response times,
+                download
+                errors, how to reach and leave the application, etc.)
+                <br>
+                <br>
+                The information collected is used to customize features and improve the user-friendliness of Skinfo’s
+                services
+                (such as changing the user interface to simplify the flow of information or to highlight features
+                commonly used
+                by customers and users). The information can be used to improve functions and tools. The information can
+                be used
+                to develop, broaden, and change product categories and product data to make the service more relevant to
+                users
+                and customers. The information can be used for the purpose of prioritizing and planning the supply of
+                e.g.
+                brands, products, categories, e-retailers in the application. The information can be used to give our
+                users and
+                customers the opportunity to influence the appearance and content of our services. Based on the
+                information we
+                collect (such as clicks inside the widget) you can be sorted into a user
+                group
+                where analyses are then done without any connection to you as an individual. The insights from the
+                analysis may
+                be used to further develop the Services' future updates.
+                <br>
+                <br>
+                <b>3. Protection of Data</b>
+                <br>
+                <br>
+                We use IT systems to protect the confidentiality and access to data. Only those people who need
+                to
+                process your personal information for us to fulfill our purposes stated above have access to them.
+                <br>
+                <br>
+                <b>4. Storage time</b>
+                <br>
+                <br>
+                We only keep your data for as long as we need it, are allowed to or are required to for legal reasons.
+                <br>
+                <br>
+                <b>6. Resposbile party for personal data is collected</b>
+                <br>
+                <br>
+                Skinfo AB
+                <br>
+                Västmannagatan 79A
+                <br>
+                113 26 Stockholm
+                <br>
+                Sverige
+                <br>
+                <br>
+                Org nr: 559220-5461
+                <br>
+                <br>
+                Contact us via <a href="mailto:info@skinfo.se" style="color:rgb(60,0,200); font-weight: bold;">info@skinfo.se</a>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        var element = document.getElementById(getParameterByName('position'));
+        if (element) {
+            const yOffset = -60;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    });
+</script>
